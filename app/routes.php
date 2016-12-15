@@ -52,7 +52,7 @@
 		['POST', '/logout', 'User#logoutAction', 'logout_action'],
 
 		// UserProfile
-		['GET', '/user/profile/monprofil', 'UserProfile#monprofil', 'user_profile_monprofil'],
+		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
 
 		// Order
 		// Vide pour le moment
