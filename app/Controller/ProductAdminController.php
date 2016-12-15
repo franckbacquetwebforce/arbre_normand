@@ -1,5 +1,5 @@
 <?php
-
+// Hermelen en cours
 namespace Controller;
 
 use \Controller\AppController;
@@ -10,16 +10,16 @@ class ProductAdminController extends AppController
   // listing en back-office des user
   public function index()
   {
-
+    $this->show('admin/product');
   }
 
 
-  public function new()
+  public function addNew()
   {
-
+    $this->show('admin/product');
   }
 
-  public function newAction()
+  public function addNewAction()
   {
 
   }

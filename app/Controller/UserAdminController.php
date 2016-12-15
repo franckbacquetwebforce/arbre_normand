@@ -24,12 +24,12 @@ class UserAdminController extends AppController
   }
 
 
-  public function new()
+  public function addNew()
   {
     
   }
 
-  public function newAction()
+  public function addNewAction()
   {
 
   }
