@@ -3,6 +3,8 @@
 namespace Controller;
 
 use \Controller\AppController;
+use \Model\ProductsModel;
+
 
 class ProductAdminController extends AppController
 {
@@ -16,7 +18,10 @@ class ProductAdminController extends AppController
 
   public function addNew()
   {
-    $this->show('admin/product');
+    $this->show('admin/product_new');
+    $addProduct = new ProductsModel();
+    $addProduct->insert(array $data, $stripTags = true);
+
   }
 
   public function addNewAction()
