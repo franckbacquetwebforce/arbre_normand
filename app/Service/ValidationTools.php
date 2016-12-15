@@ -167,7 +167,7 @@ class ValidationTools
    */
   public function correspondancePassword($password,$password2){
     $error = '';
-    if($password =!  $password2){
+    if($password !=  $password2){
       $error = 'Vos mots de passe ne correspondent pas';
     }
     return $error;
