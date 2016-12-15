@@ -23,8 +23,8 @@
 
 		// Admin User
 		['GET', '/admin/user', 'UserAdmin#index', 'admin_user'],
-		['GET', '/admin/user/new', 'UserAdmin#new', 'admin_user_new'],
-		['POST', '/admin/user/new', 'UserAdmin#newAction', 'admin_user_new_action'],
+		['GET', '/admin/user/new', 'UserAdmin#addNew', 'admin_user_new'],
+		['POST', '/admin/user/new', 'UserAdmin#addNewAction', 'admin_user_new_action'],
 		['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
 		['POST', '/admin/user/update/[i:id]', 'UserAdmin#updateAction', 'admin_user_update_action'],
 		['GET', '/admin/user/delete/[i:id]', 'UserAdmin#deleteAction', 'admin_user_delete_action'],

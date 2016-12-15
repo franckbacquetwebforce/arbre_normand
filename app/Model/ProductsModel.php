@@ -1,7 +1,7 @@
 <?php
-namespace ProductsModel
-use  \W\Model\Model;
-
+namespace Model
+use \W\Model\Model;
+use \W\Model\ConnectionModel;
 /**
  *
  */
