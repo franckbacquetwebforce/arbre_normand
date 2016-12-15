@@ -47,7 +47,6 @@ class ValidationTools
 
   public function textValid($text, $title, $min = 3,  $max = 50, $empty = false)
   {
-
     $error = '';
     if(!empty($text)) {
       $strtext = strlen($text);
@@ -64,12 +63,38 @@ class ValidationTools
     return $error;
   }
   /**
+   * limite montant
+   * @param number $number float
+   * @return string $error
+   */
+
+  public function numberValid($number, $title, $min = 0, $max = 100000, $empty = false)
+  {
+    $error = '';
+    if(!empty($number)) {
+      if(is_numeric($number)){
+        if($number > $max) {
+          $error = 'Votre ' . $title . ' ne peut excéder '.$max.'.';
+        } elseif($number < $min) {
+          $error = 'Votre ' . $title . ' ne peut être inférieur à '.$min.'.';
+        }
+      } else {
+        $error = 'Le ' . $title . 'doit être au format numérique.';
+      }
+    } else {
+      if(!$empty) {
+        $error = 'Veuillez renseigner un ' . $title . '.';
+      }
+    }
+    return $error;
+  }
+
+  /**
    * correspondancePassword
    * @param password $password string
    * @param another password $password2 string
    * @return string $error
    */
-
   public function correspondancePassword($password,$password2){
     $error = '';
     if($password =!  $password2){
