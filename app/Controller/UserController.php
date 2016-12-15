@@ -71,6 +71,11 @@ class UserController extends AppController
 
   }
 
+  public function logoutAction()
+  {
+
+  }
+
   // password forget
 
 }

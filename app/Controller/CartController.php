@@ -4,7 +4,7 @@ namespace Controller;
 
 use \Controller\AppController;
 
-class DefaultController extends AppController
+class CartController extends AppController
 {
 
 	/**
@@ -26,7 +26,7 @@ class DefaultController extends AppController
 
     //:  BIG
 
-    // nelle inscription, cretaion d'un order 
+    // nelle inscription, cretaion d'un order
 
 
 	}
@@ -34,6 +34,15 @@ class DefaultController extends AppController
 
 
 	public function addProductInCart()
+	{
+
+
+      // action
+
+      // Ajax
+	}
+
+	public function removeProductInCart()
 	{
 
 

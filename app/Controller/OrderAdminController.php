@@ -6,7 +6,6 @@ use \Controller\AppController;
 
 class OrderAdminController extends AppController
 {
-
   // listing en back-office des user
   public function index()
   {
@@ -14,12 +13,12 @@ class OrderAdminController extends AppController
   }
 
 
-  public function new()
+  public function addNew()
   {
 
   }
 
-  public function newAction()
+  public function addNewAction()
   {
 
   }
