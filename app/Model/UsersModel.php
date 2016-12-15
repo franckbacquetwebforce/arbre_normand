@@ -1,18 +1,18 @@
 <?php
+namespace Model;
 
-
-use  \W\Model\UserModel;
-
+use  \W\Model\UsersModel as UModel;
+use \W\Model\ConnectionModel;
 /**
  *
  */
-class UsersModel extends UserModel
+class UsersModel extends UModel
 {
 
-  function __construct()
-  {
-    # code...
-
-
-  }
+  public function __construct()
+{
+  parent::__construct();
+  $this->setTable('users');
+  $this->dbh = ConnectionModel::getDbh();
+}
 }
