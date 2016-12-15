@@ -23,7 +23,7 @@
 
 		// Admin User
 		['GET', '/admin/user', 'UserAdmin#index', 'admin_user'],
-		['GET', '/admin/user/new', 'UserAdmin#new', 'admin_user'],
+		['GET', '/admin/user/new', 'UserAdmin#new', 'admin_user_new'],
 		['POST', '/admin/user/new', 'UserAdmin#newAction', 'admin_user_new_action'],
 		['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
 		['POST', '/admin/user/update/[i:id]', 'UserAdmin#updateAction', 'admin_user_update_action'],
@@ -31,7 +31,7 @@
 
 		// Admin Categories
 		['GET', '/admin/categories', 'CategoriesAdmin#index', 'admin_categories'],
-		['GET', '/admin/categories/new', 'CategoriesAdmin#new', 'admin_categories'],
+		['GET', '/admin/categories/new', 'CategoriesAdmin#new', 'admin_categories_new'],
 		['POST', '/admin/categories/new', 'CategoriesAdmin#newAction', 'admin_categories_new_action'],
 		['GET', '/admin/categories/update/[i:id]', 'CategoriesAdmin#update', 'admin_categories_update'],
 		['POST', '/admin/categories/update/[i:id]', 'CategoriesAdmin#updateAction', 'admin_categories_update_action'],
@@ -45,10 +45,11 @@
 		['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
 
 		// User
-		['GET', '/user/register', 'User#register', 'user_register'],
-		['POST', '/user/register', 'User#registerAction', 'user_register_action'],
-		['GET', '/user/login', 'User#login', 'user_login'],
-		['POST', '/user/login', 'User#loginAction', 'user_login_action'],
+		['GET', '/register', 'User#register', 'register'],
+		['POST', '/register', 'User#registerAction', 'register_action'],
+		['GET', '/login', 'User#login', 'login'],
+		['POST', '/login', 'User#loginAction', 'login_action'],
+		['POST', '/logout', 'User#logoutAction', 'logout_action'],
 
 		// UserProfile
 		['GET', '/user/profile/monprofil', 'UserProfile#monprofil', 'user_profile_monprofil'],
