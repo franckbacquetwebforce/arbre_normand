@@ -18,25 +18,25 @@
   <label for="stock">Nombre de produits en stock :</label><br />
   <span class=""><?php if(!empty($error['stock'])){echo $error['stock'];} ?></span><br />
   <input type="text" name="stock" value="<?php if(!empty($_POST['stock'])){echo $_POST['stock'];} ?>"><br /><br />
-  <label for="id_category">Catégorie :</label><br />
+  <label for="id_category">Catégorie :</label><br /><br />
   <select class="" name="id_category">
     <option value="1">Catégorie 1</option>
     <option value="2">Catégorie 2</option>
     <option value="3">Catégorie 3</option>
     <option value="4">Catégorie 4</option>
-  </select><br />
-  <label for="image_principale">Image principale :</label><br />
-  <span class=""><?php if(!empty($error['image_principale'])){echo $error['image_principale'];} ?></span><br /><br />
-  <input type="file" name="image_principale" /><br />
-  <label for="image_secondaire1">Image secondaire 1 :</label><br />
-  <span class=""><?php if(!empty($error['image_secondaire1'])){echo $error['image_secondaire1'];} ?></span><br /><br />
-  <input type="file" name="image_secondaire1" /><br />
-  <label for="image_secondaire2">Image secondaire 2 :</label><br />
-  <span class=""><?php if(!empty($error['image_secondaire2'])){echo $error['image_secondaire2'];} ?></span><br /><br />
-  <input type="file" name="image_secondaire2" /><br />
-  <label for="image_secondaire3">Image secondaire 3 :</label><br />
-  <span class=""><?php if(!empty($error['image_secondaire3'])){echo $error['image_secondaire3'];} ?></span><br /><br />
-  <input type="file" name="image_secondaire3" /><br />
+  </select><br /><br />
+  <label for="image_principale">Image principale :</label>
+  <span class=""><?php if(!empty($error['image'])){echo $error['image'];} ?></span><br />
+  <input type="file" name="image" /><br /><br />
+  <label for="image_secondaire1">Image secondaire 1 :</label>
+  <span class=""><?php if(!empty($error['image_secondaire1'])){echo $error['image_secondaire1'];} ?></span><br />
+  <input type="file" name="image_secondaire1" /><br /><br />
+  <label for="image_secondaire2">Image secondaire 2 :</label>
+  <span class=""><?php if(!empty($error['image_secondaire2'])){echo $error['image_secondaire2'];} ?></span><br />
+  <input type="file" name="image_secondaire2" /><br /><br />
+  <label for="image_secondaire3">Image secondaire 3 :</label>
+  <span class=""><?php if(!empty($error['image_secondaire3'])){echo $error['image_secondaire3'];} ?></span><br />
+  <input type="file" name="image_secondaire3" /><br /><br />
   <br /><input type="submit" name="submitfile" value="Envoyer">
 </form>
 
