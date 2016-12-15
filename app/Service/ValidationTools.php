@@ -64,19 +64,22 @@ class ValidationTools
     return $error;
   }
   /**
-   * correspondancePassword
+   * passwordsIdentique
    * @param password $password string
    * @param another password $password2 string
    * @return string $error
    */
-
-  public function correspondancePassword($password,$password2){
-    $error = '';
-    if($password =!  $password2){
-      $error = 'Vos mots de passe ne correspondent pas';
-    }
-    return $error;
-  }
+   public function passwordsIdentique($password,$password2)
+   {
+     $error = '';
+     if(!empty($password2)){
+       if($password2 != $password){
+         $errors['password2'] = 'Vous n\'avez pas saisi le bon password';
+       }else {
+         $errors['password2'] = 'Vous n\'avez pas rempli ce champ';
+       }
+     }
+   }
 
 
 }
