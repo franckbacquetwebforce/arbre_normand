@@ -1,6 +1,9 @@
 <?php
-namespace ProductsModel
-use  \W\Model\Model;
+namespace Model;
+
+use \W\Model\Model;
+use \W\Model\ConnectionModel;
+
 
 /**
  *
@@ -12,7 +15,4 @@ class ProductsModel extends Model
     $this->setTable('products');
     $this->dbh = ConnectionModel::getDbh();
   }
-
-
-
 }
