@@ -2,9 +2,9 @@
 
 namespace Controller;
 
-use \W\Controller\Controller;
+use \Controller\AppController;
 
-class DefaultController extends Controller
+class DefaultController extends AppController
 {
 
 	/**
@@ -13,6 +13,11 @@ class DefaultController extends Controller
 	public function home()
 	{
 		$this->show('default/home');
+	}
+
+	public function contact()
+	{
+
 	}
 
 }
