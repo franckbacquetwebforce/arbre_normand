@@ -11,4 +11,5 @@ class ProductsModel extends Model
     $this->setTable('products');
     $this->dbh = ConnectionModel::getDbh();
   }
+
 }

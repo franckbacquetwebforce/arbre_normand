@@ -49,11 +49,11 @@ class UsersModel extends UModel
   //   $sth->bindValue(':id', $id);
   //   $sth->bindValue(':lastname', $data[]);
   //   $sth->bindValue(':firstname' );
-  //   $sth->bindValue(':phone', );
-  //   $sth->bindValue(':adress', );
-  //   $sth->bindValue(':city', );
-  //   $sth->bindValue(':zip', );
-  //   $sth->bindValue(':type', );
+  //   $sth->bindValue(':phone');
+  //   $sth->bindValue(':adress' );
+  //   $sth->bindValue(':city' );
+  //   $sth->bindValue(':zip' );
+  //   $sth->bindValue(':type' );
   //   $sth->execute();
   // }
   public function updateUserAddress()

@@ -33,9 +33,12 @@ class UserAdminController extends AppController
 
   public function addNew()
   {
-    $this->show('admin/user/admin_inscription');
+    $this->show('admin/newadmin/admin_inscription');
   }
-
+/*addNewAction
+*ajout d'un nouvel admin  (en cours)
+*
+*/
   public function addNewAction()
   {
     $errors = [];
@@ -49,7 +52,6 @@ class UserAdminController extends AppController
 		$errors['password'] = $this->valid->textValid($password,'password');
 		$errors['password2'] = $this->valid->textValid($password2,'password');
 
-    die(print_r($errors));
 		// Vérifie si les 2 mots de passe sont identiques
 		$errors['password'] = $this->valid->correspondancePassword($password,$password2);
 		// création d'un token
@@ -63,17 +65,19 @@ class UserAdminController extends AppController
 			$errors['email'] = 'Cet email est déjà utilisé';
 		}
 
+
 		if($this->valid->isValid($errors)){
 					$data = array(
 						'email' => $email,
 						'password' => $hashpassword,
 						'token' => $token,
-						'created_at' => $this->date->format('Y-m-d H:i:s')
+						'created_at' => $this->date->format('Y-m-d H:i:s'),
+            'role' => 'admin'
 					);
 					$this->model->insert($data);
-					$this->redirectToRoute('blog_articles');
+					$this->redirectToRoute('admin_user_new_action');
 		} else {
-			$this->show('admin/user/admin_inscription', array(
+			$this->show('admin/newadmin/admin_inscription', array(
 				'errors' => $errors
 			));
 
