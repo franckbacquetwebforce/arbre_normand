@@ -1,6 +1,5 @@
 <?php
-
-
+namespace ProductsModel
 use  \W\Model\Model;
 
 /**
@@ -8,11 +7,12 @@ use  \W\Model\Model;
  */
 class ProductsModel extends Model
 {
-
   function __construct()
   {
-    # code...
-
-
+    $this->setTable('products');
+    $this->dbh = ConnectionModel::getDbh();
   }
+
+
+
 }
