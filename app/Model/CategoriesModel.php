@@ -2,6 +2,8 @@
 namespace Model;
 
 use \W\Model\Model;
+use \W\Model\ConnectionModel;
+
 
 
 class CategoriesModel extends Model
@@ -15,6 +17,6 @@ class CategoriesModel extends Model
     $this->dbh = ConnectionModel::getDbh();
 
   }
-  
+
 
 }

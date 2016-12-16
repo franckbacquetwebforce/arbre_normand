@@ -1,6 +1,13 @@
 <?php
 namespace  Service;
 
+use \Controller\AppController;
+use \Model\UsersModel;
+use \Service\ValidationTools;
+use \W\Security\AuthentificationModel;
+use \W\Security\StringUtils;
+use \W\Security\AuthorizationModel;
+use \DateTime;
 
 class ValidationTools
 {
@@ -63,9 +70,7 @@ class ValidationTools
     return $error;
   }
   /**
-<<<<<<< HEAD
    * passwordsIdentique
-=======
    * limite montant
    * @param number $number float
    * @return string $error
@@ -178,7 +183,6 @@ class ValidationTools
     }
     return $error;
   }
-
 
 
 }

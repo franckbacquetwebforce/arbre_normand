@@ -1,3 +1,6 @@
+<!-- Formulaire de création d'un nouvel administrateur -->
+<!-- a mettre en forme -->
+
 <?php $this->layout('layout_admin', ['title' => 'Création admin']) ?>
 
 <?php $this->start('main_content') ?>

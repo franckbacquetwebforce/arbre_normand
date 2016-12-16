@@ -23,7 +23,7 @@ class UserAdminController extends AppController
   // listing en back-office des user
   public function index()
   {
-    $list = $usersmodel->findAll();
+    $users = $this->model->findAll();
     $this->show('admin/user/list', array(
       'users' => $users
     ));
@@ -34,7 +34,7 @@ class UserAdminController extends AppController
   */
   public function addNew()
   {
-    $this->show('admin/newadmin/admin_inscription');
+    $this->show('admin/adminnew/admin_inscription');
   }
 /*addNewAction
 *ajout d'un nouveau compte admin  (redirection a modifier)
@@ -115,7 +115,7 @@ class UserAdminController extends AppController
     if(!empty($mailExist)){
       $errors['email'] = 'Cet email est déjà utilisé';
     }
-      die($email);
+
 
     if($this->valid->isValid($errors)){
           $data = array(
@@ -126,9 +126,9 @@ class UserAdminController extends AppController
           );
           $this->model->update($data,$id);
 
-          $this->redirectToRoute('admin_user_new_action');
+          $this->redirectToRoute('default_home');
     } else {
-      $this->show('admin/newadmin/admin_inscription', array(
+      $this->show('admin/adminupdate/adminupdate', array(
         'errors' => $errors
       ));
 

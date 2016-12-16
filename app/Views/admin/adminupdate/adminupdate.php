@@ -1,3 +1,5 @@
+<!-- Formulaire de modification d'un compte administrateur -->
+<!-- A mettre en forme -->
 <?php $this->layout('layout_admin', ['title' => 'Modification du compte']) ?>
 
 <?php $this->start('main_content') ?>

@@ -9,6 +9,7 @@ class Tools
     print_r($a);
     echo '</pre>';
   }
+  // marche pas
   static public function slugify($text)
   {
     // replace non letter or digits by -

@@ -80,8 +80,10 @@ class UserController extends AppController
  		$user = $this->userModel->getUserByEmail($email);
 
  		if(!empty($user)){
-	 		if($this->authentificationModel->isValidLoginInfo($email, $password)!=0){
+
+	 		if($this->userModel->isValidEmailInfo($email, $password)!=0){
 	 		$this->authentificationModel->logUserIn($user);
+
 	 		$this->redirectToRoute('default_home');
 	 		}else{
 	 			$errors['password'] = "Le mot de passe est incorrect";
@@ -96,6 +98,51 @@ class UserController extends AppController
  			));
  		}
   }
+
+  public function logoutAction()
+	{
+		$this->authentificationModel->logUserOut();
+		$this->redirectToRoute('default_home');
+	}
+
+  // public function forgetPassword()
+  // {
+  //   $this->show('user/forget');
+  // }
+  //
+  // public function forgetPasswordAction()
+  // {
+  //   $app = getApp(); // récupère les infos dans config.php
+	// 	$urlbase = $app->getConfig('url_base'); //récupère l'url definit dans config.php
+	// 	$errors = array();
+	// 	$email = trim(strip_tags($_POST['email']));
+	// 	$user = $this->userModel->getUserByEmail($email);
+	// 	if(!empty($user)){
+	// 		$urlLink = $this->generateUrl('modifpassword');
+	// 		$emailurl = urlencode($email);
+  //     $html = '';
+  //     $html .= '<a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
+	// 		//envoi du mail
+	// 		$mail = new \PHPMailer;
+  //     $mail->isMail();
+  //     $mail->setFrom('mragot2@msn.com');
+  //     $mail->addAddress($email);     // Add a recipient
+  //     $mail->Subject = 'Votre nouveau mot de passe';
+  //     $mail->Body    = $html;
+	// 		if(!$mail->send()){
+	// 			echo "Le message n\'a pas été envoyé.";
+  //
+	// 		} else {
+  //         echo 'Le message a bien été envoyé';
+  //     }
+	// 	} else {
+	// 		$errors['email']	= "Ce mail n'existe pas";
+	// 		$this->show('user/forgetpassword',array (
+	// 			'errors' => $errors,
+	// 		));
+  //
+  // }
+
 }
 
 
