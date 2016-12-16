@@ -3,7 +3,7 @@ namespace Model;
 
 
 
-use  \W\Model\UsersModel as UModel;
+use \W\Model\UsersModel as UModel;
 use \W\Model\ConnectionModel;
 
 
@@ -59,6 +59,16 @@ class UsersModel extends UModel
 		}
     return 0;
 	}
+
+  public function verifEmailUrl($email)
+  {
+    $sql = "SELECT email, token FROM users WHERE email = :email";
+    $query = $this->dbh->prepare($sql);
+    $query->bindValue(':email',$email,PDO::PARAM_STR);
+    $query->execute();
+    $user = $query->fetch();
+    return $result;
+  }
 
   /**
    *Permet de récupérer l'adresse ou les adresses d'un
