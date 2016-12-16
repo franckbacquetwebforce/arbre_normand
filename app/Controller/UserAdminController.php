@@ -89,7 +89,7 @@ class UserAdminController extends AppController
 
   public function update($id)
   {
-    $this->show
+    $this->show('admin/adminupdate/adminupdate');
   }
 
   public function updateAction($id)
