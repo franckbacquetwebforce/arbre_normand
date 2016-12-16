@@ -22,23 +22,43 @@ class UsersModel extends UModel
     $this->dbh = ConnectionModel::getDbh();
   }
 
+  /**
+	 * Récupère un utilisateur en fonction de son email
+	 * @param string $userEmail l'email d'un utilisateur
+	 * @return mixed L'utilisateur, ou false si non trouvé
+	 */
   public function getUserByEmail($email)
 	{
-
-		$app = getApp();
-
-		$sql = 'SELECT * FROM ' . $this->table .
-			   ' WHERE ' . $app->getConfig('security_email_property') . ' = :email LIMIT 1';
+		$sql = 'SELECT * FROM users WHERE email = :email LIMIT 1';
 
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(':email', $email);
 
-		if($sth->execute()){
-			$foundUser = $sth->fetch();
-			if($foundUser){
-				return $foundUser;
-			}
-	  }
+		$sth->execute();
+		$foundUser = $sth->fetch();
+    return $foundUser;
+
+	}
+  /**
+	 * Vérifie qu'une combinaison d'email et mot de passe (en clair) sont présents en bdd et valides
+	 * @param  string $userEmail l'email à tester
+	 * @param  string $plainPassword Le mot de passe en clair à tester
+	 * @return int  0 si invalide, l'identifiant de l'utilisateur si valide
+	 */
+  public function isValidEmailInfo($userEmail, $plainPassword)
+	{
+		$usersModel = new UsersModel();
+		$userEmail = strip_tags(trim($userEmail));
+		$foundUser = $usersModel->getUserByEmail($userEmail);
+		if(!$foundUser){
+			return 0;
+		}
+		if(password_verify($plainPassword, $foundUser['password'])){
+			return $foundUser['id'];
+
+		}
+    return 0;
+	}
 
   /**
    *Permet de récupérer l'adresse ou les adresses d'un
@@ -54,6 +74,8 @@ class UsersModel extends UModel
     $sth->execute();
     return $sth->fetchAll();
   }
+
+
 
   /**
    *Permet de récupérer l'adresse ou les adresses d'un

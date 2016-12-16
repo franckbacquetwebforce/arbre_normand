@@ -79,7 +79,8 @@ class UserController extends AppController
  		$password = trim(strip_tags($_POST['password']));
  		$user = $this->userModel->getUserByEmail($email);
  		if(!empty($user)){
-	 		if($this->authentificationModel->isValidLoginInfo($email, $password)!=0){
+
+	 		if($this->userModel->isValidEmailInfo($email, $password)!=0){
 	 		$this->authentificationModel->logUserIn($user);
 	 		$this->redirectToRoute('default_home');
 	 		}else{
