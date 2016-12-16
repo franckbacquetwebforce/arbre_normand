@@ -99,6 +99,24 @@ class ValidationTools
     return $error;
   }
 
+
+  /**
+   * correspondancePassword
+   * @param password $password string
+   * @param another password $password2 string
+   * @return string $error
+   */
+
+
+
+  public function correspondancePassword($password,$password2){
+    $error = '';
+    if($password !=  $password2){
+      $error = 'Vos mots de passe ne correspondent pas';
+    }
+    return $error;
+  }
+
   public function imgValid($name_img, $sizeMax = 2000000, $validExtensions = array('.jpg','.jpeg','.png'))
 	{// $name_img est le name de l'input type='file'
     $error = '';
@@ -154,22 +172,8 @@ class ValidationTools
     }
     return $error;
   }
-  /**
-   * correspondancePassword
-   * @param password $password string
-   * @param another password $password2 string
-   * @return string $error
-   */
 
-
-
-  public function correspondancePassword($password,$password2){
-    $error = '';
-    if($password !=  $password2){
-      $error = 'Vos mots de passe ne correspondent pas';
-    }
-    return $error;
-  }
+  
 
 
 }

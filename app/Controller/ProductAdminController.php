@@ -13,12 +13,19 @@ use \DateTime;
 class ProductAdminController extends AppController
 {
 
-  // listing en back-office des user
+  // listing en back-office des produits jointure des deux tables Products et img
   public function index()
   {
-    $this->show('admin/product');
+    $searchImg = new ProductsModel();
+
+    $products = $searchImg->getProductWithImage();
+
+    $this->show('admin/product', array(
+      'products' => $products,
+    ));
   }
 
+  // ajout d'un produit
   public function addNew()
   {
     $this->show('admin/product_new');
@@ -34,14 +41,13 @@ class ProductAdminController extends AppController
     $dateTimeModel = new DateTime();
     $upload = new Upload();
 
-    // striptagss ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // ???????????????????????????????????????????????????????????????????????????????????????????????
-    $product_name = $_POST['product_name'];
-    $description  = $_POST['description'];
-    $price_ht     = $_POST['price_ht'];
-		$weight       = $_POST['weight'];
-    $stock        = $_POST['stock'];
-    $id_category  = $_POST['id_category'];
+    // striptags géré par INSERT
+    $product_name = trim($_POST['product_name']);
+    $description  = trim($_POST['description']);
+    $price_ht     = trim($_POST['price_ht']);
+		$weight       = trim($_POST['weight']);
+    $stock        = trim($_POST['stock']);
+    $id_category  = trim($_POST['id_category']);
 
      $error['product_name']  = $validation->textValid($product_name, 'product_name',  3, 50);
      $error['description']   = $validation->textValid($description, 'description',  3, 1000);
@@ -105,7 +111,7 @@ if(!empty($error['imageSecondaire3'])) {
 
     if($validation->IsValid($error)) {
 
-      // generation du slug ++++++++++++++++++++++++++++++++++++++++++++++++
+      // SLUG et CREATED BY à FINIR
       $data = array(
         'slug'         => $product_name,
         'product_name' => $product_name,
@@ -141,7 +147,7 @@ if(!empty($error['imageSecondaire3'])) {
         }
 // IMAGE SECONDAIRE 1
         if($imageSecondaire1){
-            $upload->UploadProduct($file_tmp,$extension);
+            $upload->UploadProduct($file_tmp,$extension,'1');
             $nameSecondaire1 = $upload->getNewName($_FILES['imageSecondaire1']['name'],'1');
             $pathSecondaire1 = $upload->getPath();
             // debug($_FILES);
@@ -159,7 +165,7 @@ if(!empty($error['imageSecondaire3'])) {
 
 // IMAGE SECONDAIRE 2
         if($imageSecondaire2){
-            $upload->UploadProduct($file_tmp,$extension);
+            $upload->UploadProduct($file_tmp,$extension,'2');
             $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'2');
             $pathSecondaire2 = $upload->getPath();
             // debug($_FILES);
@@ -176,7 +182,7 @@ if(!empty($error['imageSecondaire3'])) {
         }
                 // IMAGE SECONDAIRE 3
         if($imageSecondaire3){
-            $upload->UploadProduct($file_tmp,$extension);
+            $upload->UploadProduct($file_tmp,$extension,'3');
             $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'3');
             $pathSecondaire3 = $upload->getPath();
             // debug($_FILES);

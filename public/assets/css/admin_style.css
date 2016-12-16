@@ -32,3 +32,9 @@ h2 {
 	list-style:none;
 	display: inline;
 }
+
+/*mise en forme tableau product*/
+.product_img_thumbnail_back .img_thumbnail_back{
+	max-height: 100px;
+	max-width: 100px;
+}

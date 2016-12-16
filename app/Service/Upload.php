@@ -4,7 +4,7 @@ namespace Service;
 
 class Upload
 {
-  public function UploadProduct($file_tmp,$fileExtension)
+  public function UploadProduct($file_tmp,$fileExtension,$endName='')
   {
     $monUrl = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     // echo realpath();
@@ -18,7 +18,7 @@ class Upload
       if(!is_dir("upload/".date('Y'). '/'.date('m') )) {
         mkdir("upload/".date('Y'). '/'.date('m'));
       }
-  $dest_fichier = date('Y_m_d_H_i').'_original'.$fileExtension;
+  $dest_fichier = date('Y_m_d_H_i').'_original'.$endName.$fileExtension;
 
   $generatedName = date('Y').'/'.date('m') . '/' . $dest_fichier;
     // ensure a safe filename
