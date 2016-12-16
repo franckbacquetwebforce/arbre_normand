@@ -72,14 +72,12 @@ class ValidationTools
    public function passwordsIdentique($password,$password2)
    {
      $error = '';
-     if(!empty($password2)){
        if($password2 != $password){
-         $errors['password2'] = 'Vous n\'avez pas saisi le bon password';
-       }else {
-         $errors['password2'] = 'Vous n\'avez pas rempli ce champ';
+         $error = 'Vous n\'avez pas saisi le bon password';
        }
-     }
+       return $error;
    }
+
 
 
 }

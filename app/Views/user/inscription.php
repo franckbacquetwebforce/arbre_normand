@@ -8,7 +8,7 @@
         <h4 class="modal-title">Creer un nouveau compte</h4>
       </div>
       <div id="inscriptiondone"></div>
-      <form id="inscription" action="<?= $this->url('blog_inscription_action'); ?>" method="post">
+      <form id="inscription" action="<?= $this->url('register_action'); ?>" method="post">
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6">
@@ -21,15 +21,15 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="password">Password*</label><br><br>
-                <input type="text" name="password" value="<?php if(!empty($_POST['password'])){echo $_POST['password'];}?>"><br>
+                <input type="password" name="password" value=""><br>
                 <span class="help-block" id="error_password"><?php if(!empty($errors['password'])) {echo $errors['password']; } ?></span><br>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="password2">Repeat password*</label><br><br>
-                <input type="text" name="password2" value=""><br>
-                <span class="help-block" ><?php if(!empty($_POST['password2'])){echo $_POST['password2'];} ?></span><br>
+                <input type="password" name="password2" value=""><br>
+                <span class="help-block" ><?php if(!empty($errors['password2'])) {echo $errors['password2']; } ?></span><br>
               </div>
             </div>
           </div>
@@ -41,3 +41,4 @@
     </form>
   </div>
 </div>
+<?php $this->stop('main_content') ?>
