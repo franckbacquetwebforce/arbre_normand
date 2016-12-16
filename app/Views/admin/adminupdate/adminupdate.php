@@ -1,7 +1,7 @@
 <?php $this->layout('layout_admin', ['title' => 'Modification du compte']) ?>
 
 <?php $this->start('main_content') ?>
-<form class="" action="<?= $this->url('admin_user_update_action') ?>" method="post">
+<form class="" action="<?= $this->url('admin_user_update_action', ['id' => $w_user['id']]) ?>" method="post">
   <label for="email">Email</label><br>
   <input type="email" name="email" value="<?php if(!empty($_POST['email'])){ echo $_POST['email'];} ?>">
   <span><?php if(!empty($errors['email'])){ echo $errors['email'];} ?></span><br>

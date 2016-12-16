@@ -78,6 +78,7 @@ class UserController extends AppController
  		$email = trim(strip_tags($_POST['email']));
  		$password = trim(strip_tags($_POST['password']));
  		$user = $this->userModel->getUserByEmail($email);
+
  		if(!empty($user)){
 	 		if($this->authentificationModel->isValidLoginInfo($email, $password)!=0){
 	 		$this->authentificationModel->logUserIn($user);

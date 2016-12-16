@@ -24,7 +24,7 @@ class UserAdminController extends AppController
   public function index()
   {
     $list = $usersmodel->findAll();
-    $this->show('admin/index', array(
+    $this->show('admin/user/list', array(
       'users' => $users
     ));
 
@@ -115,7 +115,7 @@ class UserAdminController extends AppController
     if(!empty($mailExist)){
       $errors['email'] = 'Cet email est déjà utilisé';
     }
-
+      die($email);
 
     if($this->valid->isValid($errors)){
           $data = array(
@@ -125,6 +125,7 @@ class UserAdminController extends AppController
             'role' => 'admin'
           );
           $this->model->update($data,$id);
+
           $this->redirectToRoute('admin_user_new_action');
     } else {
       $this->show('admin/newadmin/admin_inscription', array(
@@ -136,7 +137,9 @@ class UserAdminController extends AppController
 
   public function delete($id)
   {
-    $this->model->delete($id);
+    if(!empty($id)){
+      $this->model->delete($id);
+    }
   }
 
 }

@@ -25,21 +25,24 @@ class UsersModel extends UModel
   public function getUserByEmail($email)
 	{
 
-		$app = getApp();
+    		$app = getApp();
 
-		$sql = 'SELECT * FROM ' . $this->table .
-			   ' WHERE ' . $app->getConfig('security_email_property') . ' = :email LIMIT 1';
+    		$sql = 'SELECT * FROM ' . $this->table .
+    			   ' WHERE email = :email';
 
-		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(':email', $email);
+    		$dbh = ConnectionModel::getDbh();
+    		$sth = $dbh->prepare($sql);
+    		$sth->bindValue(':email', $email);
 
-		if($sth->execute()){
-			$foundUser = $sth->fetch();
-			if($foundUser){
-				return $foundUser;
-			}
-	  }
+    		if($sth->execute()){
+    			$foundUser = $sth->fetch();
+    			if($foundUser){
+    				return $foundUser;
+    			}
+    		}
 
+    		return false;
+  }
   /**
    *Permet de récupérer l'adresse ou les adresses d'un
    *utilisateur

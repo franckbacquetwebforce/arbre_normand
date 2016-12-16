@@ -1,4 +1,4 @@
-<?php $this->layout('layout_admin', ['title' => 'Accueil']) ?>
+<?php $this->layout('layout_admin', ['title' => 'Création admin']) ?>
 
 <?php $this->start('main_content') ?>
 <form class="" action="<?= $this->url('admin_user_new_action') ?>" method="post">
