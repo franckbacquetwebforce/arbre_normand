@@ -63,6 +63,9 @@ class ValidationTools
     return $error;
   }
   /**
+<<<<<<< HEAD
+   * passwordsIdentique
+=======
    * limite montant
    * @param number $number float
    * @return string $error
@@ -165,6 +168,9 @@ class ValidationTools
    * @param another password $password2 string
    * @return string $error
    */
+
+
+
   public function correspondancePassword($password,$password2){
     $error = '';
     if($password !=  $password2){
@@ -172,6 +178,7 @@ class ValidationTools
     }
     return $error;
   }
+
 
 
 }
