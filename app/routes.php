@@ -51,6 +51,13 @@
 		['POST', '/login', 'User#loginAction', 'login_action'],
 		['GET', '/logout', 'User#logoutAction', 'logout_action'],
 
+		// ['GET', '/forgetpassword', 'User#forgetPassword', 'forgetpassword'],
+		// ['POST', '/forgetpassword', 'User#forgetPasswordAction', 'forgetpassword_action'],
+		// ['GET', '/modifpassword/[i:id]', 'User#modifPassword', 'forgetpassword'],
+		// ['POST', '/modifpassword/[i:id]', 'User#modifPasswordAction', 'modifpassword_action'],
+
+
+
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
 
