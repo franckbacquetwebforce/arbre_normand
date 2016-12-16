@@ -2,9 +2,9 @@
 namespace Model;
 
 
+
 use  \W\Model\UsersModel as UModel;
 use \W\Model\ConnectionModel;
-
 
 
 
@@ -21,6 +21,7 @@ class UsersModel extends UModel
     $this->setTable('users');
     $this->dbh = ConnectionModel::getDbh();
   }
+
   public function getUserByEmail($email)
 	{
 
@@ -38,5 +39,47 @@ class UsersModel extends UModel
 				return $foundUser;
 			}
 	  }
+
+  /**
+   *Permet de récupérer l'adresse ou les adresses d'un
+   *utilisateur
+   *@param id de l'utilisateur
+   *@return array contenant toutes les adresses de l'utilisateur
+   */
+  public function getUserAdress($id)
+  {
+    $sql = 'SELECT * FROM users_adress WHERE id_user = :id';
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':id', $id);
+    $sth->execute();
+    return $sth->fetchAll();
+  }
+
+  /**
+   *Permet de récupérer l'adresse ou les adresses d'un
+   *utilisateur
+   *@param id de l'utilisateur
+   *@return array contenant toutes les adresses de l'utilisateur
+   */
+  // public function  addUserAdress(array $data, $id, $stripTags = true)
+  // {
+  //
+  //
+  //   $sql = 'INSERT INTO users_adress (id_user, lastname, firstname, phone, adress, city, zip, country, type) VALUES(:id, :lastname, :firstname, :phone, :adress, :city, :zip, :country, :type)';
+  //   $sth = $this->dbh->prepare($sql);
+  //   $sth->bindValue(':id', $id);
+  //   $sth->bindValue(':lastname', $data[]);
+  //   $sth->bindValue(':firstname' );
+  //   $sth->bindValue(':phone');
+  //   $sth->bindValue(':adress' );
+  //   $sth->bindValue(':city' );
+  //   $sth->bindValue(':zip' );
+  //   $sth->bindValue(':type' );
+  //   $sth->execute();
+  // }
+  public function updateUserAddress()
+  {
+
+
   }
 }

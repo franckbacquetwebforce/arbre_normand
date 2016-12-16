@@ -47,7 +47,7 @@ class UserController extends AppController
     // $validError = new ValidationTools();
     $errors['password'] = $this->validError->textValid($password, 'password', 6, 15);
 		if(empty($errors['password'])) {
-			$errors['password2'] = $this->validError->passwordsIdentique($password2,$password);
+			$errors['password2'] = $this->validError->correspondancePassword($password2,$password);
 		}
 
 
