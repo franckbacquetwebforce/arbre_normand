@@ -3,6 +3,7 @@
 namespace Model;
 
 use \W\Model\Model;
+use \W\Model\ConnectionModel;
 
 
 class OrderModel extends Model
@@ -16,5 +17,5 @@ class OrderModel extends Model
     $this->dbh = ConnectionModel::getDbh();
 
   }
-  
+
 }

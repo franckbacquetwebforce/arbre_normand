@@ -1,16 +1,21 @@
 <?php
+
 namespace Model;
+
 use \W\Model\Model;
 use \W\Model\ConnectionModel;
-/**
- *
- */
-class ProductsModel extends Model
+
+
+class ImgModel extends Model
 {
-  function __construct()
+  /**
+   *Constructeur
+   */
+  public function __construct()
   {
-    $this->setTable('products');
+    $this->setTable('img');
     $this->dbh = ConnectionModel::getDbh();
+
   }
 
 }

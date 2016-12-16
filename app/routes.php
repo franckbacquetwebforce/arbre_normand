@@ -49,7 +49,7 @@
 		['POST', '/register', 'User#registerAction', 'register_action'],
 		['GET', '/login', 'User#login', 'login'],
 		['POST', '/login', 'User#loginAction', 'login_action'],
-		['POST', '/logout', 'User#logoutAction', 'logout_action'],
+		['GET', '/logout', 'User#logoutAction', 'logout_action'],
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
