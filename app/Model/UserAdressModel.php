@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 use  \W\Model\UserModel as UModel;
-
+use \W\Model\ConnectionModel;
 
 /**
  *Le modèle concernant les utilisateurs

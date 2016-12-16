@@ -29,13 +29,13 @@ class UsersModel extends UModel
 	 */
   public function getUserByEmail($email)
 	{
+
 		$sql = 'SELECT * FROM users WHERE email = :email LIMIT 1';
-
-		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(':email', $email);
-
-		$sth->execute();
-		$foundUser = $sth->fetch();
+    		$dbh = ConnectionModel::getDbh();
+    		$sth = $dbh->prepare($sql);
+    		$sth->bindValue(':email', $email);
+      	$sth->execute();
+      	$foundUser = $sth->fetch();
     return $foundUser;
 
 	}
@@ -55,20 +55,13 @@ class UsersModel extends UModel
 		}
 		if(password_verify($plainPassword, $foundUser['password'])){
 			return $foundUser['id'];
-
 		}
     return 0;
 	}
 
-  public function verifEmailUrl($email)
-  {
-    $sql = "SELECT email, token FROM users WHERE email = :email";
-    $query = $this->dbh->prepare($sql);
-    $query->bindValue(':email',$email,PDO::PARAM_STR);
-    $query->execute();
-    $user = $query->fetch();
-    return $result;
-  }
+
+
+
 
   /**
    *Permet de récupérer l'adresse ou les adresses d'un

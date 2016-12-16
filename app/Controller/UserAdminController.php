@@ -23,8 +23,8 @@ class UserAdminController extends AppController
   // listing en back-office des user
   public function index()
   {
-    $list = $usersmodel->findAll();
-    $this->show('admin/index', array(
+    $users = $this->model->findAll();
+    $this->show('admin/user/list', array(
       'users' => $users
     ));
 
@@ -34,7 +34,7 @@ class UserAdminController extends AppController
   */
   public function addNew()
   {
-    $this->show('admin/newadmin/admin_inscription');
+    $this->show('admin/adminnew/admin_inscription');
   }
 /*addNewAction
 *ajout d'un nouveau compte admin  (redirection a modifier)
@@ -89,7 +89,7 @@ class UserAdminController extends AppController
 
   public function update($id)
   {
-    $this->show
+    $this->show('admin/adminupdate/adminupdate');
   }
 
   public function updateAction($id)
@@ -125,9 +125,10 @@ class UserAdminController extends AppController
             'role' => 'admin'
           );
           $this->model->update($data,$id);
-          $this->redirectToRoute('admin_user_new_action');
+
+          $this->redirectToRoute('default_home');
     } else {
-      $this->show('admin/newadmin/admin_inscription', array(
+      $this->show('admin/adminupdate/adminupdate', array(
         'errors' => $errors
       ));
 
@@ -136,7 +137,9 @@ class UserAdminController extends AppController
 
   public function delete($id)
   {
-    $this->model->delete($id);
+    if(!empty($id)){
+      $this->model->delete($id);
+    }
   }
 
 }

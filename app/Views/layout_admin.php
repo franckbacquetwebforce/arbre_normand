@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin_style.css') ?>">
 </head>
 <body>
+	<?php debug($w_user); ?>
+
 	<nav>
 		<ul class= "nav_header">
 			<li><a href="<?= $this->url('default_home') ?>">| default_home |</a></li>

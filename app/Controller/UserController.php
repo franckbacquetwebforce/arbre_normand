@@ -77,7 +77,9 @@ class UserController extends AppController
   { // Sécurisation Faille XSS
  		$email = trim(strip_tags($_POST['email']));
  		$password = trim(strip_tags($_POST['password']));
+
  		$user = $this->userModel->getUserByEmail($email); // Fonction getUserByEmail de UsersModel qui permet de récupérer un utilisateur par rapport à son email
+
  		if(!empty($user)){
       // Fonction isValidEmailInfo($email, $password) de UsersModel qui vérifie qu'une combinaison d'email et mot de passe (en clair) sont présents en bdd et valides
 	 		if($this->userModel->isValidEmailInfo($email, $password)!=0){

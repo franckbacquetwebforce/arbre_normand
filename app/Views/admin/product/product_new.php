@@ -29,14 +29,14 @@
   <span class=""><?php if(!empty($error['image'])){echo $error['image'];} ?></span><br />
   <input type="file" name="image" /><br /><br />
   <label for="image_secondaire1">Image secondaire 1 :</label>
-  <span class=""><?php if(!empty($error['image_secondaire1'])){echo $error['image_secondaire1'];} ?></span><br />
-  <input type="file" name="image_secondaire1" /><br /><br />
+  <span class=""><?php if(!empty($error['imageSecondaire1'])){echo $error['imageSecondaire1'];} ?></span><br />
+  <input type="file" name="imageSecondaire1" /><br /><br />
   <label for="image_secondaire2">Image secondaire 2 :</label>
-  <span class=""><?php if(!empty($error['image_secondaire2'])){echo $error['image_secondaire2'];} ?></span><br />
-  <input type="file" name="image_secondaire2" /><br /><br />
+  <span class=""><?php if(!empty($error['imageSecondaire2'])){echo $error['imageSecondaire2'];} ?></span><br />
+  <input type="file" name="imageSecondaire2" /><br /><br />
   <label for="image_secondaire3">Image secondaire 3 :</label>
-  <span class=""><?php if(!empty($error['image_secondaire3'])){echo $error['image_secondaire3'];} ?></span><br />
-  <input type="file" name="image_secondaire3" /><br /><br />
+  <span class=""><?php if(!empty($error['imageSecondaire3'])){echo $error['imageSecondaire3'];} ?></span><br />
+  <input type="file" name="imageSecondaire3" /><br /><br />
   <br /><input type="submit" name="submitfile" value="Envoyer">
 </form>
 
