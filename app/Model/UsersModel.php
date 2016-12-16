@@ -3,7 +3,7 @@ namespace Model;
 
 
 
-use  \W\Model\UsersModel as UModel;
+use \W\Model\UsersModel as UModel;
 use \W\Model\ConnectionModel;
 
 
@@ -29,13 +29,13 @@ class UsersModel extends UModel
 	 */
   public function getUserByEmail($email)
 	{
+
 		$sql = 'SELECT * FROM users WHERE email = :email LIMIT 1';
-
-		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(':email', $email);
-
-		$sth->execute();
-		$foundUser = $sth->fetch();
+    		$dbh = ConnectionModel::getDbh();
+    		$sth = $dbh->prepare($sql);
+    		$sth->bindValue(':email', $email);
+      	$sth->execute();
+      	$foundUser = $sth->fetch();
     return $foundUser;
 
 	}
@@ -55,10 +55,13 @@ class UsersModel extends UModel
 		}
 		if(password_verify($plainPassword, $foundUser['password'])){
 			return $foundUser['id'];
-
 		}
     return 0;
 	}
+
+
+
+
 
   /**
    *Permet de récupérer l'adresse ou les adresses d'un

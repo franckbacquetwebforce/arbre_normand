@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
+	<?php debug($w_user); ?>
 	<nav>
 		<ul class= "nav_header">
 			<li><a href="<?= $this->url('default_home') ?>">| default_home |</a></li>
@@ -20,6 +21,9 @@
 			<li><a href="<?= $this->url('login') ?>"> login |</a></li>
 			<li><a href="<?= $this->url('logout_action') ?>"> logout_action |</a></li>
 			<li><a href="<?= $this->url('user_profile_monprofil') ?>"> user_profile_monprofil |</a></li>
+			<li><a href="<?= $this->url('admin_user_update_action', ['id' => $w_user['id']]) ?>"> Update compte admin |</a></li>
+			<li><a href="<?= $this->url('admin_user') ?>"> Liste des utilisateurs |</a></li>
+			<li><a href="<?= $this->url('admin_categories_new') ?>"> Ajout d'une catégorie |</a></li>
 		</ul>
 	</nav>
 	<div class="container">

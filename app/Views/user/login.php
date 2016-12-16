@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Connexion']) ?>
 
 <?php $this->start('main_content') ?>
- 
+
 <!-- FORMULAIRE de connexion -->
 <div class="container">
   <div class="row">
@@ -25,6 +25,7 @@
                 <label for="password">Password*</label><br><br>
                 <input type="password" name="password" value="<?php if(!empty($_POST['password'])){echo $_POST['password'];}?>"><br>
                 <span id="error_password"><?php if(!empty($errors['password'])) {echo $errors['password']; } ?></span><br><br>
+                <a href="<?= $this->url('forgetpassword'); ?>">Mot de passe oublié</a><br><br>
               </div>
             </div>
           </div>
