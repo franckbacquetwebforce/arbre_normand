@@ -17,7 +17,6 @@ class ProductAdminController extends AppController
     $this->show('admin/product');
   }
 
-
   public function addNew()
   {
     $this->show('admin/product_new');
@@ -31,19 +30,19 @@ class ProductAdminController extends AppController
     $validation = new ValidationTools();
     $dateTimeModel = new DateTime();
 
-    $product_name = trim(strip_tags($_POST['product_name']));
-    $description  = trim(strip_tags($_POST['description']));
-    $price_ht     = trim(strip_tags($_POST['price_ht']));
-		$weight       = trim(strip_tags($_POST['weight']));
-    $stock        = trim(strip_tags($_POST['stock']));
-    $id_category  = trim(strip_tags($_POST['id_category']));
+    $product_name = $_POST['product_name'];
+    $description  = $_POST['description'];
+    $price_ht     = $_POST['price_ht'];
+		$weight       = $_POST['weight'];
+    $stock        = $_POST['stock'];
+    $id_category  = $_POST['id_category'];
 
-    $error['product_name']  = $validation->textValid($product_name, 'product_name',  3, 50);
-    $error['description']   = $validation->textValid($description, 'description',  3, 1000);
-    $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
-    $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
-    $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000);
-    $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
+    // $error['product_name']  = $validation->textValid($product_name, 'product_name',  3, 50);
+    // $error['description']   = $validation->textValid($description, 'description',  3, 1000);
+    // $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
+    // $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
+    // $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000);
+    // $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
 
 
     if($validation->IsValid($error)) {
@@ -59,8 +58,24 @@ class ProductAdminController extends AppController
         'created_by'   => '',//$_SESSION['email'],
       );
       $addProduct->insert($data);
+
+      if($validation->imgValid('image') == true){
+        $data = array(
+          'id_product'    => ,
+          'original_name' => $_FILES['image']['name'],
+        //   'name'          =>,
+        //   'path'          =>,
+        //   'status_img'    =>,
+        //   'mim_type'      =>,
+      );
+      print_r($data);
+        echo $validation->imgValid($this->dest_fichier);
+      }
+      // if($success == true){
+      //
+      // }
       // redirection
-        $this->redirectToRoute('admin_product');
+        // $this->redirectToRoute('admin_product');
     }
     else {
          // refaire afficher la vue avec les errore passé en parametre de cette vue
