@@ -2,7 +2,7 @@
 $this->layout('layout_admin', ['title' => 'Modification d\'une catégorie']) ?>
 
 <?php $this->start('main_content') ?>
-<form class="" action="<?= $this->url('admin_user_new_action') ?>" method="post">
+<form class="" action="<?= $this->url('admin_categories_update_action',['id' => $cat['id']]) ?>" method="post">
   <label for="name">Nom de la catégorie</label><br>
   <input type="text" name="name" value="<?php if(!empty($_POST['name'])){ echo $_POST['name'];} ?>">
   <span><?php if(!empty($errors['name'])){ echo $errors['name'];} ?></span><br>

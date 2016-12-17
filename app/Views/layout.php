@@ -24,6 +24,7 @@
 			<li><a href="<?= $this->url('admin_user_update_action', ['id' => $w_user['id']]) ?>"> Update compte admin |</a></li>
 			<li><a href="<?= $this->url('admin_user') ?>"> Liste des utilisateurs |</a></li>
 			<li><a href="<?= $this->url('admin_categories_new') ?>"> Ajout d'une catégorie |</a></li>
+			<li><a href="<?= $this->url('admin_categories') ?>"> Liste des catégories |</a></li>
 		</ul>
 	</nav>
 	<div class="container">
