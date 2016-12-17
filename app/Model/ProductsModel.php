@@ -20,6 +20,12 @@ class ProductsModel extends Model
 
 public function getProductWithImage()
 {
+  // SELECT products.*(selectionne tout de la table product), i.name,  i.path, i.status_img (selectionne name, path et status de img as i=>voir LEFT JOIN)
+  // FROM $this->table (FROM table du Model)
+  // LEFT JOIN img as i (jointure pour la table img "renommée" i)
+  // ON products.id = i.id_product (condition de la selection id de la table products.id = id_product de la table img)
+  // WHERE i.status_img = 1"; (condition staus_img = 1)
+
   $sql = "SELECT products.*, i.name,  i.path, i.status_img
           FROM $this->table
           LEFT JOIN img as i

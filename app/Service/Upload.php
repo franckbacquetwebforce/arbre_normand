@@ -4,7 +4,7 @@ namespace Service;
 
 class Upload
 {
-  public function UploadProduct($file_tmp,$fileExtension,$endName='')
+  public function UploadProduct($file_tmp, $fileExtension, $endName = '')
   {
     $monUrl = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     // echo realpath();
@@ -35,7 +35,7 @@ class Upload
   {
     $i_point = strrpos($file_name,'.');
     $fileExtension = substr($file_name, $i_point ,strlen($file_name) - $i_point);
-    return date('Y_m_d_H_i').'_original'.$index.$fileExtension;
+    return date('Y_m_d_H_i').'_original'.$endname.$fileExtension;
   }
 
   public function getPath()

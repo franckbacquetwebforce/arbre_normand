@@ -1,6 +1,7 @@
 <?php
 // Travail Michèle en cours
 namespace Controller;
+// require_once ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
 
 use \Controller\AppController;
 use \Model\UsersModel;
@@ -123,7 +124,7 @@ class UserController extends AppController
    */
   public function forgetPasswordAction()
   {
-    $app = getApp(); // récupère les infos dans config.php
+   $app = getApp(); // récupère les infos dans config.php
 		$urlbase = $app->getConfig('url_base'); //récupère la base de l'url definit dans config.php
 		$errors = array();
 		$email = trim(strip_tags($_POST['email']));
@@ -131,29 +132,29 @@ class UserController extends AppController
 		if(!empty($user)){
 			$urlLink = $this->generateUrl('modifpassword');
 			$emailurl = urlencode($email);
-      $html = '';
-      $html .= '<a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
+     $html = '';
+     $html .= '<a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
 			//envoi du mail
-
-			$mail = new \PHPMailer;
-      $mail->isMail();
-      $mail->setFrom('mragot2@msn.com');
-      $mail->addAddress($email);     // Add a recipient
-      $mail->Subject = 'Votre nouveau mot de passe';
-      $mail->Body    = $html;
+  			$mail = new \PHPMailer;
+     $mail->isMail();
+     $mail->setFrom('mragot2@msn.com');
+     $mail->addAddress($email);     // Add a recipient
+     $mail->Subject = 'Votre nouveau mot de passe';
+     $mail->Body    = $html;
 			if(!$mail->send()){
 				echo "Le message n\'a pas été envoyé.";
-
-			} else {
-          echo 'Le message a bien été envoyé';
-      }
+        echo 'Mailer error: ' . $mail->ErrorInfo;
+  			} else {
+         echo 'Le message a bien été envoyé';
+     }
 		} else {
 			$errors['email']	= "Ce mail n'existe pas";
 			$this->show('user/forgetpassword',array (
 				'errors' => $errors,
 			));
-    }
+   }
   }
+
 
   public function modifPassword()
   {

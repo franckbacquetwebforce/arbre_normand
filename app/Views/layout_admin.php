@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
-
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin_style.css') ?>">
 </head>
 <body>
@@ -35,5 +35,7 @@
 		<footer>
 		</footer>
 	</div>
+	<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
