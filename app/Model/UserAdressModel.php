@@ -26,10 +26,11 @@ class UsersModel extends UsersModel
    */
   public function getUserAdress()
   {
+    $user = $this->authentification->getLoggedUser();
 
     $sql = 'SELECT * FROM '.$this->table.' WHERE id_user = :id';
     $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':id', $id);
+    $sth->bindValue(':id', $user['id']);
     $sth->execute();
     return $sth->fetchAll();
   }
@@ -40,10 +41,9 @@ class UsersModel extends UsersModel
    *@param id de l'utilisateur
    *@return array contenant toutes les adresses de l'utilisateur
    */
-  public function  addUserAdress($stripTags = true)
+  public function  addUserAdress()
   {
-  //
-  //
+    $user = $this->authentification->getLoggedUser();
   //   $sql = 'INSERT INTO '.$this->table.' (id_user, lastname, firstname, phone, adress, city, zip, country, type) VALUES(:id, :lastname, :firstname, :phone, :adress, :city, :zip, :country, :type)';
   //   $sth = $this->dbh->prepare($sql);
   //   $sth->bindValue(':id', $id);
