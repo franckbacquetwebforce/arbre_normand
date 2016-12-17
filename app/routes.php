@@ -61,6 +61,10 @@
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
+		['GET', '/user/adresses/new', 'UserProfile#addAddress', 'add_new_address'],
+		['POST', '/admin/categories/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
+
+
 
 		// Order
 		// Vide pour le moment

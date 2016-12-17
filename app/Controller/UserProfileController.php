@@ -16,16 +16,21 @@ class UserProfileController extends AppController
     $this->address = new UserAdressModel();
   }
 
-    public function monprofil($id)
+    public function monprofil()
     {
 
         $user = $this->model->findAll();
-        $addresses = $this->address->getUserAdress($id);
+        $addresses = $this->address->getUserAdress();
         $this->show('user/profil/monprofile', array(
           'user' => $user,
-          'adresses' => $addresses
+          'addresses' => $addresses
         ));
 
+    }
+
+    public function addAddress()
+    {
+        $this->show('user/profil/address/newaddress');
     }
 
 

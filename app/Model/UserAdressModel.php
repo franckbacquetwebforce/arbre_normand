@@ -24,36 +24,35 @@ class UserAdressModel extends UsersModel
    *@param id de l'utilisateur
    *@return array contenant toutes les adresses de l'utilisateur
    */
-  public function getUserAdress($id)
+  public function getUserAdress()
   {
+    $loggeduser = $this->authentification->getLoggedUser();
     $sql = 'SELECT * FROM '.$this->table.' WHERE id_user = :id';
     $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':id', $id);
+    $sth->bindValue(':id', $loggeduser['id']);
     $sth->execute();
     return $sth->fetchAll();
   }
 
-  // /**
-  //  *Permet de récupérer l'adresse ou les adresses d'un
-  //  *utilisateur
-  //  *@param id de l'utilisateur
-  //  *@return array contenant toutes les adresses de l'utilisateur
-  //  */
-//   public function  addUserAdress()
-//   {
-//     $user = $this->authentification->getLoggedUser();
-//   //   $sql = 'INSERT INTO '.$this->table.' (id_user, lastname, firstname, phone, adress, city, zip, country, type) VALUES(:id, :lastname, :firstname, :phone, :adress, :city, :zip, :country, :type)';
-//   //   $sth = $this->dbh->prepare($sql);
-//   //   $sth->bindValue(':id', $id);
-//   //   $sth->bindValue(':lastname', $data[]);
-//   //   $sth->bindValue(':firstname', );
-//   //   $sth->bindValue(':phone', );
-//   //   $sth->bindValue(':adress', );
-//   //   $sth->bindValue(':city', );
-//   //   $sth->bindValue(':zip', );
-//   //   $sth->bindValue(':type', );
-//   //   $sth->execute();
-//   // }
-//
-//
+  /**
+   *Permet de récupérer l'adresse ou les adresses d'un
+   *utilisateur
+   *@param id de l'utilisateur
+   *@return array contenant toutes les adresses de l'utilisateur
+   */
+  public function  addUserAdress($string1,$string2,$string3,$string4,$string5,$string6,$string7)
+  {
+    $user = $this->authentification->getLoggedUser();
+    $sql = 'INSERT INTO '.$this->table.' (id_user, lastname, firstname, phone, adress, city, zip, country, type) VALUES(:id, :lastname, :firstname, :phone, :adress, :city, :zip, :country, :type)';
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':id_user', $user['id']);
+    $sth->bindValue(':lastname', $string1);
+    $sth->bindValue(':firstname',$string2 );
+    $sth->bindValue(':phone',$string3 );
+    $sth->bindValue(':adress',$string4 );
+    $sth->bindValue(':city', $string5);
+    $sth->bindValue(':zip', $string6);
+    $sth->bindValue(':type',$string7 );
+    $sth->execute();
+  }
 }
