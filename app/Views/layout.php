@@ -5,6 +5,7 @@
 	<title><?= $this->e($title) ?></title>
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+
 </head>
 <body>
 
@@ -24,6 +25,8 @@
 			<li><a href="<?= $this->url('admin_user_update_action', ['id' => $w_user['id']]) ?>"> Update compte admin |</a></li>
 			<li><a href="<?= $this->url('admin_user') ?>"> Liste des utilisateurs |</a></li>
 			<li><a href="<?= $this->url('admin_categories_new') ?>"> Ajout d'une catégorie |</a></li>
+			<li><a href="<?= $this->url('listproducts') ?>"> Liste des produits |</a></li>
+
 		</ul>
 	</nav>
 	<div class="container">

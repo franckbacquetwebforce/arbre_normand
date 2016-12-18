@@ -21,6 +21,7 @@
 			<li><a href="<?= $this->url('login') ?>"> login |</a></li>
 			<li><a href="<?= $this->url('logout_action') ?>"> logout_action |</a></li>
 			<li><a href="<?= $this->url('user_profile_monprofil') ?>"> user_profile_monprofil |</a></li>
+			<li><a href="<?= $this->url('listproducts') ?>"> Liste des produits |</a></li>
 		</ul>
 	</nav>
 	<div class="container">

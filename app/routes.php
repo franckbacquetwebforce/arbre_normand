@@ -70,6 +70,8 @@
 		// Vide pour le moment
 
 		// Product
+		['GET', '/products', 'Product#showProducts', 'listproducts'],
+
 		// Vide pour le moment
 
 

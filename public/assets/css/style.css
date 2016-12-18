@@ -25,7 +25,11 @@ h1 {
 h2 {
 	color: #66D9EF;
 }
-
+/*===================MICHELE========================*/
+/*couleur de police changée dans le formulaire newproduct*/
+input.newproduct {
+	color: #000000;
+}
 
 /*=====================HERMELEN======================*/
 /*mise en forme navBar provisoire*/
