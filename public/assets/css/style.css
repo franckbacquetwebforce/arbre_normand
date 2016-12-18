@@ -26,7 +26,11 @@ h1 {
 h2 {
 	color: #66D9EF;
 }
-
+/*=====================MICHELE======================*/
+/*couleur des formulaires*/
+input{
+	color: black;
+}
 
 /*=====================HERMELEN======================*/
 .spacer{

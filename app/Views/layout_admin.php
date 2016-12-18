@@ -30,10 +30,7 @@
 	          <ul class="dropdown-menu">
 							<li><a href="<?= $this->url('admin_product') ?>">admin_product </a></li>
 							<li><a href="<?= $this->url('admin_order') ?>">admin_order </a></li>
-							<li><a href="<?= $this->url('admin_user') ?>">admin_user </a></li>
-							<li><a href="<?= $this->url('admin_categories') ?>">admin_categories </a></li>
 							<li><a href="<?= $this->url('admin_categories') ?>"> Liste des catégories coté admin |</a></li>
-
 							<li><a href="<?= $this->url('admin_user') ?>">Liste des utilisateurs </a></li>
 							<li><a href="<?= $this->url('admin_categories_new') ?>">Ajout d'une catégorie </a></li>
 	            <li role="separator" class="divider"></li>
@@ -75,9 +72,9 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 		<div class="row container_main_content">
-			<div class="container_menu_right col-xs-0 col-sm-4 col-lg-3 col-lg-3">
-
-			</div>
+			<!-- partie gauche menu_left -->
+			<div class="container_menu_right col-xs-0 col-sm-4 col-lg-3 col-lg-3"></div>
+			<!-- partie centrale -->
 			<div class="container main_content col-xs-12 col-sm-8 col-lg-6 col-lg-6">
 				<section>
 					<?= $this->section('main_content') ?>
@@ -85,8 +82,9 @@
 				<footer>
 				</footer>
 			</div>
-			<div class="container_menu_left col-xs-0 col-sm-0 col-lg-3 col-lg-3">
-		</div>
+			<!-- partie droite (vide)-->
+			<div class="container_menu_left col-xs-0 col-sm-0 col-lg-3 col-lg-3"></div>
+
 		</div>
 		<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
 		<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
