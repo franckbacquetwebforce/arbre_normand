@@ -91,7 +91,5 @@
 			<p>Champignons champignons champignons champignons champignons champignons champignons champignons champignons </p>
 		</div>
 		<div class="spacer"></div>
-	</div>
-</div>
 
 <?php $this->stop('main_content') ?>

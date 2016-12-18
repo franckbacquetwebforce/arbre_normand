@@ -58,13 +58,12 @@
 							<?php if(!empty($w_user)){?>
 								<li><a href="<?= $this->url('user_profile_monprofil',['id' => $w_user['id']]) ?>">Mon compte </a></li><!-- Si connecté -->
 								<li><a href="<?= $this->url('logout_action') ?>">Se déconnecter </a></li><!-- Si connecté -->
-
-						<?php	} else { ?>
-							<li><a href="<?= $this->url('login') ?>">Se connecter </a></li><!-- Si déconnecté -->
-							<li><a href="<?= $this->url('register') ?>">S'inscrire </a></li><!-- Si déconnecté -->
-					<?php	} ?>
-					<li role="separator" class="divider"></li>
-					<li><a href="#">Separated link</a></li>
+								<?php	} else { ?>
+								<li><a href="<?= $this->url('login') ?>">Se connecter </a></li><!-- Si déconnecté -->
+								<li><a href="<?= $this->url('register') ?>">S'inscrire </a></li><!-- Si déconnecté -->
+								<?php	} ?>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
 	          </ul>
 	        </li>
 	      </ul>
