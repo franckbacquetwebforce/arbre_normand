@@ -1,6 +1,7 @@
 <?php
 // Travail Michèle en cours
 namespace Controller;
+// require_once ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
 
 use \Controller\AppController;
 use \Model\UsersModel;
@@ -153,20 +154,19 @@ class UserController extends AppController
       $html = '';
       $html .= '<a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
 			//envoi du mail
-
-			$mail = new \PHPMailer;
-      $mail->isMail();
-      $mail->setFrom('mragot2@msn.com');
-      $mail->addAddress($email);     // Add a recipient
-      $mail->Subject = 'Votre nouveau mot de passe';
-      $mail->Body    = $html;
-			if(!$mail->send()){
-				echo "Le message n\'a pas été envoyé.";
-
-			} else {
+  		$mail = new \PHPMailer;
+       $mail->isMail();
+       $mail->setFrom('mragot2@msn.com');
+       $mail->addAddress($email);     // Add a recipient
+       $mail->Subject = 'Votre nouveau mot de passe';
+       $mail->Body    = $html;
+  			if(!$mail->send()){
+  				echo "Le message n\'a pas été envoyé.";
+          echo 'Mailer error: ' . $mail->ErrorInfo;
+    		} else {
           echo 'Le message a bien été envoyé';
-      }
-		} else {
+        }
+  	} else {
 			$errors['email']	= "Ce mail n'existe pas";
 			$this->show('user/forgetpassword',array (
 				'errors' => $errors,

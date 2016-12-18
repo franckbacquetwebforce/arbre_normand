@@ -20,7 +20,7 @@ class ProductAdminController extends AppController
 
     $products = $searchImg->getProductWithImage();
 
-    $this->show('admin/product', array(
+    $this->show('admin/product/product', array(//modifié suite changement de place du fichier product.php
       'products' => $products,
     ));
   }
@@ -28,7 +28,7 @@ class ProductAdminController extends AppController
   // ajout d'un produit
   public function addNew()
   {
-    $this->show('admin/product_new');
+    $this->show('admin/product/product_new');//modifié suite changement de place du fichier product_new.php
   }
 
   public function addNewAction()

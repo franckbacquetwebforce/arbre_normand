@@ -21,20 +21,30 @@ class CategoriesAdminController extends AppController
     $this->category = new CategoriesModel();
     $this->date = new DateTime();
   }
+  /**
+   *index
+   *Récupère toutes le catégories et les affiche
+   */
   public function index()
   {
-    $categories = $category->findAll();
+    $categories = $this->category->findAll();
     $this->show('admin/categories/list', array(
                         'categories' => $categories
     ));
   }
 
-
+  /**
+   *addNew
+   *Affiche le formulaire d'ajout d'une catégorie
+   */
   public function addNew()
   {
     $this->show('admin/categories/add');
   }
-
+  /**
+   *addNewAction
+   *Ajoute une catégorie
+   */
   public function addNewAction()
   {
     $errors = [];
@@ -64,10 +74,30 @@ class CategoriesAdminController extends AppController
 		}
   }
 
-
+  /**
+   *update
+   *Affiche le formulaire de modification d'une catégorie
+   *@param id de la catégorie
+   */
   public function update($id)
   {
+      $cat = $this->category->find($id);
+      if(!empty($cat)){
+        $this->show('admin/categories/update', array('cat' => $cat));
+      } else {
+       $this->showNotFound();
+      }
+  }
+  /**
+   *updateAction
+   *Modifie une catégorie
+   *@param id de la catégorie
+   */
+  public function updateAction($id)
+  {
     $errors = [];
+    $cat = $this->category->find($id);
+
     // protection
     $name = trim(strip_tags($_POST['name']));
     $status = trim(strip_tags($_POST['status']));
@@ -81,27 +111,40 @@ class CategoriesAdminController extends AppController
           $data = array(
             'slug' => $slugname,
             'category_name' => $name,
-            'created_at' => $this->date->format('Y-m-d H:i:s'),
+            'modified_at' => $this->date->format('Y-m-d H:i:s'),
             'status' => $status
           );
+
           $this->category->update($data,$id);
-          $this->redirectToRoute('default_home');
-    } else {
-      $this->show('admin/newadmin/admin_inscription', array(
-        'errors' => $errors
-      ));
+          $this->redirectToRoute('admin_categories');
+        } else {
+          $this->show('admin/categories/update', array(
+            'cat' => $cat,
+            'errors' => $errors
+          ));
 
     }
   }
 
-  public function updateAction($id)
+  public function deleteAction($id)
   {
-
+    if(!empty($id)){
+      $this->category->delete($id);
+      $this->redirectToRoute('admin_categories');
+    } else {
+      $this->showNotFound();
+    }
   }
 
-  public function delete($id)
+
+  public function single($id)
   {
 
+    $cat = $this->category->find($id);
+    $this->show('admin/categories/single', array(
+      'cat' => $cat
+    ));
   }
+
 
 }

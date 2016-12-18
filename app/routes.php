@@ -33,6 +33,7 @@
 		['GET', '/admin/categories', 'CategoriesAdmin#index', 'admin_categories'],
 		['GET', '/admin/categories/new', 'CategoriesAdmin#addNew', 'admin_categories_new'],
 		['POST', '/admin/categories/new', 'CategoriesAdmin#addNewAction', 'admin_categories_new_action'],
+		['GET', '/admin/categories/single/[i:id]', 'CategoriesAdmin#single', 'category_single'],
 		['GET', '/admin/categories/update/[i:id]', 'CategoriesAdmin#update', 'admin_categories_update'],
 		['POST', '/admin/categories/update/[i:id]', 'CategoriesAdmin#updateAction', 'admin_categories_update_action'],
 		['GET', '/admin/categories/delete/[i:id]', 'CategoriesAdmin#deleteAction', 'admin_categories_delete_action'],
@@ -60,6 +61,10 @@
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
+		['GET', '/user/adresses/new', 'UserProfile#addAddress', 'add_new_address'],
+		['POST', '/admin/categories/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
+
+
 
 		// Order
 		// Vide pour le moment

@@ -1,11 +1,12 @@
 html, body {
 	font-family: Consolas, monaco, monospace;
-	background-color: #272822;
-	color: #F8F8F2;
+	background-image: url(../images/wood_texture3847lite.jpg);
+	background-size: cover;
+	color: black;
 }
 
-.container {
-	margin: 50px;
+.main_content {
+	background-color: rgba(185, 185, 185, 0.8);
 }
 
 a {
