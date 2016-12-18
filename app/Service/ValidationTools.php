@@ -13,9 +13,12 @@ class ValidationTools
 {
   protected $errors = array();
   public $dataImg = array(
-
   );
-
+  /** Validation des erreurs
+   * IsValid()
+   * @param errors string $errors
+   * @return bool
+   */
   public function IsValid($errors)
   {
     foreach ($errors as $key => $value) {
@@ -25,26 +28,23 @@ class ValidationTools
     }
     return true;
   }
-
-  /**
-   * emailValid
+  /** Vérification de la saisie, de la longueur et du format valide de l'email
+   * emailValid()
    * @param email $email
    * @return string $error
    */
-
   public function emailValid($email)
-  {
+  { // Gestion des erreurs
     $error = '';
-    if(empty($email) || (filter_var($email, FILTER_VALIDATE_EMAIL)) === false) {
+    if(empty($email) || (filter_var($email, FILTER_VALIDATE_EMAIL)) === false) { // si l'email n'est pas saisi ou non conforme
       $error = 'Adresse email invalide.';
     }
-      elseif(strlen($email) > 50) {
+      elseif(strlen($email) > 50) { // si l'email dépasse les 50 caractères
       $error = 'Votre adresse e-mail est trop longue.';
     }
-    return $error;
+    return $error; // on retourne les erreurs dans le formulaire
   }
-
-  /**
+  /** Vérification de l'existence du texte saisi et de sa longueur conforme
    * textValid
    * @param POST $text string
    * @param title $title string
@@ -53,31 +53,30 @@ class ValidationTools
    * @param empty $empty bool
    * @return string $error
    */
-
   public function textValid($text, $title, $min = 3,  $max = 50, $empty = false)
-  {
+  { // Gestion des erreurs
     $error = '';
+    // Vérification de la longueur du texte saisi
     if(!empty($text)) {
       $strtext = strlen($text);
       if($strtext > $max) {
-        $error = 'Your ' . $title . ' is too long.';
+        $error = 'Votre ' . $title . ' est trop long.';
       } elseif($strtext < $min) {
-        $error = 'Your ' . $title . ' is too short.';
+        $error = 'Votre ' . $title . ' est trop court.';
       }
     } else {
+      // et si le champ est vide :
       if(!$empty) {
         $error = 'Veuillez renseigner un ' . $title . '.';
       }
     }
     return $error;
   }
-  /**
-   * passwordsIdentique
+  /** ??
    * limite montant
    * @param number $number float
    * @return string $error
    */
-
   public function numberValid($number, $title, $min = 0, $max = 100000, $empty = false)
   {
     $error = '';
@@ -98,17 +97,12 @@ class ValidationTools
     }
     return $error;
   }
-
-
-  /**
+  /** Vérification de la correspondance des deux passwords saisis
    * correspondancePassword
    * @param password $password string
    * @param another password $password2 string
    * @return string $error
    */
-
-
-
   public function correspondancePassword($password,$password2){
     $error = '';
     if($password !=  $password2){
@@ -116,9 +110,14 @@ class ValidationTools
     }
     return $error;
   }
-
+  /** ??
+   * imgValid
+   * @param
+   * @param
+   * @return string $error
+   */
   public function imgValid($name_img, $sizeMax = 2000000, $validExtensions = array('.jpg','.jpeg','.png'))
-	{// $name_img est le name de l'input type='file'
+	{ // $name_img est le name de l'input type='file'
     $error = '';
     if(!empty($_FILES[$name_img])) {
       if ($_FILES[$name_img]['error'] > 0) {
@@ -172,8 +171,4 @@ class ValidationTools
     }
     return $error;
   }
-
-  
-
-
 }
