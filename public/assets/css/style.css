@@ -2,7 +2,7 @@ html, body {
 	font-family: Consolas, monaco, monospace;
 	background-image: url(../images/wood_texture3847lite.jpg);
 	background-size: cover;
-	color: black;
+	color: rgb(8, 7, 7);
 }
 
 .main_content {
@@ -11,7 +11,7 @@ html, body {
 
 a {
 	text-decoration: none;
-	color: #A6E22E;
+	color: rgb(8, 7, 7);
 }
 
 a:hover {
@@ -20,6 +20,7 @@ a:hover {
 
 h1 {
 	color: #F92672;
+	font-size: 2em;
 }
 
 h2 {
@@ -27,19 +28,20 @@ h2 {
 }
 
 
-input.newproduct {
-	color: #000000;
-}
-
 /*=====================HERMELEN======================*/
+.spacer{
+	clear: both;
+}
+/*GENERAL*/
 /*mise en forme navBar provisoire*/
 .nav_header li{
 	list-style:none;
 	display: inline;
 }
 
+
 /*===================MICHELE========================*/
-/*CSS formulaires Inscription Connexion*/
+/*CSS formulaires Inscription Connexion (ne marche pas)*/
 .modal-content {
   position: relative;
   background-color: #ffffff;
@@ -81,3 +83,91 @@ input.newproduct {
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
+
+/*================boostrap-navbar=======================*/
+/*pas sticky*/
+.navbar-default{/*navbar global*/
+	background-color: rgb(184, 175, 170);/*foncé*/
+	border-width: 0;
+}
+.navbar-default .navbar-nav>.active>a{/*Accueil et autres li active*/
+	background-color: rgb(218, 208, 202);/*clair*/
+}
+.btn-default{/*boutons submit panier...*/
+	background-color: rgb(218, 208, 202);
+}
+.navbar-default .navbar-nav>.open>a:focus{/*title dropdowm when focused or clicked*/
+	background-color: rgb(218, 208, 202);
+}
+.navbar-default .dropdown-menu{/*dropdown content*/
+	background-color: rgb(184, 175, 170);
+}
+/*sticky*/
+.navbar-default.sticky{/*navbar global*/
+	background-color: rgb(218, 208, 202);
+	border-width: 0;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	-o-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+}
+.navbar-default.sticky .navbar-nav>.active>a{/*Accueil et autres li active*/
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .btn-default{/*boutons submit panier...*/
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .navbar-nav>.open>a:focus{/*title dropdowm when focused or clicked*/
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .dropdown-menu{/*dropdown content*/
+	background-color: rgb(218, 208, 202);
+}
+
+/*=========================Menu_right=============================*/
+.menu_right{
+	background-color: rgba(185, 185, 185, 0.8);
+}
+.menu_right{
+	padding: 1em 1em 0 1em;
+}
+.menu_right.sticky{/*navbar global*/
+	position: fixed;
+	top: 84px;
+	width: 23.3%;
+	-o-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+}
+
+.menu_right li{
+	list-style: none;
+}
+
+
+/*LAYOUT HOME (special)*/
+/*carroussel*/
+.item{
+	position:relative;
+}
+
+
+.div_item_carroussel{
+	position:absolute;
+	background-color: rgba(182, 186, 157, 0.5);
+	width: 33%;
+	height: 100%;
+	padding : 1%;
+}
+/*Ce que vous trouverez*/
+.presentation_detail{
+	margin-top: 2em;
+	padding: 1em 0 1em 0;
+	background-color: rgba(182, 186, 157, 0.5);
+}
+/*=====================FIN HERMELEN======================*/

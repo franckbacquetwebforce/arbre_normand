@@ -37,22 +37,33 @@ class UserAdressModel extends UsersModel
   /**
    *Permet de récupérer l'adresse ou les adresses d'un
    *utilisateur
-   *@param id de l'utilisateur
-   *@return array contenant toutes les adresses de l'utilisateur
+   *@param id de l'utilisateur + les champs du formulaire newaddress
+   *@return
    */
-  public function  addUserAdress($string1,$string2,$string3,$string4,$string5,$string6,$string7)
+  //  il y a surment une faute d'orthographe mais je sais pas où
+  public function  addUserAdress($string1,$string2,$string3,$string4,$string5,$string6,$string7,$string8)
   {
     $user = $this->authentification->getLoggedUser();
-    $sql = 'INSERT INTO '.$this->table.' (id_user, lastname, firstname, phone, adress, city, zip, country, type) VALUES(:id, :lastname, :firstname, :phone, :adress, :city, :zip, :country, :type)';
+    echo $string1;
+    echo $string2;
+    echo $string3;
+    echo $string4;
+    echo $string5;
+    echo $string6;
+    echo $string7;
+    echo $string8;
+    echo $user['id'];
+    $sql = 'INSERT INTO '.$this->table.' (id_user, lastname, firstname, phone, address, city, zip, country, type) VALUES(:id_user, :lastname, :firstname, :phone, :address, :city, :zip, :country, :type)';
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':id_user', $user['id']);
     $sth->bindValue(':lastname', $string1);
     $sth->bindValue(':firstname',$string2 );
     $sth->bindValue(':phone',$string3 );
-    $sth->bindValue(':adress',$string4 );
+    $sth->bindValue(':address',$string4 );
     $sth->bindValue(':city', $string5);
     $sth->bindValue(':zip', $string6);
-    $sth->bindValue(':type',$string7 );
+    $sth->bindValue(':country', $string7);
+    $sth->bindValue(':type',$string8 );
     $sth->execute();
   }
 }

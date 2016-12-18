@@ -6,5 +6,5 @@ debug($user);
 debug($addresses);
 
  ?>
-<button type="button" name="button"><a href="<?= $this->url('add_new_address') ?>">Ajouter une adresse</a></button>
+<a href="<?= $this->url('add_new_address') ?>"><button type="button" name="button">Ajouter une adresse</button></a>
 <?php $this->stop('main_content') ?>
