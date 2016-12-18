@@ -46,30 +46,35 @@
 		['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
 
 		// User
+		// Route pour afficher le formulaire d'inscription
 		['GET', '/register', 'User#register', 'register'],
+		// Route pour inscrire les données du formulaire en BDD
 		['POST', '/register', 'User#registerAction', 'register_action'],
+		// Route pour afficher le formulaire de connexion
 		['GET', '/login', 'User#login', 'login'],
+		// Route pour ouvrir une session utilisateur
 		['POST', '/login', 'User#loginAction', 'login_action'],
+		// Route pour fermer une session utilisateur
 		['GET', '/logout', 'User#logoutAction', 'logout_action'],
-
+		// Route pour afficher le formulaire de mot de passe oublié
 		['GET', '/forgetpassword', 'User#forgetPassword', 'forgetpassword'],
+		// Route pour envoyer un mail PHPMailer avec lien de modification de password
 		['POST', '/forgetpassword', 'User#forgetPasswordAction', 'forgetpassword_action'],
+		// Route pour afficher le formulaire de réinitialisation du password
 		['GET', '/modifpassword', 'User#modifPassword', 'modifpassword'],
+		// Route pour envoyer en BDD l'update du password
 		['GET|POST', '/treatmodifpassword', 'User#modifPasswordAction', 'modifpassword_action'],
-
-
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
 		['GET', '/user/adresses/new', 'UserProfile#addAddress', 'add_new_address'],
 		['POST', '/admin/categories/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
 
-
-
 		// Order
 		// Vide pour le moment
 
 		// Product
+		// Route pour afficher la page "products/listproducts"
 		['GET', '/products', 'Product#showProducts', 'listproducts'],
 
 		// Vide pour le moment

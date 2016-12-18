@@ -11,12 +11,12 @@ use \Service\Upload;
 use \DateTime;
 
 class ProductController extends AppController
-{
+{ // Affichage de la page "products/listproducts"
   public function showProducts()
   {
     $this->show('products/listproducts');
   }
-  // listing en back-office des produits jointure des deux tables Products et img
+  // Fonction d'Hermelen qui affiche les produits avec leur image 
   public function index()
   {
     $searchImg = new ProductsModel();
@@ -27,7 +27,6 @@ class ProductController extends AppController
       'products' => $products,
     ));
   }
-// affichage de la page product
 // affichage page détail
 
 

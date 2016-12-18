@@ -1,7 +1,6 @@
 <?php
 // Travail Michèle en cours
 namespace Controller;
-// require_once ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
 
 use \Controller\AppController;
 use \Model\UsersModel;
@@ -11,11 +10,11 @@ use \W\Security\StringUtils;
 use \W\Security\AuthorizationModel;
 use \DateTime;
 
-class UserController extends AppController
 // Contrôleur pour la gestion des inscriptions, connexions utilisateurs
+class UserController extends AppController // le CSS ne fonctionne pas
 {
   public function __construct()
-  {
+  { // instanciation de chaque Model utilisé
     $this->userModel = new UsersModel();
     $this->validError = new ValidationTools();
     $this->dateTimeModel = new DateTime();
@@ -26,10 +25,12 @@ class UserController extends AppController
   * INSCRIPTION
   *============================================================================
   */
+  // Affichage du formulaire d'inscription
   public function register()
-  { // Affichage du formulaire d'inscription
+  {
     $this->show('user/inscription');
   }
+  // Insertion en BDD des données du formulaire d'inscription
   public function registerAction()
   {
     // Sécurisation Faille XSS des données envoyées par l'utilisateur
