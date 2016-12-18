@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -76,7 +75,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-	<div class="row container_main_centent">
+	<div class="row container_main_content">
 		<div class="container_menu_right col-xs-0 col-sm-4 col-lg-3 col-lg-3">
 
 		</div>
