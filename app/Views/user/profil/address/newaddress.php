@@ -2,14 +2,18 @@
 <?php $this->layout('layout', ['title' => 'Ajouter une adresse']) ?>
 
 <?php $this->start('main_content') ?>
-<form class="" action="<?= $this->url('admin_user_new_action') ?>" method="post">
-  <label for="email">Prenom</label><br>
+<form class="" action="<?= $this->url('add_new_address_action') ?>" method="post">
+  <label for="firstname">Prenom</label><br>
   <input type="text" name="firstname" value="<?php if(!empty($_POST['firstname'])){ echo $_POST['firstname'];} ?>">
   <span><?php if(!empty($errors['firstname'])){ echo $errors['firstname'];} ?></span><br>
 
   <label for="lastname">Nom</label><br>
   <input type="text" name="lastname" value="<?php if(!empty($_POST['lastname'])){ echo $_POST['lastname'];} ?>">
   <span><?php if(!empty($errors['lastname'])){ echo $errors['lastname'];} ?></span><br>
+
+  <label for="phone">Telephone</label><br>
+  <input type="text" name="phone" value="<?php if(!empty($_POST['phone'])){ echo $_POST['phone'];} ?>">
+  <span><?php if(!empty($errors['phone'])){ echo $errors['phone'];} ?></span><br>
 
   <label for="address">Adresse</label><br>
   <input type="text" name="address" value="<?php if(!empty($_POST['address'])){ echo $_POST['address'];} ?>">

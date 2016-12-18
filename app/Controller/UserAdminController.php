@@ -78,7 +78,7 @@ class UserAdminController extends AppController
 					$this->model->insert($data);
 					$this->redirectToRoute('admin_user_new_action');
 		} else {
-			$this->show('admin/newadmin/admin_inscription', array(
+			$this->show('admin/adminnew/admin_inscription', array(
 				'errors' => $errors
 			));
 

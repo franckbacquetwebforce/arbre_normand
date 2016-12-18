@@ -67,7 +67,7 @@ class CategoriesAdminController extends AppController
 					$this->category->insert($data);
 					$this->redirectToRoute('default_home');
 		} else {
-			$this->show('admin/newadmin/admin_inscription', array(
+			$this->show('admin/categories/add', array(
 				'errors' => $errors
 			));
 
