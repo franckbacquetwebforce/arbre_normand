@@ -16,7 +16,10 @@ class UserProfileController extends AppController
     $this->valid = new ValidationTools();
     $this->address = new UserAdressModel();
   }
-
+  /*
+  *monProfil
+  *affiche les données du compte de l'utilisateur
+  */
   public function monprofil($id)
   {
 
@@ -28,11 +31,18 @@ class UserProfileController extends AppController
       ));
 
   }
-
+  /*
+  *addAddress
+  *Affiche les adresses de l'utilisateur connecté
+  */
   public function addAddress()
   {
       $this->show('user/profil/address/newaddress');
   }
+  /*
+  *addAddressAction
+  *méthode qui permet d'ajouter une nouvelle adresse en base de données
+  */
   public function addAddressAction()
   {
     $errors = [];
@@ -65,9 +75,9 @@ class UserProfileController extends AppController
 
           $this->address->addUserAdress($lastname,$firstname,$phone,$adresse,$city,$zip,$country,$type);
           die('bad');
-          // $this->redirectToRoute('user_profile_monprofil',['id' => $w_user['id']]);
+          $this->redirectToRoute('user_profile_monprofil',['id' => $w_user['id']]);
     } else {
-      $this->show('add_new_address', array(
+      $this->show('user/profil/address/newaddress', array(
         'errors' => $errors
       ));
 

@@ -44,15 +44,6 @@ class UserAdressModel extends UsersModel
   public function  addUserAdress($string1,$string2,$string3,$string4,$string5,$string6,$string7,$string8)
   {
     $user = $this->authentification->getLoggedUser();
-    echo $string1;
-    echo $string2;
-    echo $string3;
-    echo $string4;
-    echo $string5;
-    echo $string6;
-    echo $string7;
-    echo $string8;
-    echo $user['id'];
     $sql = 'INSERT INTO '.$this->table.' (id_user, lastname, firstname, phone, address, city, zip, country, type) VALUES(:id_user, :lastname, :firstname, :phone, :address, :city, :zip, :country, :type)';
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':id_user', $user['id']);
