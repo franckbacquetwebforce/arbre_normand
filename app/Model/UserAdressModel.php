@@ -4,7 +4,7 @@ use  \W\Model\UserModel as UModel;
 use \W\Model\ConnectionModel;
 use \W\Security\AuthentificationModel;
 /**
- *Le modèle concernant les utilisateurs
+ *Le modèle concernant les adresses des utilisateurs
  */
 class UserAdressModel extends UsersModel
 {
@@ -26,7 +26,9 @@ class UserAdressModel extends UsersModel
    */
   public function getUserAdress()
   {
+    // Fonction de Security/AutenthificationModel qui permet de récupérer les données de l'utilisateur connecté
     $loggeduser = $this->authentification->getLoggedUser();
+
     $sql = 'SELECT * FROM '.$this->table.' WHERE id_user = :id';
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':id', $loggeduser['id']);
@@ -40,7 +42,6 @@ class UserAdressModel extends UsersModel
    *@param id de l'utilisateur + les champs du formulaire newaddress
    *@return
    */
-  //  il y a surment une faute d'orthographe mais je sais pas où
   public function  addUserAdress($string1,$string2,$string3,$string4,$string5,$string6,$string7,$string8)
   {
     $user = $this->authentification->getLoggedUser();

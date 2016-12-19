@@ -3,7 +3,7 @@
 namespace Model;
 
 use \W\Model\Model;
-use \Model\UsersModel;
+use \W\Security\AuthentificationModel;
 use \W\Model\ConnectionModel;
 
 
@@ -16,32 +16,74 @@ class OrderModel extends Model
   {
     $this->setTable('orders');
     $this->dbh = ConnectionModel::getDbh();
-    $this->usersmodel = new UsersModel();
+    $this->authentification = new AuthentificationModel();
   }
+
+  //  passer une commande :
+  public function insertCommande()
+  {
+    // $sql = 'INSERT INTO orders_products'
+
+  }
+
+
   /*
   *findOrder
   *récupère les commandes de l'utilisateur connecté
   */
-  public function findOrder()
-  {
-    $user = $this->usersmodel->getLoggedUser();
+    public function findOrders()
+    {
 
-    $sql = "SELECT * FROM '.$this->table.' WHERE id_user = :id ORDER BY created_at DESC";
-      $sth = $this->dbh->prepare($sql);
-      $sth->bindValue(':id_user', $user['id']);
-      $sth->execute();
-    return $sth->fetchAll();
-  }
-  public function findOrderProducts($id)
-  {
-    $sql = "SELECT * FROM '.$this->table.
+      $user = $this->authentification->getLoggedUser();
 
-    ' WHERE id_user = :id ORDER BY created_at DESC";
-      $sth = $this->dbh->prepare($sql);
-      $sth->bindValue(':id_user', $user['id']);
-      $sth->execute();
-    return $sth->fetchAll();
-  }
+      $sql = "SELECT * FROM ".$this->table." WHERE id_user = :id_user ORDER BY date_order DESC";
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':id_user', $user['id']);
+        $sth->execute();
+      return $sth->fetchAll();
+    }
+    /*
+    *findOrder
+    *récupère les identifiants des commandes passées par l'utilisateur ainsi que des produits liés a cette commande
+    */
+    public function orderProducts()
+    {
+      $orders = $this->findOrders();
 
+
+      foreach($orders as $order){
+
+        $sql = "SELECT * FROM orders_products WHERE id_order = ".$order['id'];
+            $sth = $this->dbh->prepare($sql);
+            $sth->execute();
+            return $sth->fetchAll();
+      }
+
+
+    }
+    // Récupère les données des produits liés a une commande
+   public function getProducts()
+   {
+      $orderproducts = $this->orderProducts();
+
+      if(!empty($orderproducts)){
+        foreach($orderproducts as $orderproduct){
+          // $sql = "SELECT * FROM products WHERE id = ".$orderproduct['id_product'];
+          $sql = "SELECT * 
+          FROM orders_products
+          INNER JOIN products
+          ON orders_products.id_product = products.id
+          INNER JOIN orders
+          ON orders_products.id_order = orders.id";
+          $sth = $this->dbh->prepare($sql);
+          $sth->execute();
+          return $sth->fetchAll();
+        }
+      }
+   }
+
+// ==================================================
+// on affiche sur une page chaque commandes de l'utilisateur
+// pour chaque commande on veut le nom des produits, leur quantité, le prix ht
 
 }

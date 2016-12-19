@@ -72,6 +72,8 @@
 
 		// Order
 		// Vide pour le moment
+		['GET', '/orders', 'Order#index', 'listorders'],
+
 
 		// Product
 		// Route pour afficher la page "products/listproducts"
