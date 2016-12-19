@@ -89,10 +89,10 @@
 		<div class="container_menu_right col-xs-0 col-sm-4 col-lg-3 col-lg-3">
       <ul class="menu_right">
         <li><a href="<?= $this->url('admin_product') ?>">Qui sommes-nous?</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Palissades</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Champignons</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Champignons tables</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li><br />
+				<li><a href="<?= $this->url('categoryproduct') ?>?id_category=1">Champignons</a></li><br />
+        <li><a href="<?= $this->url('categoryproduct') ?>?id_category=2">Palissades</a></li><br />
+        <li><a href="<?= $this->url('categoryproduct') ?>?id_category=3">Champignons tables</a></li><br />
+4        <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li><br />
         <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
         <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
         <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />

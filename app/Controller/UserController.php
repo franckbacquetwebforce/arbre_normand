@@ -34,10 +34,16 @@ class UserController extends AppController // le CSS ne fonctionne pas
   public function registerAction()
   {
     // Sécurisation Faille XSS des données envoyées par l'utilisateur
+    $username = trim(strip_tags($_POST['username']));
     $email = trim(strip_tags($_POST['email']));
     $password = trim(strip_tags($_POST['password']));
     $password2 = trim(strip_tags($_POST['password2']));
 
+    // Gestion des erreurs username
+    $errors['username'] = $this->validError->textValid($username, 'username',  3, 20);
+    if($this->userModel->usernameExists($username)){
+		$errors['username']	= "Ce nom existe déjà";
+		}
     // Gestion des erreurs email
     if(!empty($email)){
       // Fonction de Service/ValidationTools qui vérifie la validité de l'email saisi
@@ -66,6 +72,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
     $hashpassword = $this->authentificationModel->hashPassword($password);
     // Déclaration d'un array $data qui contient les champs/valeurs à insérer dans la BDD
     $data = array(
+      'username' => $username,
       'email' => $email,
       'password' => $hashpassword,
       'token' => $token,
@@ -94,14 +101,14 @@ class UserController extends AppController // le CSS ne fonctionne pas
   // Ouverture de session utilisateur
   public function loginAction()
   { // Sécurisation Faille XSS des données envoyées par l'utilisateur
- 		$email = trim(strip_tags($_POST['email']));
+    $login = trim(strip_tags($_POST['login']));
  		$password = trim(strip_tags($_POST['password']));
-    // Fonction de Model/UsersModel qui permet de récupérer un utilisateur par rapport à son email
- 		$user = $this->userModel->getUserByEmail($email);
+    // Fonction de W/Model/UsersModel qui permet de récupérer un utilisateur en fonction de son email ou de son pseudo
+ 		$user = $this->userModel->getUserByUsernameOrEmail($login);
     // si un utilisateur est trouvé
  		if(!empty($user)){
-      // Fonction de Model/UsersModel qui vérifie qu'une combinaison d'email et mot de passe (en clair) sont présents en bdd et valides
-	 		if($this->userModel->isValidEmailInfo($email, $password)!=0){
+      // Fonction de W/Security/AuthentificationModel qui vérifie qu'une combinaison d'email et mot de passe (en clair) sont présents en bdd et valides
+	 		if($this->authentificationModel->isValidLoginInfo($login, $password)!=0){
       // Fonction de W/Security/AuthentificationModel qui ouvre une session utilisateur
 	 		$this->authentificationModel->logUserIn($user);
       // Fonction de W/Controller/Controller qui redirige vers une URL (nom de la route de la page home ici)
@@ -116,7 +123,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
 	 		}
  		}else{
       // Affichage de l'erreur qui ne trouve pas d'utilisateur correspondant à l'email fourni
- 			$errors['email'] = "Identifiant introuvable";
+ 			$errors['login'] = "Identifiant introuvable";
       // Affichage du template Formulaire de connexion aves les erreurs
  			$this->show('user/login',array (
  				'errors' => $errors,
@@ -149,8 +156,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
 		$urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
 		$errors = array();
 		$email = trim(strip_tags($_POST['email']));
-		$user = $this->userModel->getUserByEmail($email);
-		if(!empty($user)){
+		if($userModel->emailExists($email)){
 			$urlLink = $this->generateUrl('modifpassword');
 			$emailurl = urlencode($email);
       $html = '';

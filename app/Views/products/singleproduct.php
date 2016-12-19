@@ -7,7 +7,7 @@
   <!-- AFFICHAGE DU PRODUIT CORRESPONDANT A l'ID -->
 
     <article>
-      <img class="img_thumbnail_back" src="<?php echo $this->url('singleproduct').$product['path'].$product['name']; ?>" />
+      <img class="img_thumbnail_back" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" />
       <div class="spacer"></div>
       <h2><?php echo $product['product_name']; ?></h2>
       Description :
