@@ -21,8 +21,8 @@
       <td class="product_category_thumbnail_back"><?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></td>
       <td class="product_img_thumbnail_back"><img class="img_thumbnail_back" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" /></td>
       <td class="product_img_thumbnail_back">
-        <button type="button" name="button">Modifier</button>
-        <button type="button" name="button">Supprimer</button>
+        <a href="<?= $this->url('admin_product_update',['id' => $product['id']])?>"><button type="button" name="button">Modifier</button></a>
+        <a href="<?= $this->url('admin_product_delete_action',['id' => $product['id']])?>"><button type="button" name="button">Supprimer</button>
       </td>
     </tr>
     <?php } ?>
