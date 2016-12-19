@@ -3,9 +3,12 @@
 <?php $this->start('main_content');?>
 <div class="spacer"></div>
   <section class="thumbs container">
-    <?php foreach($products as $product){ ?>
+    <?php foreach($products as $product){
+    
+
+    ?>
     <article>
-      <img class="img_thumbnail_back" src="<?php echo $this->url('listproducts').$product['path'].$product['name']; ?>" />
+      <img class="img_thumbnail_back" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" />
       <h3><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></h3>
       Description :
       <p><?php if(!empty($product['description'])) { echo $product['description'];} ?></p>

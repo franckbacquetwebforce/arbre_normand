@@ -34,6 +34,7 @@ public function getProductWithImage()
   $query = $this->dbh->prepare($sql);
   $query->execute();
   return $query->fetchAll();
+
 }
   // function searchImg() //pas utile pour le moment
   // {

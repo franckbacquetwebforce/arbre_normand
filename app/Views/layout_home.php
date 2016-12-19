@@ -7,16 +7,10 @@
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
-  <div class="row container_slider">
-		<div class="container_slider_part_right col-xs-0 col-sm-4 col-lg-3 col-lg-3"></div>
-
-		<div class="container slider_content col-xs-12 col-sm-8 col-lg-6 col-lg-6">
+  <div class="row">
 			<section>
 				<?= $this->section('slider') ?>
 			</section>
-		</div>
-
-		<div class="container_slider_part_left col-xs-0 col-sm-0 col-lg-3 col-lg-3"></div>
 	</div>
 <nav class="navbar navbar-default">
   <div class="container-fluid">

@@ -151,18 +151,23 @@ h2 {
 .menu_right li{
 	list-style: none;
 }
-
+.logo_container{
+	background-color: rgb(105, 94, 69);
+	height: 408px;
+}
+.logo_container > h1{
+	font-size: 6em;
+}
 
 /*LAYOUT HOME (special)*/
 /*carroussel*/
+
+
 .item{
-	position:relative;
+background-color: rgba(182, 186, 157, 0.8);
 }
 
-
 .div_item_carroussel{
-	position:absolute;
-	background-color: rgba(182, 186, 157, 0.5);
 	width: 33%;
 	height: 100%;
 	padding : 1%;
