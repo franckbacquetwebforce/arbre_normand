@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Products']) ?>
+<?php $this->layout('layout_product', ['title' => 'Products']) ?>
 
 <?php $this->start('main_content');?>
 <div class="spacer"></div>

@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Details']) ?>
+<?php $this->layout('layout_product', ['title' => 'Details']) ?>
 
 <?php $this->start('main_content') ?>
 <?php
@@ -19,7 +19,10 @@ $qt_product = '1';
       <p><?php echo nl2br($product['description']); ?></p>
       <p>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</p>
       <p>Catégorie : <?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></p>
+      <p>Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
+      <p>Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?> Kg</p>
       <a href="<?= $this->url('user_cart_add', ['l'=> $product['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>">Ajouter au panier</a>
+
       <div class="spacer"></div>
     </article>
 

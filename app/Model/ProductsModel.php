@@ -57,7 +57,7 @@ public function getProductByCategoryWithImage()
   $query->execute();
   return $query->fetchAll();
 }
-public function singleProduct($id)
+public function getsingleProduct($id)
   {
     $modelSingle = new ProductsModel($id);
     $product = $modelSingle->find($id);
@@ -65,6 +65,7 @@ public function singleProduct($id)
       'product' => $product
     ));
   }
+  
   // function searchImg() //pas utile pour le moment
   // {
   //   $sql = "SELECT products.id AS products_id ,
