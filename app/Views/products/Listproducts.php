@@ -4,7 +4,7 @@
 <div class="spacer"></div>
   <section class="thumbs container">
     <?php foreach($products as $product){
-    
+
 
     ?>
     <article>
@@ -14,8 +14,10 @@
       <p><?php if(!empty($product['description'])) { echo $product['description'];} ?></p>
       <p>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</p>
       <p>Catégorie : <?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></p>
+      <p>Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
     </article>
     <?php } ?>
   </section>
 <div class="spacer"></div>
+
 <?php $this->stop('main_content') ?>

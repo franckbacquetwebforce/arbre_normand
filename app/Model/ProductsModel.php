@@ -17,7 +17,10 @@ class ProductsModel extends Model
   }
 
 
-
+// Récupération des produits
+  // id_category = 1 => Champignons
+  // id-category = 2 => Champignon table
+  // id_category = 3 => Palissades
 public function getProductWithImage()
 {
   // SELECT products.*(selectionne tout de la table product), i.name,  i.path, i.status_img (selectionne name, path et status de img as i=>voir LEFT JOIN)
@@ -36,6 +39,32 @@ public function getProductWithImage()
   return $query->fetchAll();
 
 }
+
+public function getProductByCategoryWithImage()
+{
+  // SELECT products.*(selectionne tout de la table product), i.name,  i.path, i.status_img (selectionne name, path et status de img as i=>voir LEFT JOIN)
+  // FROM $this->table (FROM table du Model)
+  // LEFT JOIN img as i (jointure pour la table img "renommée" i)
+  // ON products.id = i.id_product (condition de la selection id de la table products.id = id_product de la table img)
+  // WHERE i.status_img = 1"; (condition staus_img = 1)
+  $category = $_GET['id_category'];
+  $sql = "SELECT products.*, i.name,  i.path, i.status_img
+          FROM $this->table
+          LEFT JOIN img as i
+      		ON products.id = i.id_product
+          WHERE i.status_img = 1 AND products.id_category=$category";
+  $query = $this->dbh->prepare($sql);
+  $query->execute();
+  return $query->fetchAll();
+}
+public function singleProduct($id)
+  {
+    $modelSingle = new ProductsModel($id);
+    $product = $modelSingle->find($id);
+    $this->show('products/singleproduct', array(
+      'product' => $product
+    ));
+  }
   // function searchImg() //pas utile pour le moment
   // {
   //   $sql = "SELECT products.id AS products_id ,

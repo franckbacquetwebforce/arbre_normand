@@ -12,10 +12,10 @@ use \DateTime;
 
 class ProductController extends AppController
 { // Affichage de la page "products/listproducts"
-  public function showProducts()
-  {
-    $this->show('products/listproducts');
-  }
+  // public function showProducts()
+  // {
+  //   $this->show('products/listproducts');
+  // }
   // Fonction d'Hermelen qui affiche les produits avec leur image
   public function index()
   {
@@ -27,14 +27,19 @@ class ProductController extends AppController
       'products' => $products,
     ));
   }
+  public function indexCategory()
+  {
+    $searchCategory = new ProductsModel();
 
+    $products = $searchCategory->getProductByCategoryWithImage();
+
+    $this->show('products/listproducts', array(
+      'products' => $products,
+    ));
+  }
 // affichage page détail
 // Affichage de la page "products/listproducts"
-  public function showProductSingle()
-  {
-    $this->show('products/productsingle');
-  }
-  public function singleProduct($id)
+  public function getsingleProduct($id)
   {
     $modelSingle = new ProductsModel($id);
     $product = $modelSingle->find($id);
@@ -42,5 +47,4 @@ class ProductController extends AppController
       'product' => $product
     ));
   }
-
 }
