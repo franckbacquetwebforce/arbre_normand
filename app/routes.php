@@ -76,6 +76,8 @@
 		// Product
 		// Route pour afficher la page "products/listproducts"
 		['GET', '/products', 'Product#showProducts', 'listproducts'],
+		// Route pour afficher la page "products/productsingle"
+		['GET', '/productsingle', 'Product#showProductSingle', 'singleproduct'],
 
 		// Vide pour le moment
 
