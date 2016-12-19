@@ -15,6 +15,8 @@
 		<td>Action</td>
 	</tr>
 	<?php
+debug($_SESSION['cart']);
+
 		$nbArticles=count($_SESSION['cart']['id_product']);
 		if ($nbArticles <= 0)
 		echo "<tr><td>Votre panier est vide </ td></tr>";
@@ -32,7 +34,7 @@
 
 			echo "<tr><td colspan=\"2\"> </td>";
 			echo "<td colspan=\"2\">";
-			echo "Total : ".MontantGlobal();
+			echo "Total : ".$total;
 			echo "</td></tr>";
 
 			echo "<tr><td colspan=\"4\">";
@@ -56,7 +58,6 @@ if($action !== null){
 
 
    //récuperation des variables en POST ou GET
-   $i = (isset($_GET['i'])? $_GET['i']: null ) ; /*(isset($_GET['q'])? $_GET['q']:*/
    $l = (isset($_GET['l'])? $_GET['l']: null ) ; /*(isset($_GET['l'])? $_GET['l']:*/
    $p = (isset($_GET['p'])? $_GET['p']: null ) ; /*(isset($_GET['p'])? $_GET['p']:*/
    $q = (isset($_GET['q'])? $_GET['q']: null ) ; /*(isset($_GET['q'])? $_GET['q']:*/

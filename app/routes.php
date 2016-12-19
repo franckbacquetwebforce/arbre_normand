@@ -41,7 +41,7 @@
 //======================================= FRONT =====================================
 		// Cart Her: A VERIFIER
 		['GET', '/user/cart', 'Cart#creationPanier', 'user_cart'],
-		//['GET', '/user/cart/order', 'Cart#panierAction', 'user_cart_action'],
+		['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
 		// ['POST', '/user/cart', 'Cart#addProductInCart', 'user_cart_add'],
 		// ['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
 
