@@ -27,11 +27,6 @@ h2 {
 	color: #66D9EF;
 }
 
-/*===================MICHELE========================*/
-/*couleur de police changée dans le formulaire newproduct*/
-input.newproduct {
-	color: #000000;
-}
 
 /*=====================HERMELEN======================*/
 .spacer{
@@ -42,6 +37,54 @@ input.newproduct {
 .nav_header li{
 	list-style:none;
 	display: inline;
+}
+
+
+/*===================MICHELE========================*/
+/*CSS formulaires Inscription Connexion (ne marche pas)*/
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  outline: none;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-header {
+  border-bottom: 1px solid #48a4ac;
+  background: #61bdc5;
+  min-height: 16.4286px;
+  padding: 10px 15px;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+.modal-body {
+  position: relative;
+	/*width: 500px;
+  margin-left: auto;
+  margin-right: auto;*/
+  /*padding-left: 10px;*/
+  /*padding-top: 15px;*/
+}
+.modal-footer {
+  padding: 19px 20px 20px;
+  margin-top: 0;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
 }
 
 /*================boostrap-navbar=======================*/
@@ -130,15 +173,4 @@ input.newproduct {
 	padding: 1em 0 1em 0;
 	background-color: rgba(182, 186, 157, 0.5);
 }
-
-
-
-
-
-
-
-
-
-
-
 /*=====================FIN HERMELEN======================*/

@@ -14,10 +14,4 @@ class DefaultController extends AppController
 	{
 		$this->show('default/home');
 	}
-
-	public function contact()
-	{
-
-	}
-
 }
