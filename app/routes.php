@@ -72,10 +72,12 @@
 
 		// Order
 		// Vide pour le moment
+		['GET', '/orders', 'Order#index', 'listorders'],
+
 
 		// Product
 		// Route pour afficher la page "products/listproducts"
-		['GET', '/products', 'Product#showProducts', 'listproducts'],
+		['GET', '/products', 'Product#index', 'listproducts'],
 		// Route pour afficher la page "products/productsingle"
 		['GET', '/productsingle', 'Product#showProductSingle', 'singleproduct'],
 
