@@ -102,9 +102,13 @@ class UsersModel extends UModel
   //   $sth->bindValue(':type' );
   //   $sth->execute();
   // }
-  public function updateUserAddress()
+  public function countInscriptions()
   {
-
+    $sql = "SELECT COUNT(*) FROM ".$this->table;
+    $sth = $this->dbh->prepare($sql);
+    $sth->execute();
+    return $sth->fetchColumn();
 
   }
+
 }

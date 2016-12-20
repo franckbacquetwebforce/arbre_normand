@@ -25,7 +25,7 @@ class OrderAdminController extends AppController
 // ?
   public function addNew()
   {
-
+    
   }
 // ?
   public function addNewAction()
@@ -36,7 +36,7 @@ class OrderAdminController extends AppController
 
   public function update($id)
   {
-    
+
   }
 
   public function updateAction($id)

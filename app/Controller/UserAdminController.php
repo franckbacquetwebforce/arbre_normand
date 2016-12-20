@@ -4,6 +4,7 @@ namespace Controller;
 
 use \Controller\AppController;
 use \Model\UsersModel;
+use \Model\OrderModel;
 use \Service\ValidationTools;
 use \W\Security\StringUtils;
 use \W\Security\AuthentificationModel;
@@ -15,6 +16,7 @@ class UserAdminController extends AppController
 {
   public function __construct()
   {
+    $this->orders = new OrderModel();
     $this->model = new UsersModel();
     $this->valid = new ValidationTools();
     $this->authentification = new AuthentificationModel();
@@ -23,7 +25,7 @@ class UserAdminController extends AppController
   // listing en back-office des user
   public function index()
   {
-    Fonction de Model qui permet
+    // Fonction de Model qui permet
     $users = $this->model->findAll();
     $this->show('admin/user/list', array(
       'users' => $users
@@ -141,6 +143,45 @@ class UserAdminController extends AppController
     if(!empty($id)){
       $this->model->delete($id);
     }
+  }
+  public function statistics()
+  {
+    //////////////////////////////////////////////
+    // Compte de nombre de visiteurs sur le site
+    //////////////////////////////////////////////
+
+    if(file_exists('compteur_visites.txt'))
+    {
+            $compteur_f = fopen('compteur_visites.txt', 'r+');
+            $compte = fgets($compteur_f);
+    }
+    else
+    {
+            $compteur_f = fopen('compteur_visites.txt', 'a+');
+            $compte = 0;
+    }
+    if(!isset($_SESSION['compteur_de_visite']))
+    {
+            $_SESSION['compteur_de_visite'] = 'visite';
+            $compte++;
+            fseek($compteur_f, 0);
+            fputs($compteur_f, $compte);
+    }
+    fclose($compteur_f);
+    //////////////////////////////////////////////
+
+
+    // Utilise UsersModel pour compter le nombre d'utilisateurs inscrits
+    $inscriptions = $this->model->countInscriptions();
+
+    //Utilise OrderModel pour compter le nombre total de commandes
+    $orders = $this->orders->countOrders();
+    $this->show('admin/dashboard',array(
+                    'orders' => $orders,
+                    'compte' => $compte,
+                    'inscriptions' => $inscriptions
+    ));
+
   }
 
 }

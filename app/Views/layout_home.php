@@ -33,6 +33,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developpement <span class="caret"></span></a>
           <ul class="dropdown-menu">
+						<li><a href="<?= $this->url('site_statistics') ?>">page d'administration </a></li>
 						<li><a href="<?= $this->url('admin_product') ?>">admin_product </a></li>
 						<li><a href="<?= $this->url('admin_order') ?>">admin_order </a></li>
 						<li><a href="<?= $this->url('admin_user') ?>">admin_user </a></li>

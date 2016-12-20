@@ -91,6 +91,14 @@ class OrderModel extends Model
         }
       }
    }
+  //  Compte le nombre total de commandes
+   public function countOrders()
+   {
+     $sql = "SELECT COUNT(*) From orders";
+     $sth = $this->dbh->prepare($sql);
+     $sth->execute();
+     return $sth->fetchColumn();
+   }
 
 // ==================================================
 // on affiche sur une page chaque commandes de l'utilisateur
