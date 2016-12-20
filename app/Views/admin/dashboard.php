@@ -11,5 +11,11 @@ echo '<br>';
 echo 'nombre total de commandes: '.$orders;
 echo '<br>';
 echo 'utilisateurs inscrits: '.$inscriptions;
+echo '<br>';
+foreach($stocks as $stock)
+{
+  echo $stock['name'].' stock restant: '.$stock['stock'];
+  echo '<br>';
+}
  ?>
 <?php $this->stop('main_content') ?>

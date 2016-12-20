@@ -5,6 +5,7 @@ namespace Controller;
 use \Controller\AppController;
 use \Model\UsersModel;
 use \Model\OrderModel;
+use \Model\ProductsModel;
 use \Service\ValidationTools;
 use \W\Security\StringUtils;
 use \W\Security\AuthentificationModel;
@@ -18,6 +19,7 @@ class UserAdminController extends AppController
   {
     $this->orders = new OrderModel();
     $this->model = new UsersModel();
+    $this->productmodel = new ProductsModel();
     $this->valid = new ValidationTools();
     $this->authentification = new AuthentificationModel();
     $this->date = new DateTime();
@@ -147,7 +149,7 @@ class UserAdminController extends AppController
   public function statistics()
   {
     //////////////////////////////////////////////
-    // Compte de nombre de visiteurs sur le site
+    // Compte de nombre de visiteurs sur le site(possibilité de séparer les utilisateur connectés des visiteurs anonyme plus tard si nécessaire)
     //////////////////////////////////////////////
 
     if(file_exists('compteur_visites.txt'))
@@ -176,7 +178,12 @@ class UserAdminController extends AppController
 
     //Utilise OrderModel pour compter le nombre total de commandes
     $orders = $this->orders->countOrders();
+    //Utilise OrdersModel pour lister les produits et leur stock
+    $stocks = $this->productmodel->showStock();
+
+    // Affiche les statistiques du site dans le dashboard
     $this->show('admin/dashboard',array(
+                    'stocks' => $stocks,
                     'orders' => $orders,
                     'compte' => $compte,
                     'inscriptions' => $inscriptions

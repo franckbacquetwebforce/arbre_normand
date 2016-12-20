@@ -102,6 +102,8 @@ class UsersModel extends UModel
   //   $sth->bindValue(':type' );
   //   $sth->execute();
   // }
+  
+  // Compte de nombre d'utilisateur inscrits
   public function countInscriptions()
   {
     $sql = "SELECT COUNT(*) FROM ".$this->table;
