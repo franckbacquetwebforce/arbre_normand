@@ -50,3 +50,15 @@ public function forgetPasswordAction()
       ));
     }
 }
+
+public function getProductWithImage()
+{
+  $sql = "SELECT *,(SELECT * FROM img WHERE id_product = products.id) AS array_img
+          FROM $this->table
+          WHERE i.status_img = 1";
+  $query = $this->dbh->prepare($sql);
+  $query->execute();
+  debug($query->fetchAll());
+  return $query->fetchAll();
+
+}

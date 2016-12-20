@@ -16,10 +16,13 @@ class UserProfileController extends AppController
     $this->valid = new ValidationTools();
     $this->address = new UserAdressModel();
   }
-
+  /*
+  *monProfil
+  *affiche les données du compte de l'utilisateur
+  */
   public function monprofil($id)
   {
-
+      // Fonction de Model/Model qui récupère une ligne de la table en fonction de l'identifiant
       $user = $this->model->find($id);
       $addresses = $this->address->getUserAdress();
       $this->show('user/profil/monprofile', array(
@@ -28,11 +31,18 @@ class UserProfileController extends AppController
       ));
 
   }
-
+  /*
+  *addAddress
+  *Affiche les adresses de l'utilisateur connecté
+  */
   public function addAddress()
   {
       $this->show('user/profil/address/newaddress');
   }
+  /*
+  *addAddressAction
+  *méthode qui permet d'ajouter une nouvelle adresse en base de données
+  */
   public function addAddressAction()
   {
     $errors = [];
@@ -47,6 +57,7 @@ class UserProfileController extends AppController
     $type = trim(strip_tags($_POST['type']));
 
     // Référencement des erreurs
+    // Fonction de Services/ValidationTools qui vérifie si la chaine de caracteres est entrée correctement
     $errors['firstname'] = $this->valid->textValid($firstname,'prenom');
     $errors['lastname'] = $this->valid->textValid($lastname,'nom');
     $errors['phone'] = $this->valid->textValid($phone,'telephone');
@@ -60,14 +71,13 @@ class UserProfileController extends AppController
     }
 
 
-
+    // Fonction de Service/validationTools qui vérifie qu'il n'y a pas d'erreurs
     if($this->valid->isValid($errors)){
-
+          // Fonction de Model/UserAdressModel qui permet d'inserer une nouvelle adresse en bdd
           $this->address->addUserAdress($lastname,$firstname,$phone,$adresse,$city,$zip,$country,$type);
-          die('bad');
-          // $this->redirectToRoute('user_profile_monprofil',['id' => $w_user['id']]);
+          $this->redirectToRoute('user_profile_monprofil',['id' => $w_user['id']]);
     } else {
-      $this->show('add_new_address', array(
+      $this->show('user/profil/address/newaddress', array(
         'errors' => $errors
       ));
 

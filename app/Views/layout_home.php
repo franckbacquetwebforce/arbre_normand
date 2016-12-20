@@ -7,16 +7,10 @@
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
-  <div class="row container_slider">
-		<div class="container_slider_part_right col-xs-0 col-sm-4 col-lg-3 col-lg-3"></div>
-
-		<div class="container slider_content col-xs-12 col-sm-8 col-lg-6 col-lg-6">
+  <div class="row">
 			<section>
 				<?= $this->section('slider') ?>
 			</section>
-		</div>
-
-		<div class="container_slider_part_left col-xs-0 col-sm-0 col-lg-3 col-lg-3"></div>
 	</div>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -86,13 +80,13 @@
   </div><!-- /.container-fluid -->
 </nav>
 	<div class="row container_main_content">
-		<div class="container_menu_right col-xs-0 col-sm-4 col-lg-3 col-lg-3">
-      <ul class="menu_right">
+		<div class="container_menu_left col-xs-0 col-sm-4 col-lg-3 col-lg-3">
+      <ul class="menu_left">
         <li><a href="<?= $this->url('admin_product') ?>">Qui sommes-nous?</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Palissades</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Champignons</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Champignons tables</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li><br />
+				<li><a href="<?= $this->url('categoryproduct') ?>?id_category=1">Champignons</a></li><br />
+        <li><a href="<?= $this->url('categoryproduct') ?>?id_category=2">Palissades</a></li><br />
+        <li><a href="<?= $this->url('categoryproduct') ?>?id_category=3">Champignons tables</a></li><br />
+4        <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li><br />
         <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
         <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
         <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
