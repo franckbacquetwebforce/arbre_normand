@@ -206,7 +206,7 @@ if(!empty($error['imageSecondaire3'])) {
     else {
       debug($error);
          // refaire afficher la vue avec les errore passé en parametre de cette vue
-         $this->show('admin/product_new',array (
+         $this->show('admin/product/product_new',array (
            'error' => $error,
          ));
      }
