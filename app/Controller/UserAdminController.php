@@ -23,6 +23,7 @@ class UserAdminController extends AppController
   // listing en back-office des user
   public function index()
   {
+    Fonction de Model qui permet
     $users = $this->model->findAll();
     $this->show('admin/user/list', array(
       'users' => $users
