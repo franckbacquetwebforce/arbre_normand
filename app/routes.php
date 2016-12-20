@@ -40,10 +40,10 @@
 
 //======================================= FRONT =====================================
 		// Cart Her: A VERIFIER
-		['GET', '/user/cart', 'Cart#panier', 'user_cart'],
-		['GET', '/user/cart/order', 'Cart#panierAction', 'user_cart_action'],
-		['POST', '/user/cart', 'Cart#addProductInCart', 'user_cart_add'],
-		['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
+		['GET', '/user/cart', 'Cart#creationPanier', 'user_cart'],
+		['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
+		// ['POST', '/user/cart', 'Cart#addProductInCart', 'user_cart_add'],
+		// ['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
 
 		// User
 		// Route pour afficher le formulaire d'inscription
@@ -82,6 +82,7 @@
 		['GET', '/products/detail/[i:id]', 'Product#getsingleProduct', 'singleproduct'],
 		// Route pour afficher la page "products/listproducts par catégorie"
 		['GET', '/category', 'Product#indexCategory', 'categoryproduct'],
+
 
 
 		// Vide pour le moment

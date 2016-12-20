@@ -11,11 +11,7 @@ use \Service\Upload;
 use \DateTime;
 
 class ProductController extends AppController
-{ // Affichage de la page "products/listproducts"
-  // public function showProducts()
-  // {
-  //   $this->show('products/listproducts');
-  // }
+{
   // Fonction d'Hermelen qui affiche les produits avec leur image
   public function index()
   {
@@ -27,6 +23,7 @@ class ProductController extends AppController
       'products' => $products,
     ));
   }
+
   public function indexCategory()
   {
     $searchCategory = new ProductsModel();
