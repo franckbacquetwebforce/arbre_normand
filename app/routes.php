@@ -23,6 +23,7 @@
 
 		// Admin User
 		['GET', '/admin/user', 'UserAdmin#index', 'admin_user'],
+		['GET', '/admin/dashbord', 'UserAdmin#statistics', 'site_statistics'],
 		['GET', '/admin/user/new', 'UserAdmin#addNew', 'admin_user_new'],
 		['POST', '/admin/user/new', 'UserAdmin#addNewAction', 'admin_user_new_action'],
 		['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],

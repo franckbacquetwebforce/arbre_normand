@@ -66,6 +66,15 @@ public function getsingleProduct($id)
     ));
   }
   
+  // Liste le nom des produits ainsi que leur stock
+  public function showStock()
+  {
+    $sql = "SELECT product_name as name, stock FROM products ORDER BY stock ASC";
+    $query = $this->dbh->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+  }
+
   // function searchImg() //pas utile pour le moment
   // {
   //   $sql = "SELECT products.id AS products_id ,
