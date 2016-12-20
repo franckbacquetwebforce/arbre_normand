@@ -1,5 +1,5 @@
 html, body {
-	font-family: Consolas, monaco, monospace;
+	font-family: Arial, sans-serif;
 	background-image: url(../images/wood_texture3847lite.jpg);
 	background-size: cover;
 	color: rgb(8, 7, 7);
@@ -87,7 +87,19 @@ h2 {
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
-
+article.card {
+	background-color: rgba(185, 185, 185, 0.8);
+}
+article.card p {
+	padding-left: 3em;
+}
+article.card h2 {
+	padding-left: 3em;
+	color: #000000;
+}
+article.card h3 {
+	padding-left: 3em;
+}
 .thumbs article{
     width: 320px;
     margin: 1em 8px;
@@ -106,8 +118,59 @@ h2 {
 .thumbs article img {
 	max-width: 100%;
   min-width: 100%;
-	max-height: 20rem;
-	min-height: 20rem;
+	max-height: 25rem;
+	min-height: 25rem;
+}
+/* Essai Menu Navbar vertical left*/
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+	.product {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	/*.row.menu {
+		width: 1920px;
+	}*/
+}
+/*essai thumbnail*/
+.style_featured{
+    padding: 20px 0;
+    text-align: center;
+}
+.style_featured > div > div{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+.style_featured > div:hover > div{
+    margin-top: +19px;
+    border: 1px solid rgb(153, 200, 250);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 9px 9px 9px;
+    background: rgba(153, 200, 250, 0.1);
+    transition: 0.99s;
+}
+.img-rounded.img-thumbnail {
+	max-width: 100%;
+  min-width: 100%;
+	max-height: 15rem;
+	min-height: 15rem;
 }
 /*================boostrap-navbar=======================*/
 /*pas sticky*/

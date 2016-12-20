@@ -156,7 +156,8 @@ class UserController extends AppController // le CSS ne fonctionne pas
 		$urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
 		$errors = array();
 		$email = trim(strip_tags($_POST['email']));
-		if($userModel->emailExists($email)){
+    $user = $this->userModel->getUserByEmail($email);
+		if($this->userModel->emailExists($email)){
 			$urlLink = $this->generateUrl('modifpassword');
 			$emailurl = urlencode($email);
       $html = '';

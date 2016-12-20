@@ -3,6 +3,7 @@
   <head>
   	<meta charset="UTF-8">
   	<title><?= $this->e($title) ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 
@@ -50,9 +51,10 @@
     			<ul class="nav navbar-nav navbar-right">
     				<li><a href="<?= $this->url('user_cart') ?>">
     					<button type="button" class="btn btn-default" aria-label="Left Align">
-    					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-    					<span class="sr-only">Panier</span>
-    				</button></a></li>
+      					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+      					<span class="sr-only">Panier</span>
+    				  </button></a>
+            </li>
     				<li class="dropdown">
     					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compte<span class="caret"></span></a>
     					<ul class="dropdown-menu">
@@ -65,32 +67,50 @@
     							<?php	} ?>
     											<li role="separator" class="divider"></li>
     											<li><a href="#">Separated link</a></li>
-    		          </ul>
-    		        </li>
-    		      </ul>
-    		    </div><!-- /.navbar-collapse -->
-    		  </div><!-- /.container-fluid -->
-    		</nav>
-    <div class="row container_main_centent">
-      <div class="container_menu_left col-xs-0 col-sm-3 col-lg-3 col-lg-3">
-        <ul class="menu_left">
-          <li><a href="<?= $this->url('admin_product') ?>">Qui sommes-nous?</a></li><br />
-  				<li><a href="<?= $this->url('categoryproduct') ?>?id_category=1">Champignons</a></li><br />
-          <li><a href="<?= $this->url('categoryproduct') ?>?id_category=2">Palissades</a></li><br />
-          <li><a href="<?= $this->url('categoryproduct') ?>?id_category=3">Champignons tables</a></li><br />
-  4        <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li><br />
-          <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
-          <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
-          <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
-        </ul>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+    <section class="menu">
+      <div class="container product">
+        <div class="row menu">
+          <div class="col-sm-3">
+            <div class="sidebar-nav">
+              <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <span class="visible-xs navbar-brand">Sidebar menu</span>
+                </div>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="<?= $this->url('categoryproduct') ?>?id_category=1">Champignons</a></li>
+                    <li><a href="<?= $this->url('categoryproduct') ?>?id_category=2">Palissades</a></li>
+                    <li><a href="<?= $this->url('categoryproduct') ?>?id_category=3">Champignons tables</a></li>
+                    <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <section>
+            <?= $this->section('main_content') ?>
+            </section>
+          </div>
+        </div>
       </div>
-      <div class="container main_content col-xs-12 col-sm-9 col-lg-9 col-lg-9">
-        <section>
-        <?= $this->section('main_content') ?>
-        </section>
-        <footer>
-        </footer>
-      </div>
+    </section>
+
+
+    <footer>
+    </footer>
     <script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
   </body>
