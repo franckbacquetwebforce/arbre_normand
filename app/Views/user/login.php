@@ -14,9 +14,9 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="form-control" for="login">Email</label><br><br>
-                <input type="email" name="email" tabindex="1" class="form-control" value="<?php if(!empty($_POST['email'])){echo $_POST['email'];}?>"><br>
-                <span class="help-block" id="error_login"><?php if(!empty($errors['email'])) {echo $errors['email']; } ?></span><br><br>
+                <label for="email">Email*</label><br><br>
+                <input type="email" name="email" value="<?php if(!empty($_POST['email'])){echo $_POST['email'];}?>"><br>
+                <span class="help-block" id="error_email"><?php if(!empty($errors['email'])) {echo $errors['email']; } ?></span><br>
               </div>
             </div>
           <div class="row">

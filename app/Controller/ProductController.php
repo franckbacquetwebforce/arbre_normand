@@ -16,7 +16,7 @@ class ProductController extends AppController
   {
     $this->show('products/listproducts');
   }
-  // Fonction d'Hermelen qui affiche les produits avec leur image 
+  // Fonction d'Hermelen qui affiche les produits avec leur image
   public function index()
   {
     $searchImg = new ProductsModel();
@@ -27,7 +27,20 @@ class ProductController extends AppController
       'products' => $products,
     ));
   }
-// affichage page détail
 
+// affichage page détail
+// Affichage de la page "products/listproducts"
+  public function showProductSingle()
+  {
+    $this->show('products/productsingle');
+  }
+  public function singleProduct($id)
+  {
+    $modelSingle = new ProductsModel($id);
+    $product = $modelSingle->find($id);
+    $this->show('products/singleproduct', array(
+      'product' => $product
+    ));
+  }
 
 }

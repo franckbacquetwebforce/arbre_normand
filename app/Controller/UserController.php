@@ -91,6 +91,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
   { // Affichage du formulaire de Connexion
     $this->show('user/login');
   }
+  // Ouverture de session utilisateur
   public function loginAction()
   { // Sécurisation Faille XSS des données envoyées par l'utilisateur
  		$email = trim(strip_tags($_POST['email']));
@@ -108,7 +109,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
 	 		}else{
         // Affichage de l'erreur de non correspondance de l'email et du password
 	 			$errors['password'] = "Le mot de passe est incorrect";
-        // Affichage du template formulaire de connexion avec affichage des erreurs)
+        // Affichage du template formulaire de connexion avec affichage des erreurs
 	 			$this->show('user/login',array (
 	 				'errors' => $errors,
 	 			));
@@ -116,7 +117,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
  		}else{
       // Affichage de l'erreur qui ne trouve pas d'utilisateur correspondant à l'email fourni
  			$errors['email'] = "Identifiant introuvable";
-      // Affichage du template Formulaire de connexion
+      // Affichage du template Formulaire de connexion aves les erreurs
  			$this->show('user/login',array (
  				'errors' => $errors,
  			));
@@ -154,11 +155,11 @@ class UserController extends AppController // le CSS ne fonctionne pas
 			$emailurl = urlencode($email);
       $html = '';
       $html .= '<a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
-			//envoi du mail
+			//envoi du mail fonction PHPMailer
   		$mail = new \PHPMailer;
        $mail->isMail();
        $mail->setFrom('mragot2@msn.com');
-       $mail->addAddress($email);     // Add a recipient
+       $mail->addAddress($email);
        $mail->Subject = 'Votre nouveau mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
@@ -180,7 +181,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
   *============================================================================
   */
   public function modifPassword()
-  {
+  { // Affichage du formulaire d'inscription avec vérification ??? flou pour Michèle
     $form = false;
     if(!empty($_GET['email']) && !empty($_GET['token'])){
       $this->show('user/modifpassword', array('form' => $form));
@@ -190,7 +191,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
     }
   }
   public function modifPasswordAction()
-  {
+  { // Insertion en BDD du nouveau password
     if(!empty($_GET['email']) && !empty($_GET['token'])){
       //  On sécurise l'email et le token
 		  $email = trim(strip_tags($_GET['email']));
