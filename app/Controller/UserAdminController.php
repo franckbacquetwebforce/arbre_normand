@@ -149,7 +149,7 @@ class UserAdminController extends AppController
   public function statistics()
   {
     //////////////////////////////////////////////
-    // Compte de nombre de visiteurs sur le site(possibilité de séparer les utilisateur connectés des visiteurs anonyme plus tard si nécessaire)
+    // Compte de nombre de visiteurs sur le site(possibilité de séparer les utilisateurs connectés des visiteurs anonymes plus tard si nécessaire)
     //////////////////////////////////////////////
 
     if(file_exists('compteur_visites.txt'))
