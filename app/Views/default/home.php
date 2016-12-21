@@ -1,5 +1,4 @@
 <?php $this->layout('layout_home', ['title' => 'Accueil']) ?>
-
 <?php $this->start('slider') ?>
 	<div class="logo_container col-xs-3 col-sm-3 col-lg-3 col-lg-3">
 		<h1>L'Arbre Normand</h1>

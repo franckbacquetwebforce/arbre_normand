@@ -5,7 +5,7 @@
 
 <form method="post" action="cart.php">
 <table>
-	<h2 colspan="4">Votre panier</h2><?php
+	<h2 colspan="4">Votre panier</h2> <?php
 		$nbArticles=count($_SESSION['cart']['id_product']);
 		if ($nbArticles <= 0){
 			echo "<p class='empty_cart'>Votre panier est vide</p>";
@@ -22,38 +22,28 @@
 
 			for ($i=0; $i < $nbArticles; $i++){?>
 			<tr>
-			<td><?= $infoPanier[$i]['product_name'] ?></ td>
-			<td><img class="thumb_cart" src="../../public/<?= $infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
-			<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button">+</button></a></br>
-			<?= $infoPanier[$i]['cart_qt']?></br>
-			<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1]); ?>"><button type="button" name="button">-</button></a></td>
-			<td><?= $infoPanier[$i]['cart_price']?> €</td>
-			<td><?= $infoPanier[$i]['product_weight']?> kg</td>
-			<td><a href="<?= $this->url('user_cart_remove', ['l'=> $infoPanier[$i]['product_id']]); ?>"><button type="button" name="button">Supprimer du panier</button></a></td>
-
+				<td><?= $infoPanier[$i]['product_name'] ?></ td>
+				<td><img class="thumb_cart" src="../../public/<?= $infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
+				<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button">+</button></a></br>
+					<?= $infoPanier[$i]['cart_qt']?></br>
+					<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1]); ?>"><button type="button" name="button">-</button></a></td>
+				<td><?= $infoPanier[$i]['cart_price']?> €</td>
+				<td><?= $infoPanier[$i]['product_weight']?> kg</td>
+				<td><a href="<?= $this->url('user_cart_remove', ['l'=> $infoPanier[$i]['product_id']]); ?>"><button type="button" name="button">Supprimer du panier</button></a></td>
 			</tr>
-			<?php }
-
-		echo "<tr><td colspan=\"2\"> </td>";
-		echo "<td colspan=\"2\">";
-		echo "Total : ".$total;
-		echo "</td></tr>";
-
-		echo "<tr><td colspan=\"4\">";
-		echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-		echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
-
-		echo "</td></tr>";
+			<?php } ?>
+		  <tr>
+		  	<td colspan=\"3\"> </td>
+		  	<td colspan=\"3\">Total: <?= $total ?> €</td>
+		  </tr>
 		}
-
-
 
 	?>
 </table>
 </form>
 
 <?php
-
+// suite non-utilisée pour le moment
 $erreur = false;
 
 $action = (isset($_GET['action'])? $_GET['action']: /*(isset($_GET['action'])? $_GET['action']:*/null ) ;
@@ -106,5 +96,6 @@ if (!$erreur){
          break;
     }
   }
+}
  ?>
 <?php $this->stop('main_content') ?>
