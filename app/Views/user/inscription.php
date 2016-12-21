@@ -13,12 +13,12 @@
           <form id="inscription" action="<?= $this->url('register_action'); ?>" method="post">
             <div class="form-group">
               <label for="username">Username*</label>
-              <input type="text" class="form-control" id="username" required="required"/>
+              <input type="text" class="form-control" name="username" required="required" value="<?php if(!empty($_POST['username'])) {echo $_POST['username']; } ?>"/>
               <span class="help-block" id="error_username"><?php if(!empty($errors['username'])) {echo $errors['username']; } ?></span><br>
             </div>
             <div class="form-group">
               <label for="username">Email*</label>
-              <input type="email" class="form-control" id="email" required="required"/>
+              <input type="email" class="form-control" name="email" required="required" value="<?php if(!empty($_POST['email'])) {echo $_POST['email']; } ?>"/>
               <span class="help-block" id="error_email"><?php if(!empty($errors['email'])) {echo $errors['email']; } ?></span><br>
             </div>
             <div class="form-group">

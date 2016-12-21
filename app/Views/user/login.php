@@ -14,7 +14,7 @@
           <form id="connexion" action="<?= $this->url('login_action'); ?>" method="post">
             <div class="form-group">
               <label for="login">Pseudo ou Email*</label>
-              <input type="text" class="form-control" id="login" required="required"/>
+              <input type="text" class="form-control" name="login" required="required"/>
               <span class="help-block" id="error_login"><?php if(!empty($errors['login'])) {echo $errors['login']; } ?></span><br>
             </div>
             <div class="form-group">
