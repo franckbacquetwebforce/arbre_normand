@@ -153,10 +153,11 @@ class UserController extends AppController // le CSS ne fonctionne pas
   public function forgetPasswordAction()
   {
     $app = getApp(); // Retourne l'instance de l'application depuis l'espace global
-		$urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
 		$errors = array();
 		$email = trim(strip_tags($_POST['email']));
-		if($userModel->emailExists($email)){
+    $urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
+    $user = $this->userModel->emailExists($email);
+		if(!empty($user)){
 			$urlLink = $this->generateUrl('modifpassword');
 			$emailurl = urlencode($email);
       $html = '';
@@ -166,11 +167,11 @@ class UserController extends AppController // le CSS ne fonctionne pas
        $mail->isMail();
        $mail->setFrom('mragot2@msn.com');
        $mail->addAddress($email);
-       $mail->Subject = 'Votre nouveau mot de passe';
+       $mail->Subject = 'Réinitialisation du mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
   				echo "Le message n\'a pas été envoyé.";
-          echo 'Mailer error: ' . $mail->ErrorInfo;
+          echo 'Erreur Mail: ' . $mail->ErrorInfo;
     		} else {
           echo 'Le message a bien été envoyé';
         }
