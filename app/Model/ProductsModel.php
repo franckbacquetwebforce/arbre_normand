@@ -40,6 +40,18 @@ public function getProductWithImage()
 
 }
 
+public function getCartProductWithImage($cart_id_product)
+{
+    $sql = "SELECT products.*, i.name,  i.path, i.status_img
+            FROM $this->table
+            LEFT JOIN img as i
+            ON products.id = i.id_product
+            WHERE i.status_img = 1 AND products.id = $cart_id_product";
+            $query = $this->dbh->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+}
+
 public function getProductByCategoryWithImage()
 {
   // SELECT products.*(selectionne tout de la table product), i.name,  i.path, i.status_img (selectionne name, path et status de img as i=>voir LEFT JOIN)
@@ -65,7 +77,7 @@ public function getsingleProduct($id)
       'product' => $product
     ));
   }
-  
+
   // Liste le nom des produits ainsi que leur stock
   public function showStock()
   {

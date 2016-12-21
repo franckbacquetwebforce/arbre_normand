@@ -84,6 +84,7 @@
 		<div class="container_menu_left col-xs-0 col-sm-4 col-lg-3 col-lg-3">
       <ul class="menu_left">
         <li><a href="<?= $this->url('admin_product') ?>">Qui sommes-nous?</a></li><br />
+				<li><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li><br /><!--ajouté par hermelen le 21/12-->
 				<li><a href="<?= $this->url('categoryproduct') ?>?id_category=1">Champignons</a></li><br />
         <li><a href="<?= $this->url('categoryproduct') ?>?id_category=2">Palissades</a></li><br />
         <li><a href="<?= $this->url('categoryproduct') ?>?id_category=3">Champignons tables</a></li><br />

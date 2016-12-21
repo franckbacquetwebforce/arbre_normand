@@ -200,4 +200,16 @@ background-color: rgba(182, 186, 157, 0.8);
 	padding: 1em 0 1em 0;
 	background-color: rgba(182, 186, 157, 0.5);
 }
+
+/*AFFICHAGE PANIER*/
+
+.thumb_cart{
+	max-height : 100px;
+}
+.cart_table_cell{
+	width : 20%;
+}
+.empty_cart{
+	font-size: 1em;
+}
 /*=====================FIN HERMELEN======================*/

@@ -41,9 +41,10 @@
 
 //======================================= FRONT =====================================
 		// Cart Her: A VERIFIER
-		['GET', '/user/cart', 'Cart#creationPanier', 'user_cart'],
+		['GET', '/user/cart', 'Cart#afficherPanier', 'user_cart'],
 		['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
-		// ['POST', '/user/cart', 'Cart#addProductInCart', 'user_cart_add'],
+		['GET', '/user/cart/[i:l]/[i:q]', 'Cart#retrancherArticle', 'user_cart_substrat'],
+		['GET', '/user/cart/[i:l]', 'Cart#supprimerArticle', 'user_cart_remove'],
 		// ['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
 
 		// User

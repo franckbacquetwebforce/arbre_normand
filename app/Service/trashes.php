@@ -62,3 +62,27 @@ public function getProductWithImage()
   return $query->fetchAll();
 
 }
+
+
+//function du tuto que je remplace par une autre
+function modifierQTeArticle($id_product,$qt_product){
+   //Si le panier éxiste
+   if ($this->creationPanier())
+   {
+      //Si la quantité est positive on modifie sinon on supprime l'article
+      if ($qt_product > 0)
+      {
+         //Recharche du produit dans le panier
+         $positionProduct = array_search($id_product,  $_SESSION['cart']['id_product']);
+
+         if ($positionProduct !== false)
+         {
+            $_SESSION['cart']['qt_product'][$positionProduct] = $qt_product ;
+         }
+      }
+      else
+      supprimerArticle($id_product);
+   }
+   else
+   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
+}
