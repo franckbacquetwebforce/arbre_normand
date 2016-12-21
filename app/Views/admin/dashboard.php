@@ -1,4 +1,3 @@
-<!-- Formulaire de modification d'un compte administrateur -->
 <!-- A mettre en forme -->
 <?php $this->layout('layout_admin', ['title' => 'Salle de controle']) ?>
 
