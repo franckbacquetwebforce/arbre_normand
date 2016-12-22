@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Panier']) ?>
 
 <?php $this->start('main_content') ?>
-
+<?php debug($_SESSION['cart']); ?> 
 
 <form method="post" action="cart.php">
 <table>

@@ -152,18 +152,60 @@ article.card h3 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
+
 	.product {
 		margin-left: 15px;
 		margin-right: 15px;
 	}
 
-}
-.article_single {
-	background-color: rgb(218, 208, 202);
-	padding-left: 15px;
-	padding-top: 1px;
-	padding-bottom: 1px;
-}
+	.article_single {
+		background-color: rgb(218, 208, 202);
+		padding-left: 15px;
+		padding-top: 1px;
+		padding-bottom: 1px;
+	}
+	/*=========================Menu_right HERMELEN =============================*/
+	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
+		top: 84px;
+		width: 212.5px;
+		-o-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-webkit-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+	}
+
+	/*.menu_right .navbar-default{ /*ajouté suite récupération menu Michèle*/
+	/*width: 23.3%;*/
+	}
+
+	/*.menu_left{
+		background-color: rgba(185, 185, 185, 0.8);
+	}*/
+	/*.menu_left{
+		padding: 1em 1em 0 1em;
+	}*/
+
+	/*.menu_left.sticky{
+		position: fixed;
+		top: 84px;
+		width: 23.3%;
+		-o-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-webkit-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+	}*/
+
+	/*.menu_left li{
+		list-style: none;
+	}*/
+	.logo_container{
+		background-color: rgb(105, 94, 69);
+		height: 408px;
+	}
+	.logo_container > h1{
+		font-size: 6em;
+	}
+
 
 /*================boostrap-navbar=======================*/
 /*pas sticky*/
@@ -209,33 +251,7 @@ article.card h3 {
 	background-color: rgb(218, 208, 202);
 }
 
-/*=========================Menu_right=============================*/
-.menu_left{
-	background-color: rgba(185, 185, 185, 0.8);
-}
-.menu_left{
-	padding: 1em 1em 0 1em;
-}
-.menu_left.sticky{/*navbar global*/
-	position: fixed;
-	top: 84px;
-	width: 23.3%;
-	-o-transition: all 1s ease;
-	-moz-transition: all 1s ease;
-	-webkit-transition: all 1s ease;
-	-ms-transition: all 1s ease;
-}
 
-.menu_left li{
-	list-style: none;
-}
-.logo_container{
-	background-color: rgb(105, 94, 69);
-	height: 408px;
-}
-.logo_container > h1{
-	font-size: 6em;
-}
 
 /*LAYOUT HOME (special)*/
 /*carroussel*/
