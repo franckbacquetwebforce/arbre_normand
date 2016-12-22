@@ -1,3 +1,5 @@
+<?php include 'functions.php';
+$categories = findAll('categories');?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -73,11 +75,11 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-    <section class="menu">
+    <!-- <section class="menu"> -->
       <div class="container product">
-        <div class="row menu">
-          <div class="col-sm-3">
-            <div class="sidebar-nav">
+        <div class="row">
+          <div class="col-xs 12 sol-sm-3 col-md-3 col-lg-3">
+            <section class="sidebar-nav">
               <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
@@ -90,28 +92,30 @@
                 </div>
                 <div class="navbar-collapse collapse sidebar-navbar-collapse">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?= $this->url('categoryproduct') ?>?id_category=1">Champignons</a></li>
-                    <li><a href="<?= $this->url('categoryproduct') ?>?id_category=2">Palissades</a></li>
-                    <li><a href="<?= $this->url('categoryproduct') ?>?id_category=3">Champignons tables</a></li>
-                    <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li>
+                    <!--Faire un JS sur la classe active-->
+                    <li class="menu_categorie_all active"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
+                    <?php foreach($categories as $categorie){?>
+                      <li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
+                    <?php } ?>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
-            </div>
+            </section>
           </div>
-          <div class="col-sm-9">
+          <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
             <section>
             <?= $this->section('main_content') ?>
             </section>
           </div>
         </div>
       </div>
-    </section>
+    <!-- </section> -->
 
 
     <footer>
     </footer>
     <script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+    <script src="<?= $this->assetUrl('app.js') ?>"></script>
   </body>
 </html>

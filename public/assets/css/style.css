@@ -157,13 +157,22 @@ article.card h3 {
 		margin-right: 15px;
 	}
 
-}
-.article_single {
-	background-color: rgb(218, 208, 202);
-	padding-left: 15px;
-	padding-top: 1px;
-	padding-bottom: 1px;
-}
+	.article_single {
+		background-color: rgb(218, 208, 202);
+		padding-left: 15px;
+		padding-top: 1px;
+		padding-bottom: 1px;
+	}
+	/*=========================Menu_right HERMELEN =============================*/
+	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
+		top: 84px;
+		width: 212.5px;
+		-o-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-webkit-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+	}
+
 /*===================MICHELE========================*/
 /* Essai table admin product*/
 
@@ -254,6 +263,7 @@ table.responsive-table img {
         background: none;
     }
 }
+
 /*===================MICHELE========================*/
 /* Essai form admin product*/
 .modification {
@@ -281,6 +291,7 @@ table.responsive-table img {
 button.modif_product {
 	text-align: right;
 }
+
 /*================boostrap-navbar=======================*/
 /*pas sticky*/
 .navbar-default{/*navbar global*/
@@ -325,26 +336,6 @@ button.modif_product {
 	background-color: rgb(218, 208, 202);
 }
 
-/*=========================Menu_right=============================*/
-.menu_left{
-	background-color: rgba(185, 185, 185, 0.8);
-}
-.menu_left{
-	padding: 1em 1em 0 1em;
-}
-.menu_left.sticky{/*navbar global*/
-	position: fixed;
-	top: 84px;
-	width: 23.3%;
-	-o-transition: all 1s ease;
-	-moz-transition: all 1s ease;
-	-webkit-transition: all 1s ease;
-	-ms-transition: all 1s ease;
-}
-
-.menu_left li{
-	list-style: none;
-}
 .logo_container{
 	background-color: rgb(105, 94, 69);
 	height: 408px;

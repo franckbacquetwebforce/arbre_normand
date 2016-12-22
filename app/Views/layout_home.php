@@ -1,3 +1,5 @@
+<?php include 'functions.php';
+$categories = findAll('categories');?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -80,28 +82,41 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-	<div class="row container_main_content">
-		<div class="container_menu_left col-xs-0 col-sm-4 col-lg-3 col-lg-3">
-      <ul class="menu_left">
-        <li><a href="<?= $this->url('admin_product') ?>">Qui sommes-nous?</a></li><br />
-				<li><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li><br /><!--ajouté par hermelen le 21/12-->
-				<li><a href="<?= $this->url('categoryproduct') ?>?id_category=1">Champignons</a></li><br />
-        <li><a href="<?= $this->url('categoryproduct') ?>?id_category=2">Palissades</a></li><br />
-        <li><a href="<?= $this->url('categoryproduct') ?>?id_category=3">Champignons tables</a></li><br />
-4        <li><a href="<?= $this->url('admin_product') ?>">Elagage</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
-        <li><a href="<?= $this->url('admin_product') ?>">Bla bla bla</a></li><br />
-      </ul>
-		</div>
-		<div class="container main_content col-xs-12 col-sm-8 col-lg-6 col-lg-6">
-			<section>
-				<?= $this->section('main_content') ?>
+<div class="container product">
+	<div class="row">
+		<div class="col-xs-12 sol-sm-3 col-md-3 col-lg-3">
+			<section class="sidebar-nav">
+				<div class="navbar menu_right navbar-default" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<span class="visible-xs navbar-brand">Sidebar menu</span>
+					</div>
+					<div class="navbar-collapse collapse sidebar-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<!--Faire un JS sur la classe active-->
+							<li class="menu_categorie_all active"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
+							<?php foreach($categories as $categorie){?>
+								<li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
+							<?php } ?>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
 			</section>
 		</div>
-		<div class="container_menu_left col-xs-0 col-sm-0 col-lg-3 col-lg-3">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<section>
+			<?= $this->section('main_content') ?>
+			</section>
+		</div>
+		<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3">
+		</div>
 	</div>
-	</div>
+</div>
 	<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
   <script src="<?= $this->assetUrl('js/app.js') ?>"></script>
