@@ -20,12 +20,12 @@
     <tbody>
       <?php foreach($products as $product){ ?>
       <tr>
-        <td class="organisationnumber"><img class="img_thumbnail_back" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" /></td>
+        <td class="organisationimg"><img class="img_thumbnail_back" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" /></td>
         <td class="organisationname"><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></td>
-        <td class="organisationname"><?php if(!empty($product['description'])) { echo $product['description'];} ?></td>
-        <td class="organisationname"><?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</td>
-        <td class="organisationname"><?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></td>
-        <td class="organisationname"><?php if(!empty($product['weight'])) { echo $product['weight'];} ?> Kg</td>
+        <td class="organisationdesc"><?php if(!empty($product['description'])) { echo $product['description'];} ?></td>
+        <td class="organisationprice"><?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</td>
+        <td class="organisationcat"><?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></td>
+        <td class="organisationweight"><?php if(!empty($product['weight'])) { echo $product['weight'];} ?> Kg</td>
         <td class="actions">
           <a href="<?= $this->url('admin_product_update',['id' => $product['id']])?>" class="edit-item" title="Edit"><button type="button" name="button">Modifier</button></a>
           <a href="<?= $this->url('admin_product_delete_action',['id' => $product['id']])?>" class="remove-item" title="Remove"><button type="button" name="button">Supprimer</button></a>
@@ -37,7 +37,7 @@
 
 </div>
 
-<table>
+<!-- <table>
     <tr>
       <th>Produit</td>
       <th>Description</td>
@@ -62,7 +62,7 @@
 </table>
 
 
-<a href="<?= $this->url('admin_product_new') ?>"><button type="button" name="add_product">add_product</button></a>
+<a href="<?= $this->url('admin_product_new') ?>"><button type="button" name="add_product">add_product</button></a> -->
 
 
 <?php $this->stop('main_content') ?>

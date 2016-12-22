@@ -254,7 +254,33 @@ table.responsive-table img {
         background: none;
     }
 }
-
+/*===================MICHELE========================*/
+/* Essai form admin product*/
+.modification {
+	background: rgba(185, 185, 185, 0.8);
+}
+.ajout {
+	background: rgba(185, 185, 185, 0.8);
+}
+.modif-form {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+.ajout-form {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+button.modif_product {
+	text-align: right;
+}
 /*================boostrap-navbar=======================*/
 /*pas sticky*/
 .navbar-default{/*navbar global*/
@@ -326,7 +352,11 @@ table.responsive-table img {
 .logo_container > h1{
 	font-size: 6em;
 }
-
+/*mise en forme tableau product*/
+.product_img_thumbnail_back .img_thumbnail_back{
+	max-height: 100px;
+	max-width: 100px;
+}
 /*LAYOUT HOME (special)*/
 /*carroussel*/
 
