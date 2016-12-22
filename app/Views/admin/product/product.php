@@ -37,7 +37,7 @@
 
 </div>
 
-<table>
+<!-- <table> commenté suite nouveau tableau product par Michèle.
     <tr>
       <th>Produit</td>
       <th>Description</td>
@@ -59,10 +59,10 @@
       </td>
     </tr>
     <?php } ?>
-</table>
+</table> -->
 
 
-<a href="<?= $this->url('admin_product_new') ?>"><button type="button" name="add_product">add_product</button></a>
+<!-- <a href="<?= $this->url('admin_product_new') ?>"><button type="button" name="add_product">add_product</button></a> -->
 
 
 <?php $this->stop('main_content') ?>
