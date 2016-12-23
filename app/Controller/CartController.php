@@ -21,7 +21,7 @@ class CartController extends AppController
  	   }
  	   return true;
 
-		 $this->show('user/cart');
+		 $this->show('cart/cart');
  	}
 
 	function MontantGlobal(){
@@ -70,7 +70,7 @@ class CartController extends AppController
 	{
 		$infoPanier = $this->infoProduitPanier();
 		$total = $this->MontantGlobal();
-		$this->show('user/cart', array(
+		$this->show('cart/cart', array(
  		 'total'=>$total,'infoPanier'=>$infoPanier
  	 ));
 	}
@@ -101,7 +101,7 @@ class CartController extends AppController
 
 	 $total = $this->MontantGlobal();
 	 $products = $this->afficherPanier();
-	 $this->show('user/cart', array(
+	 $this->show('cart/cart', array(
 		 'total'=>$total , 'products'=>$products
 	 ));
  	}
@@ -124,7 +124,7 @@ class CartController extends AppController
 
 	 $total = $this->MontantGlobal();
 	 $products = $this->afficherPanier();
-	 $this->show('user/cart', array(
+	 $this->show('cart/cart', array(
 		 'total'=>$total , 'products'=>$products
 	 ));
  	}
@@ -152,10 +152,11 @@ class CartController extends AppController
 	      unset($tmp);
 				$total = $this->MontantGlobal();
 				$products = $this->afficherPanier();
-				$this->show('user/cart', array(
+				$this->show('cart/cart', array(
 					'total'=>$total , 'products'=>$products
 				));
 	}
+	// public function cartOrder
 
 
 

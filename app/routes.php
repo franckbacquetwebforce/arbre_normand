@@ -48,6 +48,7 @@
 		['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
 		['GET', '/user/cart/[i:l]/[i:q]', 'Cart#retrancherArticle', 'user_cart_substrat'],
 		['GET', '/user/cart/[i:l]', 'Cart#supprimerArticle', 'user_cart_remove'],
+
 		// ['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
 
 		// User
@@ -78,6 +79,8 @@
 		// Order
 		// Vide pour le moment
 		['GET', '/orders', 'Order#index', 'listorders'],
+		['GET', '/user/confirm', 'Order#confirmOrder', 'confirm_order'],
+		['POST', '/user/confirm', 'Order#confirmOrderAction', 'confirm_order_action'],
 
 
 		// Product

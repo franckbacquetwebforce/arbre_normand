@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Panier']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($_SESSION['cart']); ?> 
+<?php debug($_SESSION['cart']); ?>
 
 <form method="post" action="cart.php">
 <table>
@@ -38,9 +38,10 @@
 		  </tr>
 		}
 
-	?>
+
 </table>
 </form>
+<a href="<?= $this->url('confirm_order'); ?>"><button type="button" name="button">Passer la commande</button></a>
 
 <?php
 // suite non-utilisée pour le moment
