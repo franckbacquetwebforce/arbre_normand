@@ -10,7 +10,7 @@ $qt_product = '1';
   <div class="row">
     <div class="col-xs-6">
       <figure class="thumbnail">
-        <img src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>">
+        <img class="img-responsive" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>">
       </figure>
     </div>
     <div class="col-xs-6">

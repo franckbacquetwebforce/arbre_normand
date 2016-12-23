@@ -10,7 +10,7 @@
           <?php foreach($products as $product){  ?>
           <article class="card">
               <figure class="thumbnail">
-              <img src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" alt="meow">
+              <img class="img-responsive" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" alt="meow">
               </figure>
               <div class="card-content">
                 <h2><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></h2>

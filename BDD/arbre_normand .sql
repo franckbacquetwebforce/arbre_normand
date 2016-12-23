@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 19 Décembre 2016 à 09:40
+-- Généré le :  Jeu 22 Décembre 2016 à 14:16
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -31,9 +31,17 @@ CREATE TABLE `categories` (
   `slug` int(11) NOT NULL,
   `category_name` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
-  `modified_at` datetime NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `slug`, `category_name`, `created_at`, `status`) VALUES
+(1, 0, 'Champignons', '2016-12-18 22:24:24', 1),
+(2, 12, 'palissade', '0000-00-00 00:00:00', 1),
+(3, 3, 'champignons table', '2016-12-21 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -56,6 +64,18 @@ CREATE TABLE `img` (
 --
 
 INSERT INTO `img` (`id`, `id_product`, `original_name`, `name`, `path`, `status_img`, `mim_type`) VALUES
+(1, 52, 'sanGoku.jpg', '2016_12_17_11_29_original.jpg', 'upload/2016/12/', '1', 'image/jpeg'),
+(2, 52, 'ChichiDB.jpg', '2016_12_17_11_29_original1.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
+(3, 52, 'Gohan_SSJ2_.png', '2016_12_17_11_29_original2.png', 'upload/2016/12/', '2', 'image/png'),
+(4, 52, 'bulma.jpg', '2016_12_17_11_29_original3.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
+(5, 53, 'ChichiDB.jpg', '2016_12_17_11_36_original.jpg', 'upload/2016/12/', '1', 'image/jpeg'),
+(6, 53, 'Gohan_SSJ2_.png', '2016_12_17_11_36_original.png', 'upload/2016/12/', '2', 'image/png'),
+(7, 53, 'bulma.jpg', '2016_12_17_11_36_original.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
+(8, 53, 'sanGoku.jpg', '2016_12_17_11_36_original.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
+(9, 54, 'bulma.jpg', '2016_12_18_12_52_original.jpg', 'upload/2016/12/', '1', 'image/jpeg'),
+(10, 54, 'Gohan_SSJ2_.png', '2016_12_18_12_52_original.png', 'upload/2016/12/', '2', 'image/png'),
+(11, 54, 'ChichiDB.jpg', '2016_12_18_12_52_original.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
+(12, 54, 'sanGoku.jpg', '2016_12_18_12_52_original.jpg', 'upload/2016/12/', '2', 'image/jpeg');
 (76, 64, 'sanGoku.jpg', '2016_12_16_12_36_original.jpg', 'upload/2016/12/', '1', 'image/jpeg'),
 (77, 64, 'Gohan_SSJ2_.png', '2016_12_16_12_36_original1.png', 'upload/2016/12/', '2', 'image/png'),
 (78, 64, 'ChichiDB.jpg', '2016_12_16_12_36_original2.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
@@ -73,7 +93,6 @@ INSERT INTO `img` (`id`, `id_product`, `original_name`, `name`, `path`, `status_
 (90, 68, '2016_12_17_11_29_original.jpg', '2016_12_19_09_36_original.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
 (91, 68, '2016_12_17_11_36_original.jpg', '2016_12_19_09_36_original.jpg', 'upload/2016/12/', '2', 'image/jpeg'),
 (92, 68, '2016_12_17_11_29_original.jpg', '2016_12_19_09_36_original.jpg', 'upload/2016/12/', '2', 'image/jpeg');
-
 -- --------------------------------------------------------
 
 --
@@ -82,9 +101,10 @@ INSERT INTO `img` (`id`, `id_product`, `original_name`, `name`, `path`, `status_
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `ref` varchar(50) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `date_order` datetime NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `status` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -127,7 +147,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `slug`, `product_name`, `description`, `price_ht`, `weight`, `stock`, `id_category`, `created_at`, `modified_at`, `created_by`, `modified_by`) VALUES
-(68, 'dfgfesgdrs', 'dfgfesgdrs', 'dsrterzterterzt', 11, 11, 1, 2, '2016-12-19 09:36:30', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+(52, 'dssdqfsdfsq', 'produit 1', 'dssdfsdfsdfsfs', 1, 111, 11, 2, '2016-12-17 11:29:40', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(53, 'rtesrtesrter', 'produit 2', 'ertertertert', 11, 11, 11, 3, '2016-12-17 11:36:57', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(54, 'dfhdhdfghghfdghdfgh', 'produit 3', 'fghdfghdfhgfdghdf', 111, 11, 11, 2, '2016-12-18 12:52:21', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -137,7 +159,7 @@ INSERT INTO `products` (`id`, `slug`, `product_name`, `description`, `price_ht`,
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
@@ -145,6 +167,13 @@ CREATE TABLE `users` (
   `modified_at` datetime NOT NULL,
   `role` varchar(30) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `token`, `created_at`, `modified_at`, `role`) VALUES
+(2, 'hermelen', 'hermelen.peris@gmail.com', '$2y$10$hQ3BKBs1LVIkMRQFH9GrauwWbeZ667mzYpbFzf4EoClvJ8CZO4JNu', 'UOhg4WGil3XTs9GMFe6_', '2016-12-21 10:58:15', '0000-00-00 00:00:00', 'user');
 
 -- --------------------------------------------------------
 
@@ -219,12 +248,12 @@ ALTER TABLE `users_adress`
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `img`
 --
 ALTER TABLE `img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
@@ -239,12 +268,12 @@ ALTER TABLE `orders_products`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `users_adress`
 --
