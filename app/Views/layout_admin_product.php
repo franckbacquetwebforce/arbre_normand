@@ -73,15 +73,15 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12"> -->
           <section>
           <?= $this->section('main_content') ?>
           </section>
-        </div>
+        <!-- </div>
       </div>
-    </div>
+    </div> -->
 
     <footer>
     </footer>

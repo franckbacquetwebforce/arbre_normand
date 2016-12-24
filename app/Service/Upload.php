@@ -31,7 +31,7 @@ class Upload
   return false;
   }
 
-  public function getNewName($file_name ,$index = '')
+  public function getNewName($file_name ,$endname = '')
   {
     $i_point = strrpos($file_name,'.');
     $fileExtension = substr($file_name, $i_point ,strlen($file_name) - $i_point);
