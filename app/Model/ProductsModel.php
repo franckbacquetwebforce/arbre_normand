@@ -18,10 +18,7 @@ class ProductsModel extends Model
 
 
 // Récupération des produits
-  // id_category = 1 => Champignons
-  // id-category = 2 => Champignon table
-  // id_category = 3 => Palissades
-public function getProductWithImage()
+public function getProductWithImage()//a supprimer ?
 {
   // SELECT products.*(selectionne tout de la table product), i.name,  i.path, i.status_img (selectionne name, path et status de img as i=>voir LEFT JOIN)
   // FROM $this->table (FROM table du Model)
@@ -33,6 +30,19 @@ public function getProductWithImage()
           FROM $this->table
           LEFT JOIN img as i
       		ON products.id = i.id_product
+          WHERE i.status_img = 1";
+  $query = $this->dbh->prepare($sql);
+  $query->execute();
+  return $query->fetchAll();
+
+}
+
+public function getProductWithImageCat()//remplace getProductWithImage nouvelle jointure pour récup category name
+{
+  $sql = "SELECT products.*, i.id_product, i.name,  i.path, i.status_img, cat.id, cat.category_name
+          FROM $this->table
+          LEFT JOIN img as i ON products.id = i.id_product
+          LEFT JOIN categories as cat ON products.id_category = cat.id
           WHERE i.status_img = 1";
   $query = $this->dbh->prepare($sql);
   $query->execute();
@@ -69,15 +79,32 @@ public function getProductByCategoryWithImage()
   $query->execute();
   return $query->fetchAll();
 }
-public function getsingleProduct($id)
-  {
-    $modelSingle = new ProductsModel($id);
-    $product = $modelSingle->find($id);
-    $this->show('products/singleproduct', array(
-      'product' => $product
-    ));
-  }
 
+  public function getsingleProduct($id)// a supprimer?
+    {
+      $modelSingle = new ProductsModel($id);
+      $product = $modelSingle->find($id);
+      $this->show('products/singleproduct', array(
+        'product' => $product
+      ));
+    }
+
+    public function getSingleProductCat($id)//remplace getsingleProduct avec ajout de category
+    {
+      $sql = "SELECT products.*, cat.id, cat.category_name
+      FROM $this->table
+      LEFT JOIN categories as cat ON products.id_category = cat.id
+      WHERE products.id = $id";
+      $product = $this->dbh->prepare($sql);
+      $product->execute();
+      return $product->fetch();
+
+      // $modelSingle = new ProductsModel($id);
+      // $product = $modelSingle->find($id);
+      $this->show('products/singleproduct', array(
+        'product' => $product
+      ));
+    }
   // Liste le nom des produits ainsi que leur stock
   public function showStock()
   {

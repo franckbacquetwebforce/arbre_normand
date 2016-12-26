@@ -34,6 +34,22 @@ class CategoriesAdminController extends AppController
   }
 
   /**
+   *getCat
+   *Récupère toutes le catégories sous forme d'array
+   */
+  public function getAllCat()
+  {
+    $categories = $this->category->findAll();
+    return $categories;
+  }
+
+  public function getOneCat($id)
+  {
+    $oneCategory = $this->category->find($id);
+    return $oneCategory;
+  }
+
+  /**
    *addNew
    *Affiche le formulaire d'ajout d'une catégorie
    */

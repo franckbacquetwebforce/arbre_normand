@@ -28,10 +28,10 @@
         <input type="text" name="stock" class="form-control" value="<?php if(!empty($_POST['stock'])){echo $_POST['stock'];} ?>"><br />
         <label for="id_category"><h4>Catégorie :</h4></label><br />
         <select class="" name="id_category">
-          <option value="1">Catégorie 1</option>
-          <option value="2">Catégorie 2</option>
-          <option value="3">Catégorie 3</option>
-          <option value="4">Catégorie 4</option>
+          <?php // Select categories dynamique
+          foreach($categories as $category){?>
+          <option value="<?= $category['id'] ?>"><?= $category['category_name'] ?></option>
+          <?php } ?>
         </select><br /><br />
 			</div>
 			<div class="col-sm-5">

@@ -309,6 +309,16 @@ button.modif_product {
 h1.titre {
 	margin-left: 5em;
 }
+/*========================HERMELEN===========================*/
+/*images product_modified*/
+.product_modified_img{
+	display: flex;
+	float: right;
+	width: 20%;
+}
+.product_modified_img_name{
+	font-size: 0.8em;
+}
 
 /*================boostrap-navbar=======================*/
 /*pas sticky*/

@@ -4,6 +4,7 @@ namespace Controller;
 
 use \Controller\AppController;
 use \Controller\ProductAdminController;
+use \Controller\CategoriesAdminController;
 use \Model\ProductsModel;
 use \Model\ImgModel;
 use \Service\ValidationTools;
@@ -17,7 +18,7 @@ class ProductController extends AppController
   {
     $searchImg = new ProductsModel();
 
-    $products = $searchImg->getProductWithImage();
+    $products = $searchImg->getProductWithImageCat();//changé pour avoir category
 
     $this->show('products/listproducts', array(
       'products' => $products,
@@ -27,7 +28,6 @@ class ProductController extends AppController
   public function indexCategory()
   {
     $searchCategory = new ProductsModel();
-
     $products = $searchCategory->getProductByCategoryWithImage();
 
     $this->show('products/listproducts', array(
@@ -39,7 +39,13 @@ class ProductController extends AppController
   public function getsingleProduct($id)
   {
     $modelSingle = new ProductsModel($id);
-    $product = $modelSingle->find($id);
+    $product = $modelSingle->getSingleProductCat($id);//modifier pour recup category name
+
+
+    // $product = $modelSingle->find($id);
+    //
+    // $CategoriesAdmin = new CategoriesAdminController($id);
+    // $oneCategory = $CategoriesAdmin->getOneCat($product['id_category']);
 
     $img = $modelSingle->searchImgSingle($id);
     $this->show('products/singleproduct', array(

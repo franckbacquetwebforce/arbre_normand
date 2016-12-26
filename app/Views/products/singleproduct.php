@@ -1,7 +1,7 @@
 <?php $this->layout('layout_product', ['title' => 'Details']) ?>
 
 <?php $this->start('main_content') ?>
-<?php
+<?php 
 $id_product = $product['id'];
 $price_ht = $product['price_ht'];
 $qt_product = '1';
@@ -60,7 +60,7 @@ $qt_product = '1';
                   <h2><?php echo $product['product_name']; ?></h2>
                   <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p>
                   <p>''</p>
-                  <!-- <p class="caract">Catégorie : <?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></p> -->
+                  <p class="caract">Catégorie : <?php echo $product['category_name']; ?></p>
                   <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
                   <p class="caract">Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?></p>
                   <p>''</p>

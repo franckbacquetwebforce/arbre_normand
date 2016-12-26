@@ -3,6 +3,7 @@
 namespace Controller;
 
 use \Controller\AppController;
+use \Controller\CategoriesAdminController;
 use \Model\ProductsModel;
 use \Model\ImgModel;
 use \Service\ValidationTools;
@@ -28,7 +29,12 @@ class ProductAdminController extends AppController
   // ajout d'un produit
   public function addNew()
   {
-    $this->show('admin/product/product_new');//modifié suite changement de place du fichier product_new.php
+    $CategoriesAdmin = new CategoriesAdminController();
+    $categories = $CategoriesAdmin->getAllCat();
+
+    $this->show('admin/product/product_new', array(
+      'categories'=> $categories
+    ));//modifié suite changement de place du fichier product_new.php
   }
 
   public function addNewAction()
@@ -110,7 +116,6 @@ if(!empty($error['imageSecondaire3'])) {
 
 
     if($validation->IsValid($error)) {
-
       // SLUG et CREATED BY à FINIR
       $data = array(
         'slug'         => $product_name,
@@ -217,9 +222,21 @@ if(!empty($error['imageSecondaire3'])) {
   {
     $model = new ProductsModel();
     $product = $model->find($id);
+    $image = $model->searchImgSingle($id);
+
+debug($image);
+debug($_FILES);
+    $CategoriesAdmin = new CategoriesAdminController();
+    $categories = $CategoriesAdmin->getAllCat();
+
+
+
+
     if(!empty($product)) {
       $this->show('admin/product/product_modified', array(
-        'product'   => $product
+        'product'   => $product,
+        'categories'=> $categories,
+        'image'=> $image
       ));
     }
     else {
