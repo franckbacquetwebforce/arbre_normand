@@ -1,7 +1,7 @@
 <?php $this->layout('layout_product', ['title' => 'Details']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($img);
+<?php
 $id_product = $product['id'];
 $price_ht = $product['price_ht'];
 $qt_product = '1';

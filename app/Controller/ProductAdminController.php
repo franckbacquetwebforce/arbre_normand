@@ -60,7 +60,7 @@ class ProductAdminController extends AppController
 $validImage = $validation->imgValid('image');
 if(is_array($validImage)) {
       $extension = $validImage['ext'];
-      $file_tmp  = $validImage['file_tmp'];
+      $file_tmp_main  = $validImage['file_tmp'];
 } else {
   $error['image'] = $validImage;
 }
@@ -73,7 +73,7 @@ if(!empty($error['image'])) {
 $validImageSecondaire1 = $validation->imgValid('imageSecondaire1');
 if(is_array($validImageSecondaire1)) {
       $extension = $validImageSecondaire1['ext'];
-      $file_tmp  = $validImageSecondaire1['file_tmp'];
+      $file_tmp_1  = $validImageSecondaire1['file_tmp'];
 } else {
   $error['imageSecondaire1'] = $validImageSecondaire1;
 }
@@ -86,7 +86,7 @@ if(!empty($error['imageSecondaire1'])) {
 $validImageSecondaire2 = $validation->imgValid('imageSecondaire2');
 if(is_array($validImageSecondaire2)) {
       $extension = $validImageSecondaire2['ext'];
-      $file_tmp  = $validImageSecondaire2['file_tmp'];
+      $file_tmp_2  = $validImageSecondaire2['file_tmp'];
 } else {
   $error['imageSecondaire2'] = $validImageSecondaire2;
 }
@@ -99,7 +99,7 @@ if(!empty($error['imageSecondaire2'])) {
 $validImageSecondaire3 = $validation->imgValid('imageSecondaire3');
 if(is_array($validImageSecondaire3)) {
       $extension = $validImageSecondaire3['ext'];
-      $file_tmp  = $validImageSecondaire3['file_tmp'];
+      $file_tmp_3  = $validImageSecondaire3['file_tmp'];
 } else {
   $error['imageSecondaire3'] = $validImageSecondaire3;
 }
@@ -130,8 +130,8 @@ if(!empty($error['imageSecondaire3'])) {
 
 // IMAGE PRINCIPALE
         if($image){
-            $upload->UploadProduct($file_tmp,$extension);
-            $name = $upload->getNewName($_FILES['image']['name']);
+            $upload->UploadProduct($file_tmp_main,$extension,'_principale');
+            $name = $upload->getNewName($_FILES['image']['name'],'_principale');
             $path = $upload->getPath();
             // debug($_FILES);
 
@@ -147,26 +147,26 @@ if(!empty($error['imageSecondaire3'])) {
         }
 // IMAGE SECONDAIRE 1
         if($imageSecondaire1){
-            $upload->UploadProduct($file_tmp,$extension,'1');
-            $nameSecondaire1 = $upload->getNewName($_FILES['imageSecondaire1']['name'],'1');
-            $pathSecondaire1 = $upload->getPath();
-            // debug($_FILES);
+          $upload->UploadProduct($file_tmp_1,$extension,'_secondaire_1');
+          $name = $upload->getNewName($_FILES['imageSecondaire1']['name'],'_secondaire_1');
+          $path = $upload->getPath();
+          // debug($_FILES);
 
-            $dataSecondaireImg1 = array(
-                  'id_product'    => $idProductreal,
-                  'original_name' => $_FILES['imageSecondaire1']['name'],
-                  'name'          => $nameSecondaire1,
-                  'path'          => $pathSecondaire1,
-                  'status_img'    => 2,
-                  'mim_type'      => $_FILES['imageSecondaire1']['type'],
-              );
-              $modelImage->insert($dataSecondaireImg1);
+          $dataMainImg = array(
+                'id_product'    => $idProductreal,
+                'original_name' => $_FILES['imageSecondaire1']['name'],
+                'name'          => $name,
+                'path'          => $path,
+                'status_img'    => 2,
+                'mim_type'      => $_FILES['imageSecondaire1']['type'],
+            );
+            $modelImage->insert($dataMainImg);
         }
 
 // IMAGE SECONDAIRE 2
         if($imageSecondaire2){
-            $upload->UploadProduct($file_tmp,$extension,'2');
-            $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'2');
+            $upload->UploadProduct($file_tmp_2,$extension,'_secondaire_2');
+            $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'_secondaire_2');
             $pathSecondaire2 = $upload->getPath();
             // debug($_FILES);
 
@@ -182,8 +182,8 @@ if(!empty($error['imageSecondaire3'])) {
         }
                 // IMAGE SECONDAIRE 3
         if($imageSecondaire3){
-            $upload->UploadProduct($file_tmp,$extension,'3');
-            $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'3');
+            $upload->UploadProduct($file_tmp_3,$extension,'_secondaire_3');
+            $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'_secondaire_3');
             $pathSecondaire3 = $upload->getPath();
             // debug($_FILES);
 
@@ -195,12 +195,12 @@ if(!empty($error['imageSecondaire3'])) {
                   'status_img'    => 2,
                   'mim_type'      => $_FILES['imageSecondaire3']['type'],
               );
-// debug($_POST);
-// debug($_FILES);
 
               $modelImage->insert($dataSecondaireImg3);
+              // debug($_POST);
+              // debug($_FILES);
         }
-      // redirection
+      //redirection
         $this->redirectToRoute('admin_product');
     }
     else {
@@ -262,7 +262,7 @@ if(!empty($error['imageSecondaire3'])) {
   die('dede');
   if(is_array($validImage)) {
         $extension = $validImage['ext'];
-        $file_tmp  = $validImage['file_tmp'];
+        $file_tmp_main  = $validImage['file_tmp'];
   } else {
     $error['image'] = $validImage;
   }
@@ -275,7 +275,7 @@ if(!empty($error['imageSecondaire3'])) {
   $validImageSecondaire1 = $validation->imgValid('imageSecondaire1');
   if(is_array($validImageSecondaire1)) {
         $extension = $validImageSecondaire1['ext'];
-        $file_tmp  = $validImageSecondaire1['file_tmp'];
+        $file_tmp_1  = $validImageSecondaire1['file_tmp'];
   } else {
     $error['imageSecondaire1'] = $validImageSecondaire1;
   }
@@ -288,7 +288,7 @@ if(!empty($error['imageSecondaire3'])) {
   $validImageSecondaire2 = $validation->imgValid('imageSecondaire2');
   if(is_array($validImageSecondaire2)) {
         $extension = $validImageSecondaire2['ext'];
-        $file_tmp  = $validImageSecondaire2['file_tmp'];
+        $file_tmp_2  = $validImageSecondaire2['file_tmp'];
   } else {
     $error['imageSecondaire2'] = $validImageSecondaire2;
   }
@@ -301,7 +301,7 @@ if(!empty($error['imageSecondaire3'])) {
   $validImageSecondaire3 = $validation->imgValid('imageSecondaire3');
   if(is_array($validImageSecondaire3)) {
         $extension = $validImageSecondaire3['ext'];
-        $file_tmp  = $validImageSecondaire3['file_tmp'];
+        $file_tmp_3  = $validImageSecondaire3['file_tmp'];
   } else {
     $error['imageSecondaire3'] = $validImageSecondaire3;
   }
@@ -332,7 +332,7 @@ if(!empty($error['imageSecondaire3'])) {
 
   // IMAGE PRINCIPALE
           if($image){
-              $upload->UploadProduct($file_tmp,$extension);
+              $upload->UploadProduct($file_tmp_main,$extension);
               $name = $upload->getNewName($_FILES['image']['name']);
               $path = $upload->getPath();
               debug($_FILES);
@@ -349,7 +349,7 @@ if(!empty($error['imageSecondaire3'])) {
           }
   // IMAGE SECONDAIRE 1
           if($imageSecondaire1){
-              $upload->UploadProduct($file_tmp,$extension,'1');
+              $upload->UploadProduct($file_tmp_1,$extension,'1');
               $nameSecondaire1 = $upload->getNewName($_FILES['imageSecondaire1']['name'],'1');
               $pathSecondaire1 = $upload->getPath();
               debug($_FILES);
@@ -367,7 +367,7 @@ if(!empty($error['imageSecondaire3'])) {
 
   // IMAGE SECONDAIRE 2
           if($imageSecondaire2){
-              $upload->UploadProduct($file_tmp,$extension,'2');
+              $upload->UploadProduct($file_tmp_2,$extension,'2');
               $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'2');
               $pathSecondaire2 = $upload->getPath();
               debug($_FILES);
@@ -384,7 +384,7 @@ if(!empty($error['imageSecondaire3'])) {
           }
                   // IMAGE SECONDAIRE 3
           if($imageSecondaire3){
-              $upload->UploadProduct($file_tmp,$extension,'3');
+              $upload->UploadProduct($file_tmp_3,$extension,'3');
               $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'3');
               $pathSecondaire3 = $upload->getPath();
               debug($_FILES);
