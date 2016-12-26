@@ -40,8 +40,11 @@ class ProductController extends AppController
   {
     $modelSingle = new ProductsModel($id);
     $product = $modelSingle->find($id);
+
+    $img = $modelSingle->searchImgSingle($id);
     $this->show('products/singleproduct', array(
-      'product' => $product
+      'product' => $product,
+      'img'    => $img
     ));
   }
 }

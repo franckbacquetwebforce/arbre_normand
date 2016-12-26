@@ -25,16 +25,16 @@
     <option value="3">Catégorie 3</option>
     <option value="4">Catégorie 4</option>
   </select><br /><br />
-  <label for="image_principale">Image principale :</label>
+  <label for="image">Image principale :</label>
   <span class=""><?php if(!empty($error['image'])){echo $error['image'];} ?></span><br />
   <input type="file" name="image" /><br /><br />
-  <label for="image_secondaire1">Image secondaire 1 :</label>
+  <label for="imageSecondaire1">Image secondaire 1 :</label>
   <span class=""><?php if(!empty($error['imageSecondaire1'])){echo $error['imageSecondaire1'];} ?></span><br />
   <input type="file" name="imageSecondaire1" /><br /><br />
-  <label for="image_secondaire2">Image secondaire 2 :</label>
+  <label for="imageSecondaire2">Image secondaire 2 :</label>
   <span class=""><?php if(!empty($error['imageSecondaire2'])){echo $error['imageSecondaire2'];} ?></span><br />
   <input type="file" name="imageSecondaire2" /><br /><br />
-  <label for="image_secondaire3">Image secondaire 3 :</label>
+  <label for="imageSecondaire3">Image secondaire 3 :</label>
   <span class=""><?php if(!empty($error['imageSecondaire3'])){echo $error['imageSecondaire3'];} ?></span><br />
   <input type="file" name="imageSecondaire3" /><br /><br />
   <br /><input type="submit" name="submitfile" value="Envoyer">
