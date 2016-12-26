@@ -18,7 +18,7 @@ class ProductsModel extends Model
 
 
 // Récupération des produits
-public function getProductWithImage()//a supprimer ?
+public function getProductWithImage()//a supprimer
 {
   // SELECT products.*(selectionne tout de la table product), i.name,  i.path, i.status_img (selectionne name, path et status de img as i=>voir LEFT JOIN)
   // FROM $this->table (FROM table du Model)
@@ -70,10 +70,10 @@ public function getProductByCategoryWithImage()
   // ON products.id = i.id_product (condition de la selection id de la table products.id = id_product de la table img)
   // WHERE i.status_img = 1"; (condition staus_img = 1)
   $category = $_GET['id_category'];
-  $sql = "SELECT products.*, i.name,  i.path, i.status_img
+  $sql = "SELECT products.*, i.id_product, i.name,  i.path, i.status_img, cat.id, cat.category_name
           FROM $this->table
-          LEFT JOIN img as i
-      		ON products.id = i.id_product
+          LEFT JOIN img as i ON products.id = i.id_product
+          LEFT JOIN categories as cat ON products.id_category = cat.id
           WHERE i.status_img = 1 AND products.id_category=$category";
   $query = $this->dbh->prepare($sql);
   $query->execute();
