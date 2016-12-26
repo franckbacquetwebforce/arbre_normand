@@ -204,7 +204,7 @@ if(!empty($error['imageSecondaire3'])) {
         $this->redirectToRoute('admin_product');
     }
     else {
-      debug($error);
+      // debug($error);
          // refaire afficher la vue avec les errore passé en parametre de cette vue
          $this->show('admin/product/product_new',array (
            'error' => $error,
@@ -258,8 +258,8 @@ if(!empty($error['imageSecondaire3'])) {
 
   // IMAGE PRINCIPALE
   $validImage = $validation->imgValid('image');
-  debug($validImage);
-  die('dede');
+  // debug($validImage);
+  // die('dede');
   if(is_array($validImage)) {
         $extension = $validImage['ext'];
         $file_tmp_main  = $validImage['file_tmp'];
@@ -335,7 +335,7 @@ if(!empty($error['imageSecondaire3'])) {
               $upload->UploadProduct($file_tmp_main,$extension);
               $name = $upload->getNewName($_FILES['image']['name']);
               $path = $upload->getPath();
-              debug($_FILES);
+              // debug($_FILES);
 
               $dataMainImg = array(
                     'id_product'    => $idProductreal,
@@ -352,7 +352,7 @@ if(!empty($error['imageSecondaire3'])) {
               $upload->UploadProduct($file_tmp_1,$extension,'1');
               $nameSecondaire1 = $upload->getNewName($_FILES['imageSecondaire1']['name'],'1');
               $pathSecondaire1 = $upload->getPath();
-              debug($_FILES);
+              // debug($_FILES);
 
               $dataSecondaireImg1 = array(
                     'id_product'    => $idProductreal,
@@ -370,7 +370,7 @@ if(!empty($error['imageSecondaire3'])) {
               $upload->UploadProduct($file_tmp_2,$extension,'2');
               $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'2');
               $pathSecondaire2 = $upload->getPath();
-              debug($_FILES);
+              // debug($_FILES);
 
               $dataSecondaireImg2 = array(
                     'id_product'    => $idProductreal,
@@ -387,7 +387,7 @@ if(!empty($error['imageSecondaire3'])) {
               $upload->UploadProduct($file_tmp_3,$extension,'3');
               $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'3');
               $pathSecondaire3 = $upload->getPath();
-              debug($_FILES);
+              // debug($_FILES);
 
               $dataSecondaireImg3 = array(
                     'id_product'    => $idProductreal,
@@ -397,17 +397,17 @@ if(!empty($error['imageSecondaire3'])) {
                     'status_img'    => 2,
                     'mim_type'      => $_FILES['imageSecondaire3']['type'],
                 );
-  debug($_POST);
-  debug($_FILES);
+  // debug($_POST);
+  // debug($_FILES);
                 $modelImage->update($dataSecondaireImg3,$imageSecondaire3['id_product']);
           }
         // redirection
-          // $this->redirectToRoute('admin_product');
+          $this->redirectToRoute('admin_product');
 
       }
 
       else {
-        debug($error);
+        // debug($error);
            // refaire afficher la vue avec les errore passé en parametre de cette vue
            $this->show('admin/product/product_modified',array (
              'error' => $error,

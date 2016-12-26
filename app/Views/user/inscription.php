@@ -6,13 +6,13 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="header_panel">
           <h1 class="panel-title"><strong>Creer un nouveau compte</strong></h1>
         </div>
         <div class="panel-body">
           <form id="inscription" action="<?= $this->url('register_action'); ?>" method="post">
             <div class="form-group">
-              <label for="username">Username*</label>
+              <label for="username">Pseudo*</label>
               <input type="text" class="form-control" name="username" required="required" value="<?php if(!empty($_POST['username'])) {echo $_POST['username']; } ?>"/>
               <span class="help-block" id="error_username"><?php if(!empty($errors['username'])) {echo $errors['username']; } ?></span><br>
             </div>
@@ -22,16 +22,16 @@
               <span class="help-block" id="error_email"><?php if(!empty($errors['email'])) {echo $errors['email']; } ?></span><br>
             </div>
             <div class="form-group">
-              <label for="password">Password*</label>
+              <label for="password">Mot de passe*</label>
               <input type="password" class="form-control" name="password" tabindex="1" required="required" value="<?php if(!empty($_POST['password'])){echo $_POST['password'];}?>"><br>
               <span id="error_password"><?php if(!empty($errors['password'])) {echo $errors['password']; } ?></span><br>
             </div>
             <div class="form-group">
-              <label for="password2">Repeat password*</label>
+              <label for="password2">Répéter le mot de passe*</label>
               <input type="password" class="form-control" name="password2" tabindex="1" required="required" value="<?php if(!empty($_POST['password2'])){echo $_POST['password2'];}?>"><br>
               <span id="error_password2"><?php if(!empty($errors['password2'])) {echo $errors['password2']; } ?></span><br>
             </div>
-            <button type="submit" class="btn btn-sm btn-default">S'inscrire'</button>
+            <button type="submit" class="btn btn-success">S'inscrire'</button>
           </form>
         </div>
       </div>

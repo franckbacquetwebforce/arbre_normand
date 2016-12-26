@@ -10,6 +10,7 @@ $qt_product = '1';
   <div class="row">
     <div class="col-xs-6">
       <figure class="thumbnail">
+
               <!-- DEBUT SLIDER IMG PRODUCT HERMELEN -->
 
           	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -26,12 +27,12 @@ $qt_product = '1';
             	<div class="carousel-inner" role="listbox"><?php
               for ($i=0; $i < 1 ; $i++) { ?>
                 <div class="item active">
-          				<img class ="slider_img" src="<?= $this->url('default_home').$img[$i]['path'].$img[$i]['name']; ?>" alt="image <?= $i + 1 ?>: <?= $product['product_name'] ?>">
+          				<img class ="slider_img img-responsive" src="<?= $this->url('default_home').$img[$i]['path'].$img[$i]['name']; ?>" alt="image <?= $i + 1 ?>: <?= $product['product_name'] ?>">
           			</div>
               <?php }
               for ($i=1; $i < count($img) ; $i++) { ?>
                 <div class="item">
-          					<img class ="slider_img" src="<?= $this->url('default_home').$img[$i]['path'].$img[$i]['name']; ?>" alt="image <?= $i + 1 ?>: <?= $product['product_name'] ?>">
+          					<img class ="slider_img img-responsive" src="<?= $this->url('default_home').$img[$i]['path'].$img[$i]['name']; ?>" alt="image <?= $i + 1 ?>: <?= $product['product_name'] ?>">
           			</div>
               <?php } ?>
             <!-- Left and right controls -->
@@ -58,9 +59,11 @@ $qt_product = '1';
                 <div class="card-content">
                   <h2><?php echo $product['product_name']; ?></h2>
                   <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p>
-                  <p class="caract">Catégorie : <?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></p>
+                  <p>''</p>
+                  <!-- <p class="caract">Catégorie : <?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></p> -->
                   <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
                   <p class="caract">Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?></p>
+                  <p>''</p>
                   <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $product['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
               </article>
             </section>
@@ -68,19 +71,18 @@ $qt_product = '1';
         </main>
       </section>
     </div>
+    <section class="article_single">
+    <!-- AFFICHAGE DE LA DESCRIPTION -->
+      <article>
+        <div class="spacer"></div>
+        <h3>Description du produit</h3>
+        <p><?php echo nl2br($product['description']); ?></p>
+        <div class="spacer"></div>
+      </article>
+    </section>
   </div>
 </div>
 
-  </div>
-</div>
-  <section class="article_single">
-  <!-- AFFICHAGE DE LA DESCRIPTION -->
-    <article>
-      <div class="spacer"></div>
-      <h3>Description du produit</h3>
-      <p><?php echo nl2br($product['description']); ?></p>
-      <div class="spacer"></div>
-    </article>
-  </section>
+
 
   <?php $this->stop('main_content') ?>

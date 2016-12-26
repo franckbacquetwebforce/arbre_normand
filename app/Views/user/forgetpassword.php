@@ -7,7 +7,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="header_panel">
           <h1 class="panel-title"><strong>Mot de passe oublié</strong></h1>
         </div>
         <div class="panel-body">
@@ -17,7 +17,7 @@
               <input type="email" class="form-control" name="email" required="required" value="<?php if(!empty($_POST['email'])) {echo $_POST['email'];} ?>"/>
               <span class="help-block" id="error_email"><?php if(!empty($errors['email'])) {echo $errors['email']; } ?></span><br>
             </div>
-            <button type="submit" class="btn btn-sm btn-default">Soumettre</button>
+            <button type="submit" class="btn btn-success">Soumettre</button>
           </form>
         </div>
       </div>

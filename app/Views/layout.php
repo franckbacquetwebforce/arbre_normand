@@ -5,6 +5,7 @@ $categories = findAll('categories');?>
 <head>
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 
@@ -74,41 +75,20 @@ $categories = findAll('categories');?>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-		<div class="container product">
-			<div class="row">
-				<div class="col-xs 12 sol-sm-3 col-md-3 col-lg-3">
-					<section class="sidebar-nav">
-						<div class="navbar navbar-default" role="navigation">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-								<span class="visible-xs navbar-brand">Sidebar menu</span>
-							</div>
-							<div class="navbar-collapse collapse sidebar-navbar-collapse">
-								<ul class="nav navbar-nav">
-									<!--Faire un JS sur la classe active-->
-									<li class="menu_categorie_all active"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
-									<?php foreach($categories as $categorie){?>
-										<li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
-									<?php } ?>
-								</ul>
-							</div><!--/.nav-collapse -->
+
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3"></div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<section>
+							<?= $this->section('main_content') ?>
+							</section>
 						</div>
-					</section>
+						<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3"></div>
+					</div>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<section>
-					<?= $this->section('main_content') ?>
-					</section>
-				</div>
-				<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3">
-				</div>
-			</div>
-		</div>
+
+
 
 
 
