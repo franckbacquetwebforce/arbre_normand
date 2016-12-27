@@ -1,7 +1,8 @@
 <?php $this->layout('layout_product', ['title' => 'Panier']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($_SESSION['cart']); ?>
+<?php debug($_SESSION['cart']);
+			?>
 
 <form method="post" action="cart.php">
 	<h2 colspan="4">Votre panier</h2>

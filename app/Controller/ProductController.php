@@ -40,7 +40,7 @@ class ProductController extends AppController
   {
     $modelSingle = new ProductsModel($id);
     $product = $modelSingle->getSingleProductCat($id);//modifier pour recup category name
-
+    $productOriginal = $modelSingle->getsingleProduct($id);//restauré pour recup id produit
 
     // $product = $modelSingle->find($id);
     //
@@ -50,9 +50,10 @@ class ProductController extends AppController
     $img = $modelSingle->searchImgSingle($id);
     $this->show('products/singleproduct', array(
       'product' => $product,
-      'img'    => $img
+      'img'    => $img,
+      'productOriginal' => $productOriginal
     ));
   }
 
-  
+
 }
