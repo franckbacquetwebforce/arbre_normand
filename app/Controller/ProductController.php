@@ -53,4 +53,6 @@ class ProductController extends AppController
       'img'    => $img
     ));
   }
+
+  
 }

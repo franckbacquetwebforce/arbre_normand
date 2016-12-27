@@ -1,5 +1,8 @@
 <?php $this->layout('layout_admin_product', ['title' => 'Modification du produit']) ?>
-<?php $this->start('main_content') ?>
+<?php $this->start('main_content');
+debug($product);
+debug($image);
+?>
 
 
 <h1 class="titre">Modification du produit</h1>

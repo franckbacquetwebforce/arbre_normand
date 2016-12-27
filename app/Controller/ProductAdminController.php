@@ -8,6 +8,7 @@ use \Model\ProductsModel;
 use \Model\ImgModel;
 use \Service\ValidationTools;
 use \Service\Upload;
+use \Service\UpdateImage;
 use \DateTime;
 
 
@@ -19,7 +20,7 @@ class ProductAdminController extends AppController
   {
     $searchImg = new ProductsModel();
 
-    $products = $searchImg->getProductWithImage();
+    $products = $searchImg->getProductWithImageCat();
 
     $this->show('admin/product/product', array(//modifié suite changement de place du fichier product.php
       'products' => $products,
@@ -224,8 +225,6 @@ if(!empty($error['imageSecondaire3'])) {
     $product = $model->find($id);
     $image = $model->searchImgSingle($id);
 
-debug($image);
-debug($_FILES);
     $CategoriesAdmin = new CategoriesAdminController();
     $categories = $CategoriesAdmin->getAllCat();
 
@@ -345,8 +344,8 @@ debug($_FILES);
         $idProduct = $addProduct->update($data,$product['id']);
         //$idProduct = $addProduct->lastInsertId();
         $idProductreal = $idProduct['id'];
-
-
+//UPDATE DES IMAGES
+$updateImage = new UpdateImage();
   // IMAGE PRINCIPALE
           if($image){
               $upload->UploadProduct($file_tmp_main,$extension);
@@ -362,7 +361,7 @@ debug($_FILES);
                     'status_img'    => 1,
                     'mim_type'      => $_FILES['image']['type'],
                 );
-                $modelImage->update($dataMainImg,$image['id_product']);
+                $insertImg = $updateImage->updateImg($dataMainImg,$image['id_product'],0);
           }
   // IMAGE SECONDAIRE 1
           if($imageSecondaire1){
@@ -379,7 +378,7 @@ debug($_FILES);
                     'status_img'    => 2,
                     'mim_type'      => $_FILES['imageSecondaire1']['type'],
                 );
-                $modelImage->update($dataSecondaireImg1,$imageSecondaire1['id_product']);
+                $insertImg = $updateImage->updateImg($dataMainImg,$image['id_product'],1);
           }
 
   // IMAGE SECONDAIRE 2
@@ -397,7 +396,7 @@ debug($_FILES);
                     'status_img'    => 2,
                     'mim_type'      => $_FILES['imageSecondaire2']['type'],
                 );
-                $modelImage->update($dataSecondaireImg2,$imageSecondaire2['id_product']);
+                $insertImg = $updateImage->updateImg($dataMainImg,$image['id_product'],2);
           }
                   // IMAGE SECONDAIRE 3
           if($imageSecondaire3){
@@ -416,7 +415,7 @@ debug($_FILES);
                 );
   // debug($_POST);
   // debug($_FILES);
-                $modelImage->update($dataSecondaireImg3,$imageSecondaire3['id_product']);
+                $insertImg = $updateImage->updateImg($dataMainImg,$image['id_product'],3);
           }
         // redirection
           $this->redirectToRoute('admin_product');
