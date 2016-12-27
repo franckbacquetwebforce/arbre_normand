@@ -16,11 +16,10 @@
               </figure>
               <div class="card-content">
                 <h2><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></h2>
-                <p><h3><?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p>
-                <p>''</p>
+                <p><h3><?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
+
                 <p class="caract">Catégorie : <?php if(!empty($product['category_name'])) { echo $product['category_name'];} ?></p>
-                <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
-                <p>''</p>
+                <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p><br>
                 <p class="button"><a href="<?php echo $this->url("singleproduct",["id" => $product['id_product']]); ?>" class="btn btn-success" title="More">Details »</a></p>
               </div><!-- .card-content -->
           </article>

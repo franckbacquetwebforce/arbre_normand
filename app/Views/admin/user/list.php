@@ -4,6 +4,7 @@
 $this->layout('layout_admin', ['title' => 'liste des utilisateurs']) ?>
 
 <?php $this->start('main_content') ?>
+<table>
 <thead>
   <tr>
     <th>email</th>
