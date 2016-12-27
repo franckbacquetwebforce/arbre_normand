@@ -5,6 +5,8 @@
 $id_product = $product['id'];
 $price_ht = $product['price_ht'];
 $qt_product = '1';
+debug($product);
+debug($productOriginal);
 ?>
 <div class="container-fluid single">
   <div class="row">
@@ -61,9 +63,13 @@ $qt_product = '1';
                   <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
                   <p class="caract">Catégorie : <?php echo $product['category_name']; ?></p>
                   <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
+
                   <p class="caract">Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?></p><br>
-                  <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $product['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
+                  <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
                 </div>
+
+
+
               </article>
             </section>
           </div>
