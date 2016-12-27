@@ -27,14 +27,18 @@ class OrderController extends AppController
   }
   public function confirmOrder()
   {
-    $cart = $_SESSION['cart'];
-    $test = $this->cart->afficherPanier();
-    debug($test);
-    die();
+    $orders = $this->cart->infoProduitPanier();
+
     $this->show('order/confirmorder', array(
-                    'cart' => $cart,
-                    'panier' => $panier
+                    'orders' => $orders,
     ));
   }
+  public function confirmOrderAction()
+  {
+    $orders = $this->cart->infoProduitPanier();
+    
+    $this->ordermodel->insert
+  }
+
 
 }

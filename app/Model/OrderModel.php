@@ -18,6 +18,21 @@ class OrderModel extends Model
     $this->dbh = ConnectionModel::getDbh();
     $this->authentification = new AuthentificationModel();
   }
+  public function showCartProducts()
+  {
+      $carts = $_SESSION['cart'];
+      debug($carts);
+
+
+      for($i = 0; $i<count($carts['id_product']);$i++) {
+        $sql = "SELECT product_name as name, id as product FROM products WHERE id = ". $carts['id_product'][$i];
+          $sth = $this->dbh->prepare($sql);
+          // $sth->bindValue(':id', $id_product);
+          $sth->execute();
+          return $sth->fetchAll();
+
+      }
+  }
 
   //  passer une commande :
   public function insertCommande()
@@ -184,6 +199,10 @@ class OrderModel extends Model
      $sth = $this->dbh->prepare($sql);
      $sth->execute();
      return $sth->fetchColumn();
+   }
+   public function insertOrder()
+   {
+     $sql = "INSERT INTO orders (ref)"
    }
 
 // ==================================================
