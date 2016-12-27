@@ -16,35 +16,35 @@
     <!-- Wrapper for slides -->
     	<div class="carousel-inner" role="listbox">
       	<div class="item row active">
-  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/amanite_phalloide_lite.jpg') ?>" alt="amanite_phalloide">
+  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/amanite_phalloide_140x300.jpg') ?>" alt="amanite_phalloide">
   				<div class="div_item_carroussel col-xs-12 col-sm-4 col-lg-4 col-lg-4">
   					<h2>Titre</h2>
   					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   				</div>
   			</div>
       	<div class="item row ">
-  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignon_paris_lite.jpg') ?>" alt="Chania">
+  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignon_paris_140x300.jpg') ?>" alt="Chania">
   				<div class="div_item_carroussel col-xs-12 col-sm-4 col-lg-4 col-lg-4">
   					<h2>Titre</h2>
   					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   				</div>
       	</div>
       	<div class="item row ">
-  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignon_plat_sur_souche_lite.jpg') ?>" alt="Flower">
+  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignon_plat_sur_souche_140x300.jpg') ?>" alt="Flower">
   				<div class="div_item_carroussel col-xs-12 col-sm-4 col-lg-4 col-lg-4">
   					<h2>Titre</h2>
   					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   				</div>
       	</div>
   			<div class="item row ">
-  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignons_tous_lite.jpg') ?>" alt="Flower">
+  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignons_tous_140x300.jpg') ?>" alt="Flower">
   				<div class="div_item_carroussel col-xs-12 col-sm-4 col-lg-4 col-lg-4">
   					<h2>Titre</h2>
   					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   				</div>
       	</div>
   			<div class="item row ">
-  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignons_x4_lite.jpg') ?>" alt="Flower">
+  				<img class ="slider_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignons_x4_140x300.jpg') ?>" alt="Flower">
   				<div class="div_item_carroussel col-xs-12 col-sm-4 col-lg-4 col-lg-4">
   					<h2>Titre</h2>
   					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
