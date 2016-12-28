@@ -4,9 +4,12 @@ debug($product);
 debug($image);
 debug($categories);
 ?>
+<div class="parent">
+  <div class="enfant">
+    <h1>Modification du produit</h1>
+  </div>
+</div>
 
-
-<h1 class="titre">Modification du produit</h1>
 <div class="container-fluid ajout">
 
   <div class="row">
