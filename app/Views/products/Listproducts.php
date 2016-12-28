@@ -15,7 +15,7 @@
               <img class="img-responsive" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" alt="<?= $product['product_name'] ?>">
               </figure>
               <div class="card-content">
-                <h2><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></h2>
+                <h3><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></h3>
                 <p><h3><?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
 
                 <p class="caract">Catégorie : <?php if(!empty($product['category_name'])) { echo $product['category_name'];} ?></p>

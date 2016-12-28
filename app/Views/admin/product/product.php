@@ -4,7 +4,12 @@
 
 <!-- <?php debug($products);?> -->
 <div class="container-fluid">
- <h1>Liste produits</h1><a href="<?= $this->url('admin_product_new') ?>"><button type="button" name="add_product">Ajouter un produit</button></a>
+  <div class="parent">
+    <div class="enfant">
+      <h1>Liste produits</h1><a href="<?= $this->url('admin_product_new') ?>">
+    </div>
+  </div>
+ <button type="button" name="add_product">Ajouter un produit</button></a>
 
   <table class="layout display responsive-table">
     <thead>

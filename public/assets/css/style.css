@@ -19,12 +19,12 @@ a:hover {
 }
 
 h1 {
-	color: #F92672;
+	color: #0d786b;
 	font-size: 2em;
 }
 
 h2 {
-	color: #66D9EF;
+	color: #5d5926;
 }
 
 
@@ -102,8 +102,6 @@ h2 {
 }
 /*===================MICHELE========================*/
 /*CSS Thumbnail page Listproduct*/
-@media (min-width: 768px) {
-   /* CSS appliqué aux petits écrans */
 	 article.card {
  		background-color: rgba(185, 185, 185, 0.8);
  	}
@@ -124,7 +122,18 @@ h2 {
  		color: #0d786b;
  		font-weight: bold;
  	}
-}
+	.thumbs article{
+	  width: 320px;
+	  margin: 1em 8px;
+	  border: 1px solid black;
+	  float: left;
+	}
+	.thumbs article img {
+		max-width: 100%;
+	  min-width: 100%;
+		max-height: 25rem;
+		min-height: 25rem;
+	}
 
 .article_single {
 	background-color: rgb(218, 208, 202);
@@ -133,25 +142,19 @@ h2 {
 	padding-bottom: 1px;
 }
 
+@media (min-width: 768px) {
+	.product {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	.article_single {
+		background-color: rgb(218, 208, 202);
+		padding-left: 15px;
+		padding-top: 1px;
+		padding-bottom: 1px;
+	}
+}
 
-.thumbs article{
-  width: 320px;
-  margin: 1em 8px;
-  border: 1px solid black;
-  float: left;
-}
-.thumbs article h3{
-	text-align: center;
-}
-.thumbs article h4{
-	text-align: center;
-}
-.thumbs article img {
-	max-width: 100%;
-  min-width: 100%;
-	max-height: 25rem;
-	min-height: 25rem;
-}
 /*===================MICHELE========================*/
 /* Essai Menu Navbar vertical left*/
 /* make sidebar nav vertical */
@@ -173,16 +176,7 @@ h2 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
-	.product {
-		margin-left: 15px;
-		margin-right: 15px;
-	}
-	.article_single {
-		background-color: rgb(218, 208, 202);
-		padding-left: 15px;
-		padding-top: 1px;
-		padding-bottom: 1px;
-	}
+
 	/*=========================Menu_right HERMELEN =============================*/
 	/*.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
 		top: 84px;
@@ -191,8 +185,8 @@ h2 {
 		-moz-transition: all 1s ease;
 		-webkit-transition: all 1s ease;
 		-ms-transition: all 1s ease;
-	}*/
-}
+	}
+}*/
 /*===================MICHELE========================*/
 /* Essai table admin product*/
 a{
@@ -317,9 +311,6 @@ table.responsive-table img {
 button.modif_product {
 	text-align: right;
 }
-h1.titre {
-	margin-left: 5em;
-}
 /*========================HERMELEN===========================*/
 /*images product_modified*/
 .product_modified_img{
@@ -377,10 +368,11 @@ h1.titre {
 
 .logo_container{
 	background-color: rgb(105, 94, 69);
-	height: 200px;
+	height: 220px;
 }
 .logo_container > h1{
-	font-size: 5em;
+	font-size: 4em;
+	text-align: center;
 }
 /*mise en forme tableau product*/
 .product_img_thumbnail_back .img_thumbnail_back{
@@ -404,10 +396,23 @@ background-color: rgba(182, 186, 157, 0.8);
 .presentation_detail{
 	margin-top: 2em;
 	padding: 1em 0 1em 0;
-	background-color: rgba(182, 186, 157, 0.5);
+	background-color: rgba(185, 185, 185, 0.8);
+}
+.parent {
+  display: flex; /* contexte sur le parent */
+
+}
+.enfant {
+  margin: auto; /* contexte sur le parent */
+	background-color: rgb(218, 208, 202);
+	height: 5em;
+	padding-left: 5em;
+	padding-right: 5em;
 }
 
 /*AFFICHAGE PANIER*/
+
+
 
 .thumb_cart{
 	max-height : 100px;

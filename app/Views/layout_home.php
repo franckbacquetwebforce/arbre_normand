@@ -109,12 +109,10 @@ $categories = findAll('categories');?>
 				</div>
 			</section>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 			<section>
 			<?= $this->section('main_content') ?>
 			</section>
-		</div>
-		<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3">
 		</div>
 	</div>
 </div>

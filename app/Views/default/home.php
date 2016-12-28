@@ -68,30 +68,41 @@
 <?php
 // debug($w_user);
 ?>
-<div class="presentation  row">
-	<h1 class"presentation_title">CE QUE VOUS TROUVEREZ SUR CE SITE</h1>
-	<div class="presentation_detail">
-		<img class="presentation_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignon_plat_sur_souche_lite.jpg') ?>" alt="champignon_plat_sur_souche">
-		<div class="presentation_div_text col-xs-12 col-sm-4 col-lg-4 col-lg-4">
-			<h2>Palissades </h2>
-			<p>Palissades palissades palissades palissades palissades palissades palissades palissades palissades palissades palissades </p>
+<div class="thumbs container">
+	<div class="presentation row">
+		<div class="parent">
+			<div class="enfant">
+				<h1>CE QUE VOUS TROUVEREZ SUR CE SITE</h1>
+			</div>
 		</div>
-		<div class="spacer"></div>
-	</div>
-	<div class="presentation_detail">
-		<div class="presentation_div_text col-xs-12 col-sm-4 col-lg-4 col-lg-4">
-			<h2>Champignons tables </h2>
-			<p>Champignons tables champignons tables champignons tables champignons tables champignons tables champignons tables </p>
+		<div class="presentation_detail">
+			<img class="presentation_img col-xs-12 col-sm-8 col-lg-8" src="<?= $this->assetUrl('images/champignon_plat_sur_souche_lite.jpg') ?>" alt="champignon_plat_sur_souche">
+			<div class="presentation_div_text col-xs-12 col-sm-4 col-lg-4">
+				<h2>Champignons en bois</h2>
+				<p>Nam sole orto magnitudine angusti gurgitis sed profundi a transitu arcebantur et dum piscatorios quaerunt lenunculos vel innare temere contextis cratibus parant, effusae legiones, quae hiemabant tunc apud Siden, isdem impetu occurrere veloci. et signis prope ripam locatis ad manus comminus conserendas denseta scutorum conpage semet scientissime praestruebant, ausos quoque aliquos fiducia nandi vel cavatis arborum truncis amnem permeare latenter facillime trucidarunt.
+					Haec subinde Constantius audiens et quaedam referente Thalassio doctus, quem eum odisse iam conpererat lege communi.
+			</div>
+			<div class="spacer"></div>
 		</div>
-		<img class="presentation_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignons_tous_lite.jpg') ?>" alt="champignon_plat_sur_souche">
-		<div class="spacer"></div>
-	</div>
-	<div class="presentation_detail">
-		<img class="presentation_img col-xs-12 col-sm-8 col-lg-8 col-lg-8" src="<?= $this->assetUrl('images/champignon_paris_lite.jpg') ?>" alt="champignon_plat_sur_souche">
-		<div class="presentation_div_text col-xs-12 col-sm-4 col-lg-4 col-lg-4">
-			<h2>Champignons </h2>
-			<p>Champignons champignons champignons champignons champignons champignons champignons champignons champignons </p>
+		<div class="presentation_detail">
+			<div class="presentation_div_text col-xs-12 col-sm-4 col-lg-4">
+				<h2>Champignons tables</h2>
+				<p>Haec igitur lex in amicitia sanciatur, ut neque rogemus res turpes nec faciamus rogati. Turpis enim excusatio est et minime accipienda cum in ceteris peccatis, tum si quis contra rem publicam se amici causa fecisse fateatur. Etenim eo loco, Fanni et Scaevola, locati sumus ut nos longe prospicere oporteat futuros casus rei publicae. Deflexit iam aliquantum de spatio curriculoque consuetudo maiorum.
+					Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu adsimulato saepius replicando quod flagrantibus votis eum videre</p>
+			</div>
+			<img class="presentation_img col-xs-12 col-sm-8 col-lg-8" src="<?= $this->assetUrl('images/table_champignon_lg.jpg') ?>" alt="champignon_plat_sur_souche">
+			<div class="spacer"></div>
 		</div>
-		<div class="spacer"></div>
+		<div class="presentation_detail">
+			<img class="presentation_img col-xs-12 col-sm-8 col-lg-8" src="<?= $this->assetUrl('images/palissade02_lg.jpg') ?>" alt="champignon_plat_sur_souche">
+			<div class="presentation_div_text col-xs-12 col-sm-4 col-lg-4">
+				<h2>Palissades</h2>
+				<p>Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis parcens nec urbium primatibus nec plebeiis.
+					Ex turba vero imae sortis et paupertinae in tabernis aliqui pernoctant vinariis, non nulli velariis umbraculorum theatralium latent, quae Campanam imitatus lasciviam Catulus in aedilitate sua suspendit omnium primus; </p>
+					Quam ob rem cave Catoni anteponas ne istum quidem ipsum, quem Apollo, ut ais, sapientissimum iudicavit; huius enim facta, illius dicta laudantur. De me autem, ut iam cum utroque vestrum loquar, sic habetote.
+			</div>
+			<div class="spacer"></div>
+</div>
+
 
 <?php $this->stop('main_content') ?>

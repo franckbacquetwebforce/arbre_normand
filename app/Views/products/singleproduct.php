@@ -59,7 +59,7 @@ debug($productOriginal);
               <!-- AFFICHAGE DU PRODUIT CORRESPONDANT A l'ID -->
               <article class="card">
                 <div class="card-content">
-                  <h2><?php echo $product['product_name']; ?></h2>
+                  <h3><?php echo $product['product_name']; ?></h3>
                   <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
                   <p class="caract">Catégorie : <?php echo $product['category_name']; ?></p>
                   <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
