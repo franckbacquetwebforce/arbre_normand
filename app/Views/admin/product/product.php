@@ -6,10 +6,10 @@
 <div class="container-fluid">
   <div class="parent">
     <div class="enfant">
-      <h1>Liste produits</h1><a href="<?= $this->url('admin_product_new') ?>">
+      <h1>Liste produits</h1>
     </div>
   </div>
- <button type="button" name="add_product">Ajouter un produit</button></a>
+ <a href="<?= $this->url('admin_product_new') ?>"><button type="button" name="add_product">Ajouter un produit</button></a>
 
   <table class="layout display responsive-table">
     <thead>
@@ -36,7 +36,7 @@
 
         <td class="actions">
           <a href="<?= $this->url('admin_product_update',['id' => $product['id_product']])?>" class="edit-item" title="Edit"><button type="button" name="button">Modifier</button></a>
-          <a href="<?= $this->url('admin_product_delete_action',['id' => $product['id_product']])?>" class="remove-item" title="Remove"><button type="button" name="button">Supprimer</button></a>
+          <a href="<?= $this->url('admin_product_delete_action',['id' => $product['id_product']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet article?');" type="button" name="button">Supprimer</button></a>
         </td>
       </tr>
       <?php } ?>

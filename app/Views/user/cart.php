@@ -5,7 +5,11 @@
 			?>
 
 <form method="post" action="cart.php">
-	<h2 colspan="4">Votre panier</h2>
+	<div class="parent">
+		<div class="enfant">
+			<h2 colspan="4">Votre panier</h2>
+		</div>
+	</div>
 	<table class="layout display responsive-table"><?php
 		$nbArticles=count($_SESSION['cart']['id_product']);
 		if ($nbArticles <= 0){
@@ -24,7 +28,7 @@
 	    <tbody>
 			<?php for ($i=0; $i < $nbArticles; $i++){?>
 							<tr>
-								<td><?= $infoPanier[$i]['product_name'] ?></ td>
+								<td><b><?= $infoPanier[$i]['product_name'] ?></b></ td>
 								<td><img class="thumb_cart" src="../../public/<?= $infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
 								<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button">+</button></a></br>
 									<?= $infoPanier[$i]['cart_qt']?></br>
@@ -35,8 +39,8 @@
 							</tr>
 			<?php } ?>
 			<tr>
-		  	<td colspan=\"3\"> </td>
-		  	<td colspan=\"3\">Total: <?= $total ?> €</td>
+		  	<td colspan="2"> </td>
+		  	<td colspan="4"><b>Total: <?= $total ?> €</b></td>
 		  </tr>
 		<?php } ?>
 	</table>

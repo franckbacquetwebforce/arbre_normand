@@ -4,6 +4,9 @@
 $this->layout('layout_admin', ['title' => 'Création d\'une catégorie']) ?>
 
 <?php $this->start('main_content') ?>
+
+
+
 <form class="" action="<?= $this->url('admin_categories_new_action') ?>" method="post">
   <label for="name">Nom de la catégorie</label><br>
   <input type="text" name="name" value="<?php if(!empty($_POST['name'])){ echo $_POST['name'];} ?>">
