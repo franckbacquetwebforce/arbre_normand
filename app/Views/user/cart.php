@@ -1,7 +1,9 @@
 <?php $this->layout('layout_product', ['title' => 'Panier']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($_SESSION['cart']);
+<?php
+// debug($_SESSION['cart']);
+// debug ($infoPanier);
 			?>
 
 <form method="post" action="cart.php">
@@ -25,7 +27,7 @@
 			<?php for ($i=0; $i < $nbArticles; $i++){?>
 							<tr>
 								<td><?= $infoPanier[$i]['product_name'] ?></ td>
-								<td><img class="thumb_cart" src="../../public/<?= $infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
+								<td><img class="thumb_cart" src="<?= $this->url('default_home').$infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
 								<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button">+</button></a></br>
 									<?= $infoPanier[$i]['cart_qt']?></br>
 									<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1]); ?>"><button type="button" name="button">-</button></a></td>

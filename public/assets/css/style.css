@@ -6,25 +6,34 @@ html, body {
 }
 
 .main_content {
-	background-color: rgba(185, 185, 185, 0.8);
+	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
+}
+.main_column{
+	background-color: rgba(185, 185, 185, 0.6);
+	padding: 1em;
+	margin: 0;
 }
 
 a {
 	text-decoration: none;
+	/*color: rgb(8, 7, 7);*/ /*ancien*/
 	color: rgb(8, 7, 7);
 }
 
 a:hover {
-	color: #F92672;
+	/*color: #F92672;*/ /*ancien*/
+	color: #2B5043;
 }
 
 h1 {
-	color: #F92672;
+	/*color: #F92672;*/ /*ancien*/
+	color: #2B5043;
 	font-size: 2em;
 }
 
 h2 {
-	color: #66D9EF;
+	/*color: #66D9EF;*/ /*ancien*/
+	color: #4F3A3A;
 }
 
 
@@ -38,7 +47,10 @@ h2 {
 	list-style:none;
 	display: inline;
 }
-
+/*slider*/
+.slider_container{
+padding: 0;
+}
 
 /*===================MICHELE========================*/
 /*CSS formulaires Inscription Connexion*/
@@ -104,7 +116,15 @@ h2 {
 /*CSS Thumbnail page Listproduct*/
 article.card {
 	background-color: rgba(185, 185, 185, 0.8);
+	/*margin: auto;*/
 }
+
+article.card.bordered{
+	background-color: rgba(185, 185, 185, 0.8);
+	border: 1px solid black;
+	margin:1em auto 1em auto;
+}
+
 p.caract {
 	padding-left: 3em;
 	font-weight: bold;
@@ -364,13 +384,14 @@ h1.titre {
 	background-color: rgb(218, 208, 202);
 }
 
-.logo_container{
+.logo_slider{
 	background-color: rgb(105, 94, 69);
-	height: 200px;
+	padding- : 0;
 }
-.logo_container > h1{
+.logo_slider > h1{
 	font-size: 5em;
 }
+
 /*mise en forme tableau product*/
 .product_img_thumbnail_back .img_thumbnail_back{
 	max-height: 100px;
@@ -390,10 +411,11 @@ background-color: rgba(182, 186, 157, 0.8);
 	padding : 1%;
 }
 /*Ce que vous trouverez*/
+
+
 .presentation_detail{
 	margin-top: 2em;
 	padding: 1em 0 1em 0;
-	background-color: rgba(182, 186, 157, 0.5);
 }
 
 /*AFFICHAGE PANIER*/
