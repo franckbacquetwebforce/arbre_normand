@@ -80,13 +80,14 @@ public function getProductByCategoryWithImage()
   return $query->fetchAll();
 }
 
-  public function getsingleProduct($id)// a supprimer?
+  public function getsingleProduct($id)// a conserver
     {
-      $modelSingle = new ProductsModel($id);
+      $modelSingle = new ProductsModel();
       $product = $modelSingle->find($id);
-      $this->show('products/singleproduct', array(
-        'product' => $product
-      ));
+       return $product;
+      // $this->show('products/singleproduct', array(
+      //   'product' => $product
+      // ));
     }
 
     public function getSingleProductCat($id)//remplace getsingleProduct avec ajout de category
@@ -101,9 +102,9 @@ public function getProductByCategoryWithImage()
 
       // $modelSingle = new ProductsModel($id);
       // $product = $modelSingle->find($id);
-      $this->show('products/singleproduct', array(
-        'product' => $product
-      ));
+      // $this->show('products/singleproduct', array(
+      //   'product' => $product
+      // ));
     }
   // Liste le nom des produits ainsi que leur stock
   public function showStock()

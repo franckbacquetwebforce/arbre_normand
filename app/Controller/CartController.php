@@ -36,6 +36,8 @@ class CartController extends AppController
 
 	function infoProduitPanier()
 	{
+		$this->creationPanier();
+		// session_destroy();
 		$newProductModel = new ProductsModel;
 		$infoPanier = array();
 
@@ -60,9 +62,11 @@ class CartController extends AppController
 					'cart_price'   => $cart_price,
 					'product_weight'  => $product_weight
 					);
-
+debug($product);
+debug($cart_id_product);
 				}
 				return $infoPanier;
+
 			}
 		}
 

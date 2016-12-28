@@ -366,10 +366,10 @@ h1.titre {
 
 .logo_container{
 	background-color: rgb(105, 94, 69);
-	height: 408px;
+	height: 200px;
 }
 .logo_container > h1{
-	font-size: 6em;
+	font-size: 5em;
 }
 /*mise en forme tableau product*/
 .product_img_thumbnail_back .img_thumbnail_back{
