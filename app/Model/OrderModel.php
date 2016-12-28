@@ -5,6 +5,7 @@ namespace Model;
 use \W\Model\Model;
 use \W\Security\AuthentificationModel;
 use \W\Model\ConnectionModel;
+use \DateTime;
 
 
 class OrderModel extends Model
@@ -17,6 +18,7 @@ class OrderModel extends Model
     $this->setTable('orders');
     $this->dbh = ConnectionModel::getDbh();
     $this->authentification = new AuthentificationModel();
+    $this->date = new DateTime();
   }
   public function showCartProducts()
   {
@@ -34,12 +36,43 @@ class OrderModel extends Model
       }
   }
 
+  /**
+  * Ajoute une ligne
+  * @param array $data Un tableau associatif de valeurs à insérer
+  * @param boolean $stripTags Active le strip_tags automatique sur toutes les valeurs
+  * @return mixed false si erreur, les données insérées mise à jour sinon
+  */
   //  passer une commande :
-  public function insertCommande()
+  public function insertCommandeProduits(array $data, $stripTags = true)
   {
-    // $sql = 'INSERT INTO orders_products'
 
-  }
+
+  		$colNames = array_keys($data);
+  		$colNamesEscapes = $this->escapeKeys($colNames);
+  		$colNamesString = implode(', ', $colNamesEscapes);
+
+  		$sql = 'INSERT INTO orders_products (' . $colNamesString . ') VALUES (';
+  		foreach($data as $key => $value){
+  			$sql .= ":$key, ";
+  		}
+  		// Supprime les caractères superflus en fin de requète
+  		$sql = substr($sql, 0, -2);
+  		$sql .= ')';
+
+  		$sth = $this->dbh->prepare($sql);
+  		foreach($data as $key => $value){
+  			$value = ($stripTags) ? strip_tags($value) : $value;
+  			$sth->bindValue(':'.$key, $value);
+  		}
+
+  		if (!$sth->execute()){
+  			return false;
+  		}
+  		return $this->find($this->lastInsertId());
+  	}
+
+
+
 
 
   /*
@@ -200,10 +233,12 @@ class OrderModel extends Model
      $sth->execute();
      return $sth->fetchColumn();
    }
-   public function insertOrder()
-   {
-
-   }
+   private function escapeKeys($datas)
+ 	{
+ 		return array_map(function($val){
+ 			return '`'.$val.'`';
+ 		}, $datas);
+ 	}
 
 // ==================================================
 // on affiche sur une page chaque commandes de l'utilisateur

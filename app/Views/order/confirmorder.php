@@ -7,7 +7,7 @@ debug($orders);
 
 
  ?>
-<form class="" action="index.html" method="post">
+<form class="" action="<?= $this->url('confirm_order_action'); ?>" method="post">
   <input type="submit" name="submit" value="Valider">
 
 </form>
