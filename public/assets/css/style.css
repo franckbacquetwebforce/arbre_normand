@@ -41,15 +41,23 @@ h2 {
 
 
 /*===================MICHELE========================*/
-/*CSS formulaires Inscription Connexion (ne marche pas)*/
+/*CSS formulaires Inscription Connexion*/
 .colored {
-  background-color: rgb(210, 210, 210);
+  background-color: rgba(185, 185, 185, 0.8);
 	margin-left: auto;
 	margin-right: auto;
 }
+.panel {
+	background-color: rgba(185, 185, 185, 0.8);
+}
+.header_panel {
+	background-color: rgb(218, 208, 202);
+	min-height: 16.4286px;
+  padding: 10px 15px;
+}
 .modal-content {
   position: relative;
-  background-color: #ffffff;
+  background-color: : rgba(185, 185, 185, 0.8);
   border: 1px solid #999999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0;
@@ -63,7 +71,7 @@ h2 {
 }
 .modal-header {
   border-bottom: 1px solid #48a4ac;
-  background: #61bdc5;
+  background-color: : rgb(218, 208, 202);
   min-height: 16.4286px;
   padding: 10px 15px;
 }
@@ -79,6 +87,7 @@ h2 {
 }
 .modal-body {
   position: relative;
+
 	width: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -164,18 +173,17 @@ article.card h3 {
 		padding-bottom: 1px;
 	}
 	/*=========================Menu_right HERMELEN =============================*/
-	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
+	/*.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
 		top: 84px;
 		width: 212.5px;
 		-o-transition: all 1s ease;
 		-moz-transition: all 1s ease;
 		-webkit-transition: all 1s ease;
 		-ms-transition: all 1s ease;
-	}
+	}*/
 
 /*===================MICHELE========================*/
 /* Essai table admin product*/
-
 a{
   color: #739931;
 }
@@ -239,38 +247,45 @@ table.responsive-table img {
     font-weight: bold;
   }
 
-    table.responsive-table tr,
-    table.responsive-table td{
-        display: block;
-    }
-    table.responsive-table tr{
-        position: relative;
-        margin-bottom: 1em;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-    }
-    table.responsive-table td{
-        border-top: none;
-    }
-    table.responsive-table td.organisationnumber{
-        background: #D5E0CC;
-        border-top: 1px solid #B3BFAA;
-    }
-    table.responsive-table td.actions{
-        position: absolute;
-        top: 0;
-        right: 0;
-        border: none;
-        background: none;
-    }
+  table.responsive-table tr,
+  table.responsive-table td{
+    display: block;
+  }
+  table.responsive-table tr{
+    position: relative;
+    margin-bottom: 1em;
+  	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  }
+  table.responsive-table td{
+    border-top: none;
+  }
+  /*table.responsive-table td.organisationnumber{
+    background: #D5E0CC;
+    border-top: 1px solid #B3BFAA;
+  }*/
+  table.responsive-table td.actions{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+  }
 }
+
 
 /*===================MICHELE========================*/
 /* Essai form admin product*/
 .modification {
 	background: rgba(185, 185, 185, 0.8);
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .ajout {
 	background: rgba(185, 185, 185, 0.8);
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .modif-form {
 	width: 90%;
@@ -290,6 +305,19 @@ table.responsive-table img {
 }
 button.modif_product {
 	text-align: right;
+}
+h1.titre {
+	margin-left: 5em;
+}
+/*========================HERMELEN===========================*/
+/*images product_modified*/
+.product_modified_img{
+	display: flex;
+	float: right;
+	width: 20%;
+}
+.product_modified_img_name{
+	font-size: 0.8em;
 }
 
 /*================boostrap-navbar=======================*/

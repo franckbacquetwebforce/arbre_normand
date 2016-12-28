@@ -202,7 +202,7 @@ class OrderModel extends Model
    }
    public function insertOrder()
    {
-     $sql = "INSERT INTO orders (ref)"
+
    }
 
 // ==================================================

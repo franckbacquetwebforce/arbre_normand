@@ -1,6 +1,7 @@
 <?php $this->layout('layout_product', ['title' => 'Products']) ?>
 
-<?php $this->start('main_content');?>
+<?php $this->start('main_content');
+?>
 
 <div class="spacer"></div>
   <section class="thumbs container">
@@ -10,14 +11,17 @@
           <?php foreach($products as $product){  ?>
           <article class="card">
               <figure class="thumbnail">
-              <img src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" alt="meow">
+
+              <img class="img-responsive" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" alt="<?= $product['product_name'] ?>">
               </figure>
               <div class="card-content">
                 <h2><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></h2>
                 <p><h3><?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p>
-                <p class="caract">Catégorie : <?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></p>
+                <p>''</p>
+                <p class="caract">Catégorie : <?php if(!empty($product['category_name'])) { echo $product['category_name'];} ?></p>
                 <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
-                <p class="button"><a href="<?php echo $this->url("singleproduct",["id" => $product['id']]); ?>" class="btn btn-success" title="More">Details »</a></p>
+                <p>''</p>
+                <p class="button"><a href="<?php echo $this->url("singleproduct",["id" => $product['id_product']]); ?>" class="btn btn-success" title="More">Details »</a></p>
               </div><!-- .card-content -->
           </article>
           <?php } ?>

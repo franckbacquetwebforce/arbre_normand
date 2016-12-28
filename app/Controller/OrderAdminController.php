@@ -17,7 +17,7 @@ class OrderAdminController extends AppController
 
   public function index()
   {
-    $adminorders -> $this->orders->findAll();
+    $adminorders = $this->orders->findAll();
     $this->show('admin/orders/list', array(
       'adminorders' => $adminorders
     ));

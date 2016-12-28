@@ -18,10 +18,7 @@ class ProductsModel extends Model
 
 
 // Récupération des produits
-  // id_category = 1 => Champignons
-  // id-category = 2 => Champignon table
-  // id_category = 3 => Palissades
-public function getProductWithImage()
+public function getProductWithImage()//a supprimer
 {
   // SELECT products.*(selectionne tout de la table product), i.name,  i.path, i.status_img (selectionne name, path et status de img as i=>voir LEFT JOIN)
   // FROM $this->table (FROM table du Model)
@@ -33,6 +30,19 @@ public function getProductWithImage()
           FROM $this->table
           LEFT JOIN img as i
       		ON products.id = i.id_product
+          WHERE i.status_img = 1";
+  $query = $this->dbh->prepare($sql);
+  $query->execute();
+  return $query->fetchAll();
+
+}
+
+public function getProductWithImageCat()//remplace getProductWithImage nouvelle jointure pour récup category name
+{
+  $sql = "SELECT products.*, i.id_product, i.name,  i.path, i.status_img, cat.id, cat.category_name
+          FROM $this->table
+          LEFT JOIN img as i ON products.id = i.id_product
+          LEFT JOIN categories as cat ON products.id_category = cat.id
           WHERE i.status_img = 1";
   $query = $this->dbh->prepare($sql);
   $query->execute();
@@ -60,24 +70,41 @@ public function getProductByCategoryWithImage()
   // ON products.id = i.id_product (condition de la selection id de la table products.id = id_product de la table img)
   // WHERE i.status_img = 1"; (condition staus_img = 1)
   $category = $_GET['id_category'];
-  $sql = "SELECT products.*, i.name,  i.path, i.status_img
+  $sql = "SELECT products.*, i.id_product, i.name,  i.path, i.status_img, cat.id, cat.category_name
           FROM $this->table
-          LEFT JOIN img as i
-      		ON products.id = i.id_product
+          LEFT JOIN img as i ON products.id = i.id_product
+          LEFT JOIN categories as cat ON products.id_category = cat.id
           WHERE i.status_img = 1 AND products.id_category=$category";
   $query = $this->dbh->prepare($sql);
   $query->execute();
   return $query->fetchAll();
 }
-public function getsingleProduct($id)
-  {
-    $modelSingle = new ProductsModel($id);
-    $product = $modelSingle->find($id);
-    $this->show('products/singleproduct', array(
-      'product' => $product
-    ));
-  }
 
+  public function getsingleProduct($id)// a supprimer?
+    {
+      $modelSingle = new ProductsModel($id);
+      $product = $modelSingle->find($id);
+      $this->show('products/singleproduct', array(
+        'product' => $product
+      ));
+    }
+
+    public function getSingleProductCat($id)//remplace getsingleProduct avec ajout de category
+    {
+      $sql = "SELECT products.*, cat.id, cat.category_name
+      FROM $this->table
+      LEFT JOIN categories as cat ON products.id_category = cat.id
+      WHERE products.id = $id";
+      $product = $this->dbh->prepare($sql);
+      $product->execute();
+      return $product->fetch();
+
+      // $modelSingle = new ProductsModel($id);
+      // $product = $modelSingle->find($id);
+      $this->show('products/singleproduct', array(
+        'product' => $product
+      ));
+    }
   // Liste le nom des produits ainsi que leur stock
   public function showStock()
   {
@@ -87,25 +114,15 @@ public function getsingleProduct($id)
     return $query->fetchAll();
   }
 
-  // function searchImg() //pas utile pour le moment
-  // {
-  //   $sql = "SELECT products.id AS products_id ,
-	// 	-- products.product_name AS products_name ,
-  //   -- products.description AS products_description ,
-	// 	-- products.price_ht AS products_price ,
-	// 	-- products.id_category AS products_category ,
-  //   products.created_at AS products_created ,
-	// 	img.id_product AS img_id_product,
-  //   img.name AS img_name,
-	// 	img.path AS img_path,
-  //   img.status_img AS img_status
-	// 	FROM products
-	// 	LEFT JOIN img
-	// 	ON products.id = img.id_product
-	// 	ORDER BY products_created";
-	// 	$query = $this->dbh->prepare($sql);
-	// 	$query->execute();
-	// 	return $query->fetchAll();
-  // }
+  function searchImgSingle($id)
+  {
+    $sql = "SELECT *
+    FROM img
+    WHERE id_product = $id
+		ORDER BY status_img ";
+		$query = $this->dbh->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+  }
 
 }

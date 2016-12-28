@@ -1,108 +1,59 @@
 <?php $this->layout('layout_admin_product', ['title' => 'Products']) ?>
 
 <?php $this->start('main_content') ?>
-<h1>Nouveau produit</h1>
+
+
+<h1 class="titre">Nouveau produit</h1>
 <div class="container-fluid ajout">
-	<div class="row">
-	  <form class="responsive ajout-form" action="<?= $this->url('admin_product_new_action') ?>" method="post">
-			<div class="col-sm-5 padding-box">
-		    <label for="product_name"><h4>Nom du produit :</h4></label>
-		    <span class=""><?php if(!empty($error['product_name'])){echo $error['product_name'];} ?></span><br />
-		    <input type="text" name="product_name" class="form-control" value="<?php if(!empty($_POST['product_name'])){echo $_POST['product_name'];} ?>"><br/>
 
-		    <label for="description"><h4>Description</h4></label>
-		    <span class=""><?php if(!empty($error['description'])){echo $error['description'];} ?></span><br />
-		    <textarea name="description" rows="12" cols="80" class="form-control"><?php if(!empty($_POST['description'])){echo $_POST['description'];}?> </textarea><br />
-
+  <div class="row">
+    <form class="responsive ajout-form" action="<?= $this->url('admin_product_new_action') ?>" method="post" enctype="multipart/form-data">
+      <div class="col-sm-5 padding-box">
+        <label for="product_name"><h4>Nom du produit :</h4></label>
+        <span class=""><?php if(!empty($error['product_name'])){echo $error['product_name'];} ?></span><br />
+        <input type="text" name="product_name" class="form-control" value="<?php if(!empty($_POST['product_name'])){echo $_POST['product_name'];} ?>"><br />
+        <label for="description"><h4>Description</h4></label>
+        <span class=""><?php if(!empty($error['description'])){echo $error['description'];} ?></span><br />
+        <textarea name="description" rows="13" cols="80" class="form-control"><?php if(!empty($_POST['description'])){echo $_POST['description'];} ?></textarea><br />
 			</div>
 			<div class="col-sm-2">
-		    <label for="price_ht"><h4>Prix HT :</h4></label>
-		    <span class=""><?php if(!empty($error['price_ht'])){echo $error['price_ht'];} ?></span><br/>
-		    <input type="text" name="price_ht" class="form-control" value="<?php if(!empty($_POST['price_ht'])){echo $_POST['price_ht'];}?>"><br />
-
-		    <label for="weight"><h4>Poids en kg :</h4></label>
-		    <span class=""><?php if(!empty($error['weight'])){echo $error['weight'];} ?></span><br />
-		    <input type="text" name="weight" class="form-control" value="<?php if(!empty($_POST['weight'])){echo $_POST['weight'];}?>"><br/>
-
-		    <label for="stock"><h4>Stock :</h4></label>
-		    <span class=""><?php if(!empty($error['stock'])){echo $error['stock'];} ?></span><br />
-		    <input type="text" name="stock" class="form-control" value="<?php if(!empty($_POST['stock'])){echo $_POST['stock'];}?>"><br />
-
-				<label for="id_category"><h4>Catégorie :</h4></label><br />
-		    <select class="form-control" name="id_category">
-		      <option value="1">Catégorie 1</option>
-		      <option value="2">Catégorie 2</option>
-		      <option value="3">Catégorie 3</option>
-		      <option value="4">Catégorie 4</option>
-		    </select><br /><br />
-
-			</div>
-
-			<div class="col-sm-5">
-		    <label for="image_principale"><h4>Image principale :</h4></label>
-		    <span class=""><?php if(!empty($error['image'])){echo $error['image'];} ?></span><br />
-		    <input type="file" name="image" class="form-control"/><br />
-		    <label for="image_secondaire1"><h4>Image secondaire 1 :</h4></label>
-		    <span class=""><?php if(!empty($error['imageSecondaire1'])){echo $error['imageSecondaire1'];} ?></span><br />
-		    <input type="file" name="imageSecondaire1" class="form-control"/><br />
-		    <label for="image_secondaire2"><h4>Image secondaire 2 :</h4></label>
-		    <span class=""><?php if(!empty($error['imageSecondaire2'])){echo $error['imageSecondaire2'];} ?></span><br />
-		    <input type="file" name="imageSecondaire2" class="form-control"/><br />
-		    <label for="image_secondaire3"><h4>Image secondaire 3 :</h4></label>
-		    <span class=""><?php if(!empty($error['imageSecondaire3'])){echo $error['imageSecondaire3'];} ?></span><br />
-		    <input type="file" name="imageSecondaire3" class="form-control"/><br />
-				<br /><button class="btn btn-success modif_product" type="submit" name="submitfile" value="Envoyer">Envoyer</button>
-			</div>
-			<div class="spacer"></div>
-	  </form>
-	</div>
-</div>
-
-<!-- <div class="container-fluid">
-  <h1>Nouveau produit</h1>
-  <div class="row">
-    <form class="responsive" action="<?= $this->url('admin_product_new_action') ?>" method="post" enctype="multipart/form-data">
-      <div class="col-sm-6">
-        <label for="product_name">Nom du produit :</label><br />
-        <span class=""><?php if(!empty($error['product_name'])){echo $error['product_name'];} ?></span><br />
-        <input type="text" name="product_name" value="<?php if(!empty($_POST['product_name'])){echo $_POST['product_name'];} ?>"><br /><br />
-        <label for="description">Description</label><br />
-        <span class=""><?php if(!empty($error['description'])){echo $error['description'];} ?></span><br />
-        <textarea name="description" rows="8" cols="80"><?php if(!empty($_POST['description'])){echo $_POST['description'];} ?></textarea><br /><br />
-        <label for="price_ht">Prix HT :</label><br />
+        <label for="price_ht"><h4>Prix HT :</h4></label>
         <span class=""><?php if(!empty($error['price_ht'])){echo $error['price_ht'];} ?></span><br />
-        <input type="text" name="price_ht" value="<?php if(!empty($_POST['price_ht'])){echo $_POST['price_ht'];} ?>"><br /><br />
-        <label for="weight">Poids en kg :</label><br />
+        <input type="text" name="price_ht" class="form-control" value="<?php if(!empty($_POST['price_ht'])){echo $_POST['price_ht'];} ?>"><br />
+        <label for="weight"><h4>Poids en kg :</h4></label>
         <span class=""><?php if(!empty($error['weight'])){echo $error['weight'];} ?></span><br />
-        <input type="text" name="weight" value="<?php if(!empty($_POST['weight'])){echo $_POST['weight'];} ?>"><br /><br />
-        <label for="stock">Nombre de produits en stock :</label><br />
+        <input type="text" name="weight" class="form-control" value="<?php if(!empty($_POST['weight'])){echo $_POST['weight'];} ?>"><br />
+        <label for="stock"><h4>Stock :</h4></label>
         <span class=""><?php if(!empty($error['stock'])){echo $error['stock'];} ?></span><br />
-        <input type="text" name="stock" value="<?php if(!empty($_POST['stock'])){echo $_POST['stock'];} ?>"><br /><br />
-      </div>
-
-      <div class="col-sm-6">
-        <label for="id_category">Catégorie :</label><br /><br />
+        <input type="text" name="stock" class="form-control" value="<?php if(!empty($_POST['stock'])){echo $_POST['stock'];} ?>"><br />
+        <label for="id_category"><h4>Catégorie :</h4></label><br />
         <select class="" name="id_category">
-          <option value="1">Catégorie 1</option>
-          <option value="2">Catégorie 2</option>
-          <option value="3">Catégorie 3</option>
-          <option value="4">Catégorie 4</option>
+          <?php // Select categories dynamique
+          foreach($categories as $category){?>
+          <option value="<?= $category['id'] ?>"><?= $category['category_name'] ?></option>
+          <?php } ?>
         </select><br /><br />
-        <label for="image_principale">Image principale :</label>
+			</div>
+			<div class="col-sm-5">
+        <label for="image"><h4>Image principale :</h4></label>
         <span class=""><?php if(!empty($error['image'])){echo $error['image'];} ?></span><br />
-        <input type="file" name="image" /><br /><br />
-        <label for="image_secondaire1">Image secondaire 1 :</label>
+        <input type="file" name="image" class="form-control" /><br />
+
+        <label for="imageSecondaire1"><h4>Image secondaire 1 :</h4></label>
         <span class=""><?php if(!empty($error['imageSecondaire1'])){echo $error['imageSecondaire1'];} ?></span><br />
-        <input type="file" name="imageSecondaire1" /><br /><br />
-        <label for="image_secondaire2">Image secondaire 2 :</label>
+        <input type="file" name="imageSecondaire1" class="form-control" /><br />
+
+        <label for="imageSecondaire2"><h4>Image secondaire 2 :</h4></label>
         <span class=""><?php if(!empty($error['imageSecondaire2'])){echo $error['imageSecondaire2'];} ?></span><br />
-        <input type="file" name="imageSecondaire2" /><br /><br />
-        <label for="image_secondaire3">Image secondaire 3 :</label>
+        <input type="file" name="imageSecondaire2" class="form-control" /><br />
+
+        <label for="imageSecondaire3"><h4>Image secondaire 3 :</h4></label>
         <span class=""><?php if(!empty($error['imageSecondaire3'])){echo $error['imageSecondaire3'];} ?></span><br />
-        <input type="file" name="imageSecondaire3" /><br /><br />
-        <br /><input type="submit" name="submitfile" value="Envoyer">
+        <input type="file" name="imageSecondaire3" class="form-control"/><br />
+
+        <button class="btn btn-success modif_product" type="submit" name="submitfile" value="Envoyer">Envoyer</button>
       </div>
     </form>
   </div>
-</div> -->
+</div>
 <?php $this->stop('main_content') ?>
