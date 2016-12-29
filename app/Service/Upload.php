@@ -43,25 +43,6 @@ class Upload
     return 'upload/'.date('Y').'/'.date('m') . '/';
   }
 
-  public function UpdateUploadProduct($file_tmp, $fileExtension, $endName)
-  {
-    $monUrl = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    // echo realpath();
-
-
-  $dest_fichier = date('Y_m_d_H_i_s').$endName.$fileExtension;
-
-  $generatedName = date('Y').'/'.date('m') . '/' . $dest_fichier;
-    // ensure a safe filename
-    if (move_uploaded_file($file_tmp,  'upload/'.$generatedName)) {
-        return true;
-    }
-    // if (move_uploaded_file($file_tmp,  'upload/'.date('Y').'/'.date('m') . '/' . $dest_fichier)) {
-    //     return true;
-    // }
-  return false;
-  }
-
 
 
 

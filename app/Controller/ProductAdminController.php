@@ -6,6 +6,7 @@ use \Controller\AppController;
 use \Controller\CategoriesAdminController;
 use \Model\ProductsModel;
 use \Model\ImgModel;
+use \Controller\ImageController;
 use \Service\ValidationTools;
 use \Service\Upload;
 use \Service\UpdateImage;
@@ -246,207 +247,188 @@ class ProductAdminController extends AppController
   // A REVOIR PAR HERMELEN
   public function updateAction($id)
   {
-    $model = new ProductsModel();
-    $product = $model->find($id);
-    if(!empty($product)){
-      $error = array();
+    $error = array();
 
-      $addProduct = new ProductsModel();
-      $modelImage = new ImgModel();
-      $validation = new ValidationTools();
-      $dateTimeModel = new DateTime();
-      $upload = new Upload();
+    $addProduct = new ProductsModel();
+    $modelImage = new ImgModel();
+    $validation = new ValidationTools();
+    $dateTimeModel = new DateTime();
+    $upload = new Upload();
 
-      // striptags géré par INSERT
-      $product_name = trim($_POST['product_name']);
-      $description  = trim($_POST['description']);
-      $price_ht     = trim($_POST['price_ht']);
-  		$weight       = trim($_POST['weight']);
-      $stock        = trim($_POST['stock']);
-      $id_category  = trim($_POST['id_category']);
+    // striptags géré par INSERT
+    $product_name = trim($_POST['product_name']);
+    $description  = trim($_POST['description']);
+    $price_ht     = trim($_POST['price_ht']);
+		$weight       = trim($_POST['weight']);
+    $stock        = trim($_POST['stock']);
+    $id_category  = trim($_POST['id_category']);
 
-       $error['product_name']  = $validation->textValid($product_name, 'product_name',  3, 50);
-       $error['description']   = $validation->textValid($description, 'description',  3, 1000);
-       $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
-       $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
-       $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000);
-       $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
+     $error['product_name']  = $validation->textValid($product_name, 'product_name',  3, 50);
+     $error['description']   = $validation->textValid($description, 'description',  3, 1000);
+     $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
+     $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
+     $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000);
+     $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
 
-       // IMAGE PRINCIPALE
-       $validImage = $validation->imgValid('image');
-       // debug($validImage);
-       // die('dede');
-       if(is_array($validImage)) {
-         $extension = $validImage['ext'];
-         $file_tmp_main  = $validImage['file_tmp'];
-       } else {
-         $error['image'] = $validImage;
-       }
+     // IMAGE PRINCIPALE
+     $validImage = $validation->imgValid('image');
+     if(is_array($validImage)) {
+       $extension = $validImage['ext'];
+       $file_tmp_main  = $validImage['file_tmp'];
+     } else {
+       $error['image'] = $validImage;
+     }
 
-       if(!empty($error['image'])) {
-         $image = false;
-       } else {$image = true;}
+     if(!empty($error['image'])) {
+       $image = false;
+     } else {$image = true;}
 
-       // IMAGE SECONDAIRE 1
-       $validImageSecondaire1 = $validation->imgValid('imageSecondaire1');
-       if(is_array($validImageSecondaire1)) {
-         $extension = $validImageSecondaire1['ext'];
-         $file_tmp_1  = $validImageSecondaire1['file_tmp'];
-       } else {
-         $error['imageSecondaire1'] = $validImageSecondaire1;
-       }
+     // IMAGE SECONDAIRE 1
+     $validImageSecondaire1 = $validation->imgValid('imageSecondaire1');
+     if(is_array($validImageSecondaire1)) {
+       $extension = $validImageSecondaire1['ext'];
+       $file_tmp_1  = $validImageSecondaire1['file_tmp'];
+     } else {
+       $error['imageSecondaire1'] = $validImageSecondaire1;
+     }
 
-       if(!empty($error['imageSecondaire1'])) {
-         $imageSecondaire1 = false;
-       } else {$imageSecondaire1 = true;}
+     if(!empty($error['imageSecondaire1'])) {
+       $imageSecondaire1 = false;
+     } else {$imageSecondaire1 = true;}
 
-       // IMAGE SECONDAIRE 2
-       $validImageSecondaire2 = $validation->imgValid('imageSecondaire2');
-       if(is_array($validImageSecondaire2)) {
-         $extension = $validImageSecondaire2['ext'];
-         $file_tmp_2  = $validImageSecondaire2['file_tmp'];
-       } else {
-         $error['imageSecondaire2'] = $validImageSecondaire2;
-       }
+     // IMAGE SECONDAIRE 2
+     $validImageSecondaire2 = $validation->imgValid('imageSecondaire2');
+     if(is_array($validImageSecondaire2)) {
+       $extension = $validImageSecondaire2['ext'];
+       $file_tmp_2  = $validImageSecondaire2['file_tmp'];
+     } else {
+       $error['imageSecondaire2'] = $validImageSecondaire2;
+     }
 
-       if(!empty($error['imageSecondaire2'])) {
-         $imageSecondaire2 = false;
-       } else {$imageSecondaire2 = true;}
+     if(!empty($error['imageSecondaire2'])) {
+       $imageSecondaire2 = false;
+     } else {$imageSecondaire2 = true;}
 
-       // IMAGE SECONDAIRE 3
-       $validImageSecondaire3 = $validation->imgValid('imageSecondaire3');
-       if(is_array($validImageSecondaire3)) {
-         $extension = $validImageSecondaire3['ext'];
-         $file_tmp_3  = $validImageSecondaire3['file_tmp'];
-       } else {
-         $error['imageSecondaire3'] = $validImageSecondaire3;
-       }
+     // IMAGE SECONDAIRE 3
+     $validImageSecondaire3 = $validation->imgValid('imageSecondaire3');
+     if(is_array($validImageSecondaire3)) {
+       $extension = $validImageSecondaire3['ext'];
+       $file_tmp_3  = $validImageSecondaire3['file_tmp'];
+     } else {
+       $error['imageSecondaire3'] = $validImageSecondaire3;
+     }
 
-       if(!empty($error['imageSecondaire3'])) {
-         $imageSecondaire3 = false;
-       } else {$imageSecondaire3 = true;}
+     if(!empty($error['imageSecondaire3'])) {
+       $imageSecondaire3 = false;
+     } else {$imageSecondaire3 = true;}
 
 
-      if($validation->IsValid($error)) {
+     if($validation->IsValid($error)) {
+       // SLUG et CREATED BY à FINIR
+       $data = array(
+         'slug'         => $product_name,
+         'product_name' => $product_name,
+         'description'  => $description,
+         'price_ht'     => $price_ht,
+         'weight'       => $weight,
+         'stock'        => $stock,
+         'id_category'  => $id_category,
+         'created_at'   => $dateTimeModel->format('Y-m-d H:i:s'),
+         'created_by'   => '',//$_SESSION['email'],
+       );
+      $idProduct = $addProduct->insert($data);
+      //$idProduct = $addProduct->lastInsertId();
+      $idProductreal = $idProduct['id'];
 
-        // SLUG et CREATED BY à FINIR
-        $data = array(
-          'slug'         => $product_name,
-          'product_name' => $product_name,
-          'description'  => $description,
-          'price_ht'     => $price_ht,
-          'weight'       => $weight,
-          'stock'        => $stock,
-          'id_category'  => $id_category,
-          'created_at'   => $dateTimeModel->format('Y-m-d H:i:s'),
-          'created_by'   => '',//$_SESSION['email'],
-        );
-        $idProduct = $addProduct->update($data,$product['id']);
-        //$idProduct = $addProduct->lastInsertId();
-        $idProductreal = $idProduct['id'];
-//UPDATE DES IMAGES
-$updateImage = new UpdateImage();
-  // IMAGE PRINCIPALE
-          if($image){
-              $oldname = substr($image[0]['name'], 0, strrpos($image[0]['name'], '.'));
-              $upload->UpdateUploadProduct($file_tmp_main,$extension,$oldname);
-              // $name = $upload->getNewName($_FILES['image']['name']);
-              // $path = $upload->getPath();
+
+        // IMAGE PRINCIPALE
+        if($image){
+            $upload->UploadProduct($file_tmp_main,$extension,'_principale');
+            $name = $upload->getNewName($_FILES['image']['name'],'_principale');
+            $path = $upload->getPath();
+            $id              = $image[0]['id'];
+            // debug($_FILES);
+
+            $data = array(
+                  'id_product'    => $idProductreal,
+                  'original_name' => $_FILES['image']['name'],
+                  'name'          => $name,
+                  'path'          => $path,
+                  'status_img'    => 1,
+                  'mim_type'      => $_FILES['image']['type'],
+              );
+              $modelImage->update($data,$id);
+        }
+        // IMAGE SECONDAIRE 1
+        if($imageSecondaire1){
+          $upload->UploadProduct($file_tmp_1,$extension,'_secondaire_1');
+          $name = $upload->getNewName($_FILES['imageSecondaire1']['name'],'_secondaire_1');
+          $path = $upload->getPath();
+          $id              = $image[1]['id'];
+          // debug($_FILES);
+
+          $data = array(
+                'id_product'    => $idProductreal,
+                'original_name' => $_FILES['imageSecondaire1']['name'],
+                'name'          => $name,
+                'path'          => $path,
+                'status_img'    => 2,
+                'mim_type'      => $_FILES['imageSecondaire1']['type'],
+            );
+            $modelImage->update($data,$id);
+        }
+
+        // IMAGE SECONDAIRE 2
+        if($imageSecondaire2){
+            $upload->UploadProduct($file_tmp_2,$extension,'_secondaire_2');
+            $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'_secondaire_2');
+            $pathSecondaire2 = $upload->getPath();
+            $id              = $image[2]['id'];
+            // debug($_FILES);
+
+            $dataSecondaireImg2 = array(
+                  'id_product'    => $idProductreal,
+                  'original_name' => $_FILES['imageSecondaire2']['name'],
+                  'name'          => $nameSecondaire2,
+                  'path'          => $pathSecondaire2,
+                  'status_img'    => 2,
+                  'mim_type'      => $_FILES['imageSecondaire2']['type'],
+              );
+              $modelImage->update($data,$id);
+        }
+        // IMAGE SECONDAIRE 3
+        if($imageSecondaire3){
+            $upload->UploadProduct($file_tmp_3,$extension,'_secondaire_3');
+            $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'_secondaire_3');
+            $pathSecondaire3 = $upload->getPath();
+            $id              = $image[3]['id'];
+            // debug($_FILES);
+
+            $dataSecondaireImg3 = array(
+                  'id_product'    => $idProductreal,
+                  'original_name' => $_FILES['imageSecondaire3']['name'],
+                  'name'          => $nameSecondaire3,
+                  'path'          => $pathSecondaire3,
+                  'status_img'    => 2,
+                  'mim_type'      => $_FILES['imageSecondaire3']['type'],
+              );
+
+              $modelImage->update($data,$id);
+              // debug($_POST);
               // debug($_FILES);
-
-              $dataMainImg = array(
-                    // 'id_product'    => $image[0]['id_product'],
-                    'original_name' => $_FILES['image']['name'],
-                    // 'name'          => $image[0]['name'],
-                    // 'path'          => $image[0]['path'],
-                    // 'status_img'    => 1,
-                    'mim_type'      => $_FILES['image']['type'],
-                );
-                $id = $image[0]['id'];
-                $insertImg = $updateImage->updateImg($dataMainImg,$id);
-          }
-  // IMAGE SECONDAIRE 1
-          if($imageSecondaire1){
-              $upload->UpdateUploadProduct($file_tmp_1,$extension,'_secondaire_1');
-              // $nameSecondaire1 = $upload->getNewName($_FILES['imageSecondaire1']['name'],'1');
-              // $pathSecondaire1 = $upload->getPath();
-              // debug($_FILES);
-
-              $dataSecondaireImg1 = array(
-                    // 'id_product'    => $idProductreal,
-                    'original_name' => $_FILES['imageSecondaire1']['name'],
-                    // 'name'          => $nameSecondaire1,
-                    // 'path'          => $pathSecondaire1,
-                    // 'status_img'    => 2,
-                    'mim_type'      => $_FILES['imageSecondaire1']['type'],
-                );
-                $id = $image[1]['id'];
-                $insertImg = $updateImage->updateImg($dataSecondaireImg1,$id);
-          }
-
-  // IMAGE SECONDAIRE 2
-          if($imageSecondaire2){
-              $upload->UpdateUploadProduct($file_tmp_2,$extension,'_secondaire_2');
-              // $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'2');
-              // $pathSecondaire2 = $upload->getPath();
-              // debug($_FILES);
-
-              $dataSecondaireImg2 = array(
-                    // 'id_product'    => $idProductreal,
-                    'original_name' => $_FILES['imageSecondaire2']['name'],
-                    // 'name'          => $nameSecondaire2,
-                    // 'path'          => $pathSecondaire2,
-                    // 'status_img'    => 2,
-                    'mim_type'      => $_FILES['imageSecondaire2']['type'],
-                );
-                $id = $image[2]['id'];
-                $insertImg = $updateImage->updateImg($dataSecondaireImg2,$id);
-          }
-                  // IMAGE SECONDAIRE 3
-          if($imageSecondaire3){
-              $upload->UpdateUploadProduct($file_tmp_3,$extension,'_secondaire_3');
-              // $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'3');
-              // $pathSecondaire3 = $upload->getPath();
-              // debug($_FILES);
-
-              $dataSecondaireImg3 = array(
-                    // 'id_product'    => $idProductreal,
-                    'original_name' => $_FILES['imageSecondaire3']['name'],
-                    // 'name'          => $nameSecondaire3,
-                    // 'path'          => $pathSecondaire3,
-                    // 'status_img'    => 2,
-                    'mim_type'      => $_FILES['imageSecondaire3']['type'],
-                );
-  debug($_POST);
-  debug($_FILES);
-  die();
-                $id = $image[3]['id'];
-                $insertImg = $updateImage->updateImg($dataSecondaireImg3,$id);
-          }
-        // redirection
-          $this->redirectToRoute('admin_product');
-
+        }
+        //redirection
+        $this->redirectToRoute('admin_product');
       }
-
       else {
-        debug($error);
-           // refaire afficher la vue avec les errore passé en parametre de cette vue
-           $product = $model->find($id);
-           $image = $model->searchImgSingle($id);
-           $CategoriesAdmin = new CategoriesAdminController();
-           $categories = $CategoriesAdmin->getAllCat();
-
-           $this->show('admin/product/product_modified',array (
-             'error' => $error,
-             'product'   => $product,
-             'categories'=> $categories,
-             'image'=> $image
-           ));
-       }
-    }
-
-
+      // debug($error);
+         // refaire afficher la vue avec les errore passé en parametre de cette vue
+         $this->show('admin/product/admin_product_update',array (
+           'error' => $error,
+         ));
+      }
   }
+
 
   public function deleteAction($id)
   {
