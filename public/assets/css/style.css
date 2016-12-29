@@ -8,11 +8,11 @@ html, body {
 .main_content {
 	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
 }
-.main_column{
+/*.main_column{
 	background-color: rgba(185, 185, 185, 0.6);
 	padding: 0 1em 0 1em;
 	margin: 0;
-}
+}*/
 
 a {
 	text-decoration: none;
@@ -424,19 +424,54 @@ background-color: rgba(182, 186, 157, 0.8);
 	background-color: rgba(185, 185, 185, 0.8);
 	display: flex;
 }
+/*===================MICHELE========================*/
+/*entête titre pages*/
 .parent {
-  display: flex;
-	/* contexte sur le parent */
-
+  display: flex; /* contexte sur le parent */
+	text-align: center;
 }
 .enfant {
-  margin: auto; /* contexte sur le parent */
+  margin: auto; /* contexte sur l'enfant */
 	background-color: rgb(218, 208, 202);
-	/*height: 5em;*/ /* remplacé par auto pour responsive Hermelen*/
 	height: auto;
 	padding-left: 5em;
 	padding-right: 5em;
 }
+/*CSS dernière version page accueil */
+/*
+ * PAGE ACCUEIL
+ */
+ .Articles article {
+   margin-top: 1em;
+   padding: 15px;
+	 background-color: rgba(185, 185, 185, 0.8);
+	 min-height: 300px;
+ }
+ .Articles article p {
+	 position: relative;
+
+ }
+ .Articles article p::after {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+ }
+.Articles article:nth-child(even) img {
+  float: left;
+  margin-right: 1em;
+	max-height: 35rem;
+	min-height: 35rem;
+	display: flex;
+}
+.Articles article:nth-child(odd) img {
+  float: right;
+  margin-left: 1em;
+	max-height: 35rem;
+	min-height: 35rem;
+	display: flex;
+}
+/*===================== FIN MICHELE =============================*/
 
 .presentation_img{
 	max-height :300px;
