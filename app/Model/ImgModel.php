@@ -1,11 +1,12 @@
 <?php
-
 namespace Model;
 use \W\Model\Model;
 use \W\Model\ConnectionModel;
 
-
-class ImgModel extends Model
+/**
+ *
+ */
+class  ImgModel extends Model
 {
   /**
    *Constructeur

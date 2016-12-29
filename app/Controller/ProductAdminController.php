@@ -65,7 +65,7 @@ class ProductAdminController extends AppController
      $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
 
      // IMAGE PRINCIPALE
-     $validImage = $validation->imgValid('image');
+     $validImage = $validation->mainImgValid('image');
      if(is_array($validImage)) {
        $extension = $validImage['ext'];
        $file_tmp_main  = $validImage['file_tmp'];
@@ -224,7 +224,7 @@ class ProductAdminController extends AppController
   {
     $model = new ProductsModel();
     $product = $model->find($id);
-    $image = $model->searchImgSingle($id);
+    $imageProduct = $model->searchImgSingle($id);
 
     $CategoriesAdmin = new CategoriesAdminController();
     $categories = $CategoriesAdmin->getAllCat();
@@ -236,7 +236,7 @@ class ProductAdminController extends AppController
       $this->show('admin/product/product_modified', array(
         'product'   => $product,
         'categories'=> $categories,
-        'image'=> $image
+        'imageProduct'=> $imageProduct
       ));
     }
     else {
@@ -254,6 +254,14 @@ class ProductAdminController extends AppController
     $validation = new ValidationTools();
     $dateTimeModel = new DateTime();
     $upload = new Upload();
+    $CategoriesAdmin = new CategoriesAdminController();
+
+    $product     = $addProduct->find($id);
+    $imageProduct= $addProduct->searchImgSingle($id);
+
+    $categories = $CategoriesAdmin->getAllCat();
+
+
 
     // striptags géré par INSERT
     $product_name = trim($_POST['product_name']);
@@ -325,6 +333,7 @@ class ProductAdminController extends AppController
 
      if($validation->IsValid($error)) {
        // SLUG et CREATED BY à FINIR
+
        $data = array(
          'slug'         => $product_name,
          'product_name' => $product_name,
@@ -333,89 +342,103 @@ class ProductAdminController extends AppController
          'weight'       => $weight,
          'stock'        => $stock,
          'id_category'  => $id_category,
-         'created_at'   => $dateTimeModel->format('Y-m-d H:i:s'),
-         'created_by'   => '',//$_SESSION['email'],
+         'modified_at'   => $dateTimeModel->format('Y-m-d H:i:s'),
+         'modified_by'   => '',//$_SESSION['email'],
        );
-      $idProduct = $addProduct->insert($data);
+      $idProduct = $addProduct->update($data, $id);
       //$idProduct = $addProduct->lastInsertId();
       $idProductreal = $idProduct['id'];
 
 
         // IMAGE PRINCIPALE
-        if($image){
-            $upload->UploadProduct($file_tmp_main,$extension,'_principale');
+        if(!empty($_FILES['image']['name'])){
+          if($image){
+            $upload->UploadProduct($file_tmp_main,$extension,'_principale');//upload de l'image
+
             $name = $upload->getNewName($_FILES['image']['name'],'_principale');
             $path = $upload->getPath();
-            $id              = $image[0]['id'];
-            // debug($_FILES);
+            $id   = $imageProduct[0]['id'];
 
-            $data = array(
-                  'id_product'    => $idProductreal,
-                  'original_name' => $_FILES['image']['name'],
-                  'name'          => $name,
-                  'path'          => $path,
-                  'status_img'    => 1,
-                  'mim_type'      => $_FILES['image']['type'],
-              );
-              $modelImage->update($data,$id);
+            $data = array(//datas à updater dans la base
+              'id_product'    => $idProductreal,
+              'original_name' => $_FILES['image']['name'],
+              'name'          => $name,
+              'path'          => $path,
+              'status_img'    => 1,
+              'mim_type'      => $_FILES['image']['type'],
+            );
+              $modelImage->update($data,$id);//update data la colonne image concernée
+            $oldFile = $imageProduct[0]['path'].$imageProduct[0]['name'];//recupération de l'ancienne image.
+              unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+          }
         }
         // IMAGE SECONDAIRE 1
-        if($imageSecondaire1){
-          $upload->UploadProduct($file_tmp_1,$extension,'_secondaire_1');
+        if(!empty($_FILES['imageSecondaire1']['name'])){
+          if($imageSecondaire1){
+          $upload->UploadProduct($file_tmp_1,$extension,'_secondaire_1');//upload de l'image
+
           $name = $upload->getNewName($_FILES['imageSecondaire1']['name'],'_secondaire_1');
           $path = $upload->getPath();
-          $id              = $image[1]['id'];
-          // debug($_FILES);
+          $id   = $imageProduct[1]['id'];
 
-          $data = array(
-                'id_product'    => $idProductreal,
-                'original_name' => $_FILES['imageSecondaire1']['name'],
-                'name'          => $name,
-                'path'          => $path,
-                'status_img'    => 2,
-                'mim_type'      => $_FILES['imageSecondaire1']['type'],
-            );
-            $modelImage->update($data,$id);
+          $data = array(//datas à updater dans la base
+            'id_product'    => $idProductreal,
+            'original_name' => $_FILES['imageSecondaire1']['name'],
+            'name'          => $name,
+            'path'          => $path,
+            'status_img'    => 2,
+            'mim_type'      => $_FILES['imageSecondaire1']['type'],
+          );
+            $modelImage->update($data,$id);//update data la colonne image concernée
+          $oldFile = $imageProduct[1]['path'].$imageProduct[1]['name'];//recupération de l'ancienne image.
+            unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+          }
         }
 
         // IMAGE SECONDAIRE 2
-        if($imageSecondaire2){
-            $upload->UploadProduct($file_tmp_2,$extension,'_secondaire_2');
-            $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'_secondaire_2');
-            $pathSecondaire2 = $upload->getPath();
-            $id              = $image[2]['id'];
-            // debug($_FILES);
+        if(!empty($_FILES['imageSecondaire2']['name'])){
+          if($imageSecondaire2){
+            $upload->UploadProduct($file_tmp_2,$extension,'_secondaire_2');//upload de l'image
 
-            $dataSecondaireImg2 = array(
-                  'id_product'    => $idProductreal,
-                  'original_name' => $_FILES['imageSecondaire2']['name'],
-                  'name'          => $nameSecondaire2,
-                  'path'          => $pathSecondaire2,
-                  'status_img'    => 2,
-                  'mim_type'      => $_FILES['imageSecondaire2']['type'],
-              );
-              $modelImage->update($data,$id);
+            $name = $upload->getNewName($_FILES['imageSecondaire2']['name'],'_secondaire_2');
+            $path = $upload->getPath();
+            $id   = $imageProduct[2]['id'];
+
+            $data = array(//datas à updater dans la base
+              'id_product'    => $idProductreal,
+              'original_name' => $_FILES['imageSecondaire2']['name'],
+              'name'          => $name,
+              'path'          => $path,
+              'status_img'    => 2,
+              'mim_type'      => $_FILES['imageSecondaire2']['type'],
+            );
+              $modelImage->update($data,$id);//update data la colonne image concernée
+            $oldFile = $imageProduct[2]['path'].$imageProduct[2]['name'];//recupération de l'ancienne image.
+              unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+          }
         }
         // IMAGE SECONDAIRE 3
-        if($imageSecondaire3){
-            $upload->UploadProduct($file_tmp_3,$extension,'_secondaire_3');
-            $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'_secondaire_3');
-            $pathSecondaire3 = $upload->getPath();
-            $id              = $image[3]['id'];
-            // debug($_FILES);
+        if(!empty($_FILES['imageSecondaire3']['name'])){
+          if($imageSecondaire3){
+            $upload->UploadProduct($file_tmp_3,$extension,'_secondaire_3');//upload de l'image
 
-            $dataSecondaireImg3 = array(
-                  'id_product'    => $idProductreal,
-                  'original_name' => $_FILES['imageSecondaire3']['name'],
-                  'name'          => $nameSecondaire3,
-                  'path'          => $pathSecondaire3,
-                  'status_img'    => 2,
-                  'mim_type'      => $_FILES['imageSecondaire3']['type'],
-              );
+            $name = $upload->getNewName($_FILES['imageSecondaire3']['name'],'_secondaire_3');
+            $path = $upload->getPath();
+            $id              = $imageProduct[3]['id'];
 
-              $modelImage->update($data,$id);
-              // debug($_POST);
-              // debug($_FILES);
+            $data = array(//datas à updater dans la base
+              'id_product'    => $idProductreal,
+              'original_name' => $_FILES['imageSecondaire3']['name'],
+              'name'          => $name,
+              'path'          => $path,
+              'status_img'    => 2,
+              'mim_type'      => $_FILES['imageSecondaire3']['type'],
+            );
+
+              $modelImage->update($data,$id);//update data la colonne image concernée
+              $oldFile = $imageProduct[3]['path'].$imageProduct[3]['name'];//recupération de l'ancienne image.
+                unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+          }
         }
         //redirection
         $this->redirectToRoute('admin_product');
@@ -423,8 +446,11 @@ class ProductAdminController extends AppController
       else {
       // debug($error);
          // refaire afficher la vue avec les errore passé en parametre de cette vue
-         $this->show('admin/product/admin_product_update',array (
-           'error' => $error,
+         $this->show('admin/product/product_modified',array (
+           'product'   => $product,
+           'categories'=> $categories,
+           'imageProduct'     => $imageProduct,
+           'error'     => $error
          ));
       }
   }
