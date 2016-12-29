@@ -87,7 +87,7 @@ $categories = findAll('categories');?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container product">
+<div class="container-fluid product">
 	<div class="row">
 		<div class="col-xs-12 sol-sm-3 col-md-3 col-lg-3">
 			<section class="sidebar-nav">
@@ -113,7 +113,7 @@ $categories = findAll('categories');?>
 				</div>
 			</section>
 		</div>
-		<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+		<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 main_column">
 			<section>
 			<?= $this->section('main_content') ?>
 			</section>

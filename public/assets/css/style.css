@@ -6,24 +6,33 @@ html, body {
 }
 
 .main_content {
-	background-color: rgba(185, 185, 185, 0.8);
+	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
 }
+/*.main_column{
+	background-color: rgba(185, 185, 185, 0.6);
+	padding: 0 1em 0 1em;
+	margin: 0;
+}*/
 
 a {
 	text-decoration: none;
+	/*color: rgb(8, 7, 7);*/ /*ancien*/
 	color: rgb(8, 7, 7);
 }
 
 a:hover {
-	color: #F92672;
+	/*color: #F92672;*/ /*ancien*/
+	color: #2B5043;
 }
 
 h1 {
+	/*color: #2B5043;*/ /*hermelen source flyer*/
 	color: #0d786b;
 	font-size: 2em;
 }
 
 h2 {
+	/*color: #4F3A3A;*/ /*hermelen source flyer*/
 	color: #5d5926;
 }
 
@@ -38,7 +47,10 @@ h2 {
 	list-style:none;
 	display: inline;
 }
-
+/*slider*/
+.slider_container{
+padding: 0;
+}
 
 /*===================MICHELE========================*/
 /*CSS formulaires Inscription Connexion*/
@@ -102,6 +114,14 @@ h2 {
 }
 /*===================MICHELE========================*/
 /*CSS Thumbnail page Listproduct*/
+article.card.bordered{
+	background-color: rgba(185, 185, 185, 0.8);
+	border: 1px solid black;
+	margin:1em auto 1em auto;
+}
+p.button {
+	text-align: center;
+}
 	 article.card {
  		background-color: rgba(185, 185, 185, 0.8);
  	}
@@ -141,7 +161,6 @@ h2 {
 	padding-top: 1px;
 	padding-bottom: 1px;
 }
-
 @media (min-width: 768px) {
 	.product {
 		margin-left: 15px;
@@ -366,14 +385,18 @@ button.modif_product {
 	background-color: rgb(218, 208, 202);
 }
 
-.logo_container{
+.logo_slider{
 	background-color: rgb(105, 94, 69);
-	height: 220px;
+	padding: 0;
+}
+.logo_slider > h1{
+	font-size: 5em;
 }
 .logo_container > h1{
 	font-size: 4em;
 	text-align: center;
 }
+
 /*mise en forme tableau product*/
 .product_img_thumbnail_back .img_thumbnail_back{
 	max-height: 100px;
@@ -393,22 +416,76 @@ background-color: rgba(182, 186, 157, 0.8);
 	padding : 1%;
 }
 /*Ce que vous trouverez*/
+
+
 .presentation_detail{
-	margin-top: 2em;
-	padding: 1em 0 1em 0;
+	/*margin-top: 2em;
+	padding: 1em 0 1em 0;*/
 	background-color: rgba(185, 185, 185, 0.8);
+	display: flex;
 }
 /*===================MICHELE========================*/
 /*entête titre pages*/
 .parent {
   display: flex; /* contexte sur le parent */
+	text-align: center;
 }
 .enfant {
   margin: auto; /* contexte sur l'enfant */
 	background-color: rgb(218, 208, 202);
-	height: 5em;
+	height: auto;
 	padding-left: 5em;
 	padding-right: 5em;
+}
+/*CSS dernière version page accueil */
+/*
+ * PAGE ACCUEIL
+ */
+ .Articles article {
+   margin-top: 1em;
+   padding: 15px;
+	 background-color: rgba(185, 185, 185, 0.8);
+	 min-height: 300px;
+ }
+ .Articles article p {
+	 position: relative;
+
+ }
+ .Articles article p::after {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+ }
+.Articles article:nth-child(even) img {
+  float: left;
+  margin-right: 1em;
+	max-height: 35rem;
+	min-height: 35rem;
+	display: flex;
+}
+.Articles article:nth-child(odd) img {
+  float: right;
+  margin-left: 1em;
+	max-height: 35rem;
+	min-height: 35rem;
+	display: flex;
+}
+/*===================== FIN MICHELE =============================*/
+
+.presentation_img{
+	max-height :300px;
+}
+.presentation_img_right{
+	width: 60%;
+	margin-left: 1em;
+	float: right;
+}
+
+.presentation_img_left{
+	width: 60%;
+	margin-right: 1em;
+	float: left;
 }
 
 /*AFFICHAGE PANIER*/
