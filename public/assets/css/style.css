@@ -398,12 +398,13 @@ background-color: rgba(182, 186, 157, 0.8);
 	padding: 1em 0 1em 0;
 	background-color: rgba(185, 185, 185, 0.8);
 }
+/*===================MICHELE========================*/
+/*entête titre pages*/
 .parent {
   display: flex; /* contexte sur le parent */
-
 }
 .enfant {
-  margin: auto; /* contexte sur le parent */
+  margin: auto; /* contexte sur l'enfant */
 	background-color: rgb(218, 208, 202);
 	height: 5em;
 	padding-left: 5em;
