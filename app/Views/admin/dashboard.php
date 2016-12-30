@@ -38,8 +38,8 @@ foreach($stocks as $stock)
               <tbody>
                 <?php foreach($stocks as $stock){ ?>
                 <tr>
-                  <th><?php echo $stock['name']; ?></th>
-                  <th><?php echo $stock['stock']; ?></th>
+                  <td><?php echo $stock['name']; ?></th>
+                  <td><?php echo $stock['stock']; ?></th>
                 </tr>
                 <?php }; ?>
               </tbody>
