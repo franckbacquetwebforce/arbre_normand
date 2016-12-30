@@ -136,7 +136,8 @@ class ProductAdminController extends AppController
 
 
         // IMAGE PRINCIPALE
-        if($image){
+        if(!empty($_FILES['image']['name'])){
+          if($image){
             $upload->UploadProduct($file_tmp_main,$extension,'_principale');
             $name = $upload->getNewName($_FILES['image']['name'],'_principale');
             $path = $upload->getPath();
@@ -149,34 +150,35 @@ class ProductAdminController extends AppController
                   'path'          => $path,
                   'status_img'    => 1,
                   'mim_type'      => $_FILES['image']['type'],
-              );
-              $modelImage->insert($dataMainImg);
-        }
-        // IMAGE SECONDAIRE 1
-        if($imageSecondaire1){
-          $upload->UploadProduct($file_tmp_1,$extension,'_secondaire_1');
-          $name = $upload->getNewName($_FILES['imageSecondaire1']['name'],'_secondaire_1');
-          $path = $upload->getPath();
-          // debug($_FILES);
-
-          $dataMainImg = array(
-                'id_product'    => $idProductreal,
-                'original_name' => $_FILES['imageSecondaire1']['name'],
-                'name'          => $name,
-                'path'          => $path,
-                'status_img'    => 2,
-                'mim_type'      => $_FILES['imageSecondaire1']['type'],
             );
             $modelImage->insert($dataMainImg);
+          }
         }
-
+        // IMAGE SECONDAIRE 1
+        if(!empty($_FILES['imageSecondaire1']['name'])){
+          if($imageSecondaire1){
+            $upload->UploadProduct($file_tmp_1,$extension,'_secondaire_1');
+            $name = $upload->getNewName($_FILES['imageSecondaire1']['name'],'_secondaire_1');
+            $path = $upload->getPath();
+            // debug($_FILES);
+            $dataMainImg = array(
+                  'id_product'    => $idProductreal,
+                  'original_name' => $_FILES['imageSecondaire1']['name'],
+                  'name'          => $name,
+                  'path'          => $path,
+                  'status_img'    => 2,
+                  'mim_type'      => $_FILES['imageSecondaire1']['type'],
+            );
+            $modelImage->insert($dataMainImg);
+          }
+        }
         // IMAGE SECONDAIRE 2
-        if($imageSecondaire2){
+        if(!empty($_FILES['imageSecondaire2']['name'])){
+          if($imageSecondaire2){
             $upload->UploadProduct($file_tmp_2,$extension,'_secondaire_2');
             $nameSecondaire2 = $upload->getNewName($_FILES['imageSecondaire2']['name'],'_secondaire_2');
             $pathSecondaire2 = $upload->getPath();
             // debug($_FILES);
-
             $dataSecondaireImg2 = array(
                   'id_product'    => $idProductreal,
                   'original_name' => $_FILES['imageSecondaire2']['name'],
@@ -184,16 +186,17 @@ class ProductAdminController extends AppController
                   'path'          => $pathSecondaire2,
                   'status_img'    => 2,
                   'mim_type'      => $_FILES['imageSecondaire2']['type'],
-              );
-              $modelImage->insert($dataSecondaireImg2);
+            );
+            $modelImage->insert($dataSecondaireImg2);
+          }
         }
         // IMAGE SECONDAIRE 3
-        if($imageSecondaire3){
+        if(!empty($_FILES['imageSecondaire3']['name'])){
+          if($imageSecondaire3){
             $upload->UploadProduct($file_tmp_3,$extension,'_secondaire_3');
             $nameSecondaire3 = $upload->getNewName($_FILES['imageSecondaire3']['name'],'_secondaire_3');
             $pathSecondaire3 = $upload->getPath();
             // debug($_FILES);
-
             $dataSecondaireImg3 = array(
                   'id_product'    => $idProductreal,
                   'original_name' => $_FILES['imageSecondaire3']['name'],
@@ -201,11 +204,9 @@ class ProductAdminController extends AppController
                   'path'          => $pathSecondaire3,
                   'status_img'    => 2,
                   'mim_type'      => $_FILES['imageSecondaire3']['type'],
-              );
-
-              $modelImage->insert($dataSecondaireImg3);
-              // debug($_POST);
-              // debug($_FILES);
+            );
+            $modelImage->insert($dataSecondaireImg3);
+          }
         }
         //redirection
         $this->redirectToRoute('admin_product');
@@ -447,10 +448,10 @@ class ProductAdminController extends AppController
       // debug($error);
          // refaire afficher la vue avec les errore passé en parametre de cette vue
          $this->show('admin/product/product_modified',array (
-           'product'   => $product,
-           'categories'=> $categories,
-           'imageProduct'     => $imageProduct,
-           'error'     => $error
+           'product'      => $product,
+           'categories'   => $categories,
+           'imageProduct' => $imageProduct,
+           'error'        => $error
          ));
       }
   }
@@ -458,10 +459,22 @@ class ProductAdminController extends AppController
 
   public function deleteAction($id)
   {
-    $model = new ProductsModel();
-    $product = $model->find($id);
+    $ProductModel = new ProductsModel();
+    $ImgModel = new ImgModel();
+    $product = $ProductModel->find($id);
+
+    $imageProducts= $ProductModel->searchImgSingle($id);
+    if(!empty($imageProducts)){
+      foreach($imageProducts as $imageProduct){
+        $ImgModel->delete($imageProduct['id']);
+        unlink('../public/'.$imageProduct['path'].$imageProduct['name']);
+      }
+    }else {
+      $this->showNotFound();
+    }
+
     if(!empty($product)){
-      $model->delete($id);
+      $ProductModel->delete($id);
       $this->redirectToRoute('admin_product');
     }else {
       $this->showNotFound();

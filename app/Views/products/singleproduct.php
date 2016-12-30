@@ -5,8 +5,9 @@
 $id_product = $product['id'];
 $price_ht = $product['price_ht'];
 $qt_product = '1';
-debug($product);
-debug($productOriginal);
+// debug($product);
+// debug($productOriginal);
+// debug($img);
 ?>
 <div class="container-fluid single">
   <div class="row">
