@@ -48,5 +48,6 @@
 	</table>
 </form>
 
+<a href="<?= $this->url('confirm_order'); ?>"><button type="button" name="button">Passer la commande</button></a>
 
 <?php $this->stop('main_content') ?>
