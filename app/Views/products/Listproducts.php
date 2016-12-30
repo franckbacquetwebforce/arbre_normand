@@ -2,6 +2,9 @@
 
 <?php $this->start('main_content');
 ?>
+
+
+  <!-- REMPLACABLE PAR  -->
           <?php foreach($products as $product){  ?>
             <div class="container col-xs-12 col-sm-6 col-md-4 col-lg-4"><!-- ajout de div pour placement articles -->
               <article class="card bordered">
