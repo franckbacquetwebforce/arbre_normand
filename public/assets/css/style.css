@@ -385,17 +385,64 @@ button.modif_product {
 	background-color: rgb(218, 208, 202);
 }
 
+
+/*===================Logo anim codePen===================================*/
+/*hermelen*/
 .logo_slider{
-	background-color: rgb(105, 94, 69);
-	padding: 0;
+	/*background-color: rgb(105, 94, 69);*/
+	/*padding: 0;*/
+	position: relative;
 }
 .logo_slider > h1{
 	font-size: 5em;
+}
+.logo_container{
+	/*height: 500px;*/
 }
 .logo_container > h1{
 	font-size: 4em;
 	text-align: center;
 }
+
+/*codepen*/
+body{
+  /*background-color: #111;*/
+  /*font-family: Signika Negative, Asap, sans-serif;*/
+  /*color:white;*/
+  /*overflow:hidden;*/
+}
+.dot{
+  width:35px;
+  height:35px;
+  position: absolute;
+  background-size: 100% 100%;
+}
+.dot:nth-child(4n+0){
+  background-image: url(../images/feuille_jaune.png);
+}
+.dot:nth-child(4n+1){
+  background-image: url(../images/feuille_rouge.png);
+}
+.dot:nth-child(4n+2){
+  background-image: url(../images/feuille_verte_foncee.png);
+}
+.dot:nth-child(4n+3){
+  background-image: url(../images/feuille_verte.png);
+}
+
+#container {
+	width:100%;
+	height:100%;
+	z-index: 100;
+ }
+
+/*#logo{ left:50%; top:50%; position:absolute; border-radius:10px; }
+
+
+#links{position:absolute;bottom:0px;left:0px;width:100%;height:50px;font-size:13px;font-family:tahoma;color:#fff;}
+#links a{text-decoration:none;font-size:2.3em;color:#fff;}
+#twitter{position:absolute;bottom:15px;right:20px;}
+#pens{position:absolute;bottom:15px;left:20px;}*/
 
 /*mise en forme tableau product*/
 .product_img_thumbnail_back .img_thumbnail_back{
@@ -501,4 +548,19 @@ background-color: rgba(182, 186, 157, 0.8);
 .empty_cart{
 	font-size: 1em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=====================FIN HERMELEN======================*/
