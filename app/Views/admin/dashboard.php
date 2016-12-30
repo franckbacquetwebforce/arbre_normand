@@ -18,4 +18,8 @@ foreach($stocks as $stock)
   echo '<br>';
 }
  ?>
+ 
+
+
+
 <?php $this->stop('main_content') ?>
