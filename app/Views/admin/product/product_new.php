@@ -1,4 +1,4 @@
-<?php $this->layout('layout_admin_product', ['title' => 'Products']) ?>
+<?php $this->layout('layout_admin', ['title' => 'Products']) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -31,7 +31,7 @@
         <span class=""><?php if(!empty($error['stock'])){echo $error['stock'];} ?></span><br />
         <input type="text" name="stock" class="form-control" value="<?php if(!empty($_POST['stock'])){echo $_POST['stock'];} ?>"><br />
         <label for="id_category"><h4>Catégorie :</h4></label><br />
-        <select class="" name="id_category">
+        <select class="form-control" name="id_category">
           <?php // Select categories dynamique
           foreach($categories as $category){?>
           <option value="<?= $category['id'] ?>"><?= $category['category_name'] ?></option>

@@ -10,11 +10,11 @@ $categories = findAll('categories');?>
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
-  <div class="row">
-			<section>
+  <!-- <div class="row"> -->
+			<section class="row logo_slider container-fluid"><!-- div class row inutile -->
 				<?= $this->section('slider') ?>
 			</section>
-	</div>
+	<!-- </div> -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -89,7 +89,7 @@ $categories = findAll('categories');?>
 </nav>
 <div class="container-fluid product">
 	<div class="row">
-		<div class="col-xs-12 sol-sm-3 col-md-3 col-lg-3">
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 			<section class="sidebar-nav">
 				<div class="navbar menu_right navbar-default" role="navigation">
 					<div class="navbar-header">
@@ -113,11 +113,12 @@ $categories = findAll('categories');?>
 				</div>
 			</section>
 		</div>
-		<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 main_column">
+		<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
 			<section>
 			<?= $this->section('main_content') ?>
 			</section>
 		</div>
+		<div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div><!-- partie droite vide -->
 	</div>
 </div>
 	<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>

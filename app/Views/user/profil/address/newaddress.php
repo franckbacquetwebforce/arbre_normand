@@ -2,7 +2,6 @@
 <?php $this->layout('layout', ['title' => 'Ajouter une adresse']) ?>
 
 <?php $this->start('main_content') ?>
-<!-- FORMULAIRE d'inscription avec affichage des erreurs-->
 <div class="container-fluid" style="margin-top: 30px">
   <div class="row">
     <div class="col-md-2"></div>
