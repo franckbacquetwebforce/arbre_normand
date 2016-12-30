@@ -54,6 +54,9 @@ $categories = findAll('categories');?>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="<?= $this->url('user_cart') ?>">
 					<button type="button" class="btn btn-default" aria-label="Left Align">
+						<?php if(!empty($w_user)){?>
+						<li>Bienvenue <?php echo $w_user['username']; ?></li>
+						<?php	}?>
 					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 					<span class="sr-only">Panier</span>
 				</button></a></li>
@@ -76,17 +79,18 @@ $categories = findAll('categories');?>
 		  </div><!-- /.container-fluid -->
 		</nav>
 
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3"></div>
-						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+					<div class="row container-fluid">
+						<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3">
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 main_column">
 							<section>
 							<?= $this->section('main_content') ?>
 							</section>
 						</div>
 						<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3"></div>
 					</div>
-				</div>
+
 
 
 

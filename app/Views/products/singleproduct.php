@@ -8,7 +8,7 @@ $qt_product = '1';
 debug($product);
 debug($productOriginal);
 ?>
-<div class="container_fluid single">
+<div class="container-fluid single">
   <div class="row">
     <div class="col-xs-6">
       <figure class="thumbnail">
@@ -52,26 +52,29 @@ debug($productOriginal);
       </figure>
     </div>
     <div class="col-xs-6">
-      <section class="thumbs container">
+      <!-- <section class="thumbs container"> -->
         <main class="main-area">
           <div class="centered">
             <section class="cards">
               <!-- AFFICHAGE DU PRODUIT CORRESPONDANT A l'ID -->
               <article class="card">
                 <div class="card-content">
-                  <h2><?php echo $product['product_name']; ?></h2>
-                  <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p>
-                  <p>''</p>
+                  <h3><?php echo $product['product_name']; ?></h3>
+                  <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
                   <p class="caract">Catégorie : <?php echo $product['category_name']; ?></p>
                   <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
-                  <p class="caract">Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?></p>
-                  <p>''</p>
+
+                  <p class="caract">Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?></p><br>
                   <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
+                </div>
+
+
+
               </article>
             </section>
           </div>
         </main>
-      </section>
+      <!-- </section> -->
     </div>
     <section class="article_single">
     <!-- AFFICHAGE DE LA DESCRIPTION -->

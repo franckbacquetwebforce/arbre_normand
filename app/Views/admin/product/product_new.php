@@ -2,8 +2,12 @@
 
 <?php $this->start('main_content') ?>
 
+<div class="parent">
+  <div class="enfant">
+    <h1 class="titre">Nouveau produit</h1>
+  </div>
+</div>
 
-<h1 class="titre">Nouveau produit</h1>
 <div class="container-fluid ajout">
 
   <div class="row">

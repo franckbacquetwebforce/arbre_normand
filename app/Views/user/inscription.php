@@ -31,7 +31,7 @@
               <input type="password" class="form-control" name="password2" tabindex="1" required="required" value="<?php if(!empty($_POST['password2'])){echo $_POST['password2'];}?>"><br>
               <span id="error_password2"><?php if(!empty($errors['password2'])) {echo $errors['password2']; } ?></span><br>
             </div>
-            <button type="submit" class="btn btn-success">S'inscrire'</button>
+            <button type="submit" class="btn btn-success">S'inscrire</button>
           </form>
         </div>
       </div>

@@ -60,17 +60,21 @@ $categories = findAll('categories');?>
       </form>
       <ul class="nav navbar-nav navbar-right">
 				<li><a href="<?= $this->url('user_cart') ?>">
-					<button type="button" class="btn btn-default" aria-label="Left Align">
-  				<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-					<span class="sr-only">Panier</span>
+
+				<button type="button" class="btn btn-default" aria-label="Left Align">
+					<?php if(!empty($w_user)){?>
+					<li>Bienvenue <?php echo $w_user['username']; ?></li>
+					<?php	}?>
+				<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+				<span class="sr-only">Panier</span>
 				</button></a></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compte<span class="caret"></span></a>
           <ul class="dropdown-menu">
 						<?php if(!empty($w_user)){?>
 							<li><a href="<?= $this->url('user_profile_monprofil',['id' => $w_user['id']]) ?>">Mon compte </a></li><!-- Si connecté -->
 							<li><a href="<?= $this->url('logout_action') ?>">Se déconnecter </a></li><!-- Si connecté -->
-
 					<?php	} else { ?>
 						<li><a href="<?= $this->url('login') ?>">Se connecter </a></li><!-- Si déconnecté -->
 						<li><a href="<?= $this->url('register') ?>">S'inscrire </a></li><!-- Si déconnecté -->
@@ -83,7 +87,7 @@ $categories = findAll('categories');?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container product">
+<div class="container-fluid product">
 	<div class="row">
 		<div class="col-xs-12 sol-sm-3 col-md-3 col-lg-3">
 			<section class="sidebar-nav">
@@ -109,12 +113,10 @@ $categories = findAll('categories');?>
 				</div>
 			</section>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 main_column">
 			<section>
 			<?= $this->section('main_content') ?>
 			</section>
-		</div>
-		<div class="col-xs-0 col-sm-3 col-md-3 col-lg-3">
 		</div>
 	</div>
 </div>

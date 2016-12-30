@@ -39,8 +39,6 @@ class OrderController extends AppController
   }
   public function confirmOrderAction()
   {
-    $last = $this->ordermodel->lastInsertId();
-    die($last);
     $orders = $this->cart->infoProduitPanier();
 
     $user = $this->authentification->getLoggedUser();
@@ -53,13 +51,10 @@ class OrderController extends AppController
         'status' => 'en_attente'
       );
 
-      $this->ordermodel->insert($data1);
-
-
-
+    $lastinsert = $this->ordermodel->insert($data1);
       foreach($orders as $order){
         $data2 = array(
-          'id_order' => $last,
+          'id_order' => $lastinsert['id'],
           'id_product' => $order['product_id'],
           'qt_product' => $order['cart_qt'],
           'price_product' => $order['cart_price']
