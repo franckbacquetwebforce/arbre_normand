@@ -4,7 +4,46 @@
 $this->layout('layout_admin', ['title' => 'liste des utilisateurs']) ?>
 
 <?php $this->start('main_content') ?>
-<table>
+<div class="container-fluid">
+  <div class="parent">
+    <div class="enfant">
+      <h1>Liste utilisateurs</h1>
+    </div>
+  </div>
+ <a href="<?= $this->url('admin_user_new') ?>"><button type="button" name="add_product">Ajouter un administrateur</button></a>
+
+  <table class="layout display responsive-table">
+    <thead>
+      <tr>
+          <th style="width:10%">Pseudo</th>
+          <th colspan="1" style="width:15%">Email</th>
+          <th colspan="1" style="width:15%">Inscrit le</th>
+          <th colspan="1" style="width:15%">Modifié le</th>
+          <th colspan="1" style="width:10%">Statut</th>
+          <th colspan="3" style="width:25%">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach($users as $user){ ?>
+      <tr>
+        <td><b><?php if(!empty($user['username'])) { echo $user['username'];} ?></b></td>
+        <td><?php if(!empty($user['email'])) { echo $user['email'];} ?></td>
+
+        <td><b><?php if(!empty($user['created_at'])) { echo $user['created_at'];} ?></b></td>
+        <td><b><?php if(!empty($user['modified_at'])) { echo $user['modified_at'];} ?></b></td>
+        <td><b><?php if(!empty($user['role'])) { echo $user['role'];} ?></b></td>
+
+        <td class="actions">
+          <a href="<?= $this->url('admin_user_update',['id' => $user['id']])?>" class="edit-item" title="Edit"><button type="button" name="button">Modifier</button></a>
+          <a href="<?= $this->url('admin_user_delete_action',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet article?');" type="button" name="button">Supprimer</button></a>
+        </td>
+      </tr>
+      <?php } ?>
+    </tbody>
+  </table>
+</div>
+
+<!-- <table>
 <thead>
   <tr>
     <th>email</th>
@@ -19,5 +58,5 @@ $this->layout('layout_admin', ['title' => 'liste des utilisateurs']) ?>
 <?php  } ?>
 
 </tbody>
-</table>
+</table> -->
 <?php $this->stop('main_content') ?>

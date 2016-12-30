@@ -1,4 +1,4 @@
-<?php $this->layout('layout_admin_product', ['title' => 'Modification du produit']) ?>
+<?php $this->layout('layout_admin', ['title' => 'Modification du produit']) ?>
 <?php $this->start('main_content');
 
 ?>

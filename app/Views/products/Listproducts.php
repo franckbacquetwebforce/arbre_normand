@@ -3,8 +3,6 @@
 <?php $this->start('main_content');
 ?>
 
-<div class="spacer"></div>
-  
 
   <!-- REMPLACABLE PAR  -->
           <?php foreach($products as $product){  ?>

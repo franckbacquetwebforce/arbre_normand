@@ -5,6 +5,7 @@
   	<title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 
   </head>
@@ -76,12 +77,40 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+    <div class="row container-fluid product">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <section class="sidebar-nav">
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <span class="visible-xs navbar-brand">Sidebar menu</span>
+            </div>
+            <div class="navbar-collapse collapse sidebar-navbar-collapse">
+              <ul class="nav navbar-nav">
+                <!--Faire un JS sur la classe active-->
+                <li class="active"><a href="<?= $this->url('default_home') ?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Accueil</span></a></li>
+                <li><a href="<?= $this->url('admin_product') ?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Produits</span></a></li>
+                <li><a href="<?= $this->url('admin_user') ?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Utilisateurs</span></a></li>
+                <li><a href="<?= $this->url('admin_order') ?>"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Commandes</span></a></li>
+                <li><a href="<?= $this->url('admin_categories') ?>"><i aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Categories</span></a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+          </section>
+        </div>
     <!-- <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12"> -->
+        <div class="row col-xs-12 col-sm-9 col-md-9 col-lg-9 main_column">
           <section>
           <?= $this->section('main_content') ?>
           </section>
+        </div>
         <!-- </div>
       </div>
     </div> -->
