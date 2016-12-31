@@ -1,11 +1,22 @@
 <?php $this->layout('layout_home', ['title' => 'Accueil']) ?>
 <?php $this->start('slider') ?>
-	<div class="logo_container col-xs-0 col-sm-3 col-lg-3 col-lg-3">
-		<h1>L'Arbre Normand</h1>
+	<div id="logo_container" class="logo_container col-xs-0 col-sm-3 col-lg-3 col-lg-3">
+		<!-- <h1>L'Arbre Normand</h1> -->
+		<div id="container">
+			<!-- <img id='logo' src="" alt="Smiley face" height="120" width="120"> -->
+		</div>
+		<!-- <div id='links'>
+			<a id='twitter' href="https://twitter.com/Diaco_ml" target="_blank"><span class='fa fa-twitter'></span></a>
+			<div id='pens'>
+				<a href="http://codepen.io/collection/DgYoEw/" target="_blank">
+					<span class='fa fa-codepen'></span>
+				</a> my other Pens
+			</div>
+		</div> -->
 	</div>
   <div class="slider_container col-xs-0 col-sm-9 col-lg-9 col-lg-9">
   	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+    																					<!-- Indicators -->
     	<ol class="carousel-indicators">
       	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       	<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -13,7 +24,7 @@
       	<li data-target="#myCarousel" data-slide-to="3"></li>
   			<li data-target="#myCarousel" data-slide-to="4"></li>
     	</ol>
-    <!-- Wrapper for slides -->
+    																					<!-- Wrapper for slides -->
     	<div class="carousel-inner" role="listbox">
       	<div class="item row active">
   				<img class ="slider_img col-xs-0 col-sm-8 col-md-8 col-lg-8" src="<?= $this->assetUrl('images/amanite_phalloide_140x300.jpg') ?>" alt="amanite_phalloide">
@@ -51,7 +62,7 @@
   				</div>
       	</div>
   		</div>
-    <!-- Left and right controls -->
+    																					<!-- Left and right controls -->
     	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>

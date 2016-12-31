@@ -11,7 +11,7 @@ $categories = findAll('categories');?>
 </head>
 <body>
   <!-- <div class="row"> -->
-			<section class="row logo_slider container-fluid"><!-- div class row inutile -->
+			<section id="logo_slider" class="row logo_slider container-fluid"><!-- div class row inutile -->
 				<?= $this->section('slider') ?>
 			</section>
 	<!-- </div> -->
@@ -123,6 +123,7 @@ $categories = findAll('categories');?>
 </div>
 	<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/TweenMax.min.js') ?>"></script>
   <script src="<?= $this->assetUrl('js/app.js') ?>"></script>
 </body>
 </html>
