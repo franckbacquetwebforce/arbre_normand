@@ -20,7 +20,7 @@
               <th colspan="1" style="width:5%">Slug</th>
               <th colspan="1" style="width:15%">Date de création</th>
               <th colspan="1" style="width:5%">Status</th>
-              <th colspan="2" style="width:15%">Action</th>
+              <th colspan="2" style="width:25%">Action</th>
           </tr>
         </thead>
         <tbody>
