@@ -27,12 +27,17 @@ foreach($stocks as $stock)
         <h1>Bienvenue <?php echo $w_user['username']; ?></h1>
         <?php	}?>
         <div class="row">
-          <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12 gutter">
+            <h2>Nombre de commandes <span class="label label-primary pull-right"><?php echo $orders; ?></span></h2>
+            <h2>Nombre de visiteurs <span class="label label-primary pull-right"><?php echo $compte;?></span></h2>
+            <h2>Nombre d'utilisateurs <span class="label label-primary pull-right"><?php echo $inscriptions;?></span></h2>
+          </div>
+          <div class="col-md-5 col-sm-5 col-xs-12">
             <table class="layout display responsive-table">
               <thead>
                 <tr>
-                  <th style="width:70%">Nom</th>
-                  <th colspan="1" style="width:30%">Stock</th>
+                  <th style="width:80%">Nom</th>
+                  <th colspan="1" style="width:20%">Stock</th>
                 </tr>
               </thead>
               <tbody>
@@ -45,24 +50,17 @@ foreach($stocks as $stock)
               </tbody>
             </table>
           </div>
-          <div class="col-md-3 col-sm-3 col-xs-12 gutter">
-            <div class="sales">
-              <h3>Commandes</h3>
-              <input value="<?php echo $orders; ?>">
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-12 gutter">
+
+          <!-- <div class="col-md-3 col-sm-3 col-xs-12 gutter">
             <div class="visitors">
-              <h3>Visiteurs</h3>
-              <input value="<?php echo $compte;?>">
+
             </div>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-12 gutter">
             <div class="users">
-              <h3>Utilisateurs</h3>
-              <input value="<?php echo $inscriptions;?>">
+
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

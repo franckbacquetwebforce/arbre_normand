@@ -53,6 +53,14 @@ padding: 0;
 }
 
 /*===================MICHELE========================*/
+/*Essai dashboard Michele*/
+
+span label-primary{
+	width: 300px;
+	float: right;
+	display: inline-block;
+}
+
 /*CSS formulaires Inscription Connexion*/
 .colored {
   background-color: rgba(185, 185, 185, 0.8);
@@ -515,12 +523,18 @@ background-color: rgba(182, 186, 157, 0.8);
 	min-height: 35rem;
 	display: flex;
 }
+.Articles article:nth-child(even) h2 {
+	text-align: left;
+}
 .Articles article:nth-child(odd) img {
   float: right;
   margin-left: 1em;
 	max-height: 35rem;
 	min-height: 35rem;
 	display: flex;
+}
+.Articles article:nth-child(odd) h2 {
+	text-align: right;
 }
 /*===================== FIN MICHELE =============================*/
 

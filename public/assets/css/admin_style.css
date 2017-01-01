@@ -25,15 +25,13 @@ h1 {
 h2 {
 	color: #66D9EF;
 }
-/*Essai dashboard Michele*/
-body {
-  padding-top: 80px;
 
-}
+
 div.display-table {
 	background-color: #ffffff;
 }
-#sidebar {
+
+/*#sidebar {
   position: fixed;
   top: 50px;
   left: 220px;
@@ -60,7 +58,7 @@ div.display-table {
 
 .tmargin {
   margin-top: 15px;
-}
+}*/
 
 /*=====================HERMELEN======================*/
 /*mise en forme navBar provisoire*/
