@@ -4,7 +4,9 @@ html, body {
 	background-size: cover;
 	color: rgb(8, 7, 7);
 }
-
+.container-fluid{/*correction de marge qui creait un scroll horizontal*/
+	margin:0;
+}
 .main_content {
 	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
 }
@@ -185,6 +187,7 @@ article {
 	padding-top: 15px;
 	padding-bottom: 1px;
 }
+
 @media (min-width: 768px) {
 	.product {
 		margin-left: 15px;
