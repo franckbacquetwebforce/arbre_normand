@@ -123,7 +123,6 @@ span label-primary{
 
 /*Essai dashboard Michèle*/
 
-
 /*===================MICHELE========================*/
 /*CSS Thumbnail page Listproduct*/
 article.card.bordered{
@@ -134,43 +133,56 @@ article.card.bordered{
 p.button {
 	text-align: center;
 }
-	 article.card {
- 		background-color: rgba(185, 185, 185, 0.8);
- 	}
- 	p.caract {
- 		padding-left: 3em;
- 		font-weight: bold;
- 	}
- 	p.button {
- 		text-align: center;
- 	}
- 	article.card h2 {
- 		text-align: center;
- 		color: #5d5926;
- 		font-weight: bold;
- 	}
- 	article.card h3 {
- 		text-align: center;
- 		color: #0d786b;
- 		font-weight: bold;
- 	}
-	.thumbs article{
-	  width: 320px;
-	  margin: 1em 8px;
-	  border: 1px solid black;
-	  float: left;
+ article.card {
+		background-color: rgba(185, 185, 185, 0.8);
 	}
-	.thumbs article img {
-		max-width: 100%;
-	  min-width: 100%;
-		max-height: 25rem;
-		min-height: 25rem;
+	p.caract {
+		padding-left: 3em;
+		font-weight: bold;
 	}
+	p.button {
+		text-align: center;
+	}
+	article.card h2 {
+		text-align: center;
+		color: #5d5926;
+		font-weight: bold;
+	}
+	article.card h3 {
+		text-align: center;
+		color: #0d786b;
+		font-weight: bold;
+	}
+.thumbs article{
+  width: 320px;
+  margin: 1em 8px;
+  border: 1px solid black;
+  float: left;
+}
+.thumbs article img {
+	max-width: 100%;
+  min-width: 100%;
+	max-height: 25rem;
+	min-height: 25rem;
+}
+article.card {
+	margin: 20px;
+	padding: 15px;
+}
+figure.thumbnail {
+	margin: 20px;
+	padding: 15px;
+}
+article {
+	margin-bottom: 20px;
+	padding: 15px
+}
+
 
 .article_single {
 	background-color: rgb(218, 208, 202);
 	padding-left: 15px;
-	padding-top: 1px;
+	padding-top: 15px;
 	padding-bottom: 1px;
 }
 @media (min-width: 768px) {

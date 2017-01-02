@@ -20,7 +20,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <?php if(!empty($w_user)){
+    							if($w_user['role'] === "admin") {?>
+    								<a class="navbar-brand" href="<?= $this->url('site_statistics') ?>">Administration</a>
+    				<?php	}?>
+    			<?php } ?>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

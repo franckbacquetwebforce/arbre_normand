@@ -27,12 +27,12 @@ foreach($stocks as $stock)
         <h1>Bienvenue <?php echo $w_user['username']; ?></h1>
         <?php	}?>
         <div class="row">
-          <div class="col-md-6 col-sm-6 col-xs-12 gutter">
-            <h2>Nombre de commandes <span class="label label-primary pull-right"><?php echo $orders; ?></span></h2>
-            <h2>Nombre de visiteurs <span class="label label-primary pull-right"><?php echo $compte;?></span></h2>
-            <h2>Nombre d'utilisateurs <span class="label label-primary pull-right"><?php echo $inscriptions;?></span></h2>
+          <div class="col-md-5 col-sm-5 col-xs-12 gutter">
+            <h4>Nombre de commandes <span class="label label-primary pull-right"><?php echo $orders; ?></span></h4>
+            <h4>Nombre de visiteurs <span class="label label-primary pull-right"><?php echo $compte;?></span></h4>
+            <h4>Nombre d'utilisateurs <span class="label label-primary pull-right"><?php echo $inscriptions;?></span></h4>
           </div>
-          <div class="col-md-5 col-sm-5 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <table class="layout display responsive-table">
               <thead>
                 <tr>

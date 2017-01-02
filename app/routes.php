@@ -15,8 +15,8 @@
 
 		// Admin Order
 		['GET', '/admin/order', 'OrderAdmin#index', 'admin_order'],
-		['GET', '/admin/order/waiting/[i:id]', 'OrderAdmin#validatingOrders', 'waiting_orders'],
-		['POST', '/admin/order/valid/[i:id]', 'OrderAdmin#validOrders', 'valid_orders'],
+		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
+		['POST', '/admin/order/valid/', 'OrderAdmin#validOrders', 'valid_orders'],
 
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
 		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
@@ -26,7 +26,7 @@
 
 		// Admin User
 		['GET', '/admin/user', 'UserAdmin#index', 'admin_user'],
-		['GET', '/admin/dashbord', 'UserAdmin#statistics', 'site_statistics'],
+		['GET', '/admin/dashboard', 'UserAdmin#statistics', 'site_statistics'],
 		['GET', '/admin/user/new', 'UserAdmin#addNew', 'admin_user_new'],
 		['POST', '/admin/user/new', 'UserAdmin#addNewAction', 'admin_user_new_action'],
 		['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
@@ -70,6 +70,10 @@
 		['GET', '/modifpassword', 'User#modifPassword', 'modifpassword'],
 		// Route pour envoyer en BDD l'update du password
 		['GET|POST', '/treatmodifpassword', 'User#modifPasswordAction', 'modifpassword_action'],
+		// Route pour afficher le formulaire de Contact
+		['GET', '/contact', 'User#contact', 'contact'],
+		// Route pour valider l'envoi du mail de contact
+		['POST', '/contact', 'User#contactAction', 'contact_action'],
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],

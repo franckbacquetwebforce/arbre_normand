@@ -33,7 +33,7 @@ debug($orders); ?>
           </tr>
         </tbody>
 		</table>
-    <button class="btn btn-success modif_categorie" type="submit" name="submit" value="">Valider</button>
+    <button onclick="alert('Merci pour votre commande, un email de confirmation vous a été envoyé');" class="btn btn-success modif_categorie" type="submit" name="submit" value="">Valider</button>
 	</form>
 
 
