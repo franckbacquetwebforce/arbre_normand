@@ -156,18 +156,18 @@ class UserController extends AppController // le CSS ne fonctionne pas
 		$errors = array();
 		$email = trim(strip_tags($_POST['email']));
     $urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
-    $user = $this->userModel->emailExists($email);
+    $user = $this->userModel->getUserByUsernameOrEmail($email);
 		if(!empty($user)){
 			$urlLink = $this->generateUrl('modifpassword');
 			$emailurl = urlencode($email);
       $html = '';
-      $html .= '<a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
+      $html .= 'Veuillez cliquer sur le lien ci-dessous pour modifier votre mot de passe<br><a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' . $user['token'] . '">Modifier le mot de passe</a>';
 			//envoi du mail fonction PHPMailer
   		$mail = new \PHPMailer;
        $mail->isMail();
        $mail->setFrom('mragot2@msn.com');
        $mail->addAddress($email);
-       $mail->Subject = 'Réinitialisation du mot de passe';
+       $mail->Subject = 'Reinitialisation du mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
   				echo "Le message n\'a pas été envoyé.";
@@ -175,6 +175,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
     		} else {
           echo 'Le message a bien été envoyé';
         }
+
   	} else {
 			$errors['email']	= "Ce mail n'existe pas";
 			$this->show('user/forgetpassword',array (
@@ -197,6 +198,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
       $this->redirectToRoute('default_home');
     }
   }
+
   public function modifPasswordAction()
   { // Insertion en BDD du nouveau password
     if(!empty($_GET['email']) && !empty($_GET['token'])){
@@ -204,39 +206,35 @@ class UserController extends AppController // le CSS ne fonctionne pas
 		  $email = trim(strip_tags($_GET['email']));
 		  $token = trim(strip_tags($_GET['token']));
 		  // Vérification que l'email et le token correspondent bien au mail et token de la BDD
-		  $emailrecup = $_GET['email']; // Adresse email récupérée dans l'URL
-		  $email = urldecode($emailrecup); // On décode l'email récupéré
-		  $tokenrecup = $_GET['token']; // token récupéré dans l'URL
-			$user = $this->userModel->getUserByEmail($email); // on récupère l'ID de l'utilisateur en BDD
-			if(!empty($user)){
-				if($email == $user['email']){
-          if( $tokenrecup == $user['token']){
-  					if(!empty($_POST['submit'])){
-  						$password = trim(strip_tags($_POST['password']));
-  						$password2 = trim(strip_tags($_POST['password2']));
-              $errors = array();
-  						$errors['password'] = $this->validError->textValid($password,'password', 6, 15);
-  						$errors['password2'] = $this->validError->correspondancePassword($password2,$password);
-  						if($this->validError->IsValid($errors)){
-  							$token = StringUtils::randomString(20);
-  							$hashpassword = $this->authentificationModel->hashPassword($password);
-  				      $data = array(
-  				        'password' => $hashpassword,
-  								'token' => $token,
-                  'modified_at' => $this->dateTimeModel->format('Y-m-d  H:i:s'),
-  				      );
-  				      $userUpdate = $this->userModel->update($data,$user['id']);
-  				      // redirection
-  				      $this->redirectToRoute('login');
-  						} else {
-                $this->show('user/modifpassword',array (
-                  'errors' => $errors,
-                ));
-              }
-					  }
+      $emailrecup = $_GET['email'];
+      $email = urldecode($emailrecup); // On décode l'email récupéré
+      $tokenrecup = $_GET['token'];
+      $urlemail = $this->userModel->getUserByEmail($email); // on récupère l'ID de l'utilisateur en BDD
+			if(!empty($urlemail)){
+				if(!empty($_POST['submit'])){
+					$password = trim(strip_tags($_POST['password']));
+					$password2 = trim(strip_tags($_POST['password2']));
+          $errors = array();
+					$errors['password'] = $this->validError->textValid($password,'password', 6, 15);
+					$errors['password2'] = $this->validError->correspondancePassword($password2,$password);
+					if($this->validError->IsValid($errors)){
+						$token = StringUtils::randomString(20);
+						$hashpassword = $this->authentificationModel->hashPassword($password);
+			      $data = array(
+			        'password' => $hashpassword,
+							'token' => $token,
+              'modified_at' => $this->dateTimeModel->format('Y-m-d  H:i:s'),
+			      );
+			      $userUpdate = $this->userModel->update($data,$user['id']);
+			      // redirection
+			      $this->redirectToRoute('login');
+    			} else {
+            $this->show('user/modifpassword',array (
+              'errors' => $errors,
+            ));
           }
-				}
-			}
-  	}
+			  }
+      }
+    }
   }
 }

@@ -4,9 +4,7 @@ html, body {
 	background-size: cover;
 	color: rgb(8, 7, 7);
 }
-.all_content{/*div contenant tout*/
- max-width: 1600px;
-}
+
 .main_content {
 	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
 }
@@ -55,6 +53,14 @@ padding: 0;
 }
 
 /*===================MICHELE========================*/
+/*Essai dashboard Michele*/
+
+span label-primary{
+	width: 300px;
+	float: right;
+	display: inline-block;
+}
+
 /*CSS formulaires Inscription Connexion*/
 .colored {
   background-color: rgba(185, 185, 185, 0.8);
@@ -117,7 +123,6 @@ padding: 0;
 
 /*Essai dashboard Michèle*/
 
-
 /*===================MICHELE========================*/
 /*CSS Thumbnail page Listproduct*/
 article.card.bordered{
@@ -128,43 +133,56 @@ article.card.bordered{
 p.button {
 	text-align: center;
 }
-	 article.card {
- 		background-color: rgba(185, 185, 185, 0.8);
- 	}
- 	p.caract {
- 		padding-left: 3em;
- 		font-weight: bold;
- 	}
- 	p.button {
- 		text-align: center;
- 	}
- 	article.card h2 {
- 		text-align: center;
- 		color: #5d5926;
- 		font-weight: bold;
- 	}
- 	article.card h3 {
- 		text-align: center;
- 		color: #0d786b;
- 		font-weight: bold;
- 	}
-	.thumbs article{
-	  width: 320px;
-	  margin: 1em 8px;
-	  border: 1px solid black;
-	  float: left;
+ article.card {
+		background-color: rgba(185, 185, 185, 0.8);
 	}
-	.thumbs article img {
-		max-width: 100%;
-	  min-width: 100%;
-		max-height: 25rem;
-		min-height: 25rem;
+	p.caract {
+		padding-left: 3em;
+		font-weight: bold;
 	}
+	p.button {
+		text-align: center;
+	}
+	article.card h2 {
+		text-align: center;
+		color: #5d5926;
+		font-weight: bold;
+	}
+	article.card h3 {
+		text-align: center;
+		color: #0d786b;
+		font-weight: bold;
+	}
+.thumbs article{
+  width: 320px;
+  margin: 1em 8px;
+  border: 1px solid black;
+  float: left;
+}
+.thumbs article img {
+	max-width: 100%;
+  min-width: 100%;
+	max-height: 25rem;
+	min-height: 25rem;
+}
+article.card {
+	margin: 20px;
+	padding: 15px;
+}
+figure.thumbnail {
+	margin: 20px;
+	padding: 15px;
+}
+article {
+	margin-bottom: 20px;
+	padding: 15px
+}
+
 
 .article_single {
 	background-color: rgb(218, 208, 202);
 	padding-left: 15px;
-	padding-top: 1px;
+	padding-top: 15px;
 	padding-bottom: 1px;
 }
 @media (min-width: 768px) {
@@ -203,9 +221,9 @@ p.button {
   }
 
 	/*=========================Menu_right HERMELEN =============================*/
-	.menu_right.navbar-default.sticky{
-		top: 104px;
-		width: 22.5%;
+	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
+		top: 84px;
+		width: 212.5px;
 		-o-transition: all 1s ease;
 		-moz-transition: all 1s ease;
 		-webkit-transition: all 1s ease;
@@ -214,7 +232,7 @@ p.button {
 }
 /*===================MICHELE========================*/
 /* Essai table admin product*/
-/*a{
+a{
   color: #739931;
 }
 table th,
@@ -289,25 +307,23 @@ table.responsive-table img {
   table.responsive-table td{
     border-top: none;
   }
-
+  /*table.responsive-table td.organisationnumber{
+    background: #D5E0CC;
+    border-top: 1px solid #B3BFAA;
+  }*/
   table.responsive-table td.actions{
     position: absolute;
     top: 0;
     right: 0;
     border: none;
     background: none;
-  }*/
-
-	/*table.responsive-table td.organisationnumber{
-    background: #D5E0CC;
-    border-top: 1px solid #B3BFAA;
-  }*/
-/*}*/
+  }
+}
 
 
 /*===================MICHELE========================*/
 /* Essai form admin product*/
-/*.modification {
+.modification {
 	background: rgba(185, 185, 185, 0.8);
 	width: 90%;
 	margin-left: auto;
@@ -337,17 +353,17 @@ table.responsive-table img {
 }
 button.modif_product {
 	text-align: right;
-}*/
+}
 /*========================HERMELEN===========================*/
 /*images product_modified*/
-/*.product_modified_img{
+.product_modified_img{
 	display: flex;
 	float: right;
 	width: 20%;
 }
 .product_modified_img_name{
 	font-size: 0.8em;
-}*/
+}
 
 /*================boostrap-navbar=======================*/
 /*pas sticky*/
@@ -397,10 +413,15 @@ button.modif_product {
 /*===================Logo anim codePen===================================*/
 /*hermelen*/
 .logo_slider{
+	/*background-color: rgb(105, 94, 69);*/
+	/*padding: 0;*/
 	position: relative;
 }
 .logo_slider > h1{
 	font-size: 5em;
+}
+.logo_container{
+	/*height: 500px;*/
 }
 .logo_container > h1{
 	font-size: 4em;
@@ -408,7 +429,12 @@ button.modif_product {
 }
 
 /*codepen*/
-
+body{
+  /*background-color: #111;*/
+  /*font-family: Signika Negative, Asap, sans-serif;*/
+  /*color:white;*/
+  /*overflow:hidden;*/
+}
 .dot{
   width:35px;
   height:35px;
@@ -443,10 +469,10 @@ button.modif_product {
 #pens{position:absolute;bottom:15px;left:20px;}*/
 
 /*mise en forme tableau product*/
-/*.product_img_thumbnail_back .img_thumbnail_back{
+.product_img_thumbnail_back .img_thumbnail_back{
 	max-height: 100px;
 	max-width: 100px;
-}*/
+}
 /*LAYOUT HOME (special)*/
 /*carroussel*/
 
@@ -509,12 +535,18 @@ background-color: rgba(182, 186, 157, 0.8);
 	min-height: 35rem;
 	display: flex;
 }
+.Articles article:nth-child(even) h2 {
+	text-align: left;
+}
 .Articles article:nth-child(odd) img {
   float: right;
   margin-left: 1em;
 	max-height: 35rem;
 	min-height: 35rem;
 	display: flex;
+}
+.Articles article:nth-child(odd) h2 {
+	text-align: right;
 }
 /*===================== FIN MICHELE =============================*/
 
