@@ -11,6 +11,8 @@ $categories = findAll('categories');?>
 
   </head>
   <body>
+    <div class="all_content">
+    </div>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -94,12 +96,13 @@ $categories = findAll('categories');?>
             </div>
             <div class="navbar-collapse collapse sidebar-navbar-collapse">
               <ul class="nav navbar-nav">
-                <!--Faire un JS sur la classe active-->
-                <li class="menu_categorie_all active"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
-                <?php foreach($categories as $categorie){?>
-                  <li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
-                  <?php } ?>
-                </ul>
+  							<!--Faire un JS sur la classe active-->
+  							<li class="<?php if($w_current_route == 'default_home'){echo "active";} ?>"><a href="<?= $this->url('default_home') ?>"> Accueil</span></a></li>
+  							<li class="menu_categorie_all <?php if($w_current_route == 'listproducts'){echo "active";} ?>"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
+  							<?php foreach($categories as $categorie){?>
+  								<li class="menu_categorie <?php if($_GET['id_category'] == $categorie['id']){echo "active";} ?>"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
+  							<?php } ?>
+  						</ul>
               </div><!--/.nav-collapse -->
             </div>
           </section>
@@ -115,6 +118,7 @@ $categories = findAll('categories');?>
 
     <footer>
     </footer>
+    </div> <!-- div all_content -->
     <script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('app.js') ?>"></script>

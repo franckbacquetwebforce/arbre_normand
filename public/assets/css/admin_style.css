@@ -1,38 +1,41 @@
 html, body {
 	font-family: Consolas, monaco, monospace;
-	background-image: url(../images/background-1068900_960_720_clear.jpg);
+	background-image: url(../images/wood_texture3847lite_back.jpg);
 	background-size: cover;
-	color: rgb(24, 24, 24);
+	color: #15bfab;
 }
-
+.all_content{/*div contenant tout*/
+ max-width: 1600px;
+}
 .main_content{
 	background-color: rgba(185, 185, 185, 0.8);
 }
 
 a {
 	text-decoration: none;
-	color: #A6E22E;
+	color: rgb(8, 7, 7);
 }
 
 a:hover {
-	color: #F92672;
+	color: #2B5043;
 }
 
 h1 {
-	color: #F92672;
+	color: #0d786b;
+	font-size: 2em;
 }
 
 h2 {
-	color: #66D9EF;
+	color: #5d5926;
 }
 /*Essai dashboard Michele*/
-body {
+/*body {
   padding-top: 80px;
 
-}
-div.display-table {
+}*/
+/*div.display-table {
 	background-color: #ffffff;
-}
+}*/
 #sidebar {
   position: fixed;
   top: 50px;
@@ -75,3 +78,558 @@ div.display-table {
 	max-height: 100px;
 	max-width: 100px;
 }
+
+.main_column{
+	background-color: rgba(185, 185, 185, 0.6);
+	padding: 0 1em 0 1em;
+	margin: 0;
+}
+
+/*=====================HERMELEN======================*/
+.spacer{
+	clear: both;
+}
+/*GENERAL*/
+/*mise en forme navBar provisoire*/
+.nav_header li{
+	list-style:none;
+	display: inline;
+}
+/*slider*/
+.slider_container{
+padding: 0;
+}
+
+/*===================MICHELE========================*/
+/*CSS formulaires Inscription Connexion*/
+/*.colored {
+  background-color: rgba(185, 185, 185, 0.8);
+	margin-left: auto;
+	margin-right: auto;
+}
+.panel {
+	background-color: rgba(185, 185, 185, 0.8);
+}
+.header_panel {
+	background-color: rgb(218, 208, 202);
+	min-height: 16.4286px;
+  padding: 10px 15px;
+}
+.modal-content {
+  position: relative;
+  background-color: : rgba(185, 185, 185, 0.8);
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  outline: none;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.modal-header {
+  border-bottom: 1px solid #48a4ac;
+  background-color: : rgb(218, 208, 202);
+  min-height: 16.4286px;
+  padding: 10px 15px;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+.modal-body {
+  position: relative;
+
+	width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-top: 15px;
+}
+.modal-footer {
+  padding: 19px 20px 20px;
+  margin-top: 0;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}*/
+
+/*Essai dashboard Michèle*/
+
+
+/*===================MICHELE========================*/
+/*CSS Thumbnail page Listproduct*/
+/*article.card.bordered{
+	background-color: rgba(185, 185, 185, 0.8);
+	border: 1px solid black;
+	margin:1em auto 1em auto;
+}
+p.button {
+	text-align: center;
+}
+	 article.card {
+ 		background-color: rgba(185, 185, 185, 0.8);
+ 	}
+ 	p.caract {
+ 		padding-left: 3em;
+ 		font-weight: bold;
+ 	}
+ 	p.button {
+ 		text-align: center;
+ 	}
+ 	article.card h2 {
+ 		text-align: center;
+ 		color: #5d5926;
+ 		font-weight: bold;
+ 	}
+ 	article.card h3 {
+ 		text-align: center;
+ 		color: #0d786b;
+ 		font-weight: bold;
+ 	}
+	.thumbs article{
+	  width: 320px;
+	  margin: 1em 8px;
+	  border: 1px solid black;
+	  float: left;
+	}
+	.thumbs article img {
+		max-width: 100%;
+	  min-width: 100%;
+		max-height: 25rem;
+		min-height: 25rem;
+	}
+
+.article_single {
+	background-color: rgb(218, 208, 202);
+	padding-left: 15px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+@media (min-width: 768px) {
+	.product {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	.article_single {
+		background-color: rgb(218, 208, 202);
+		padding-left: 15px;
+		padding-top: 1px;
+		padding-bottom: 1px;
+	}
+}*/
+
+/*===================MICHELE========================*/
+/* Essai Menu Navbar vertical left*/
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+		font-weight: bold;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+	/*=========================Menu_right HERMELEN =============================*/
+	/*.menu_right.navbar-default.sticky{
+		top: 104px;
+		width: 22.5%;
+		-o-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-webkit-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+	}
+}*/
+/*===================MICHELE========================*/
+/* Essai table admin product*/
+a{
+  color: #739931;
+}
+table th,
+table td{
+  text-align: center;
+}
+table.layout{
+  width: 100%;
+  border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+}
+table.display{
+  margin: 1em 0;
+}
+table.display th,
+table.display td{
+  border: 1px solid #B3BFAA;
+  padding: .5em 1em;
+}
+
+table.display th{ background: rgb(41, 63, 84); }
+table.display td{ background: rgba(41, 63, 84, 0.8); }
+
+table.responsive-table{
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+table.responsive-table img {
+	max-width: 15rem;
+  min-width: 15rem;
+	max-height: 15rem;
+	min-height: 15rem;
+}
+@media (max-width: 30em){
+    table.responsive-table{
+      box-shadow: none;
+    }
+    table.responsive-table thead{
+      display: none;
+    }
+  table.display th,
+  table.display td{
+    padding: .5em;
+  }
+
+  table.responsive-table td:nth-child(1):before{
+    content: 'Image';
+  }
+  table.responsive-table td:nth-child(2):before{
+    content: 'Nom';
+  }
+  table.responsive-table td:nth-child(1),
+  table.responsive-table td:nth-child(2){
+    padding-left: 25%;
+  }
+  table.responsive-table td:nth-child(1):before,
+  table.responsive-table td:nth-child(2):before{
+    position: absolute;
+    left: .5em;
+    font-weight: bold;
+  }
+
+  table.responsive-table tr,
+  table.responsive-table td{
+    display: block;
+  }
+  table.responsive-table tr{
+    position: relative;
+    margin-bottom: 1em;
+  	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  }
+  table.responsive-table td{
+    border-top: none;
+  }
+  /*table.responsive-table td.organisationnumber{
+    background: #D5E0CC;
+    border-top: 1px solid #B3BFAA;
+  }*/
+  table.responsive-table td.actions{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+  }
+}
+
+
+/*===================MICHELE========================*/
+/* Essai form admin product*/
+.modification {
+	background: rgba(185, 185, 185, 0.8);
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ajout {
+	background: rgba(185, 185, 185, 0.8);
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.modif-form {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+.ajout-form {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+button.modif_product {
+	text-align: right;
+}
+/*========================HERMELEN===========================*/
+/*images product_modified*/
+.product_modified_img{
+	display: flex;
+	float: right;
+	width: 20%;
+}
+.product_modified_img_name{
+	font-size: 0.8em;
+}
+
+/*================boostrap-navbar=======================*/
+/*pas sticky*/
+
+/*pour modif color defaults bootstrap*/
+.navbar-default .navbar-nav>.active>a{
+color: rgb(126, 186, 154);
+}
+.navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+color: rgb(172, 255, 211);
+background-color: rgb(37, 56, 74);
+}
+.navbar-default .navbar-nav>li>a{
+color: rgb(126, 186, 154);
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+color: rgb(172, 255, 211);
+}
+
+
+.navbar-default .navbar-nav>.open>a{
+	background-color: rgb(61, 93, 124);
+}
+.dropdown-menu>li>a{
+	color: rgb(126, 186, 154);
+}
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover{
+	color: rgb(172, 255, 211);
+}
+
+.navbar-default{/*navbar global*/
+	background-color: rgb(41, 63, 84);/*foncé*/
+	border-width: 0;
+}
+.navbar-default .navbar-nav>.active>a{/*Accueil et autres li active*/
+	background-color: rgb(61, 93, 124);/*clair*/
+}
+.btn-default{/*boutons submit panier...*/
+	background-color: rgb(61, 93, 124);
+}
+.navbar-default .navbar-nav>.open>a:focus{/*title dropdowm when focused or clicked*/
+	background-color: rgb(61, 93, 124);
+}
+.navbar-default .dropdown-menu{/*dropdown content*/
+	background-color: rgb(41, 63, 84);
+}
+/*sticky*/
+/*.navbar-default.sticky{
+	background-color: rgb(218, 208, 202);
+	border-width: 0;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	-o-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+}
+.navbar-default.sticky .navbar-nav>.active>a{
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .btn-default{
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .navbar-nav>.open>a:focus{
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .dropdown-menu{
+	background-color: rgb(218, 208, 202);
+}*/
+
+
+/*===================Logo anim codePen===================================*/
+/*hermelen*/
+/*.logo_slider{
+	position: relative;
+}
+.logo_slider > h1{
+	font-size: 5em;
+}
+.logo_container > h1{
+	font-size: 4em;
+	text-align: center;
+}*/
+
+/*codepen*/
+
+/*.dot{
+  width:35px;
+  height:35px;
+  position: absolute;
+  background-size: 100% 100%;
+}
+.dot:nth-child(4n+0){
+  background-image: url(../images/feuille_jaune.png);
+}
+.dot:nth-child(4n+1){
+  background-image: url(../images/feuille_rouge.png);
+}
+.dot:nth-child(4n+2){
+  background-image: url(../images/feuille_verte_foncee.png);
+}
+.dot:nth-child(4n+3){
+  background-image: url(../images/feuille_verte.png);
+}
+
+#container {
+	width:100%;
+	height:100%;
+	z-index: 100;
+ }*/
+
+/*#logo{ left:50%; top:50%; position:absolute; border-radius:10px; }
+
+
+#links{position:absolute;bottom:0px;left:0px;width:100%;height:50px;font-size:13px;font-family:tahoma;color:#fff;}
+#links a{text-decoration:none;font-size:2.3em;color:#fff;}
+#twitter{position:absolute;bottom:15px;right:20px;}
+#pens{position:absolute;bottom:15px;left:20px;}*/
+
+/*mise en forme tableau product*/
+.product_img_thumbnail_back .img_thumbnail_back{
+	max-height: 100px;
+	max-width: 100px;
+}
+/*LAYOUT HOME (special)*/
+/*carroussel*/
+
+
+/*.item{
+background-color: rgba(182, 186, 157, 0.8);
+}
+
+.div_item_carroussel{
+	width: 33%;
+	height: 100%;
+	padding : 1%;
+}*/
+/*Ce que vous trouverez*/
+
+
+/*.presentation_detail{
+	background-color: rgba(185, 185, 185, 0.8);
+	display: flex;
+}*/
+/*===================MICHELE========================*/
+/*entête titre pages*/
+.parent {
+  display: flex; /* contexte sur le parent */
+	text-align: center;
+}
+.enfant {
+  margin: auto; /* contexte sur l'enfant */
+	background-color: rgb(41, 63, 84);
+	height: auto;
+	padding-left: 5em;
+	padding-right: 5em;
+}
+/*CSS dernière version page accueil */
+/*
+ * PAGE ACCUEIL
+ */
+ /*.Articles article {
+   margin-top: 1em;
+   padding: 15px;
+	 background-color: rgba(185, 185, 185, 0.8);
+	 min-height: 300px;
+ }
+ .Articles article p {
+	 position: relative;
+
+ }
+ .Articles article p::after {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+ }
+.Articles article:nth-child(even) img {
+  float: left;
+  margin-right: 1em;
+	max-height: 35rem;
+	min-height: 35rem;
+	display: flex;
+}
+.Articles article:nth-child(odd) img {
+  float: right;
+  margin-left: 1em;
+	max-height: 35rem;
+	min-height: 35rem;
+	display: flex;
+}*/
+/*===================== FIN MICHELE =============================*/
+
+/*.presentation_img{
+	max-height :300px;
+}
+.presentation_img_right{
+	width: 60%;
+	margin-left: 1em;
+	float: right;
+}
+
+.presentation_img_left{
+	width: 60%;
+	margin-right: 1em;
+	float: left;
+}*/
+
+/*AFFICHAGE PANIER*/
+
+
+
+/*.thumb_cart{
+	max-height : 100px;
+}
+.cart_table_cell{
+	width : 20%;
+}
+.empty_cart{
+	font-size: 1em;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=====================FIN HERMELEN======================*/

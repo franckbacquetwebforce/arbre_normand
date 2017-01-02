@@ -11,7 +11,8 @@ $categories = findAll('categories');?>
 
 </head>
 <body>
-
+<div class="all_content">
+</div>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -96,7 +97,7 @@ $categories = findAll('categories');?>
 
 
 
-
+	</div> <!-- div all_content -->
 		<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
 		<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
 	</body>
