@@ -1,7 +1,6 @@
-
-<?php $this->layout('layout_admin', ['title' => 'Commandes validées']) ?>
+<?php $this->layout('layout_admin', ['title' => 'Mes commandes']) ?>
 <?php $this->start('main_content') ?>
-Mes commandes
+les commandes en validées
 <?php
 debug($orders);
 ?>

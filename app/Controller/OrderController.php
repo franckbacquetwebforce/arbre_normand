@@ -38,6 +38,7 @@ class OrderController extends AppController
                     'orders' => $orders,
     ));
   }
+
   public function confirmOrderAction()
   {
     $orders = $this->cart->infoProduitPanier();
@@ -47,15 +48,13 @@ class OrderController extends AppController
       $this->redirectToRoute('login');
     }
     // else{
-    //   $ref = uniqid();
-    //   $validref = $this->ordermodel->selectRef($ref);
-    //   die();
+    $refe = $this->ordermodel->ref();
 
       $data1 = array(
         'date_order' => $this->date->format('Y-m-d  H:i:s'),
-        // 'ref'  =>
         'id_user' => $user['id'],
-        'status' => 'en_attente'
+        'status' => 'en_attente',
+        'ref' => $refe
       );
 
     $lastinsert = $this->ordermodel->insert($data1);
@@ -82,6 +81,7 @@ class OrderController extends AppController
       // $new_qt = $orders[$i]['cart_qt'];
       $this->ordermodel->updateProduct($newstock,$product[0]['id']);
       }
+
       // Envoi des mails de confirmation de commande utilisateur et admin (Michèle)
       $app = getApp();
       $html = 'Nous avons bien pris en compte votre commande, un email de confirmation vous sera envoyé prochainement';
@@ -99,7 +99,7 @@ class OrderController extends AppController
     		} else {
           echo 'Le message a bien été envoyé';
         }
-        $this->redirectToRoute('default_home');
+      $this->redirectToRoute('user_orders');
 
   }
 }

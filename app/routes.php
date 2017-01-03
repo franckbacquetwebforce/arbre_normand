@@ -16,8 +16,8 @@
 		// Admin Order
 		['GET', '/admin/order', 'OrderAdmin#index', 'admin_order'],
 		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
-		['POST', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 		['GET', '/admin/order/single/[i:id]', 'OrderAdmin#single', 'order_single'],
+		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
 		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
 		['GET', '/admin/order/update/[i:id]', 'OrderAdmin#update', 'admin_order_update'],
@@ -46,6 +46,7 @@
 		// Cart Her: A VERIFIER
 		['GET', '/user/cart', 'Cart#afficherPanier', 'user_cart'],
 		['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
+		['GET', '/user/cart/add/[i:l]/[i:q]/[i:p]', 'Cart#ajouterNouvelArticle', 'user_cart_add_new'],
 		['GET', '/user/cart/[i:l]/[i:q]', 'Cart#retrancherArticle', 'user_cart_substrat'],
 		['GET', '/user/cart/[i:l]', 'Cart#supprimerArticle', 'user_cart_remove'],
 
@@ -78,7 +79,8 @@
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
 		['GET', '/user/adresses/new', 'UserProfile#addAddress', 'add_new_address'],
-		['POST', '/admin/adresses/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
+		['POST', '/user/adresses/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
+		['GET', '/user/orders/list', 'UserProfile#mesCommandes', 'user_orders'],
 
 		// Order
 		// Vide pour le moment

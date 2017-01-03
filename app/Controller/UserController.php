@@ -245,4 +245,12 @@ class UserController extends AppController // le CSS ne fonctionne pas
       }
     }
   }
+
+  public function contact(){
+    $this->show('user/contact');
+  }
+
+  public function contactAction(){
+
+  }
 }
