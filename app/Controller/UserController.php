@@ -161,11 +161,11 @@ class UserController extends AppController // le CSS ne fonctionne pas
 			$urlLink = $this->generateUrl('modifpassword');
 			$emailurl = urlencode($email);
       $html = '';
-      $html .= 'Veuillez cliquer sur le lien ci-dessous pour modifier votre mot de passe<br><a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' . $user['token'] . '">Modifier le mot de passe</a>';
+      $html .= 'Veuillez cliquer sur le lien ci-dessous pour modifier votre mot de passe<br><br><a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' . $user['token'] . '">Modifier le mot de passe</a>';
 			//envoi du mail fonction PHPMailer
   		$mail = new \PHPMailer;
        $mail->isMail();
-       $mail->setFrom('mragot2@msn.com');
+       $mail->setFrom('emailadmin');
        $mail->addAddress($email);
        $mail->Subject = 'Reinitialisation du mot de passe';
        $mail->Body    = $html;
@@ -198,53 +198,6 @@ class UserController extends AppController // le CSS ne fonctionne pas
       $this->redirectToRoute('default_home');
     }
   }
-  // public function modifPasswordAction()
-  //   {
-  //       $getted_email  = urldecode($_GET['email']);
-  //       $getted_token  = $_GET['token'];
-  //       // die();
-  //       $postpassword  = trim(strip_tags($_POST['password']));
-  //       $postpassword2 = trim(strip_tags($_POST['password2']));
-  //
-  //       // $getUserData = new UsersModel();
-  //       $userData = $this->userModel->getUserByUsernameOrEmail($getted_email);
-  //       // echo $getted_email;
-  //       // print_r($userData);
-  //       // die();
-  //       // $validation = new ValidationTool();
-  //       $error = "";
-  //       $error['password'] = $this->validError->textValid($password,'password', 6, 15);
-  //       $error['password2'] = $validation->confirmPass($postpassword, $postpassword2, 'password', 3, 50);
-  //
-  //    if($validation->IsValid($errors)) {
-  //      // ici faire un insert
-  //               $random = new StringUtils;
-  //               $generatedToken = $random->randomString();
-  //
-  //               $cript= new authentificationModel;
-  //               $criptedPass = $cript->hashPassword($postpassword);
-  //
-  //      $data = array(
-  //        'password'=>$criptedPass,
-  //        'role'    =>'user',
-  //        'token'   =>$generatedToken,
-  //      );
-  //
-  //      $model = new UsersModel;
-  //      $model->update($data);
-  //
-  //      // redirection
-  //      $this->redirectToRoute('default_home');
-  //
-  //
-  //    } else {
-  //        // refaire afficher la vue avec les errore passé en parametre de cette vue
-  //        $this->show('user/register',array (
-  //          'errors' => $errors,
-  //        ));
-  //    }
-  //       $this->show('user/newPass');
-  //   }
 
   public function modifPasswordAction()
   { // Insertion en BDD du nouveau password

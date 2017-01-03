@@ -22,6 +22,7 @@ $w_config = [
 	// configuration globale
 	'site_name'	=> '', 								// contiendra le nom du site
   'tva' => 0.2,
+	'emailadmin' => "mragot2@msn.com",  // email administrateur
 ];
 
 require('routes.php');
