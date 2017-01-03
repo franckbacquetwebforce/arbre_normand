@@ -1,4 +1,5 @@
 <?php
+allowTo('admin');
 //fann_create_train_from_callback
 //non terminé
 //Slugify ne fonctionne pas dans addNewAction
@@ -27,6 +28,7 @@ class CategoriesAdminController extends AppController
    */
   public function index()
   {
+
     $categories = $this->category->findAll();
     $this->show('admin/categories/list', array(
                         'categories' => $categories
@@ -81,7 +83,7 @@ class CategoriesAdminController extends AppController
 						'created_at' => $this->date->format('Y-m-d H:i:s'),
             'status' => $status
 					);
-      
+
 					$this->category->insert($data);
 					$this->redirectToRoute('default_home');
 		} else {

@@ -1,7 +1,7 @@
 <?php
-
 namespace Controller;
 
+allowTo('admin');
 use \Controller\AppController;
 use \Model\OrderModel;
 use \W\Security\AuthentificationModel;
