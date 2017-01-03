@@ -5,10 +5,11 @@
   	<title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
-  	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+  	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin_style.css') ?>">
 
   </head>
   <body>
+  <div class="all_content">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -88,6 +89,7 @@
 
     <footer>
     </footer>
+  </div><!-- div all_content -->
     <script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
   </body>

@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <a href="<?= $this->url('admin_categories_new') ?>"><button type="button" name="add_product">Ajouter une catégorie</button></a>
+      <a href="<?= $this->url('admin_categories_new') ?>"><button type="button" name="add_category">Ajouter une catégorie</button></a>
       <table class="layout display responsive-table">
         <thead>
           <tr>
@@ -20,7 +20,7 @@
               <th colspan="1" style="width:5%">Slug</th>
               <th colspan="1" style="width:15%">Date de création</th>
               <th colspan="1" style="width:5%">Status</th>
-              <th colspan="2" style="width:15%">Action</th>
+              <th colspan="2" style="width:25%">Action</th>
           </tr>
         </thead>
         <tbody>
