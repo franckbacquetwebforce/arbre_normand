@@ -4,6 +4,7 @@ namespace Controller;
 
 use \Controller\AppController;
 use \Model\OrderModel;
+use \W\Security\AuthentificationModel;
 
 class OrderAdminController extends AppController
 {
@@ -12,12 +13,13 @@ class OrderAdminController extends AppController
 
 
     $this->orders = new OrderModel();
+    $this->authentification = new AuthentificationModel();
 
   }
 
   public function index()
   {
-    $adminorders = $this->orders->findAll();
+    $adminorders = $this->orders->indexOrders();
     $this->show('admin/orders/list', array(
       'adminorders' => $adminorders
     ));

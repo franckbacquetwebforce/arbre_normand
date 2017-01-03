@@ -5,6 +5,7 @@ namespace Controller;
 use \Controller\AppController;
 use \Model\UserAdressModel;
 use \Model\UsersModel;
+use \Model\OrderModel;
 use \W\Security\AuthentificationModel;
 use \Service\ValidationTools;
 
@@ -13,6 +14,7 @@ class UserProfileController extends AppController
   public function __construct()
   {
     $this->model = new UsersModel();
+    $this->ordermodel = new OrderModel();
     $this->authentification = new AuthentificationModel();
     $this->valid = new ValidationTools();
     $this->address = new UserAdressModel();
@@ -32,6 +34,16 @@ class UserProfileController extends AppController
         'addresses' => $addresses
       ));
 
+  }
+  public function mesCommandes()
+  {
+    $user = $this->authentification->getLoggedUser();
+
+    $orders = $this->ordermodel->userOrders($user['id']);
+
+    $this->show('user/userorder/userorder', array(
+      'orders' => $orders
+    ));
   }
   /*
   *addAddress

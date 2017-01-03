@@ -16,7 +16,7 @@
 		// Admin Order
 		['GET', '/admin/order', 'OrderAdmin#index', 'admin_order'],
 		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
-		['POST', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
+		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
 		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
@@ -78,7 +78,8 @@
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
 		['GET', '/user/adresses/new', 'UserProfile#addAddress', 'add_new_address'],
-		['POST', '/admin/adresses/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
+		['POST', '/user/adresses/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
+		['GET', '/user/orders/list', 'UserProfile#mesCommandes', 'user_orders'],
 
 		// Order
 		// Vide pour le moment
