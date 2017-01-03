@@ -59,6 +59,9 @@ $categories = findAll('categories');?>
 						<li>Bienvenue <?php echo $w_user['username']; ?></li>
 						<?php	}?>
 					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+					<span class="cart_content"><?php if(!empty($_SESSION['cart']['qt_product'])){
+							echo '('.array_sum($_SESSION['cart']['qt_product']).')';
+					} ?></span>
 					<span class="sr-only">Panier</span>
 				</button></a></li>
 				<li class="dropdown">

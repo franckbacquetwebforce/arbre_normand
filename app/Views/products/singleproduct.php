@@ -66,9 +66,14 @@ $qt_product = '1';
                   <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
                   <p class="caract">Longueur : <?php if(!empty($product['weight'])) { echo $product['length'];}  ?> cm</p>
                   <p class="caract">Largeur : <?php if(!empty($product['weight'])) { echo $product['width'];}  ?> cm</p>
-                  <p class="caract">Largeur : <?php if(!empty($product['weight'])) { echo $product['height'];}  ?> cm</p>
-                  <p class="caract">Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?></p><br>
-                  <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
+                  <p class="caract">Hauteur : <?php if(!empty($product['weight'])) { echo $product['height'];}  ?> cm</p>
+                  <?php if(!empty($product['stock'])) { ?>
+                  <p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
+                  <p class="button"><a href="<?= $this->url('user_cart_add_new', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
+                  <?php }else{ ?>
+                  <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-danger disabled" title="">Uniquement sur commande</a></p>
+                  <?php } ?>
+
                 </div>
 
 

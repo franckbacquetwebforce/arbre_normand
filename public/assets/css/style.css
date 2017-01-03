@@ -369,6 +369,9 @@ button.modif_product {
 }
 
 /*================boostrap-navbar=======================*/
+.cart_content{
+	color: rgb(255, 74, 215);
+}
 /*pas sticky*/
 .navbar-default{/*navbar global*/
 	background-color: rgb(184, 175, 170);/*foncé*/

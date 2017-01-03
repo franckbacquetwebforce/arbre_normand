@@ -46,6 +46,7 @@
 		// Cart Her: A VERIFIER
 		['GET', '/user/cart', 'Cart#afficherPanier', 'user_cart'],
 		['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
+		['GET', '/user/cart/add/[i:l]/[i:q]/[i:p]', 'Cart#ajouterNouvelArticle', 'user_cart_add_new'],
 		['GET', '/user/cart/[i:l]/[i:q]', 'Cart#retrancherArticle', 'user_cart_substrat'],
 		['GET', '/user/cart/[i:l]', 'Cart#supprimerArticle', 'user_cart_remove'],
 
