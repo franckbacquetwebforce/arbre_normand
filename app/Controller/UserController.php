@@ -251,6 +251,6 @@ class UserController extends AppController // le CSS ne fonctionne pas
   }
 
   public function contactAction(){
-
+    
   }
 }
