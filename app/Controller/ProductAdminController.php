@@ -54,6 +54,9 @@ class ProductAdminController extends AppController
     $description  = trim($_POST['description']);
     $price_ht     = trim($_POST['price_ht']);
 		$weight       = trim($_POST['weight']);
+    $width       = trim($_POST['width']);
+    $length       = trim($_POST['length']);
+    $height       = trim($_POST['height']);
     $stock        = trim($_POST['stock']);
     $id_category  = trim($_POST['id_category']);
 
@@ -61,7 +64,10 @@ class ProductAdminController extends AppController
      $error['description']   = $validation->textValid($description, 'description',  3, 1000);
      $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
      $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
-     $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000);
+     $error['width']         = $validation->numberValid($width, 'width',  0, 10000);
+     $error['length']        = $validation->numberValid($length, 'length',  0, 10000);
+     $error['height']        = $validation->numberValid($height, 'height',  0, 10000);
+     $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000, true);
      $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
 
      // IMAGE PRINCIPALE
@@ -125,15 +131,17 @@ class ProductAdminController extends AppController
          'description'  => $description,
          'price_ht'     => $price_ht,
          'weight'       => $weight,
+         'width'        => $width,
+         'length'       => $length,
+         'height'        => $height,
          'stock'        => $stock,
          'id_category'  => $id_category,
          'created_at'   => $dateTimeModel->format('Y-m-d H:i:s'),
-         'created_by'   => '',//$_SESSION['email'],
+         'created_by'   => $_SESSION['user']['username'],
        );
       $idProduct = $addProduct->insert($data);
       //$idProduct = $addProduct->lastInsertId();
       $idProductreal = $idProduct['id'];
-
 
         // IMAGE PRINCIPALE
         if(!empty($_FILES['image']['name'])){
@@ -271,6 +279,9 @@ class ProductAdminController extends AppController
     $description  = trim($_POST['description']);
     $price_ht     = trim($_POST['price_ht']);
 		$weight       = trim($_POST['weight']);
+    $width       = trim($_POST['width']);
+    $length       = trim($_POST['length']);
+    $height       = trim($_POST['height']);
     $stock        = trim($_POST['stock']);
     $id_category  = trim($_POST['id_category']);
 
@@ -278,7 +289,10 @@ class ProductAdminController extends AppController
      $error['description']   = $validation->textValid($description, 'description',  3, 1000);
      $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
      $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
-     $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000);
+     $error['width']         = $validation->numberValid($width, 'width',  0, 10000);
+     $error['length']        = $validation->numberValid($length, 'length',  0, 10000);
+     $error['height']        = $validation->numberValid($height, 'height',  0, 10000);
+     $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000, true);
      $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
 
      // IMAGE PRINCIPALE
@@ -343,10 +357,13 @@ class ProductAdminController extends AppController
          'description'  => $description,
          'price_ht'     => $price_ht,
          'weight'       => $weight,
+         'width'        => $width,
+         'length'       => $length,
+         'height'        => $height,
          'stock'        => $stock,
          'id_category'  => $id_category,
          'modified_at'   => $dateTimeModel->format('Y-m-d H:i:s'),
-         'modified_by'   => '',//$_SESSION['email'],
+         'modified_by'   => $_SESSION['user']['username'],
        );
       $idProduct = $addProduct->update($data, $id);
       //$idProduct = $addProduct->lastInsertId();

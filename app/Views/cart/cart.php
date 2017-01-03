@@ -3,12 +3,12 @@
 <?php $this->start('main_content') ?>
 <?php
 // debug($_SESSION['cart']);
-// debug ($infoPanier);
 			?>
 <div class="container-fluid">
   <div class="parent">
     <div class="enfant">
-      <h1>Mon panier</h1>
+      <h1>Mon panier</h1></br>
+			<span><?php if(!empty($error)){echo $error;} ?></span>
     </div>
   </div>
 	<form method="post" action="cart.php">
@@ -33,7 +33,7 @@
 									<td><b><?= $infoPanier[$i]['product_name'] ?></b></td>
 									<td><img class="thumb_cart" src="<?= $this->url('default_home').$infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
 									<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button">+</button></a></br>
-										<?= $infoPanier[$i]['cart_qt']?></br>
+										<?= $_SESSION['cart']['qt_product'][$i]?></br>
 										<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1]); ?>"><button type="button" name="button">-</button></a></td>
 									<td><?= $infoPanier[$i]['cart_price']?> €</td>
 									<td><?= $infoPanier[$i]['product_weight']?> kg</td>
@@ -47,7 +47,8 @@
 			<?php } ?>
 		</table>
 	</form>
-
+	<?php if($nbArticles>0){ ?>
 	<a href="<?= $this->url('confirm_order'); ?>"><button type="button" name="button">Passer la commande</button></a>
+	<?php } ?>
 </div>
 <?php $this->stop('main_content') ?>
