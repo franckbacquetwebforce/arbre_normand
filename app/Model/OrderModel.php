@@ -22,12 +22,13 @@ class OrderModel extends Model
   }
   public function indexOrders()
   {
-    $sql = "SELECT orders_products.*,products.*,orders.*,users.username,users.email,users_adress.firstname,users_adress.lastname,users_adress.phone,users_adress.type
+    $sql = "SELECT orders_products.*,products.*,orders.*,users.username,users.email,users_adress.firstname,users_adress.lastname,users_adress.phone,users_adress.type,users_adress.city,users_adress.zip
     FROM orders_products
     LEFT JOIN orders ON orders_products.id_order = orders.id
     LEFT JOIN products ON products.id = orders_products.id_product
     LEFT JOIN users ON orders.id_user = users.id
     LEFT JOIN users_adress ON orders.id_user = users_adress.id_user AND users_adress.type = 'livraison'
+    ORDER BY orders.date_order ASC
     ";
 
 
@@ -59,8 +60,11 @@ class OrderModel extends Model
           'firstname' => $value['firstname'],
           'lastname' => $value['lastname'],
           'phone' => $value['phone'],
+          'city' => $value['city'],
+          'zip' => $value['zip'],
              ];
 
+        $newArray[$value['id_order']]['ref'] = $value['ref'];
         $newArray[$value['id_order']]['date_order'] = $value['date_order'];
         $newArray[$value['id_order']]['status'] = $value['status'];
 

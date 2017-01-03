@@ -82,5 +82,6 @@ class OrderController extends AppController
       $new_qt = $orders[$i]['cart_qt'];
       $this->ordermodel->updateProduct($newstock,$product[0]['id']);
       }
+      $this->redirectToRoute('user_orders');
   }
 }
