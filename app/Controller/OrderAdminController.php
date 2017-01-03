@@ -45,6 +45,10 @@ class OrderAdminController extends AppController
                       ));
   }
 
+  public function single($id)
+  {
+    
+  }
 // ?
   public function addNew()
   {

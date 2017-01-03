@@ -4,6 +4,7 @@ namespace Controller;
 
 use \Controller\AppController;
 use \Controller\CartController;
+use \Model\UsersModel;
 use \Model\OrderModel;
 use \W\Security\AuthentificationModel;
 use \DateTime;
@@ -78,13 +79,27 @@ class OrderController extends AppController
       $newstock = 0;
       $newstock += $stock;
       $newstock -= $cart_qt;
-      echo $newstock;
-      echo '<br>';
-      $new_qt = $orders[$i]['cart_qt'];
+      // $new_qt = $orders[$i]['cart_qt'];
       $this->ordermodel->updateProduct($newstock,$product[0]['id']);
       }
-      die();
+      // Envoi des mails de confirmation de commande utilisateur et admin (Michèle)
+      $app = getApp();
+      $html = 'Nous avons bien pris en compte votre commande, un email de confirmation vous sera envoyé prochainement';
+			//envoi du mail fonction PHPMailer
+  		$mail = new \PHPMailer;
+       $mail->isMail();
+       $mail->setFrom($app->getConfig('emailadmin'), $app->getConfig('site_name'));
+       $mail->addAddress($user['email']);
+       $mail->addAddress($app->getConfig('emailadmin'));
+       $mail->Subject = 'Prise en compte de la commande de ' .$user['username'];
+       $mail->Body    = $html;
+  			if(!$mail->send()){
+  				echo "Le message n\'a pas été envoyé.";
+          echo 'Erreur Mail: ' . $mail->ErrorInfo;
+    		} else {
+          echo 'Le message a bien été envoyé';
+        }
+        $this->redirectToRoute('default_home');
 
-    
   }
 }

@@ -14,24 +14,23 @@
   <table class="layout display responsive-table">
     <thead>
       <tr>
-          <th style="width:25%">Ref</th>
-          <th colspan="1" style="width:20%">Date commande</th>
-          <th colspan="1" style="width:10%">id de l'utilisateur</th>
+          <th style="width:10%">Ref</th>
+          <th style="width:10%">Nom</th>
+          <th style="width:10%">Prénom</th>
+          <th style="width:20%">Adresse</th>
+          <th colspan="1" style="width:10%">Date commande</th>
           <th colspan="1" style="width:10%">Statut</th>
-          <th colspan="3" style="width:35%">Action</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach($adminorders as $adminorder){ ?>
       <tr>
         <td><?php echo $adminorder['ref']; ?></td>
-        <td><b><?php echo $adminorder['date_order']; ?></b></td>
-        <td><?php echo $adminorder['id_user']; ?></td>
-        <td><b><?php echo $adminorder['status']; ?></b></td>
-        <td class="actions">
-          <a href="<?= $this->url('waiting_orders',['id' => $adminorder['id']])?>" class="edit-item" title="Edit"><button type="button" name="button">Editer</button></a>
-          <a href="<?= $this->url('valid_orders',['id' => $adminorder['id']])?>" class="valid-item" title="Valid"><button type="button" name="button">Valider</button></a>
-          <a href="<?= $this->url('admin_order_delete_action',['id' => $adminorder['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer la commande ?');" type="button" name="button">Supprimer</button></a>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><?php echo $adminorder['date_order']; ?></td>
+        <td><a href="<?= $this->url('order_single', ['id' => $adminorder['id']]) ?>" class="edit-item" title="Edit"><button type="button" name="button"><?php echo $adminorder['status']; ?></button></a>
         </td>
       </tr>
       <?php } ?>

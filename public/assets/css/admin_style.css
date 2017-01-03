@@ -1,5 +1,5 @@
 html, body {
-	font-family: Consolas, monaco, monospace;
+	font-family: Arial, sans-serif;
 	background-image: url(../images/wood_texture3847lite_back.jpg);
 	background-size: cover;
 	color: rgb(126, 186, 154);
@@ -96,7 +96,7 @@ padding: 0;
 /*===================MICHELE========================*/
 /* Essai table admin product*/
 a{
-  color: #739931;
+  color: #567420;
 }
 table th,
 table td{

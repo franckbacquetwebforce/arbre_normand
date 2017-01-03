@@ -16,11 +16,11 @@
       <tr>
           <th style="width:10%">Image principale</th>
           <th colspan="1" style="width:15%">Nom</th>
-          <th colspan="1" style="width:45%">Description</th>
+          <th colspan="1" style="width:40%">Description</th>
           <th colspan="1" style="width:5%">Prix HT</th>
           <th colspan="1" style="width:5%">Catégorie</th>
           <th colspan="1" style="width:5%">Poids</th>
-          <th colspan="2" style="width:15%">Action</th>
+          <th colspan="2" style="width:20%">Action</th>
       </tr>
     </thead>
     <tbody>

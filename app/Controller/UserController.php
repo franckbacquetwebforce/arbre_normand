@@ -195,7 +195,9 @@ class UserController extends AppController // le CSS ne fonctionne pas
       $this->show('user/modifpassword', array('form' => $form));
       $form = true;
     } else {
-      $this->redirectToRoute('default_home');
+      // 404
+      $this->show('w_errors/404');
+      // $this->redirectToRoute('default_home');
     }
   }
 
@@ -210,29 +212,36 @@ class UserController extends AppController // le CSS ne fonctionne pas
       $tokenrecup = $_GET['token'];
 
       $urlemail = $this->userModel->getUserByEmail($emailurl); // on récupère l'ID de l'utilisateur en BDD
-			if(!empty($_POST['submit'])) {
-				$password = trim(strip_tags($_POST['password']));
-				$password2 = trim(strip_tags($_POST['password2']));
-        debug($password2);
-        $errors = array();
-				$errors['password'] = $this->validError->textValid($password,'password', 6, 15);
-				$errors['password2'] = $this->validError->correspondancePassword($password,$password2);
-				if($this->validError->IsValid($errors)){
-					$token = StringUtils::randomString(20);
-					$hashpassword = $this->authentificationModel->hashPassword($password);
-		      $data = array(
-		        'password' => $hashpassword,
-						'token' => $token,
-            'modified_at' => $this->dateTimeModel->format('Y-m-d  H:i:s'),
-		      );
-		      $user = $this->userModel->update($data,$urlemail['id']);
-		      // redirection
-		      $this->redirectToRoute('login');
-  			} else {
-          $this->show('user/modifpassword',array (
-            'errors' => $errors,
-          ));
+      if(!empty($urlemail)) {
+        if($urlemail["email"] == $emailrecup && $urlemail['token'] == $tokenrecup) {
+    			if(!empty($_POST['submit'])) {
+    				$password = trim(strip_tags($_POST['password']));
+    				$password2 = trim(strip_tags($_POST['password2']));
+            $errors = array();
+    				$errors['password'] = $this->validError->textValid($password,'password', 6, 15);
+    				$errors['password2'] = $this->validError->correspondancePassword($password,$password2);
+    				if($this->validError->IsValid($errors)){
+    					$token = StringUtils::randomString(20);
+    					$hashpassword = $this->authentificationModel->hashPassword($password);
+    		      $data = array(
+    		        'password' => $hashpassword,
+    						'token' => $token,
+                'modified_at' => $this->dateTimeModel->format('Y-m-d  H:i:s'),
+    		      );
+    		      $user = $this->userModel->update($data,$urlemail['id']);
+    		      // redirection
+    		      $this->redirectToRoute('login');
+      			} else {
+              $this->show('user/modifpassword',array (
+                'errors' => $errors,
+              ));
+            }
+          }
+        }else {
+          $this->show('w_errors/403');
         }
+      }else {
+        echo "Cette adresse n'existe pas";
       }
     }
   }
