@@ -26,21 +26,22 @@ class OrderAdminController extends AppController
   // méthode permettant d'afficher les commande en attente de validation
   public function validatingOrders()
   {
-    $products = $this->orders->waitingOrders();
-    // debug($products);
-    // die();
+    $orders = $this->orders->findAllWaitingOrders();
+
+
+
     $this->show('admin/orders/waitinglist', array(
-                        'products' => $products
+                        'orders' => $orders
     ));
   }
   // méthode utilisant OrderModel permettant d'afficher les commande validées
   public function validOrders()
   {
-    $products = $this->orders->validOrders();
+    $orders = $this->orders->validOrders();
     // debug($products);
     // die();
-    $this->show('admin/orders/waitinglist', array(
-                        'products' => $products
+    $this->show('admin/orders/valid', array(
+                        'orders' => $orders
                       ));
   }
 

@@ -16,7 +16,7 @@
 		// Admin Order
 		['GET', '/admin/order', 'OrderAdmin#index', 'admin_order'],
 		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
-		['POST', '/admin/order/valid/', 'OrderAdmin#validOrders', 'valid_orders'],
+		['POST', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
 		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],

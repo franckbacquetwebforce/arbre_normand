@@ -1,6 +1,5 @@
 <?php $this->layout('layout_admin', ['title' => 'Liste des commandes en attente']) ?>
 <?php $this->start('main_content') ?>
-<?php debug($products); ?>
 
 <div class="container-fluid">
   <div class="parent">
@@ -42,5 +41,13 @@
     </tbody>
   </table>
 </div>
+
+
+les commandes en attente
+<?php
+debug($orders);
+
+
+?>
 
 <?php $this->stop('main_content') ?>
