@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+  	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin_style.css') ?>">
 
   </head>
   <body>
+    <div class ="all_content">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -97,11 +98,12 @@
             <div class="navbar-collapse collapse sidebar-navbar-collapse">
               <ul class="nav navbar-nav">
                 <!--Faire un JS sur la classe active-->
-                <li class="active"><a href="<?= $this->url('default_home') ?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Accueil</span></a></li>
-                <li><a href="<?= $this->url('admin_product') ?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Produits</span></a></li>
-                <li><a href="<?= $this->url('admin_user') ?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Utilisateurs</span></a></li>
-                <li><a href="<?= $this->url('admin_order') ?>"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Commandes</span></a></li>
-                <li><a href="<?= $this->url('admin_categories') ?>"><i aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Categories</span></a></li>
+                <li class="accueil_site"><a href="<?= $this->url('default_home') ?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Accueil</span></a></li>
+                <li class="<?php if($w_current_route == 'site_statistics'){echo "active";} ?>"><a href="<?= $this->url('site_statistics') ?>"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Dashboard</span></a></li>
+                <li class="<?php if($w_current_route == 'admin_product'){echo "active";} ?>"><a href="<?= $this->url('admin_product') ?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Produits</span></a></li>
+                <li class="<?php if($w_current_route == 'admin_user'){echo "active";} ?>"><a href="<?= $this->url('admin_user') ?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Utilisateurs</span></a></li>
+                <li class="<?php if($w_current_route == 'admin_order'){echo "active";} ?>"><a href="<?= $this->url('admin_order') ?>"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Commandes</span></a></li>
+                <li class="<?php if($w_current_route == 'admin_categories'){echo "active";} ?>"><a href="<?= $this->url('admin_categories') ?>"><i class="fa fa-flag" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Categories</span></a></li>
                 </ul>
               </div><!--/.nav-collapse -->
             </div>
@@ -121,6 +123,7 @@
 
     <footer>
     </footer>
+    </div> <!-- div all_content -->
 		<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
 		<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
 	</body>

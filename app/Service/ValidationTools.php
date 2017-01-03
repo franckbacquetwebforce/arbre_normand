@@ -221,4 +221,12 @@ class ValidationTools
       }
     return $error;
   }
+
+  // public function orderImgValid($current_FILE, $previous_FILE)
+  // {
+  //   if(!empty($_FILES[$current_FILE]['name']) && empty($_FILES[$previous_FILE]['name'])){
+  //     $error = "Merci de remplir d\'abord l\'".$previous_FILE;
+  //     return $error;
+  //   }
+  // }
 }

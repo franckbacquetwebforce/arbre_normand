@@ -4,7 +4,9 @@ html, body {
 	background-size: cover;
 	color: rgb(8, 7, 7);
 }
-
+.container-fluid{/*correction de marge qui creait un scroll horizontal*/
+	margin:0;
+}
 .main_content {
 	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
 }
@@ -185,6 +187,7 @@ article {
 	padding-top: 15px;
 	padding-bottom: 1px;
 }
+
 @media (min-width: 768px) {
 	.product {
 		margin-left: 15px;
@@ -223,7 +226,7 @@ article {
 	/*=========================Menu_right HERMELEN =============================*/
 	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
 		top: 84px;
-		width: 212.5px;
+		width: 22.5%;
 		-o-transition: all 1s ease;
 		-moz-transition: all 1s ease;
 		-webkit-transition: all 1s ease;
@@ -460,13 +463,6 @@ body{
 	z-index: 100;
  }
 
-/*#logo{ left:50%; top:50%; position:absolute; border-radius:10px; }
-
-
-#links{position:absolute;bottom:0px;left:0px;width:100%;height:50px;font-size:13px;font-family:tahoma;color:#fff;}
-#links a{text-decoration:none;font-size:2.3em;color:#fff;}
-#twitter{position:absolute;bottom:15px;right:20px;}
-#pens{position:absolute;bottom:15px;left:20px;}*/
 
 /*mise en forme tableau product*/
 .product_img_thumbnail_back .img_thumbnail_back{

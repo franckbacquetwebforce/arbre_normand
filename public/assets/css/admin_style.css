@@ -1,64 +1,40 @@
 html, body {
 	font-family: Consolas, monaco, monospace;
-	background-image: url(../images/background-1068900_960_720_clear.jpg);
+	background-image: url(../images/wood_texture3847lite_back.jpg);
 	background-size: cover;
-	color: rgb(24, 24, 24);
+	color: rgb(126, 186, 154);
 }
-
+.all_content{/*div contenant tout*/
+ max-width: 1600px;
+}
 .main_content{
 	background-color: rgba(185, 185, 185, 0.8);
 }
 
 a {
 	text-decoration: none;
-	color: #A6E22E;
+	color: rgb(8, 7, 7);
 }
 
 a:hover {
-	color: #F92672;
+	color: #2B5043;
 }
 
 h1 {
-	color: #F92672;
+	color: rgb(126, 186, 154);
+	font-size: 2em;
 }
 
 h2 {
-	color: #66D9EF;
+	color: #5d5926;
 }
-
 
 div.display-table {
-	background-color: #ffffff;
+	/*background-color: #ffffff;*/
 }
-
-/*#sidebar {
-  position: fixed;
-  top: 50px;
-  left: 220px;
-  width: 220px;
-  margin-left: -220px;
-  border: none;
-  border-radius: 0;
-  overflow-y: auto;
-  background-color: #222;
-  bottom: 0;
-  overflow-x: hidden;
-  padding-bottom: 40px;
-}
-
-.side-bar > li > a {
-  color: #eee;
-  width: 220px;
-}
-
-.side-bar li a:hover,
-.side-bar li a:focus {
-  background-color: #333;
-}
-
 .tmargin {
   margin-top: 15px;
-}*/
+}
 
 /*=====================HERMELEN======================*/
 /*mise en forme navBar provisoire*/
@@ -72,3 +48,252 @@ div.display-table {
 	max-height: 100px;
 	max-width: 100px;
 }
+
+.main_column{
+	background-color: rgba(185, 185, 185, 0.6);
+	padding: 0 1em 0 1em;
+	margin: 0;
+}
+
+/*=====================HERMELEN======================*/
+.spacer{
+	clear: both;
+}
+/*GENERAL*/
+/*mise en forme navBar provisoire*/
+.nav_header li{
+	list-style:none;
+	display: inline;
+}
+/*slider*/
+.slider_container{
+padding: 0;
+}
+
+
+/*===================MICHELE========================*/
+/* Essai Menu Navbar vertical left*/
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+		font-weight: bold;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+/*===================MICHELE========================*/
+/* Essai table admin product*/
+a{
+  color: #739931;
+}
+table th,
+table td{
+  text-align: center;
+}
+table.layout{
+  width: 100%;
+  border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+}
+table.display{
+  margin: 1em 0;
+}
+table.display th,
+table.display td{
+  border: 1px solid #B3BFAA;
+  padding: .5em 1em;
+}
+
+table.display th{ background: rgb(41, 63, 84); }
+table.display td{ background: rgba(41, 63, 84, 0.6); }
+
+table.responsive-table{
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+table.responsive-table img {
+	max-width: 15rem;
+  min-width: 15rem;
+	max-height: 15rem;
+	min-height: 15rem;
+}
+@media (max-width: 30em){
+    table.responsive-table{
+      box-shadow: none;
+    }
+    table.responsive-table thead{
+      display: none;
+    }
+  table.display th,
+  table.display td{
+    padding: .5em;
+  }
+
+  table.responsive-table td:nth-child(1):before{
+    content: 'Image';
+  }
+  table.responsive-table td:nth-child(2):before{
+    content: 'Nom';
+  }
+  table.responsive-table td:nth-child(1),
+  table.responsive-table td:nth-child(2){
+    padding-left: 25%;
+  }
+  table.responsive-table td:nth-child(1):before,
+  table.responsive-table td:nth-child(2):before{
+    position: absolute;
+    left: .5em;
+    font-weight: bold;
+  }
+
+  table.responsive-table tr,
+  table.responsive-table td{
+    display: block;
+  }
+  table.responsive-table tr{
+    position: relative;
+    margin-bottom: 1em;
+  	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  }
+  table.responsive-table td{
+    border-top: none;
+  }
+  /*table.responsive-table td.organisationnumber{
+    background: #D5E0CC;
+    border-top: 1px solid #B3BFAA;
+  }*/
+  table.responsive-table td.actions{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+  }
+}
+
+
+/*===================MICHELE========================*/
+/* Essai form admin product*/
+.modification {
+	background: rgba(185, 185, 185, 0.8);
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ajout {
+	background: rgba(41, 63, 84, 0.6);
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.modif-form {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+.ajout-form {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+button.modif_product {
+	text-align: right;
+}
+/*========================HERMELEN===========================*/
+/*images product_modified*/
+.product_modified_img{
+	display: flex;
+	float: right;
+	width: 20%;
+}
+.product_modified_img_name{
+	font-size: 0.8em;
+}
+
+/*================boostrap-navbar=======================*/
+/*pas sticky*/
+
+/*pour modif color defaults bootstrap*/
+.navbar-default .navbar-nav>.active>a{
+color: rgb(126, 186, 154);
+}
+.navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+color: rgb(172, 255, 211);
+background-color: rgb(37, 56, 74);
+}
+.navbar-default .navbar-nav>li>a{
+color: rgb(126, 186, 154);
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+color: rgb(172, 255, 211);
+}
+
+
+.navbar-default .navbar-nav>.open>a{
+	background-color: rgb(61, 93, 124);
+}
+.dropdown-menu>li>a{
+	color: rgb(126, 186, 154);
+}
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover{
+	color: rgb(172, 255, 211);
+}
+
+.navbar-default{/*navbar global*/
+	background-color: rgb(41, 63, 84);/*foncé*/
+	border-width: 0;
+}
+.navbar-default .navbar-nav>.active>a{/*Accueil et autres li active*/
+	background-color: rgb(61, 93, 124);/*clair*/
+}
+.btn-default{/*boutons submit panier...*/
+	background-color: rgb(61, 93, 124);
+}
+.navbar-default .navbar-nav>.open>a:focus{/*title dropdowm when focused or clicked*/
+	background-color: rgb(61, 93, 124);
+}
+.navbar-default .dropdown-menu{/*dropdown content*/
+	background-color: rgb(41, 63, 84);
+}
+
+/*mise en forme tableau product*/
+.product_img_thumbnail_back .img_thumbnail_back{
+	max-height: 100px;
+	max-width: 100px;
+}
+
+/*===================MICHELE========================*/
+/*entête titre pages*/
+.parent {
+  display: flex; /* contexte sur le parent */
+	text-align: center;
+}
+.enfant {
+  margin: auto; /* contexte sur l'enfant */
+	background-color: rgb(41, 63, 84);
+	height: auto;
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+/*=====================FIN HERMELEN======================*/
