@@ -1,6 +1,13 @@
 <?php $this->layout('layout', ['title' => 'Liste des commandes en attente']) ?>
 <?php $this->start('main_content') ?>
-<?php debug($products); ?>
 
+
+
+les commandes en attente
+<?php
+debug($orders);
+
+
+?>
 
 <?php $this->stop('main_content') ?>

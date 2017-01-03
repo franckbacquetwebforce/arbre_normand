@@ -44,9 +44,15 @@ class OrderController extends AppController
     $user = $this->authentification->getLoggedUser();
     if(empty($user)){
       $this->redirectToRoute('login');
-    }else{
+    }
+    // else{
+    //   $ref = uniqid();
+    //   $validref = $this->ordermodel->selectRef($ref);
+    //   die();
+
       $data1 = array(
         'date_order' => $this->date->format('Y-m-d  H:i:s'),
+        // 'ref'  =>
         'id_user' => $user['id'],
         'status' => 'en_attente'
       );
@@ -61,9 +67,24 @@ class OrderController extends AppController
         );
         $this->ordermodel->insertCommandeProduits($data2);
       }
+      // pour chaque produit dans la commande
+      for($i = 0 ; $i<count($orders);$i++){
+        // on récupère le produit
 
-    }
+      $product =  $this->ordermodel->selectProduct($orders[$i]['product_id']);
+      // debug($product);
+      $cart_qt = (int) $orders[$i]['cart_qt'];
+      $stock = (int) $product[0]['stock'];
+      $newstock = 0;
+      $newstock += $stock;
+      $newstock -= $cart_qt;
+      echo $newstock;
+      echo '<br>';
+      $new_qt = $orders[$i]['cart_qt'];
+      $this->ordermodel->updateProduct($newstock,$product[0]['id']);
+      }
+      die();
+
+    
   }
-
-
 }
