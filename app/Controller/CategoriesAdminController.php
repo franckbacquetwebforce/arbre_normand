@@ -69,6 +69,7 @@ class CategoriesAdminController extends AppController
     $status = trim(strip_tags($_POST['status']));
     $slugname = Tools::slugify($name);
 
+
     // Référencement des erreurs
     $errors['name'] = $this->valid->textValid($name,'nom de catégorie');
 
@@ -80,6 +81,7 @@ class CategoriesAdminController extends AppController
 						'created_at' => $this->date->format('Y-m-d H:i:s'),
             'status' => $status
 					);
+      
 					$this->category->insert($data);
 					$this->redirectToRoute('default_home');
 		} else {

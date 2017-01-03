@@ -1,6 +1,7 @@
 <?php $this->layout('layout_admin', ['title' => 'Liste des commandes']) ?>
 <?php $this->start('main_content') ?>
-
+<?php debug($adminorders);
+?>
 
 <!-- // liste des données récupérées dans le OrderModel
 //probleme de date non prise en compte -->
