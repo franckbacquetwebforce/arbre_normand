@@ -35,7 +35,7 @@ class ProductController extends AppController
     ));
   }
 // affichage page détail
-// Affichage de la page "products/listproducts"
+//
   public function getsingleProduct($id)
   {
     $modelSingle = new ProductsModel($id);

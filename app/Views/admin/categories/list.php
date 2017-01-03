@@ -27,7 +27,7 @@
           <?php foreach($categories as $cat){ ?>
           <tr>
             <!-- Lien menant vers la page single de la catégorie sélectionnée -->
-            <td><a href="<?php echo $this->url('category_single', ['id' => $cat['id']]); ?>"><?php echo $cat['category_name']; ?></a></td>
+            <td><?php echo $cat['category_name']; ?></td>
             <!-- echo des colonnes des catégories -->
             <td><?php echo $cat['slug'] ?></td>
             <td><?php echo $cat['created_at'] ?></td>
