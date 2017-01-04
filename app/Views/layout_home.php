@@ -24,43 +24,16 @@ $categories = findAll('categories');?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-			<?php if(!empty($w_user)){
-							if($w_user['role'] === "admin") {?>
-								<a class="navbar-brand" href="<?= $this->url('site_statistics') ?>">Administration</a>
-				<?php	}?>
-			<?php } ?>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="<?= $this->url('default_home') ?>">Accueil <span class="sr-only">(current)</span></a></li>
-        <li><a href="../docs/tuto/" title="Documentation de W" target="_blank">docs/tuto</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developpement <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-						<li><a href="<?= $this->url('site_statistics') ?>">page d'administration </a></li>
-						<li><a href="<?= $this->url('admin_product') ?>">admin_product </a></li>
-						<li><a href="<?= $this->url('admin_order') ?>">admin_order </a></li>
-						<li><a href="<?= $this->url('admin_user') ?>">admin_user </a></li>
-						<li><a href="<?= $this->url('admin_categories') ?>">admin_categories </a></li>
-						<li><a href="<?= $this->url('admin_categories') ?>"> Liste des catégories coté admin |</a></li>
 
-						<li><a href="<?= $this->url('admin_user') ?>">Liste des utilisateurs </a></li>
-						<li><a href="<?= $this->url('admin_categories_new') ?>">Ajout d'une catégorie </a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="<?= $this->url('admin_user_new') ?>">Création d'un nouvel admin </a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="<?= $this->url('admin_user_update_action', ['id' => $w_user['id']]) ?>">Update compte admin </a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+			<img class="abattage_navbar"src="<?= $this->assetUrl('images/abattage.svg') ?>" alt="">
+				<img class="logo_navbar"src="<?= $this->assetUrl('images/logo.svg') ?>" alt="">
+
+
+
       <ul class="nav navbar-nav navbar-right">
 				<li><a href="<?= $this->url('user_cart') ?>">
 
@@ -110,17 +83,23 @@ $categories = findAll('categories');?>
 					<div class="navbar-collapse collapse sidebar-navbar-collapse">
 						<ul class="nav navbar-nav">
 							<!--Faire un JS sur la classe active-->
+							<?php if(!empty($w_user)){
+											if($w_user['role'] === "admin") {?>
+												<li class="menu_admin"><a id="link_admin" href="<?= $this->url('site_statistics') ?>">Administration</a></li>
+								<?php	}?>
+							<?php } ?>
 							<li class="<?php if($w_current_route == 'default_home'){echo "active";} ?>"><a href="<?= $this->url('default_home') ?>"> Accueil</span></a></li>
 							<li class="menu_categorie_all <?php if($w_current_route == 'listproducts'){echo "active";} ?>"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
 							<?php foreach($categories as $categorie){?>
 								<li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
 							<?php } ?>
+							<li><a href="<?= $this->url('contact') ?>">Contact </a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
 			</section>
 		</div>
-		<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
+		<div class="main_column col-xs-12 col-sm-9 col-md-6 col-lg-6">
 			<section>
 			<?= $this->section('main_content') ?>
 			</section>
@@ -128,6 +107,9 @@ $categories = findAll('categories');?>
 		<div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div><!-- partie droite vide -->
 	</div>
 </div>
+<footer>
+
+</footer>
 </div> <!-- div all_content -->
 	<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>

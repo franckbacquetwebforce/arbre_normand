@@ -92,7 +92,15 @@ padding: 0;
     padding-top: 12px;
     padding-bottom: 12px;
   }
+	a#link_front{
+		color: #777;
+		background-color: rgb(218, 208, 202);
+	}
+	a#link_front:hover{
+		color: #555;
 
+	}
+}
 /*===================MICHELE========================*/
 /* Essai table admin product*/
 a{
@@ -281,7 +289,19 @@ color: rgb(172, 255, 211);
 	max-height: 100px;
 	max-width: 100px;
 }
-
+.title_back_container{
+	display: inline-flex;
+}
+.logo_navbar_back{
+	height: 70px;
+	margin-left: -20px;
+	float:left;
+}
+.admin_title{
+  font-size: 2em;
+	padding: 0.3rem 0 0 3em;
+	float: right;
+}
 /*===================MICHELE========================*/
 /*entête titre pages*/
 .parent {

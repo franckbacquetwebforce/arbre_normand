@@ -4,6 +4,10 @@ html, body {
 	background-size: cover;
 	color: rgb(8, 7, 7);
 }
+
+.all_content{
+	max-width: 1600px;
+}
 .container-fluid{/*correction de marge qui creait un scroll horizontal*/
 	margin:0;
 }
@@ -232,6 +236,14 @@ article {
 		-webkit-transition: all 1s ease;
 		-ms-transition: all 1s ease;
 	}
+	a#link_admin{
+		color: rgb(126, 186, 154);
+		background-color: rgb(37, 56, 74);
+	}
+	a#link_admin:hover{
+		color: rgb(172, 255, 211);
+		background-color: rgb(37, 56, 74);
+	}
 }
 /*===================MICHELE========================*/
 /* Essai table admin product*/
@@ -415,19 +427,52 @@ button.modif_product {
 	background-color: rgb(218, 208, 202);
 }
 
-
-/*===================Logo anim codePen===================================*/
-/*hermelen*/
-.logo_slider{
-	/*background-color: rgb(105, 94, 69);*/
-	/*padding: 0;*/
-	position: relative;
+.logo_navbar{
+	margin-top: 0.2%;
+	margin-left: 16%;
+	height: 61.2px;
 }
+.abattage_navbar{
+	margin-left: -2%;
+	height: 63.6px;
+}
+
+/*===================Logo + anim codePen===================================*/
+/*hermelen*/
+/*vert rgb(8, 88, 38)*/
+/*marron rgb(98, 56, 24)*/
+.logo_slider{
+	/*background-color: rgb(126, 175, 144);*/
+		background-color: rgb(204, 222, 211);
+	position: relative;
+	/*background-image: url(../images/arbre_noir_bis.png);
+	background-size: 25%;
+	background-repeat: no-repeat;*/
+}
+.arbre_header{
+	position: absolute;
+	bottom: 0;
+	height: 95%;
+}
+.logo_header{
+	width: 100%;
+	margin-top: 10%;
+	margin-left: -2%;
+}
+.abattage_header{
+	width: 100%;
+	margin-top: 10%;
+	margin-left: -2%;
+}
+.presentation_header{
+	color: rgb(98, 56, 24);
+}
+
 .logo_slider > h1{
 	font-size: 5em;
 }
 .logo_container{
-	/*height: 500px;*/
+
 }
 .logo_container > h1{
 	font-size: 4em;
@@ -578,8 +623,11 @@ background-color: rgba(182, 186, 157, 0.8);
 	font-size: 1em;
 }
 
-
-
+/*FOOOTER*/
+footer{
+	height: 200px;
+	background-color:
+}
 
 
 
