@@ -42,7 +42,7 @@ class OrderController extends AppController
   public function confirmOrderAction()
   {
     $orders = $this->cart->infoProduitPanier();
-
+    $success = false;
     $user = $this->authentification->getLoggedUser();
     if(empty($user)){
       $this->redirectToRoute('login');
@@ -71,16 +71,18 @@ class OrderController extends AppController
       for($i = 0 ; $i<count($orders);$i++){
         // on récupère le produit
 
-      $product =  $this->ordermodel->selectProduct($orders[$i]['product_id']);
-      // debug($product);
-      $cart_qt = (int) $orders[$i]['cart_qt'];
-      $stock = (int) $product[0]['stock'];
-      $newstock = 0;
-      $newstock += $stock;
-      $newstock -= $cart_qt;
-      // $new_qt = $orders[$i]['cart_qt'];
-      $this->ordermodel->updateProduct($newstock,$product[0]['id']);
+          $product =  $this->ordermodel->selectProduct($orders[$i]['product_id']);
+          // debug($product);
+          $cart_qt = (int) $orders[$i]['cart_qt'];
+          $stock = (int) $product[0]['stock'];
+          $newstock = 0;
+          $newstock += $stock;
+          $newstock -= $cart_qt;
+          // $new_qt = $orders[$i]['cart_qt'];
+          $this->ordermodel->updateProduct($newstock,$product[0]['id']);
       }
+      $_SESSION['cart'] = array();
+      unset($_SESSION['cart']);
 
       // Envoi des mails de confirmation de commande utilisateur et admin (Michèle)
       $app = getApp();
@@ -98,6 +100,7 @@ class OrderController extends AppController
           echo 'Erreur Mail: ' . $mail->ErrorInfo;
     		} else {
           echo 'Le message a bien été envoyé';
+
         }
       $this->redirectToRoute('user_orders');
 

@@ -252,5 +252,55 @@ class UserController extends AppController // le CSS ne fonctionne pas
 
   public function contactAction(){
 
-  }
+    $error = array();
+    $success = false;
+
+      $nameContact = trim(strip_tags($_POST['nameContact']));
+      $mailContact = trim(strip_tags($_POST['mailContact']));
+      $subjectContact = trim(strip_tags($_POST['subjectContact']));
+      $messageContact = trim(strip_tags($_POST['messageContact']));
+
+      // verifications
+      if (!empty($nameContact)) {
+        if (strlen($nameContact) < 5) {
+          $error['pseudo'] = 'Veuillez inscrire plus de 5 caractères';
+        } elseif (strlen($nameContact) > 40) {
+          $error['pseudo'] = 'Veuillez inscrire moins de 40 caractères';
+        }
+
+
+      } else {
+        $error['pseudo'] = 'Veuillez renseigner un pseudo';
+      }
+
+
+
+      if (!empty($mailContact)) {
+        if (filter_var($mailContact, FILTER_VALIDATE_EMAIL)) {
+
+        } else {
+          $error['email'] = 'Veuillez renseigner un email valide';
+        }
+      } else {
+        $error['email'] = 'Veuillez renseigner un email';
+      }
+
+      if (count($error) == 0) {
+        $success = true;
+      $response = array(
+        'error'=> $error,
+        'success'=> $success,
+        'nameContact' => $nameContact,
+        'mailContact' => $mailContact,
+        'subjectContact' => $subjectContact,
+        'messageContact' => $messageContact
+
+      );
+    }
+
+      // die(print_r($response));
+
+    return $this->showJson($response);
+
+    }
 }
