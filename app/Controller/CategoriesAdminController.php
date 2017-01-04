@@ -124,6 +124,7 @@ class CategoriesAdminController extends AppController
     if($this->allowTo('admin')){
       $errors = [];
       $cat = $this->category->find($id);
+
       // protection
       $name = trim(strip_tags($_POST['name']));
       $status = trim(strip_tags($_POST['status']));
@@ -138,7 +139,9 @@ class CategoriesAdminController extends AppController
           'status' => $status
         );
 
+
         $this->category->update($data,$id);
+
         $this->redirectToRoute('admin_categories');
       } else {
         $this->show('admin/categories/update', array(

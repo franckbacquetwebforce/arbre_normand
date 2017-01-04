@@ -14,7 +14,6 @@ use \W\Security\AuthorizationModel;
 use \DateTime;
 
 
-
 class UserAdminController extends AppController
 {
   public function __construct()
@@ -32,7 +31,9 @@ class UserAdminController extends AppController
   // listing en back-office des user
   public function index()
   {
-    if($this->allowTo('admin')){
+    $roles = ['admin','superadmin'];
+
+    if($this->allowTo($roles)){
       // Fonction de Model qui permet
       $users = $this->model->findAll();
       $this->show('admin/user/list', array(
@@ -46,7 +47,9 @@ class UserAdminController extends AppController
   */
   public function addNew()
   {
-    if($this->allowTo('admin')){
+    $roles = ['admin','superadmin'];
+
+    if($this->allowTo($roles)){
       $this->show('admin/adminnew/admin_inscription');
 
     }
@@ -57,7 +60,9 @@ class UserAdminController extends AppController
 */
   public function addNewAction()
   {
-    if($this->allowTo('admin')){
+    $roles = ['admin','superadmin'];
+
+    if($this->allowTo($roles)){
 
       $errors = [];
       // protection
@@ -107,7 +112,9 @@ class UserAdminController extends AppController
 
   public function update($id)
   {
-    if($this->allowTo('admin')){
+    $roles = ['admin','superadmin'];
+
+    if($this->allowTo($roles)){
 
       $this->show('admin/adminupdate/adminupdate');
     }
@@ -115,7 +122,9 @@ class UserAdminController extends AppController
 
   public function updateAction($id)
   {
-    if($this->allowTo('admin')){
+    $roles = ['admin','superadmin'];
+
+    if($this->allowTo($roles)){
 
       $errors = [];
       // protection
@@ -135,9 +144,7 @@ class UserAdminController extends AppController
       // Vérifie si l'email existe déjà dans la base de données
 
       $mailExist = $this->model->emailExists($email);
-      if(!empty($mailExist)){
-        $errors['email'] = 'Cet email est déjà utilisé';
-      }
+  
 
 
       if($this->valid->isValid($errors)){
@@ -161,7 +168,9 @@ class UserAdminController extends AppController
 
   public function delete($id)
   {
-    if($this->allowTo('admin')){
+    $roles = ['admin','superadmin'];
+
+    if($this->allowTo($roles)){
 
       if(!empty($id)){
         $this->model->delete($id);
@@ -170,7 +179,9 @@ class UserAdminController extends AppController
   }
   public function statistics()
   {
+    $roles = ['admin','superadmin'];
 
+    if($this->allowTo($roles)){
       //////////////////////////////////////////////
       // Compte de nombre de visiteurs sur le site(possibilité de séparer les utilisateurs connectés des visiteurs anonymes plus tard si nécessaire)
       //////////////////////////////////////////////
@@ -204,7 +215,6 @@ class UserAdminController extends AppController
       //Utilise OrdersModel pour lister les produits et leur stock
       $stocks = $this->productmodel->showStock();
 
-      if($this->allowTo('admin')){
       // Affiche les statistiques du site dans le dashboard
       $this->show('admin/dashboard',array(
         'stocks' => $stocks,

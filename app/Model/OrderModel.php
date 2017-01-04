@@ -28,7 +28,7 @@ class OrderModel extends Model
     LEFT JOIN products ON products.id = orders_products.id_product
     LEFT JOIN users ON orders.id_user = users.id
     LEFT JOIN users_adress ON orders.id_user = users_adress.id_user AND users_adress.type = 'livraison'
-    ORDER BY orders.date_order ASC
+    ORDER BY orders.date_order DESC
     ";
 
 

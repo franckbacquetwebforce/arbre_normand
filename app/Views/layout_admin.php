@@ -104,7 +104,7 @@
                 <li class="<?php if($w_current_route == 'admin_user'){echo "active";} ?>"><a href="<?= $this->url('admin_user') ?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Utilisateurs</span></a></li>
                 <li class="<?php if($w_current_route == 'admin_order'){echo "active";} ?>"><a href="<?= $this->url('admin_order') ?>"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Commandes</span></a></li>
                 <li class="<?php if($w_current_route == 'admin_categories'){echo "active";} ?>"><a href="<?= $this->url('admin_categories') ?>"><i class="fa fa-flag" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Categories</span></a></li>
-                </ul>
+              </ul>
               </div><!--/.nav-collapse -->
             </div>
           </section>

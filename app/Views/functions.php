@@ -10,7 +10,7 @@ function findAll($table, $orderBy = '', $orderDir = 'ASC', $limit = null, $offse
                PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
     ));
 
-         $sql = 'SELECT * FROM '.$table;
+         $sql = 'SELECT * FROM '.$table.' WHERE status = 1';
          if (!empty($orderBy)){
 
            //sécurisation des paramètres, pour éviter les injections SQL
