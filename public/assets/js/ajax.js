@@ -13,7 +13,7 @@ $("#contact_us").on("submit", function(e) {
   $.ajax({
 
     method: 'POST',
-    url: '../../../app/Views/user/contact.php',
+    url: 'contact',
     data: {
       nameContact: nameContact,
       mailContact: mailContact,
@@ -24,7 +24,7 @@ $("#contact_us").on("submit", function(e) {
     success: function(response) {
       if (response.success) {
         $('#success_inscription').append("Bien joué");
-        document.location.href="../../../app/Views/user/contact.php";
+        document.location.href="contact";
       } else {
         if (response.error) {
           if (response.error.nameContact != null) {
