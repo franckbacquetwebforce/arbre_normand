@@ -23,21 +23,12 @@ $categories = findAll('categories');?>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-    			<?php if(!empty($w_user)){
-    							if($w_user['role'] === "admin") {?>
-    								<a class="navbar-brand" href="<?= $this->url('site_statistics') ?>">Administration</a>
-    				<?php	}?>
-    			<?php } ?>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
     			<img class="abattage_navbar"src="<?= $this->assetUrl('images/abattage.svg') ?>" alt="">
-    				<img class="logo_navbar"src="<?= $this->assetUrl('images/logo.svg') ?>" alt="">
-
-
-
+    			<img class="logo_navbar"src="<?= $this->assetUrl('images/logo.svg') ?>" alt="">
           <ul class="nav navbar-nav navbar-right">
     				<li><a href="<?= $this->url('user_cart') ?>">
 
@@ -74,7 +65,7 @@ $categories = findAll('categories');?>
     <div class="container-fluid product">
     	<div class="row">
     		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    			<section id="menu_left_container" class="sidebar-nav">
+          <section id="menu_left_container" class="sidebar-nav">
     				<div class="navbar menu_right navbar-default" role="navigation">
     					<div class="navbar-header">
     						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
@@ -88,6 +79,11 @@ $categories = findAll('categories');?>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse">
     						<ul class="nav navbar-nav">
     							<!--Faire un JS sur la classe active-->
+    							<?php if(!empty($w_user)){
+    											if($w_user['role'] === "admin") {?>
+    												<li class="menu_admin"><a id="link_admin" href="<?= $this->url('site_statistics') ?>">Administration</a></li>
+    								<?php	}?>
+    							<?php } ?>
     							<li class="<?php if($w_current_route == 'default_home'){echo "active";} ?>"><a href="<?= $this->url('default_home') ?>"> Accueil</span></a></li>
     							<li class="menu_categorie_all <?php if($w_current_route == 'listproducts'){echo "active";} ?>"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
     							<?php foreach($categories as $categorie){?>
