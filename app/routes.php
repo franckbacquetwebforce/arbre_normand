@@ -14,7 +14,7 @@
 		['GET', '/admin/product/delete/[i:id]', 'ProductAdmin#deleteAction', 'admin_product_delete_action'],
 
 		// Admin Order
-		['GET', '/admin/order', 'OrderAdmin#index', 'admin_order'],
+		['GET', '/admin/order/list', 'OrderAdmin#index', 'admin_order'],
 		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
 		['GET', '/admin/order/single/[i:id]', 'OrderAdmin#single', 'order_single'],
 		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
@@ -93,7 +93,7 @@
 		// Route pour afficher la page "products/listproducts"
 		['GET', '/products', 'Product#index', 'listproducts'],
 		// Route pour afficher la page "products/productsingle"
-		['GET', '/products/detail/[i:id]', 'Product#getsingleProduct', 'singleproduct'],
+		['GET', '/products/detail/[i:id]', 'Product#showSingleProduct', 'singleproduct'],
 		// Route pour afficher la page "products/listproducts par catégorie"
 		['GET', '/category', 'Product#indexCategory', 'categoryproduct'],
 

@@ -74,6 +74,61 @@ class OrderModel extends Model
 
      return $newArray;
   }
+// Single product
+  public function singleOrder($id)
+  {
+    $sql = "SELECT orders_products.*,products.*,orders.*,users.username,users.email,users_adress.firstname,users_adress.lastname,users_adress.phone,users_adress.type,users_adress.city,users_adress.zip
+    FROM orders_products
+    LEFT JOIN orders ON orders_products.id_order = orders.id
+    LEFT JOIN products ON products.id = orders_products.id_product
+    LEFT JOIN users ON orders.id_user = users.id
+    LEFT JOIN users_adress ON orders.id_user = users_adress.id_user AND users_adress.type = 'livraison'
+    WHERE orders.id = $id
+    ";
+
+
+
+     $sth = $this->dbh->prepare($sql);
+     $sth->execute();
+     $array = $sth->fetchAll();
+  if(!empty($array)){
+     foreach ($array as $key => $value) {
+       $newArray[$value['id_order']]['produits'][$value['id_product']] =[
+              'id_product' => $value['id_product'],
+              'slug' => $value['slug'],
+              'product_name' => $value['product_name'],
+              'description' => $value['description'],
+              'price_ht' => $value['price_ht'],
+              'width' => $value['width'],
+              'height' => $value['height'],
+              'length' => $value['length'],
+              'weight' => $value['weight'],
+              'stock' => $value['stock'],
+              'id_category' => $value['id_category'],
+              'qt_product' => $value['qt_product'],
+              'price_product' => $value['price_product']
+            ];
+        $newArray[$value['id_order']]['client'] =[
+          'id_user' => $value['id_user'],
+          'username' => $value['username'],
+          'email' => $value['email'],
+          'firstname' => $value['firstname'],
+          'lastname' => $value['lastname'],
+          'phone' => $value['phone'],
+          'city' => $value['city'],
+          'zip' => $value['zip'],
+             ];
+
+        $newArray[$value['id_order']]['ref'] = $value['ref'];
+        $newArray[$value['id_order']]['date_order'] = $value['date_order'];
+        $newArray[$value['id_order']]['status'] = $value['status'];
+
+
+     }
+   }
+
+     return $newArray;
+  }
   /**
    *showCartProducts
    *montre les produits dans le panier
@@ -441,8 +496,10 @@ if(!empty($array)){
              'id_category' => $value['id_category'],
              'qt_product' => $value['qt_product'],
              'price_product' => $value['price_product']
+
            ];
            $newArray[$value['id_order']]['date_order'] = $value['date_order'];
+           $newArray[$value['id_order']]['ref'] = $value['ref'];
          $newArray[$value['id_order']]['status'] = $value['status'];
          $newArray[$value['id_order']]['id_user'] = $value['id_user'];
          $newArray[$value['id_order']]['username'] = $value['username'];

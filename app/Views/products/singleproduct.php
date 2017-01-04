@@ -75,9 +75,6 @@ $qt_product = '1';
                   <?php } ?>
 
                 </div>
-
-
-
               </article>
             </section>
           </div>

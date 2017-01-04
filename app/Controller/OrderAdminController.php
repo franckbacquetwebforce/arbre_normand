@@ -29,9 +29,6 @@ class OrderAdminController extends AppController
   public function validatingOrders()
   {
     $orders = $this->orders->findAllWaitingOrders();
-
-
-
     $this->show('admin/orders/waitinglist', array(
                         'orders' => $orders
     ));
@@ -49,7 +46,12 @@ class OrderAdminController extends AppController
 
   public function single($id)
   {
-    
+    $oneOrder = $this->orders->singleOrder($id);
+    $this->show('admin/orders/single', array(
+                        'oneOrder' => $oneOrder,
+                        'id'=> $id
+    ));
+
   }
 // ?
   public function addNew()

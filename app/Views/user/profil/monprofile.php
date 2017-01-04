@@ -1,9 +1,9 @@
 <!-- Page single des catégories -->
-<?php $this->layout('layout', ['title' => 'Mon profil']) ?>
+<?php $this->layout('layout_product', ['title' => 'Mon profil']) ?>
 <?php $this->start('main_content') ?>
 <?php
 
-debug($addresses);?>
+// debug($addresses);?>
 
 <div class="container-fluid">
   <div class="parent">
@@ -12,6 +12,7 @@ debug($addresses);?>
     </div>
   </div>
   <a href="<?= $this->url('add_new_address') ?>"><button class="btn btn-success modif_product" type="submit" name="submit" value="">Ajouter une adresse</button></a>
+  <a href="<?= $this->url('user_orders') ?>"><button class="btn btn-success modif_product pull-right" type="submit" name="submit" value="">Mes commandes</button></a><br>
   <table class="layout display responsive-table">
     <thead>
       <tr>
@@ -41,7 +42,8 @@ debug($addresses);?>
       <?php } ?>
     </tbody>
   </table>
-  <a href=""><button class="btn btn-success modif_product" type="submit" name="submit" value="">Mes commandes</button></a>
+
+
 </div>
 
 

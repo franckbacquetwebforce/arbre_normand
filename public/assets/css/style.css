@@ -202,6 +202,16 @@ article {
 }
 
 /*===================MICHELE========================*/
+/* Mise en forme de la table Liste commande Users*/
+span.product {
+	margin: auto;
+	padding: 3em;
+}
+span.dim {
+	margin: auto;
+	padding: 2em;
+}
+/*===================MICHELE========================*/
 /* Essai Menu Navbar vertical left*/
 /* make sidebar nav vertical */
 @media (min-width: 768px) {
