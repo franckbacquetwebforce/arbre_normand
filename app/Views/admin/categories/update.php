@@ -23,9 +23,8 @@ $this->layout('layout_admin', ['title' => 'Modification d\'une catégorie']) ?>
         <div class="form-group">
           <label for="status"><h4>Status de la catégorie</h4></label>
           <select class="form-control" name="status">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="0">non visible</option>
+            <option value="1">visible</option>
           </select>
         </div>
       </div>

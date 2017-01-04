@@ -72,6 +72,8 @@ class CartController extends AppController
 	}
 	public function afficherPanier()
 	{
+		// $_SESSION['cart'] = array();
+		// unset($_SESSION['cart']);
 		$infoPanier = $this->infoProduitPanier();
 		$total = $this->MontantGlobal();
 		$this->show('cart/cart', array(

@@ -442,11 +442,12 @@ if(!empty($array)){
              'qt_product' => $value['qt_product'],
              'price_product' => $value['price_product']
            ];
-           $newArray[$value['id_order']]['date_order'] = $value['date_order'];
-         $newArray[$value['id_order']]['status'] = $value['status'];
-         $newArray[$value['id_order']]['id_user'] = $value['id_user'];
-         $newArray[$value['id_order']]['username'] = $value['username'];
-         $newArray[$value['id_order']]['email'] = $value['email'];
+       $newArray[$value['id_order']]['date_order'] = $value['date_order'];
+       $newArray[$value['id_order']]['ref'] = $value['ref'];
+       $newArray[$value['id_order']]['status'] = $value['status'];
+       $newArray[$value['id_order']]['id_user'] = $value['id_user'];
+       $newArray[$value['id_order']]['username'] = $value['username'];
+       $newArray[$value['id_order']]['email'] = $value['email'];
 
     }
   }

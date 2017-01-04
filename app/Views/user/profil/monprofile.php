@@ -41,7 +41,7 @@ debug($addresses);?>
       <?php } ?>
     </tbody>
   </table>
-  <a href=""><button class="btn btn-success modif_product" type="submit" name="submit" value="">Mes commandes</button></a>
+  <a href="<?php $this->url('user_orders') ?>"><button class="btn btn-success modif_product" type="submit" name="submit" value="">Mes commandes</button></a>
 </div>
 
 
