@@ -1,18 +1,10 @@
 <?php $this->layout('layout_home', ['title' => 'Accueil']) ?>
 <?php $this->start('slider') ?>
+	<img class="arbre_header" src="<?= $this->assetUrl('images/arbre_blanc_ter.png') ?>" alt="">
 	<div id="logo_container" class="logo_container col-xs-0 col-sm-3 col-lg-3 col-lg-3">
-		<!-- <h1>L'Arbre Normand</h1> -->
-		<div id="container">
-			<!-- <img id='logo' src="" alt="Smiley face" height="120" width="120"> -->
+		<img class="logo_header" src="<?= $this->assetUrl('images/logo.svg') ?>" alt="">
+		<div id="container" class="leaves_container">
 		</div>
-		<!-- <div id='links'>
-			<a id='twitter' href="https://twitter.com/Diaco_ml" target="_blank"><span class='fa fa-twitter'></span></a>
-			<div id='pens'>
-				<a href="http://codepen.io/collection/DgYoEw/" target="_blank">
-					<span class='fa fa-codepen'></span>
-				</a> my other Pens
-			</div>
-		</div> -->
 	</div>
   <div class="slider_container col-xs-0 col-sm-6 col-lg-6 col-lg-6">
   	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -54,6 +46,10 @@
   	</div>
   </div>
 	<div class = "col-xs-0 col-sm-3 col-md-3 col-lg-3"><!-- div vide espace left -->
+				<img class="abattage_header"src="<?= $this->assetUrl('images/abattage.svg') ?>" alt="">
+				<div class="presentation_header">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
 	</div>
 <?php $this->stop('slider') ?>
 
