@@ -2,14 +2,16 @@
 <?php $this->start('main_content') ?>
 <!-- FORMULAIRE de contact-->
 
+<div id="success">
+</div>
 <div class="contact-form">
     <div class="row">
-      <form id="contact_us" method="post" action="#">
+      <form id="contact_us" method="post" action="<?php $this->url('contact') ?>">
           <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
+            <span id="error_name"></span>
               <input type="text" name="nameContact" id="nameContact" required="required" class="form" placeholder="Nom" value="
               <?php if(!empty($_SESSION['user']['username'])){echo $_SESSION['user']['username'];} ?>
               "/>
-              <span id="error_name"></span>
               <input type="email" name="mailContact" id="mailContact" required="required" class="form" placeholder="Email" value="
               <?php if(!empty($_SESSION['user']['username'])){echo $_SESSION['user']['email'];} ?>
               "/>
@@ -22,18 +24,19 @@
               <span id="error_message"></span>
           </div>
           <div class="relative fullwidth col-xs-12">
-              <button type="submit" id="send_email" name="send_email" class="form-btn semibold">Envoyer</button>
+              <input type="submit" id="send_email" name="send_email" class="form-btn semibold" value="hvfngf">
           </div>
           <div class="clear"></div>
       </form>
     </div>
     <div class="mail-message-area">
         <div class="alert gray-bg mail-message not-visible-message">
-            <strong>Merci !</strong> Votre email a bien été envoyé.
+            <!-- <strong>Merci !</strong> Votre email a bien été envoyé. -->
         </div>
     </div>
 
 </div><!-- End Contact Form Area -->
+
 
 
 

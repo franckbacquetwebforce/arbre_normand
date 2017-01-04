@@ -1,9 +1,9 @@
 $("#contact_us").on("submit", function(e) {
+
   e.preventDefault();
-  var pseudo = $('#nameContact').val();
-  var email = $('#mailContact').val();
-  var subjectContact = $('#subjectContact').val();
-  var messageContact = $('#messageContact').val();
+  var form = $('#contact_us');
+  // var action = $('#contact_us').attr('action');
+
 
   $('#error_name').empty();
   $('#error_mail').empty();
@@ -13,35 +13,31 @@ $("#contact_us").on("submit", function(e) {
   $.ajax({
 
     method: 'POST',
-    url: 'contact',
-    data: {
-      nameContact: nameContact,
-      mailContact: mailContact,
-      subjectContact: subjectContact,
-      messageContact: messageContact,
-    },
+    url: form.attr('action'),
+    data: form.serialize(),
 
     success: function(response) {
       if (response.success) {
-        $('#success_inscription').append("Bien joué");
-        document.location.href="contact";
+  
+        $('#success').append("Bien joué");
       } else {
         if (response.error) {
           if (response.error.nameContact != null) {
-            $('#error_name').prepend(response.error.nameContact);
+            $('#error_name').html(response.error.nameContact);
           };
 
           if (response.error.mailContact != null) {
-            $('#error_mail').prepend(response.error.mailContact);
+            $('#error_mail').html(response.error.mailContact);
           };
 
           if (response.error.subjectContact != null) {
-            $('#subject_contact').prepend(response.error.subjectContact);
+            $('#subject_contact').html(response.error.subjectContact);
           };
 
           if (response.error.messageContact != null) {
-            $('#error_message').prepend(response.error.messageContact);
+            $('#error_message').html(response.error.messageContact);
           };
+
         }
       }
     }
