@@ -49,7 +49,7 @@
 		</table>
 	</form>
 	<?php if($nbArticles>0){ ?>
-	<a href="<?= $this->url('confirm_order'); ?>"><button type="button" name="button">Passer la commande</button></a>
+	<p class="button"><a class="colorlien btn btn-success" href="<?= $this->url('confirm_order'); ?>">Passer la commande</a></p>
 	<?php } ?>
 </div>
 <?php $this->stop('main_content') ?>

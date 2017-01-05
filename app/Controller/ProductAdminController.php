@@ -67,15 +67,15 @@ class ProductAdminController extends AppController
       $stock        = trim($_POST['stock']);
       $id_category  = trim($_POST['id_category']);
 
-      $error['product_name']  = $validation->textValid($product_name, 'product_name',  3, 50);
+      $error['product_name']  = $validation->textValid($product_name, 'produit',  3, 50);
       $error['description']   = $validation->textValid($description, 'description',  3, 1000);
-      $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
-      $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
-      $error['width']         = $validation->numberValid($width, 'width',  0, 10000);
-      $error['length']        = $validation->numberValid($length, 'length',  0, 10000);
-      $error['height']        = $validation->numberValid($height, 'height',  0, 10000);
+      $error['price_ht']      = $validation->numberValid($price_ht, 'prix HT',  0, 100000);
+      $error['weight']        = $validation->numberValid($weight, 'poids',  0, 10000);
+      $error['width']         = $validation->numberValid($width, 'largeur',  0, 10000);
+      $error['length']        = $validation->numberValid($length, 'longueur',  0, 10000);
+      $error['height']        = $validation->numberValid($height, 'hauteur',  0, 10000);
       $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000, true);
-      $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
+      $error['id_category']   = $validation->numberValid($id_category, 'id de la catégorie',  1, 50);
 
       // IMAGE PRINCIPALE
       $validImage = $validation->mainImgValid('image');
@@ -298,15 +298,15 @@ class ProductAdminController extends AppController
       $stock        = trim($_POST['stock']);
       $id_category  = trim($_POST['id_category']);
 
-      $error['product_name']  = $validation->textValid($product_name, 'product_name',  3, 50);
+      $error['product_name']  = $validation->textValid($product_name, 'produit',  3, 50);
       $error['description']   = $validation->textValid($description, 'description',  3, 1000);
-      $error['price_ht']      = $validation->numberValid($price_ht, 'price_ht',  0, 100000);
-      $error['weight']        = $validation->numberValid($weight, 'weight',  0, 10000);
-      $error['width']         = $validation->numberValid($width, 'width',  0, 10000);
-      $error['length']        = $validation->numberValid($length, 'length',  0, 10000);
-      $error['height']        = $validation->numberValid($height, 'height',  0, 10000);
+      $error['price_ht']      = $validation->numberValid($price_ht, 'prix HT',  0, 100000);
+      $error['weight']        = $validation->numberValid($weight, 'poids',  0, 10000);
+      $error['width']         = $validation->numberValid($width, 'largeur',  0, 10000);
+      $error['length']        = $validation->numberValid($length, 'longueur',  0, 10000);
+      $error['height']        = $validation->numberValid($height, 'hauteur',  0, 10000);
       $error['stock']         = $validation->numberValid($stock, 'stock',  0, 10000, true);
-      $error['id_category']   = $validation->numberValid($id_category, 'id_category',  1, 50);
+      $error['id_category']   = $validation->numberValid($id_category, 'id de la catégorie',  1, 50);
 
       // IMAGE PRINCIPALE
       $validImage = $validation->imgValid('image');

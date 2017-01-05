@@ -67,11 +67,21 @@ class OrderAdminController extends AppController
                         'oneOrder' => $oneOrder,
                         'id'=> $id
     ));
-
-
-
   }
 // ?
+  public function deleteAction($id)
+  {
+    if($this->allowTo('admin')) {
+      if(!empty($id)){
+        $this->orders->delete($id);
+        $this->orders->deleteOrderProd($id);
+        $this->redirectToRoute('admin_order');
+      } else {
+        $this->showNotFound();
+      }
+    }
+  }
+
   public function addNew()
   {
 
@@ -93,9 +103,5 @@ class OrderAdminController extends AppController
 
   }
 
-  public function delete($id)
-  {
-
-  }
 
 }

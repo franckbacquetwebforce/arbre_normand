@@ -6,6 +6,7 @@ html, body {
 }
 .all_content{/*div contenant tout*/
  max-width: 1600px;
+ margin: auto;
 }
 .main_content{
 	background-color: rgba(185, 185, 185, 0.8);
@@ -34,6 +35,10 @@ div.display-table {
 }
 .tmargin {
   margin-top: 15px;
+}
+/* couleur du texte des erreurs Michèle*/
+.help-block {
+	color: rgb(131, 9, 9);
 }
 
 /*=====================HERMELEN======================*/
@@ -109,7 +114,7 @@ padding: 0;
 	}
 	span.dim {
 		margin: auto;
-		padding: 2.5em;
+		padding: 2em;
 	}
 
 
