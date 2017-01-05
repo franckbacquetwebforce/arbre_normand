@@ -7,19 +7,19 @@ $("#contact_us").on("submit", function(e) {
 
   $('#error_name').empty();
   $('#error_mail').empty();
-  $('#subject_contact').empty();
+  $('#error_subject').empty();
   $('#error_message').empty();
 
   $.ajax({
-
     method: 'POST',
     url: form.attr('action'),
     data: form.serialize(),
 
     success: function(response) {
       if (response.success) {
-  
-        $('#success').append("Bien joué");
+        console.log('coucou');
+        $('#success').append("<strong>Merci !</strong> Votre email a bien été envoyé.");
+        document.location = form.attr('alt');
       } else {
         if (response.error) {
           if (response.error.nameContact != null) {
@@ -31,7 +31,7 @@ $("#contact_us").on("submit", function(e) {
           };
 
           if (response.error.subjectContact != null) {
-            $('#subject_contact').html(response.error.subjectContact);
+            $('#error_subject').html(response.error.subjectContact);
           };
 
           if (response.error.messageContact != null) {

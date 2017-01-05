@@ -73,8 +73,11 @@
 		['GET|POST', '/treatmodifpassword', 'User#modifPasswordAction', 'modifpassword_action'],
 		// Route pour afficher le formulaire de Contact
 		['GET', '/contact', 'User#contact', 'contact'],
-		// Route pour valider l'envoi du mail de contact
+		// Route pour controler le contenu du mail
 		['POST', '/contact', 'User#contactAction', 'contact_action'],
+		// Route pour valider l'envoi du mail de contact
+
+		['POST', '/contact/send', 'User#sendMessage', 'contact_send'],
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
