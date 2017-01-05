@@ -1,6 +1,6 @@
 <?php $this->layout('layout_admin', ['title' => 'Edition commande']) ?>
 <?php $this->start('main_content');
-debug($oneOrder);
+// debug($oneOrder);
 
 
  ?>

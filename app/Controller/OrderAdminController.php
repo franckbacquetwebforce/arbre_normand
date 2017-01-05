@@ -61,14 +61,14 @@ class OrderAdminController extends AppController
 
   public function single($id)
   {
-<<<<<<< HEAD
+
     $oneOrder = $this->orders->singleOrder($id);
     $this->show('admin/orders/single', array(
                         'oneOrder' => $oneOrder,
                         'id'=> $id
     ));
-=======
->>>>>>> 3d43e355cd0806efda495f22e8a7b97f76f81304
+
+
 
   }
 // ?
