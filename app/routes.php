@@ -15,6 +15,7 @@
 
 		// Admin Order
 		['GET', '/admin/order/list', 'OrderAdmin#index', 'admin_order'],
+		['GET', '/admin/order/single/[i:id]', 'OrderAdmin#single', 'order_single'],
 		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
 		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
@@ -72,11 +73,10 @@
 		['GET|POST', '/treatmodifpassword', 'User#modifPasswordAction', 'modifpassword_action'],
 		// Route pour afficher le formulaire de Contact
 		['GET', '/contact', 'User#contact', 'contact'],
-		// Route pour controler le contenu du mail
-		['POST', '/contact', 'User#contactAction', 'contact_action'],
 		// Route pour valider l'envoi du mail de contact
+		['POST', '/contact', 'User#contactAction', 'contact_action'],
 
-		['POST', '/contact/send', 'User#sendMessage', 'contact_send'],
+
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],

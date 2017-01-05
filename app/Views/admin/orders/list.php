@@ -15,14 +15,30 @@
   <table class="layout display responsive-table">
     <thead>
       <tr>
-          <th style="width:10%">Ref</th>
-          <th style="width:10%">Nom</th>
-          <th style="width:10%">Prénom</th>
-          <th style="width:10%">Ville</th>
-          <th style="width:10%">Code Postal</th>
-          <th style="width:10%">Tel</th>
-          <th colspan="1" style="width:10%">Date commande</th>
-          <th colspan="1" style="width:10%">Statut</th>
+          <th style="width:10%">
+            Ref
+          </th>
+          <th style="width:10%">
+            Nom
+          </th>
+          <th style="width:10%">
+            Prénom
+          </th>
+          <th style="width:10%">
+            Ville
+          </th>
+          <th style="width:10%">
+            Code Postal
+          </th>
+          <th style="width:10%">
+            Tel
+          </th>
+          <th colspan="1" style="width:10%">
+            Date commande
+          </th>
+          <th colspan="1" style="width:10%">
+            Statut
+          </th>
       </tr>
     </thead>
     <tbody>
@@ -32,14 +48,33 @@
       } ?>
       <?php foreach ($adminorders as $key => $value) { ?>
       <tr>
-        <td><?php echo $value['ref']; ?></td>
-        <td><?php echo $value['client']['lastname']; ?></td>
-        <td><?php echo $value['client']['firstname']; ?></td>
-        <td><?php echo $value['client']['city']; ?></td>
-        <td><?php echo $value['client']['zip']; ?></td>
-        <td><?php echo $value['client']['phone']; ?></td>
-        <td><?php echo $value['date_order']; ?></td>
-        <td><a href="<?= $this->url('order_single', ['id' => $key]) ?>" class="edit-item" title="Edit"><button type="button" name="button"><?php echo $value['status']; ?></button></a>
+        <td>
+          <?php echo $value['ref']; ?>
+        </td>
+        <td>
+          <?php echo $value['client']['lastname']; ?>
+        </td>
+        <td>
+          <?php echo $value['client']['firstname']; ?>
+        </td>
+        <td>
+          <?php echo $value['client']['city']; ?>
+        </td>
+        <td>
+          <?php echo $value['client']['zip']; ?>
+        </td>
+        <td>
+          <?php echo $value['client']['phone']; ?>
+        </td>
+        <td>
+          <?php echo $value['date_order']; ?>
+        </td>
+        <td>
+          <a href="<?= $this->url('order_single', ['id' => $key]) ?>" class="edit-item" title="Edit">
+            <button type="button" name="button">
+              <?php //echo $value['status']; ?>
+            </button>
+          </a>
         </td>
       </tr>
       <?php } ?>

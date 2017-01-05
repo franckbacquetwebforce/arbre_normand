@@ -87,7 +87,7 @@ $categories = findAll('categories');?>
     							<li class="<?php if($w_current_route == 'default_home'){echo "active";} ?>"><a href="<?= $this->url('default_home') ?>"> Accueil</span></a></li>
     							<li class="menu_categorie_all <?php if($w_current_route == 'listproducts'){echo "active";} ?>"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
     							<?php foreach($categories as $categorie){?>
-    								<li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
+    								<li class="menu_categorie <?php if($_GET['id_category'] == $categorie['id']){echo "active";} ?>"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
     							<?php } ?>
     							<li><a href="<?= $this->url('contact') ?>">Contact </a></li>
     						</ul>
