@@ -67,7 +67,7 @@ class ValidationTools
     } else {
       // et si le champ est vide :
       if(!$empty) {
-        $error = 'Veuillez renseigner un ' . $title . '.';
+        $error = 'Veuillez renseigner un(e) ' . $title . '.';
       }
     }
     return $error;
@@ -92,7 +92,7 @@ class ValidationTools
       }
     } else {
       if(!$empty) {
-        $error = 'Veuillez renseigner un ' . $title . '.';
+        $error = 'Veuillez renseigner un(e) ' . $title . '.';
       }
     }
     return $error;

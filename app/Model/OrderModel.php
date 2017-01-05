@@ -71,8 +71,10 @@ class OrderModel extends Model
 
      }
    }
+    if(!empty($newArray)){
+      return $newArray;
+    }
 
-     return $newArray;
   }
 // Single product
   public function singleOrder($id)
@@ -327,6 +329,16 @@ class OrderModel extends Model
            return $sth->fetchAll();
      }
 
+   }
+
+   public function deleteOrderProd($id)
+   {
+     if(!empty($id)){
+       $sql = "DELETE FROM orders_products WHERE id_order = :id";
+       $sth = $this->dbh->prepare($sql);
+       $sth->bindValue(':id',$id);
+       return $sth->execute();
+     }
    }
    /*
    * waitingOrders

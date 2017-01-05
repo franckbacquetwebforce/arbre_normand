@@ -7,6 +7,7 @@ html, body {
 
 .all_content{
 	max-width: 1600px;
+	margin: auto;
 }
 .container-fluid{/*correction de marge qui creait un scroll horizontal*/
 	margin:0;
@@ -16,7 +17,7 @@ html, body {
 }
 .main_column{
 	background-color: rgba(185, 185, 185, 0.6);
-	padding: 0 1em 0 1em;
+	padding: 1em 1em 1em 1em;
 	margin: 0;
 }
 
@@ -41,6 +42,10 @@ h2 {
 	/*color: #4F3A3A;*/ /*hermelen source flyer*/
 	color: #5d5926;
 }
+/* couleur du texte des erreurs Michèle*/
+.help-block {
+	color: rgb(131, 9, 9);
+}
 
 
 /*=====================HERMELEN======================*/
@@ -60,7 +65,7 @@ padding: 0;
 
 /*===================MICHELE========================*/
 /*Essai dashboard Michele*/
-
+/*==================================================*/
 span label-primary{
 	width: 300px;
 	float: right;
@@ -183,7 +188,10 @@ article {
 	margin-bottom: 20px;
 	padding: 15px
 }
-
+.detail {
+	margin: auto;
+	background-color: rgba(185, 185, 185, 0.8);
+}
 
 .article_single {
 	background-color: rgb(218, 208, 202);
@@ -204,7 +212,9 @@ article {
 		padding-bottom: 1px;
 	}
 }
-
+a.colorlien {
+	color: #ffffff;
+}
 /*===================MICHELE========================*/
 /* Mise en forme de la table Liste commande Users*/
 span.product {
@@ -554,6 +564,7 @@ background-color: rgba(182, 186, 157, 0.8);
 .parent {
   display: flex; /* contexte sur le parent */
 	text-align: center;
+	width: 100%;
 }
 .enfant {
   margin: auto; /* contexte sur l'enfant */
