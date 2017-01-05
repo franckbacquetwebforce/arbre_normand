@@ -4,8 +4,8 @@
 <!-- FORMULAIRE de connexion -->
 <div class="container-fluid" style="margin-top: 30px">
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
       <div class="panel panel-default">
         <div class="header_panel">
           <h1 class="panel-title"><strong>Connexion à votre compte </strong></h1>
@@ -25,12 +25,12 @@
               <span class="pull-right"><?php echo "Pas encore inscrit ? " ?></span>
             </div>
             <button type="submit" class="btn btn-success">Se connecter</button>
-            <a href="<?= $this->url('register') ?>"><button type="button" class="btn btn-success pull-right">S'inscrire </button></a>
+            <a href="<?= $this->url('register') ?>"><button type="button" class="btn btn-primary pull-right">S'inscrire </button></a>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-3"></div>
   </div>
 </div>
 

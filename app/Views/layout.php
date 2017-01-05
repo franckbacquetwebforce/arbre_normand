@@ -24,6 +24,7 @@ $categories = findAll('categories');?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

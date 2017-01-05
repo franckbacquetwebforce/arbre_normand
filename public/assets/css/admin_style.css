@@ -99,8 +99,20 @@ padding: 0;
 	a#link_front:hover{
 		color: #555;
 
+		}
+	/*===================MICHELE========================*/
+	/* Mise en forme de la table Liste commande Users*/
+	span.product {
+		margin-left: 0.5em;
+		margin-right: 0.5em;
+
 	}
-}
+	span.dim {
+		margin: auto;
+		padding: 2.5em;
+	}
+
+
 /*===================MICHELE========================*/
 /* Essai table admin product*/
 a{
@@ -202,12 +214,12 @@ table.responsive-table img {
 }
 .ajout {
 	background: rgba(41, 63, 84, 0.6);
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 }
 .modif-form {
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 15px;
@@ -215,7 +227,7 @@ table.responsive-table img {
 	padding-bottom: 15px;
 }
 .ajout-form {
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 15px;

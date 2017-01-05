@@ -36,11 +36,12 @@ class ProductController extends AppController
   }
 // affichage page détail
 //
-  public function getsingleProduct($id)
+
+  public function showSingleProduct($id)
   {
     $modelSingle = new ProductsModel($id);
     $product = $modelSingle->getSingleProductCat($id);//modifier pour recup category name
-    $productOriginal = $modelSingle->getsingleProduct($id);//restauré pour recup id produit
+    $productOriginal = $modelSingle->find($id);
 
     // $product = $modelSingle->find($id);
     //

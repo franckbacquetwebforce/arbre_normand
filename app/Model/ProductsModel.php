@@ -80,15 +80,7 @@ public function getProductByCategoryWithImage()
   return $query->fetchAll();
 }
 
-  public function getsingleProduct($id)// a conserver
-    {
-      $modelSingle = new ProductsModel();
-      $product = $modelSingle->find($id);
-       return $product;
-      // $this->show('products/singleproduct', array(
-      //   'product' => $product
-      // ));
-    }
+  
 
     public function getSingleProductCat($id)//remplace getsingleProduct avec ajout de category
     {

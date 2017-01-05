@@ -14,14 +14,15 @@
 		['GET', '/admin/product/delete/[i:id]', 'ProductAdmin#deleteAction', 'admin_product_delete_action'],
 
 		// Admin Order
-		['GET', '/admin/order', 'OrderAdmin#index', 'admin_order'],
+		['GET', '/admin/order/list', 'OrderAdmin#index', 'admin_order'],
+		['GET', '/admin/order/single/[i:id]', 'OrderAdmin#single', 'order_single'],
 		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
 		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
 		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
-		['GET', '/admin/order/update/[i:id]', 'OrderAdmin#update', 'admin_order_update'],
-		['POST', '/admin/order/update/[i:id]', 'OrderAdmin#updateAction', 'admin_order_update_action'],
-		['GET', '/admin/order/delete/[i:id]', 'OrderAdmin#deleteAction', 'admin_order_delete_action'],
+
+		['GET|POST', '/admin/order/update/[i:id]', 'OrderAdmin#updateAction', 'admin_order_update_action'],
+		['GET|POST', '/admin/order/delete/[i:id]', 'OrderAdmin#deleteAction', 'admin_order_delete_action'],
 
 		// Admin User
 		['GET', '/admin/user', 'UserAdmin#index', 'admin_user'],
@@ -72,8 +73,11 @@
 		['GET|POST', '/treatmodifpassword', 'User#modifPasswordAction', 'modifpassword_action'],
 		// Route pour afficher le formulaire de Contact
 		['GET', '/contact', 'User#contact', 'contact'],
-		// Route pour valider l'envoi du mail de contact
+		// Route pour controler le contenu du mail
 		['POST', '/contact', 'User#contactAction', 'contact_action'],
+		// Route pour valider l'envoi du mail de contact
+
+		['POST', '/contact/send', 'User#sendMessage', 'contact_send'],
 
 		// UserProfile
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
@@ -92,7 +96,7 @@
 		// Route pour afficher la page "products/listproducts"
 		['GET', '/products', 'Product#index', 'listproducts'],
 		// Route pour afficher la page "products/productsingle"
-		['GET', '/products/detail/[i:id]', 'Product#getsingleProduct', 'singleproduct'],
+		['GET', '/products/detail/[i:id]', 'Product#showSingleProduct', 'singleproduct'],
 		// Route pour afficher la page "products/listproducts par catégorie"
 		['GET', '/category', 'Product#indexCategory', 'categoryproduct'],
 
