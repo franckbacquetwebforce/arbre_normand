@@ -35,8 +35,8 @@
         <td><b><?php if(!empty($product['weight'])) { echo $product['weight'];} ?> Kg</b></td>
 
         <td class="actions">
-          <a href="<?= $this->url('admin_product_update',['id' => $product['id_product']])?>" class="edit-item" title="Edit"><button type="button" name="button">Modifier</button></a>
-          <a href="<?= $this->url('admin_product_delete_action',['id' => $product['id_product']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet article?');" type="button" name="button">Supprimer</button></a>
+          <p><a href="<?= $this->url('admin_product_update',['id' => $product['id_product']])?>" class="edit-item" title="Edit"><button style="width:80px;" type="button" name="button">Modifier</button></a></p>
+          <p><a href="<?= $this->url('admin_product_delete_action',['id' => $product['id_product']])?>" class="remove-item" title="Remove"><button style="width:80px;" onclick="return confirm('Êtes-vous sur de vouloir supprimer cet article?');" type="button" name="button">Supprimer</button></a></p>
         </td>
       </tr>
       <?php } ?>

@@ -79,16 +79,16 @@ $categories = findAll('categories');?>
 					<div class="navbar-collapse collapse sidebar-navbar-collapse">
 						<ul class="nav navbar-nav">
 							<!--Faire un JS sur la classe active-->
-							<?php if(!empty($w_user)){
-											if($w_user['role'] === "admin") {?>
-												<li class="menu_admin"><a id="link_admin" href="<?= $this->url('site_statistics') ?>">Administration</a></li>
-								<?php	}?>
-							<?php } ?>
+					<?php if(!empty($w_user)){
+						if($w_user['role'] === "admin") {?>
+							<li class="menu_admin"><a id="link_admin" href="<?= $this->url('site_statistics') ?>">Administration</a></li>
+						<?php	}?>
+					<?php } ?>
 							<li class="<?php if($w_current_route == 'default_home'){echo "active";} ?>"><a href="<?= $this->url('default_home') ?>"> Accueil</span></a></li>
 							<li class="menu_categorie_all <?php if($w_current_route == 'listproducts'){echo "active";} ?>"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
-							<?php foreach($categories as $categorie){?>
-								<li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
-							<?php } ?>
+						<?php foreach($categories as $categorie){?>
+							<li class="menu_categorie <?php if($_GET['id_category'] == $categorie['id']){echo "active";} ?>"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
+						<?php } ?>
 							<li><a href="<?= $this->url('contact') ?>">Contact </a></li>
 						</ul>
 					</div><!--/.nav-collapse -->

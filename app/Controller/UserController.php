@@ -251,91 +251,81 @@ class UserController extends AppController // le CSS ne fonctionne pas
   }
 
   public function contactAction(){
-
     $error = array();
     $success = false;
 
-      $nameContact = trim(strip_tags($_POST['nameContact']));
-      $mailContact = trim(strip_tags($_POST['mailContact']));
-      $subjectContact = trim(strip_tags($_POST['subjectContact']));
-      $messageContact = trim(strip_tags($_POST['messageContact']));
+  $nameContact = trim(strip_tags($_POST['nameContact']));
+  $mailContact = trim(strip_tags($_POST['mailContact']));
+  $subjectContact = trim(strip_tags($_POST['subjectContact']));
+  $messageContact = trim(strip_tags($_POST['messageContact']));
+
 
 
       $validation = new ValidationTools;
     $error['nameContact']=$validation->textValid($nameContact, 'nom');
     $error['mailContact']=$validation->emailValid($mailContact);
+
     $error['subjectContact']=$validation->textValid($subjectContact,'sujet');
     $error['messageContact']=$validation->textValid($messageContact,'message',10,1000);
-    if($validation->IsValid($error)) {
+
+    if($validation->IsValid($error)) {//si pas d'erreur
       $success = true;
-      $response = array(
-        'error'          => $error,
+      $response = array(//on genere un array
+        // 'error'          => $error,
         'success'        => $success,
         'nameContact'    => $nameContact,
         'mailContact'    => $mailContact,
         'subjectContact' => $subjectContact,
         'messageContact' => $messageContact
-      );// debug($response);
-        // debug($success);
-      return $this->showJson($response);
-    }else{
-      $success = false;
-      $response = array(
-        'error'          => $error,
-        'success'        => $success,
-        'nameContact'    => $nameContact,
-        'mailContact'    => $mailContact,
-        'subjectContact' => $subjectContact,
-        'messageContact' => $messageContact
-      ); // debug($response);
-         // debug($success);
-      return $this->showJson($response);
+      );
+
+      $app = getApp(); // Retourne l'instance de l'application depuis l'espace global
+      //on prepare le contenu du mail
+      $body = '';
+      $body .= '<div>';
+      $body .= '<p>Message de la part de '. $nameContact . '</p>';
+      $body .= '<p><strong>Son Email:</strong> '. $mailContact . '</p>';
+      $body .= '<h1><strong>Sujet:</strong> '. $subjectContact . '</h1>';
+      $body .= '<p>'. nl2br($messageContact) . '</p>';
+      $body .= '<p><a href="mailto:'.$mailContact.'"><strong>Repondre a '. $nameContact . '</strong></a></p>';
+      $body .= '</div>';
+  		// envoi du mail fonction PHPMailer
+    	$mail = new \PHPMailer;
+      $mail->isMail();
+      $mail->setFrom('emailadmin');
+      $mail->addAddress($mailContact);
+      $mail->Subject = 'Message d\'un client du site l\'Arbre Normand';
+      $mail->Body    = $body;
+
+      $mail->send();//on envoie le mail
+      if(!empty($_POST['isAjax'])){
+        //on verifie si $_POST est genere par un ajax
+        $this->showJson($response);
+        //si oui, on renvoie $response en json
+      }else{
+        $this->redirectToRoute('contact_action');
+        //sinon on continue en PHP
       }
-      // die(print_r($response));
-  }
+    }else{// si erreur
+      $success = false;
+      $response = array(//prepare les data
+        'error'          => $error,
+        'success'        => $success,
+        'nameContact'    => $nameContact,
+        'mailContact'    => $mailContact,
+        'subjectContact' => $subjectContact,
+        'messageContact' => $messageContact
+      );
 
-  public function sendMessage()
-  {
-    $app = getApp(); // Retourne l'instance de l'application depuis l'espace global
-    $body = '';
-    $body .= '<div>';
-    $body .= '<p>Message de la part de '. $nameContact . '</p>';
-    $body .= '<p><strong>Son Email:</strong> '. $mailContact . '</p>';
-    $body .= '<h1><strong>Sujet:</strong> '. $subjectContact . '</h1>';
-    $body .= '<p>'. nl2br($messageContact) . '</p>';
-    $body .= '</div>';
-			// envoi du mail fonction PHPMailer
-  		 $mail = new \PHPMailer;
-       $mail->isMail();
-       $mail->setFrom('emailadmin');
-       $mail->addAddress($email);
-       $mail->Subject = 'Message d\un client du site l\'Arbre Normand';
-       $mail->Body    = $body;
-  			if(!$mail->send()){
-  				echo "Le message n\'a pas été envoyé.";
-          echo 'Erreur Mail: ' . $mail->ErrorInfo;
-    		} else {
-          echo 'Le message a bien été envoyé';
-          $success = true;
+         if(!empty($_POST['isAjax'])){
+           //on verifie si $_POST est genere par un ajax
+          $this->showJson($response);
+          //si oui, on renvoie $response en json
+        }else{
+          $this->redirectToRoute('contact_action');
+          //sinon on continue en PHP
         }
-
-      // $mail = new PHPMailer;
-      // //$mail->SMTPDebug = 3;                               // Enable verbose debug output
-      // $mail->isMail();                                      // Set mailer to use SMTP
-      // $mail->setFrom('from@example.com', 'Mailer');    // Add a recipient
-      // $mail->addAddress('ellen@example.com');               // Name is optional
-      // $mail->addCC('cc@example.com');
-      // $mail->isHTML(true);                                  // Set email format to HTML
-      // $mail->Subject = 'Nouveau message de la page contact du site xxx.com';
-      // $mail->Body    = $body;
-      // $mail->AltBody = 'Pas de alt body';
-      // if(!$mail->send()) {
-      //   echo 'Message could not be sent.';
-      //   echo 'Mailer Error: ' . $mail->ErrorInfo;
-      // } else {
-      //   $success = true;
-      // }
-
+  }  // die(print_r($response));
   }
 
 }

@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Confirmer la commande']) ?>
+<?php $this->layout('layout_product', ['title' => 'Confirmer la commande']) ?>
 <?php $this->start('main_content') ?>
 
 <?php

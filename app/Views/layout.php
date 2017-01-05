@@ -1,5 +1,6 @@
 <?php include 'functions.php';
-$categories = findAll('categories');?>
+$categories = findAll('categories');
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,6 +9,8 @@ $categories = findAll('categories');?>
 	<title><?= $this->e($title) ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 
 </head>
@@ -88,7 +91,7 @@ $categories = findAll('categories');?>
 							<li class="<?php if($w_current_route == 'default_home'){echo "active";} ?>"><a href="<?= $this->url('default_home') ?>"> Accueil</span></a></li>
 							<li class="menu_categorie_all <?php if($w_current_route == 'listproducts'){echo "active";} ?>"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
 							<?php foreach($categories as $categorie){?>
-								<li class="menu_categorie"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
+								<li class="menu_categorie <?php if($_GET['id_category'] == $categorie['id']){echo "active";} ?>"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
 							<?php } ?>
 							<li><a href="<?= $this->url('contact') ?>">Contact </a></li>
 						</ul>
