@@ -13,15 +13,19 @@ $("#contact_us").on("submit", function(e) {
   $.ajax({
 
     method: 'POST',
-    url: form.attr('action'),
+    url: form.attr('contact_action'),
     data: form.serialize(),
 
     success: function(response) {
+      // console.log(response.error);
+      console.log(response.test);
       if (response.success) {
-  
+        // console.log(response);
         $('#success').append("Bien joué");
-      } else {
-        if (response.error) {
+        // $('#contact_us').fadeOut();
+      } else if (response.error) {
+
+          console.log(response);
           if (response.error.nameContact != null) {
             $('#error_name').html(response.error.nameContact);
           };
@@ -40,7 +44,7 @@ $("#contact_us").on("submit", function(e) {
 
         }
       }
-    }
+
 
   });
 });

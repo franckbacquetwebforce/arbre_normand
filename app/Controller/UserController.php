@@ -259,48 +259,26 @@ class UserController extends AppController // le CSS ne fonctionne pas
       $mailContact = trim(strip_tags($_POST['mailContact']));
       $subjectContact = trim(strip_tags($_POST['subjectContact']));
       $messageContact = trim(strip_tags($_POST['messageContact']));
-
-      // verifications
-      if (!empty($nameContact)) {
-        if (strlen($nameContact) < 5) {
-          $error['pseudo'] = 'Veuillez inscrire plus de 5 caractères';
-        } elseif (strlen($nameContact) > 40) {
-          $error['pseudo'] = 'Veuillez inscrire moins de 40 caractères';
-        }
-
-
-      } else {
-        $error['pseudo'] = 'Veuillez renseigner un pseudo';
-      }
-
-
-
-      if (!empty($mailContact)) {
-        if (filter_var($mailContact, FILTER_VALIDATE_EMAIL)) {
-
-        } else {
-          $error['email'] = 'Veuillez renseigner un email valide';
-        }
-      } else {
-        $error['email'] = 'Veuillez renseigner un email';
-      }
-
+      // // verifications qui ne fonctionne pas
+      // $error['nameContact'] = $this->validError->textValid($nameContact, 'nom',  3, 20);
+      // $error['subjectContact'] = $this->validError->textValid($subjectContact, 'sujet',  3, 20);
+      // $error['messageContact'] = $this->validError->textValid($messageContact, 'message',25,255);
+      // $error['mailContact'] = $this->validError->emailValid($mailContact);
+      // $test = 'yo';
       if (count($error) == 0) {
         $success = true;
-      $response = array(
-        'error'=> $error,
+      }
+      $test = count($error);
+        $response = array(
         'success'=> $success,
+        'error' => $error,
+        'test' => $test,
         'nameContact' => $nameContact,
         'mailContact' => $mailContact,
         'subjectContact' => $subjectContact,
         'messageContact' => $messageContact
 
       );
-    }
-
-      // die(print_r($response));
-
     return $this->showJson($response);
-
     }
 }
