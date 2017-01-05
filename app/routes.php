@@ -20,10 +20,7 @@
 		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
 		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
-<<<<<<< HEAD
 
-=======
->>>>>>> 176b7b7813e1d9e978d8c4630b152cd33ec4b062
 		['GET|POST', '/admin/order/update/[i:id]', 'OrderAdmin#updateAction', 'admin_order_update_action'],
 		['GET|POST', '/admin/order/delete/[i:id]', 'OrderAdmin#deleteAction', 'admin_order_delete_action'],
 

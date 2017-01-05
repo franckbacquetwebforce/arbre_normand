@@ -351,7 +351,7 @@ class OrderModel extends Model
  //       }
  //   }
  // }
->>>>>>> 176b7b7813e1d9e978d8c4630b152cd33ec4b062
+// >>>>>>> 176b7b7813e1d9e978d8c4630b152cd33ec4b062
 
  public function findAllWaitingOrders()
  {
