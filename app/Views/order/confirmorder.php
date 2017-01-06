@@ -22,18 +22,20 @@ debug($orders); ?>
 		      </tr>
 		    </thead>
 		    <tbody>
-        <?php foreach ($orders as $order) { ?>
-          <tr>
-						<td><b><?php if(!empty($order['product_name'])){echo $order['product_name'];} ?></b></td>
-            <td><img class="thumb_cart" src="<?= $this->url('default_home').$order['product_img'] ?>" alt=""</td>
-            <td><?php if(!empty($order['cart_qt'])){echo $order['cart_qt'];} ?></td>
-            <td><?php if(!empty($order['cart_price'])){echo $order['cart_price'];} ?></td>
-            <td><?php if(!empty($order['product_weight'])){echo $order['product_weight'];} ?></td>
-          </tr>
-        <?php } ?>
+  <?php if(!empty($orders)) {
+          foreach ($orders as $order) { ?>
+            <tr>
+  						<td><b><?php if(!empty($order['product_name'])){echo $order['product_name'];} ?></b></td>
+              <td><img class="thumb_cart" src="<?= $this->url('default_home').$order['product_img'] ?>" alt=""</td>
+              <td><?php if(!empty($order['cart_qt'])){echo $order['cart_qt'];} ?></td>
+              <td><?php if(!empty($order['cart_price'])){echo $order['cart_price'];} ?></td>
+              <td><?php if(!empty($order['product_weight'])){echo $order['product_weight'];} ?></td>
+            </tr>
+          <?php } ?>
+<?php  } ?>
         </tbody>
 		</table>
-    <button onclick="alert('Merci pour votre commande, un email de confirmation vous a été envoyé');" class="btn btn-success modif_categorie" type="submit" name="submit" value="">Valider</button>
+    <button onclick="alert('Merci pour votre commande, un email de confirmation vous a été envoyé');" class="btn btn-success" type="submit" name="submit" value="">Valider</button>
 	</form>
 
 

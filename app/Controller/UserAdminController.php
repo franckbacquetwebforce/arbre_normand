@@ -144,7 +144,7 @@ class UserAdminController extends AppController
       // Vérifie si l'email existe déjà dans la base de données
 
       $mailExist = $this->model->emailExists($email);
-  
+
 
 
       if($this->valid->isValid($errors)){
@@ -165,6 +165,11 @@ class UserAdminController extends AppController
       }
     }
   }
+
+  // public function updateStatus($id)
+  // {
+  // echo $id;
+  // }
 
   public function delete($id)
   {
