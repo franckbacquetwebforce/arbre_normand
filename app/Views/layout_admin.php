@@ -27,7 +27,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <div class="title_back_container">
-          <img class="logo_navbar_back"src="<?= $this->assetUrl('images/logo_epure.svg') ?>" alt="">
+          <img class="logo_navbar_back"src="<?= $this->assetUrl('images/SVG/logo_epure.svg') ?>" alt="">
           <h1 class="admin_title">Panneau d'administration</h1>
           </div>
     			<ul class="nav navbar-nav navbar-right">
