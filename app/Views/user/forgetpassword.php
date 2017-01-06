@@ -1,32 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Mot de passe oublié']) ?>
 
 <?php $this->start('main_content') ?>
-
-<div class="container-fluid" style="margin-top: 30px">
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="header_panel">
-          <h1 class="panel-title"><strong>Mot de passe oublié</strong></h1>
-        </div>
-        <div class="panel-body">
-          <form id="forget" action="<?= $this->url('forgetpassword_action')?>" method="post">
-            <div class="form-group">
-              <label for="email">Email*</label>
-              <input type="email" class="form-control" name="email" required="required" value="<?php if(!empty($_POST['email'])) {echo $_POST['email'];} ?>"/>
-              <span class="help-block" id="error_email"><?php if(!empty($errors['email'])) {echo $errors['email']; } ?></span><br>
-            </div>
-            <button type="submit" class="btn btn-success">Soumettre</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3"></div>
-  </div>
-</div>
-
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <div class="modal-content">
       <div class="modal-header">
@@ -51,5 +26,5 @@
       </form>
     </div>
   </div>
-</div> -->
+</div>
 <?php $this->stop('main_content') ?>

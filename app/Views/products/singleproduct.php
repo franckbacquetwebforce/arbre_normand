@@ -5,99 +5,27 @@
 $id_product = $product['id'];
 $price_ht = $product['price_ht'];
 $qt_product = '1';
-// debug($product);
-// debug($productOriginal);
-// debug($img);
 ?>
-<!-- <div class="container"> -->
-		<!-- <div class="card"> -->
-			<div class="container-fluid">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
-            <figure class="thumbnail">
-              <!-- DEBUT SLIDER IMG PRODUCT HERMELEN -->
-          	   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                 <!-- Indicators -->
-            	    <ol class="carousel-indicators">
-              <?php for ($i=0; $i < 1 ; $i++) { ?>
-              	      <li data-target="#myCarousel" data-slide-to="<?= $i ?>" class="active"></li>
-              <?php }
-                    for ($i=1; $i < count($img) ; $i++) { ?>
-              	      <li data-target="#myCarousel" data-slide-to="<?= $i ?>"></li>
-              <?php } ?>
-            	     </ol>
-              <!-- Wrapper for slides -->
-            	<div class="carousel-inner" role="listbox">
-          <?php for ($i=0; $i < 1 ; $i++) { ?>
-                  <div class="item active">
-          				  <img class ="slider_img img-responsive" src="<?= $this->url('default_home').$img[$i]['path'].$img[$i]['name']; ?>" alt="image <?= $i + 1 ?>: <?= $product['product_name'] ?>">
-          			  </div>
-          <?php }
-                for ($i=1; $i < count($img) ; $i++) { ?>
-                  <div class="item">
-          					<img class ="slider_img img-responsive" src="<?= $this->url('default_home').$img[$i]['path'].$img[$i]['name']; ?>" alt="image <?= $i + 1 ?>: <?= $product['product_name'] ?>">
-          			  </div>
-          <?php } ?>
-            <!-- Left and right controls -->
-            	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            	</a>
-            	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            	</a>
-          	</div>
-              <!-- FIN SLIDER IMG PRODUCT HERMELEN -->
 
-            </figure>
-          </div>
+  <h2>Détail du produit</h2>
+  <section class="article_single">
 
-          <div class="col-xs-6">
-            <!-- <section class="thumbs container"> -->
-            <!-- <main class="main-area"> -->
-              <!-- <div class="centered"> -->
-                <!-- <section class="cards"> -->
-              <!-- AFFICHAGE DU PRODUIT CORRESPONDANT A l'ID -->
-                  <!-- <article class="card"> -->
-                    <!-- <div class="card-content"> -->
-                      <h3><?php echo $product['product_name']; ?></h3>
-                      <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
-                      <p class="caract">Catégorie : <?php echo $product['category_name']; ?></p>
-                      <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
-                      <p class="caract">Longueur : <?php if(!empty($product['weight'])) { echo $product['length'];}  ?> cm</p>
-                      <p class="caract">Largeur : <?php if(!empty($product['weight'])) { echo $product['width'];}  ?> cm</p>
-                      <p class="caract">Hauteur : <?php if(!empty($product['weight'])) { echo $product['height'];}  ?> cm</p>
-                      <?php if(!empty($product['stock'])) { ?>
-                      <p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
-                      <p class="button" onclick="alert('Votre produit a été ajouté à votre panier');"><a href="<?= $this->url('user_cart_add_new', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
-                      <?php }else{ ?>
-                      <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-danger disabled" title="">Uniquement sur commande</a></p>
-                      <?php } ?>
+  <!-- AFFICHAGE DU PRODUIT CORRESPONDANT A l'ID -->
 
-                    <!-- </div> -->
-                  <!-- </article> -->
-                <!-- </section> -->
-              <!-- </div> -->
-            <!-- </main> -->
-            <!-- </section> -->
-          </div>
-          <section class="article_single">
-            <!-- AFFICHAGE DE LA DESCRIPTION -->
-            <article>
+    <article>
+      <img class="img_thumbnail_back" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" />
+      <div class="spacer"></div>
+      <h2><?php echo $product['product_name']; ?></h2>
+      Description :
+      <p><?php echo nl2br($product['description']); ?></p>
+      <p>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</p>
+      <p>Catégorie : <?php if(!empty($product['id_category'])) { echo $product['id_category'];} ?></p>
+      <p>Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
+      <p>Stock : <?php if(!empty($product['stock'])) { echo $product['stock'];}  ?> Kg</p>
+      <a href="<?= $this->url('user_cart_add', ['l'=> $product['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>">Ajouter au panier</a>
+      <div class="spacer"></div>
+    </article>
 
-              <div class="spacer"></div>
-              <h3>Description du produit</h3>
-              <p><?php echo nl2br($product['description']); ?></p>
-              <div class="spacer"></div>
-              <p class="button"><a class="colorlien btn btn-primary" href="<?= $this->url('user_cart') ?>">Voir mon panier</a></p>
-            </article>
-          </section>
-        </div>
-      </div>
-    <!-- </div> -->
-<!-- </div> -->
-
-
+  </section>
 
   <?php $this->stop('main_content') ?>

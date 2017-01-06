@@ -20,9 +20,8 @@ $w_config = [
 	'url_base' => 'http://localhost',    // base de l'url du site
 
 	// configuration globale
-	'site_name'	=> 'L\'Arbre Normand', 								// contiendra le nom du site
+	'site_name'	=> '', 								// contiendra le nom du site
   'tva' => 0.2,
-	'emailadmin' => "mragot2@msn.com",  // email administrateur
 ];
 
 require('routes.php');

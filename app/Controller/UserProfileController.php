@@ -5,8 +5,7 @@ namespace Controller;
 use \Controller\AppController;
 use \Model\UserAdressModel;
 use \Model\UsersModel;
-use \Model\OrderModel;
-use \W\Security\AuthentificationModel;
+use \Security\AuthentificationModel;
 use \Service\ValidationTools;
 
 class UserProfileController extends AppController
@@ -14,11 +13,8 @@ class UserProfileController extends AppController
   public function __construct()
   {
     $this->model = new UsersModel();
-    $this->ordermodel = new OrderModel();
-    $this->authentification = new AuthentificationModel();
     $this->valid = new ValidationTools();
     $this->address = new UserAdressModel();
-
   }
   /*
   *monProfil
@@ -34,16 +30,6 @@ class UserProfileController extends AppController
         'addresses' => $addresses
       ));
 
-  }
-  public function mesCommandes()
-  {
-    $user = $this->authentification->getLoggedUser();
-
-    $orders = $this->ordermodel->userOrders($user['id']);
-
-    $this->show('user/userorder/userorder', array(
-      'orders' => $orders
-    ));
   }
   /*
   *addAddress
@@ -87,10 +73,9 @@ class UserProfileController extends AppController
 
     // Fonction de Service/validationTools qui vérifie qu'il n'y a pas d'erreurs
     if($this->valid->isValid($errors)){
-      $user = $this->authentification->getLoggedUser();
           // Fonction de Model/UserAdressModel qui permet d'inserer une nouvelle adresse en bdd
           $this->address->addUserAdress($lastname,$firstname,$phone,$adresse,$city,$zip,$country,$type);
-          $this->redirectToRoute('user_profile_monprofil',['id' => $user['id']]);
+          $this->redirectToRoute('user_profile_monprofil',['id' => $w_user['id']]);
     } else {
       $this->show('user/profil/address/newaddress', array(
         'errors' => $errors

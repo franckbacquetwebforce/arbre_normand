@@ -153,29 +153,27 @@ class UserController extends AppController // le CSS ne fonctionne pas
   public function forgetPasswordAction()
   {
     $app = getApp(); // Retourne l'instance de l'application depuis l'espace global
+		$urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
 		$errors = array();
 		$email = trim(strip_tags($_POST['email']));
-    $urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
-    $user = $this->userModel->getUserByUsernameOrEmail($email);
-		if(!empty($user)){
+		if($userModel->emailExists($email)){
 			$urlLink = $this->generateUrl('modifpassword');
 			$emailurl = urlencode($email);
       $html = '';
-      $html .= 'Veuillez cliquer sur le lien ci-dessous pour modifier votre mot de passe<br><br><a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' . $user['token'] . '">Modifier le mot de passe</a>';
+      $html .= '<a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
 			//envoi du mail fonction PHPMailer
   		$mail = new \PHPMailer;
        $mail->isMail();
-       $mail->setFrom('emailadmin');
+       $mail->setFrom('mragot2@msn.com');
        $mail->addAddress($email);
-       $mail->Subject = 'Reinitialisation du mot de passe';
+       $mail->Subject = 'Votre nouveau mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
   				echo "Le message n\'a pas été envoyé.";
-          echo 'Erreur Mail: ' . $mail->ErrorInfo;
+          echo 'Mailer error: ' . $mail->ErrorInfo;
     		} else {
           echo 'Le message a bien été envoyé';
         }
-
   	} else {
 			$errors['email']	= "Ce mail n'existe pas";
 			$this->show('user/forgetpassword',array (
@@ -195,133 +193,49 @@ class UserController extends AppController // le CSS ne fonctionne pas
       $this->show('user/modifpassword', array('form' => $form));
       $form = true;
     } else {
-      // 404
-      $this->show('w_errors/404');
-      // $this->redirectToRoute('default_home');
+      $this->redirectToRoute('default_home');
     }
   }
-
   public function modifPasswordAction()
   { // Insertion en BDD du nouveau password
     if(!empty($_GET['email']) && !empty($_GET['token'])){
       //  On sécurise l'email et le token
 		  $email = trim(strip_tags($_GET['email']));
 		  $token = trim(strip_tags($_GET['token']));
-      $emailrecup = $_GET['email'];
-      $emailurl = urldecode($emailrecup); // On décode l'email récupéré
-      $tokenrecup = $_GET['token'];
-
-      $urlemail = $this->userModel->getUserByEmail($emailurl); // on récupère l'ID de l'utilisateur en BDD
-      if(!empty($urlemail)) {
-        if($urlemail["email"] == $emailrecup && $urlemail['token'] == $tokenrecup) {
-    			if(!empty($_POST['submit'])) {
-    				$password = trim(strip_tags($_POST['password']));
-    				$password2 = trim(strip_tags($_POST['password2']));
-            $errors = array();
-    				$errors['password'] = $this->validError->textValid($password,'password', 6, 15);
-    				$errors['password2'] = $this->validError->correspondancePassword($password,$password2);
-    				if($this->validError->IsValid($errors)){
-    					$token = StringUtils::randomString(20);
-    					$hashpassword = $this->authentificationModel->hashPassword($password);
-    		      $data = array(
-    		        'password' => $hashpassword,
-    						'token' => $token,
-                'modified_at' => $this->dateTimeModel->format('Y-m-d  H:i:s'),
-    		      );
-    		      $user = $this->userModel->update($data,$urlemail['id']);
-    		      // redirection
-    		      $this->redirectToRoute('login');
-      			} else {
-              $this->show('user/modifpassword',array (
-                'errors' => $errors,
-              ));
-            }
+		  // Vérification que l'email et le token correspondent bien au mail et token de la BDD
+		  $emailrecup = $_GET['email']; // Adresse email récupérée dans l'URL
+		  $email = urldecode($emailrecup); // On décode l'email récupéré
+		  $tokenrecup = $_GET['token']; // token récupéré dans l'URL
+			$user = $this->userModel->getUserByEmail($email); // on récupère l'ID de l'utilisateur en BDD
+			if(!empty($user)){
+				if($email == $user['email']){
+          if( $tokenrecup == $user['token']){
+  					if(!empty($_POST['submit'])){
+  						$password = trim(strip_tags($_POST['password']));
+  						$password2 = trim(strip_tags($_POST['password2']));
+              $errors = array();
+  						$errors['password'] = $this->validError->textValid($password,'password', 6, 15);
+  						$errors['password2'] = $this->validError->correspondancePassword($password2,$password);
+  						if($this->validError->IsValid($errors)){
+  							$token = StringUtils::randomString(20);
+  							$hashpassword = $this->authentificationModel->hashPassword($password);
+  				      $data = array(
+  				        'password' => $hashpassword,
+  								'token' => $token,
+                  'modified_at' => $this->dateTimeModel->format('Y-m-d  H:i:s'),
+  				      );
+  				      $userUpdate = $this->userModel->update($data,$user['id']);
+  				      // redirection
+  				      $this->redirectToRoute('login');
+  						} else {
+                $this->show('user/modifpassword',array (
+                  'errors' => $errors,
+                ));
+              }
+					  }
           }
-        }else {
-          $this->show('w_errors/403');
-        }
-      }else {
-        echo "Cette adresse n'existe pas";
-      }
-    }
-  }
-
-  public function contact(){
-    $this->show('user/contact');
-  }
-
-  public function contactAction(){
-    $error = array();
-    $success = false;
-
-  $nameContact = trim(strip_tags($_POST['nameContact']));
-  $mailContact = trim(strip_tags($_POST['mailContact']));
-  $subjectContact = trim(strip_tags($_POST['subjectContact']));
-  $messageContact = trim(strip_tags($_POST['messageContact']));
-
-      $validation = new ValidationTools;//verif des erreurs
-    $error['nameContact']   =$validation->textValid($nameContact, 'nom');
-    $error['mailContact']   =$validation->emailValid($mailContact);
-    $error['subjectContact']=$validation->textValid($subjectContact,'sujet');
-    $error['messageContact']=$validation->textValid($messageContact,'message',10,1000);
-
-    if($validation->IsValid($error)) {//si pas d'erreur
-      $success = true;
-      $response = array(//on genere un array
-        // 'error'          => $error,
-        'success'        => $success,
-        'nameContact'    => $nameContact,
-        'mailContact'    => $mailContact,
-        'subjectContact' => $subjectContact,
-        'messageContact' => $messageContact
-      );
-
-      $app = getApp(); // Retourne l'instance de l'application depuis l'espace global
-      //on prepare le contenu du mail
-      $body = '';
-      $body .= '<div>';
-      $body .= '<p>Message de la part de '. $nameContact . '</p>';
-      $body .= '<p><strong>Son Email:</strong> '. $mailContact . '</p>';
-      $body .= '<h1><strong>Sujet:</strong> '. $subjectContact . '</h1>';
-      $body .= '<p>'. nl2br($messageContact) . '</p>';
-      $body .= '<p><a href="mailto:'.$mailContact.'"><strong>Repondre a '. $nameContact . '</strong></a></p>';
-      $body .= '</div>';
-  		// envoi du mail fonction PHPMailer
-    	$mail = new \PHPMailer;
-      $mail->isMail();
-      $mail->setFrom('emailadmin');
-      $mail->addAddress($mailContact);
-      $mail->Subject = 'Message d\'un client du site l\'Arbre Normand';
-      $mail->Body    = $body;
-
-      $mail->send();//on envoie le mail
-      if(!empty($_POST['isAjax'])){
-        //on verifie si $_POST est genere par un ajax
-        $this->showJson($response);
-        //si oui, on renvoie $response en json
-      }else{
-        $this->redirectToRoute('contact_action');
-        //sinon on continue en PHP
-      }
-    }else{// si erreur
-      $success = false;
-      $response = array(//prepare les data
-        'error'          => $error,
-        'success'        => $success,
-        'nameContact'    => $nameContact,
-        'mailContact'    => $mailContact,
-        'subjectContact' => $subjectContact,
-        'messageContact' => $messageContact
-      );
-
-         if(!empty($_POST['isAjax'])){
-           //on verifie si $_POST est genere par un ajax
-          $this->showJson($response);
-          //si oui, on renvoie $response en json
-        }else{
-          $this->redirectToRoute('contact_action');
-          //sinon on continue en PHP
-        }
-  }  // die(print_r($response));
+				}
+			}
+  	}
   }
 }

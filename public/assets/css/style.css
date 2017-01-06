@@ -1,50 +1,30 @@
 html, body {
-	font-family: Arial, sans-serif;
+	font-family: Consolas, monaco, monospace;
 	background-image: url(../images/wood_texture3847lite.jpg);
 	background-size: cover;
 	color: rgb(8, 7, 7);
 }
 
-.all_content{
-	max-width: 1600px;
-	margin: auto;
-}
-.container-fluid{/*correction de marge qui creait un scroll horizontal*/
-	margin:0;
-}
 .main_content {
-	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
-}
-.main_column{
-	background-color: rgba(185, 185, 185, 0.6);
-	padding: 1em 1em 1em 1em;
-	margin: 0;
+	background-color: rgba(185, 185, 185, 0.8);
 }
 
 a {
 	text-decoration: none;
-	/*color: rgb(8, 7, 7);*/ /*ancien*/
 	color: rgb(8, 7, 7);
 }
 
 a:hover {
-	/*color: #F92672;*/ /*ancien*/
-	color: #2B5043;
+	color: #F92672;
 }
 
 h1 {
-	/*color: #2B5043;*/ /*hermelen source flyer*/
-	color: #0d786b;
+	color: #F92672;
 	font-size: 2em;
 }
 
 h2 {
-	/*color: #4F3A3A;*/ /*hermelen source flyer*/
-	color: #5d5926;
-}
-/* couleur du texte des erreurs Michèle*/
-.help-block {
-	color: rgb(131, 9, 9);
+	color: #66D9EF;
 }
 
 
@@ -58,37 +38,13 @@ h2 {
 	list-style:none;
 	display: inline;
 }
-/*slider*/
-.slider_container{
-padding: 0;
-}
+
 
 /*===================MICHELE========================*/
-/*Essai dashboard Michele*/
-/*==================================================*/
-span label-primary{
-	width: 300px;
-	float: right;
-	display: inline-block;
-}
-
-/*CSS formulaires Inscription Connexion*/
-.colored {
-  background-color: rgba(185, 185, 185, 0.8);
-	margin-left: auto;
-	margin-right: auto;
-}
-.panel {
-	background-color: rgba(185, 185, 185, 0.8);
-}
-.header_panel {
-	background-color: rgb(218, 208, 202);
-	min-height: 16.4286px;
-  padding: 10px 15px;
-}
+/*CSS formulaires Inscription Connexion (ne marche pas)*/
 .modal-content {
   position: relative;
-  background-color: : rgba(185, 185, 185, 0.8);
+  background-color: #ffffff;
   border: 1px solid #999999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0;
@@ -96,13 +52,14 @@ span label-primary{
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
+  width: 650px;
   margin-left: auto;
   margin-right: auto;
 
 }
 .modal-header {
   border-bottom: 1px solid #48a4ac;
-  background-color: : rgb(218, 208, 202);
+  background: #61bdc5;
   min-height: 16.4286px;
   padding: 10px 15px;
 }
@@ -118,12 +75,11 @@ span label-primary{
 }
 .modal-body {
   position: relative;
-
-	width: 500px;
+	/*width: 500px;
   margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-top: 15px;
+  margin-right: auto;*/
+  /*padding-left: 10px;*/
+  /*padding-top: 15px;*/
 }
 .modal-footer {
   padding: 19px 20px 20px;
@@ -132,278 +88,28 @@ span label-primary{
   border-top: 1px solid #e5e5e5;
 }
 
-/*Essai dashboard Michèle*/
-
-/*===================MICHELE========================*/
-/*CSS Thumbnail page Listproduct*/
-article.card.bordered{
-	background-color: rgba(185, 185, 185, 0.8);
-	border: 1px solid black;
-	margin:1em auto 1em auto;
-}
-p.button {
-	text-align: center;
-}
- article.card {
-		background-color: rgba(185, 185, 185, 0.8);
-	}
-	p.caract {
-		padding-left: 3em;
-		font-weight: bold;
-	}
-	p.button {
-		text-align: center;
-	}
-	article.card h2 {
-		text-align: center;
-		color: #5d5926;
-		font-weight: bold;
-	}
-	article.card h3 {
-		text-align: center;
-		color: #0d786b;
-		font-weight: bold;
-	}
 .thumbs article{
-  width: 320px;
-  margin: 1em 8px;
-  border: 1px solid black;
-  float: left;
+    width: 320px;
+    margin: 1em 8px;
+    /*border: 1px solid black;*/
+    float: left;
+}
+.thumbs article p h3 h4{
+    padding-left: 3em;
+}
+.thumbs article h3{
+	padding-left: 3em;
+}
+.thumbs article h4{
+	padding-left: 5em;
 }
 .thumbs article img {
 	max-width: 100%;
   min-width: 100%;
-	max-height: 25rem;
-	min-height: 25rem;
+	max-height: 20rem;
+	min-height: 20rem;
 }
-article.card {
-	margin: 20px;
-	padding: 15px;
-}
-figure.thumbnail {
-	margin: 20px;
-	padding: 15px;
-}
-article {
-	margin-bottom: 20px;
-	padding: 15px
-}
-.detail {
-	margin: auto;
-	background-color: rgba(185, 185, 185, 0.8);
-}
-
-.article_single {
-	background-color: rgb(218, 208, 202);
-	padding-left: 15px;
-	padding-top: 15px;
-	padding-bottom: 1px;
-}
-
-@media (min-width: 768px) {
-	.product {
-		margin-left: 15px;
-		margin-right: 15px;
-	}
-	.article_single {
-		background-color: rgb(218, 208, 202);
-		padding-left: 15px;
-		padding-top: 1px;
-		padding-bottom: 1px;
-	}
-}
-a.colorlien {
-	color: #ffffff;
-}
-/*===================MICHELE========================*/
-/* Mise en forme de la table Liste commande Users*/
-span.product {
-	margin: auto;
-	padding: 3em;
-}
-span.dim {
-	margin: auto;
-	padding: 2em;
-}
-/*===================MICHELE========================*/
-/* Essai Menu Navbar vertical left*/
-/* make sidebar nav vertical */
-@media (min-width: 768px) {
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-		font-weight: bold;
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-	/*=========================Menu_right HERMELEN =============================*/
-	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
-		top: 84px;
-		width: 22.5%;
-		-o-transition: all 1s ease;
-		-moz-transition: all 1s ease;
-		-webkit-transition: all 1s ease;
-		-ms-transition: all 1s ease;
-	}
-	a#link_admin{
-		color: rgb(126, 186, 154);
-		background-color: rgb(37, 56, 74);
-	}
-	a#link_admin:hover{
-		color: rgb(172, 255, 211);
-		background-color: rgb(37, 56, 74);
-	}
-}
-/*===================MICHELE========================*/
-/* Essai table admin product*/
-a{
-  color: #739931;
-}
-table th,
-table td{
-  text-align: center;
-}
-table.layout{
-  width: 100%;
-  border-collapse: collapse;
-	margin-left: auto;
-	margin-right: auto;
-}
-table.display{
-  margin: 1em 0;
-}
-table.display th,
-table.display td{
-  border: 1px solid #B3BFAA;
-  padding: .5em 1em;
-}
-
-table.display th{ background: rgb(218, 208, 202); }
-table.display td{ background: rgba(185, 185, 185, 0.8); }
-
-table.responsive-table{
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-}
-table.responsive-table img {
-	max-width: 15rem;
-  min-width: 15rem;
-	max-height: 15rem;
-	min-height: 15rem;
-}
-@media (max-width: 30em){
-    table.responsive-table{
-      box-shadow: none;
-    }
-    table.responsive-table thead{
-      display: none;
-    }
-  table.display th,
-  table.display td{
-    padding: .5em;
-  }
-
-  table.responsive-table td:nth-child(1):before{
-    content: 'Image';
-  }
-  table.responsive-table td:nth-child(2):before{
-    content: 'Nom';
-  }
-  table.responsive-table td:nth-child(1),
-  table.responsive-table td:nth-child(2){
-    padding-left: 25%;
-  }
-  table.responsive-table td:nth-child(1):before,
-  table.responsive-table td:nth-child(2):before{
-    position: absolute;
-    left: .5em;
-    font-weight: bold;
-  }
-
-  table.responsive-table tr,
-  table.responsive-table td{
-    display: block;
-  }
-  table.responsive-table tr{
-    position: relative;
-    margin-bottom: 1em;
-  	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-  }
-  table.responsive-table td{
-    border-top: none;
-  }
-  /*table.responsive-table td.organisationnumber{
-    background: #D5E0CC;
-    border-top: 1px solid #B3BFAA;
-  }*/
-  table.responsive-table td.actions{
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    background: none;
-  }
-}
-
-
-/*===================MICHELE========================*/
-/* Essai form admin product*/
-.modification {
-	background: rgba(185, 185, 185, 0.8);
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-}
-.ajout {
-	background: rgba(185, 185, 185, 0.8);
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-}
-.modif-form {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 15px;
-	padding-left: 15px;
-	padding-bottom: 15px;
-}
-.ajout-form {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 15px;
-	padding-left: 15px;
-	padding-bottom: 15px;
-}
-button.modif_product {
-	text-align: right;
-}
-/*========================HERMELEN===========================*/
-/*images product_modified*/
-.product_modified_img{
-	display: flex;
-	float: right;
-	width: 20%;
-}
-.product_modified_img_name{
-	font-size: 0.8em;
-}
-
 /*================boostrap-navbar=======================*/
-.cart_content{
-	color: rgb(255, 74, 215);
-}
 /*pas sticky*/
 .navbar-default{/*navbar global*/
 	background-color: rgb(184, 175, 170);/*foncé*/
@@ -447,96 +153,34 @@ button.modif_product {
 	background-color: rgb(218, 208, 202);
 }
 
-.logo_navbar{
-	margin-top: 0.2%;
-	margin-left: 16%;
-	height: 61.2px;
+/*=========================Menu_right=============================*/
+.menu_left{
+	background-color: rgba(185, 185, 185, 0.8);
 }
-.abattage_navbar{
-	margin-left: -2%;
-	height: 63.6px;
+.menu_left{
+	padding: 1em 1em 0 1em;
 }
-
-/*===================Logo + anim codePen===================================*/
-/*hermelen*/
-/*vert rgb(8, 88, 38)*/
-/*marron rgb(98, 56, 24)*/
-.logo_slider{
-	/*background-color: rgb(126, 175, 144);*/
-		background-color: rgb(204, 222, 211);
-	position: relative;
-	/*background-image: url(../images/arbre_noir_bis.png);
-	background-size: 25%;
-	background-repeat: no-repeat;*/
-}
-.arbre_header{
-	position: absolute;
-	bottom: 0;
-	height: 95%;
-}
-.logo_header{
-	width: 100%;
-	margin-top: 10%;
-	margin-left: -2%;
-}
-.abattage_header{
-	width: 100%;
-	margin-top: 10%;
-	margin-left: -2%;
-}
-.presentation_header{
-	color: rgb(98, 56, 24);
+.menu_left.sticky{/*navbar global*/
+	position: fixed;
+	top: 84px;
+	width: 23.3%;
+	-o-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	-ms-transition: all 1s ease;
 }
 
-.logo_slider > h1{
-	font-size: 5em;
+.menu_left li{
+	list-style: none;
 }
 .logo_container{
-
+	background-color: rgb(105, 94, 69);
+	height: 408px;
 }
 .logo_container > h1{
-	font-size: 4em;
-	text-align: center;
+	font-size: 6em;
 }
 
-/*codepen*/
-body{
-  /*background-color: #111;*/
-  /*font-family: Signika Negative, Asap, sans-serif;*/
-  /*color:white;*/
-  /*overflow:hidden;*/
-}
-.dot{
-  width:35px;
-  height:35px;
-  position: absolute;
-  background-size: 100% 100%;
-}
-.dot:nth-child(4n+0){
-  background-image: url(../images/feuille_jaune.png);
-}
-.dot:nth-child(4n+1){
-  background-image: url(../images/feuille_rouge.png);
-}
-.dot:nth-child(4n+2){
-  background-image: url(../images/feuille_verte_foncee.png);
-}
-.dot:nth-child(4n+3){
-  background-image: url(../images/feuille_verte.png);
-}
-
-#container {
-	width:100%;
-	height:100%;
-	z-index: 100;
- }
-
-
-/*mise en forme tableau product*/
-.product_img_thumbnail_back .img_thumbnail_back{
-	max-height: 100px;
-	max-width: 100px;
-}
 /*LAYOUT HOME (special)*/
 /*carroussel*/
 
@@ -551,88 +195,13 @@ background-color: rgba(182, 186, 157, 0.8);
 	padding : 1%;
 }
 /*Ce que vous trouverez*/
-
-
 .presentation_detail{
-	/*margin-top: 2em;
-	padding: 1em 0 1em 0;*/
-	background-color: rgba(185, 185, 185, 0.8);
-	display: flex;
-}
-/*===================MICHELE========================*/
-/*entête titre pages*/
-.parent {
-  display: flex; /* contexte sur le parent */
-	text-align: center;
-	width: 100%;
-}
-.enfant {
-  margin: auto; /* contexte sur l'enfant */
-	background-color: rgb(218, 208, 202);
-	height: auto;
-	padding-left: 5em;
-	padding-right: 5em;
-}
-/*CSS dernière version page accueil */
-/*
- * PAGE ACCUEIL
- */
- .Articles article {
-   margin-top: 1em;
-   padding: 15px;
-	 background-color: rgba(185, 185, 185, 0.8);
-	 min-height: 300px;
- }
- .Articles article p {
-	 position: relative;
-
- }
- .Articles article p::after {
-   position: absolute;
-   left: 0;
-   bottom: 0;
-   width: 100%;
- }
-.Articles article:nth-child(even) img {
-  float: left;
-  margin-right: 1em;
-	max-height: 35rem;
-	min-height: 35rem;
-	display: flex;
-}
-.Articles article:nth-child(even) h2 {
-	text-align: left;
-}
-.Articles article:nth-child(odd) img {
-  float: right;
-  margin-left: 1em;
-	max-height: 35rem;
-	min-height: 35rem;
-	display: flex;
-}
-.Articles article:nth-child(odd) h2 {
-	text-align: right;
-}
-/*===================== FIN MICHELE =============================*/
-
-.presentation_img{
-	max-height :300px;
-}
-.presentation_img_right{
-	width: 60%;
-	margin-left: 1em;
-	float: right;
-}
-
-.presentation_img_left{
-	width: 60%;
-	margin-right: 1em;
-	float: left;
+	margin-top: 2em;
+	padding: 1em 0 1em 0;
+	background-color: rgba(182, 186, 157, 0.5);
 }
 
 /*AFFICHAGE PANIER*/
-
-
 
 .thumb_cart{
 	max-height : 100px;
@@ -643,37 +212,4 @@ background-color: rgba(182, 186, 157, 0.8);
 .empty_cart{
 	font-size: 1em;
 }
-
-/*FOOOTER*/
-footer{
-	height: 200px;
-	background-color:
-}
-
-
-/*CONTACT*/
-.loader_contact {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-
-
-
-
-
-
-
-
-
-
 /*=====================FIN HERMELEN======================*/

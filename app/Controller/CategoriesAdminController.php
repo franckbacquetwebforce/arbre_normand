@@ -1,5 +1,4 @@
 <?php
-
 //fann_create_train_from_callback
 //non terminé
 //Slugify ne fonctionne pas dans addNewAction
@@ -28,33 +27,10 @@ class CategoriesAdminController extends AppController
    */
   public function index()
   {
-    if($this->allowTo('admin')){
-      $categories = $this->category->findAll();
-      $this->show('admin/categories/list', array(
-        'categories' => $categories
-      ));
-
-    }
-  }
-
-  /**
-   *getCat
-   *Récupère toutes le catégories sous forme d'array
-   */
-  public function getAllCat()
-  {
-    if($this->allowTo('admin')){
-      $categories = $this->category->findAll();
-      return $categories;
-    }
-  }
-
-  public function getOneCat($id)
-  {
-    if($this->allowTo('admin')){
-      $oneCategory = $this->category->find($id);
-      return $oneCategory;
-    }
+    $categories = $this->category->findAll();
+    $this->show('admin/categories/list', array(
+                        'categories' => $categories
+    ));
   }
 
   /**
@@ -63,9 +39,7 @@ class CategoriesAdminController extends AppController
    */
   public function addNew()
   {
-    if($this->allowTo('admin')){
-      $this->show('admin/categories/add');
-    }
+    $this->show('admin/categories/add');
   }
   /**
    *addNewAction
@@ -73,29 +47,31 @@ class CategoriesAdminController extends AppController
    */
   public function addNewAction()
   {
-    if($this->allowTo('admin')){
-      $errors = [];
-      // protection
-      $name = trim(strip_tags($_POST['name']));
-      $status = trim(strip_tags($_POST['status']));
-      $slugname = Tools::slugify($name);
-      // Référencement des erreurs
-      $errors['name'] = $this->valid->textValid($name,'nom de catégorie');
-      if($this->valid->isValid($errors)){
-        $data = array(
-          'slug' => $slugname,
-          'category_name' => $name,
-          'created_at' => $this->date->format('Y-m-d H:i:s'),
-          'status' => $status
-        );
-        $this->category->insert($data);
-        $this->redirectToRoute('default_home');
-      } else {
-        $this->show('admin/categories/add', array(
-          'errors' => $errors
-        ));
-      }
-    }
+    $errors = [];
+		// protection
+		$name = trim(strip_tags($_POST['name']));
+    $status = trim(strip_tags($_POST['status']));
+    $slugname = Tools::slugify($name);
+
+    // Référencement des erreurs
+    $errors['name'] = $this->valid->textValid($name,'nom de catégorie');
+
+
+		if($this->valid->isValid($errors)){
+					$data = array(
+						'slug' => $slugname,
+						'category_name' => $name,
+						'created_at' => $this->date->format('Y-m-d H:i:s'),
+            'status' => $status
+					);
+					$this->category->insert($data);
+					$this->redirectToRoute('default_home');
+		} else {
+			$this->show('admin/categories/add', array(
+				'errors' => $errors
+			));
+
+		}
   }
 
   /**
@@ -105,14 +81,12 @@ class CategoriesAdminController extends AppController
    */
   public function update($id)
   {
-    if($this->allowTo('admin')){
       $cat = $this->category->find($id);
       if(!empty($cat)){
         $this->show('admin/categories/update', array('cat' => $cat));
       } else {
-        $this->showNotFound();
+       $this->showNotFound();
       }
-    }
   }
   /**
    *updateAction
@@ -121,56 +95,56 @@ class CategoriesAdminController extends AppController
    */
   public function updateAction($id)
   {
-    if($this->allowTo('admin')){
-      $errors = [];
-      $cat = $this->category->find($id);
+    $errors = [];
+    $cat = $this->category->find($id);
 
-      // protection
-      $name = trim(strip_tags($_POST['name']));
-      $status = trim(strip_tags($_POST['status']));
-      $slugname = Tools::slugify($name);
-      // Référencement des erreurs
-      $errors['name'] = $this->valid->textValid($name,'nom de catégorie');
-      if($this->valid->isValid($errors)){
-        $data = array(
-          'slug' => $slugname,
-          'category_name' => $name,
-          'modified_at' => $this->date->format('Y-m-d H:i:s'),
-          'status' => $status
-        );
+    // protection
+    $name = trim(strip_tags($_POST['name']));
+    $status = trim(strip_tags($_POST['status']));
+    $slugname = Tools::slugify($name);
+
+    // Référencement des erreurs
+    $errors['name'] = $this->valid->textValid($name,'nom de catégorie');
 
 
-        $this->category->update($data,$id);
+    if($this->valid->isValid($errors)){
+          $data = array(
+            'slug' => $slugname,
+            'category_name' => $name,
+            'modified_at' => $this->date->format('Y-m-d H:i:s'),
+            'status' => $status
+          );
 
-        $this->redirectToRoute('admin_categories');
-      } else {
-        $this->show('admin/categories/update', array(
-          'cat' => $cat,
-          'errors' => $errors
-        ));
-      }
+          $this->category->update($data,$id);
+          $this->redirectToRoute('admin_categories');
+        } else {
+          $this->show('admin/categories/update', array(
+            'cat' => $cat,
+            'errors' => $errors
+          ));
+
     }
   }
 
   public function deleteAction($id)
   {
-    if($this->allowTo('admin')){
-      if(!empty($id)){
-        $this->category->delete($id);
-        $this->redirectToRoute('admin_categories');
-      } else {
-        $this->showNotFound();
-      }
+    if(!empty($id)){
+      $this->category->delete($id);
+      $this->redirectToRoute('admin_categories');
+    } else {
+      $this->showNotFound();
     }
   }
 
+
   public function single($id)
   {
-    if($this->allowTo('admin')){
-      $cat = $this->category->find($id);
-      $this->show('admin/categories/single', array(
-        'cat' => $cat
-      ));
-    }
+
+    $cat = $this->category->find($id);
+    $this->show('admin/categories/single', array(
+      'cat' => $cat
+    ));
   }
+
+
 }
