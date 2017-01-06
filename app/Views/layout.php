@@ -32,8 +32,8 @@ $categories = findAll('categories');
 
     <!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<img class="abattage_navbar"src="<?= $this->assetUrl('images/abattage.svg') ?>" alt="">
-			<img class="logo_navbar"src="<?= $this->assetUrl('images/logo.svg') ?>" alt="">
+			<img class="abattage_navbar"src="<?= $this->assetUrl('images/SVG/abattage.svg') ?>" alt="">
+			<img class="logo_navbar"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
       <ul class="nav navbar-nav navbar-right">
 				<li><a href="<?= $this->url('user_cart') ?>">
 
