@@ -58,9 +58,6 @@
         <td>
           <a href="<?= $this->url('order_single', ['id' => $key]); ?>" class="edit-item" title="Edit"><button type="button" name="button"><?php echo $value['status']; ?></button></a>
         </td>
-        <td>
-
-        </td>
       </tr>
       <?php } ?>
 

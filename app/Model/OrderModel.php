@@ -32,7 +32,7 @@ class OrderModel extends Model
     LEFT JOIN orders ON orders_products.id_order = orders.id
     LEFT JOIN products ON products.id = orders_products.id_product
     LEFT JOIN users ON orders.id_user = users.id
-    LEFT JOIN users_adress ON orders.id_user = users_adress.id_user AND users_adress.type = 'livraison'
+    LEFT JOIN users_adress ON orders.id_user = users_adress.id_user
     ORDER BY orders.date_order DESC
     ";
 
@@ -327,7 +327,18 @@ if(!empty($array)){
 
    return $newArray;
  }
-
+ public function deleteOrderProd($id)
+ {
+   if(!empty($id)){
+     $sql = "DELETE orders_products, orders  FROM orders_products
+     LEFT JOIN orders ON orders.id = orders_products.id_order
+     WHERE orders_products.id_order = :id
+     ";
+     $sth = $this->dbh->prepare($sql);
+     $sth->bindValue(':id',$id);
+     $sth->execute();
+   }
+ }
 
 
  public function validOrders()

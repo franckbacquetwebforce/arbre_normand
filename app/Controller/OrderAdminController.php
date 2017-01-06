@@ -3,6 +3,7 @@ namespace Controller;
 
 use \Controller\AppController;
 use \Model\OrderModel;
+use \Model\UserAdressModel;
 use \W\Security\AuthentificationModel;
 
 
@@ -13,6 +14,7 @@ class OrderAdminController extends AppController
 
 
     $this->orders = new OrderModel();
+    $this->adress = new UserAdressModel();
     $this->authentification = new AuthentificationModel();
 
   }
@@ -20,6 +22,7 @@ class OrderAdminController extends AppController
   public function index()
   {
     if($this->allowTo('admin')){
+      
       $adminorders = $this->orders->indexOrders();
       // debug($adminorders);
       // die();
@@ -88,9 +91,9 @@ class OrderAdminController extends AppController
       );
 
       $this->orders->update($data,$id);
-    }
-    else{
-      echo 'alalala';
+      $this->redirectToroute('admin_order');
+    }else{
+      $this->showNotFound();
     }
   }
 

@@ -6,6 +6,7 @@ use \Controller\AppController;
 use \Controller\CartController;
 use \Model\UsersModel;
 use \Model\OrderModel;
+use \Model\UserAdressModel;
 use \W\Security\AuthentificationModel;
 use \DateTime;
 
@@ -17,6 +18,7 @@ class OrderController extends AppController
    $this->ordermodel = new OrderModel();
    $this->cart = new CartController();
    $this->date = new DateTime();
+   $this->adresse = new UserAdressModel();
    $this->authentification = new AuthentificationModel();
  }
 
@@ -47,7 +49,11 @@ class OrderController extends AppController
    if(empty($user)){
      $this->redirectToRoute('login');
    }
-   // else{
+   $adress = $this->adresse->getAddress($user['id']);
+   if(empty($adress)){
+     $this->redirectToRoute('add_new_address');
+   }
+
    $refe = $this->ordermodel->ref();
 
      $data1 = array(

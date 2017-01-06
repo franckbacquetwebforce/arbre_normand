@@ -20,31 +20,32 @@
                   <span class="help-block"><?php if(!empty($errors['firstname'])){ echo $errors['firstname'];} ?></span><br>
                 </div>
                 <div class="form-group">
-                  <label for="lastname">Nom</label><br>
-                  <input type="text" class="form-control" required="required" name="lastname" value="<?php if(!empty($_POST['lastname'])){ echo $_POST['lastname'];} ?>">
-                  <span class="help-block"><?php if(!empty($errors['lastname'])){ echo $errors['lastname'];} ?></span><br>
+                  <label for="address">Adresse</label><br>
+                  <input type="text" class="form-control" required="required" name="address" value="<?php if(!empty($_POST['address'])){ echo $_POST['address'];} ?>">
+                  <span class="help-block"><?php if(!empty($errors['address'])){ echo $errors['address'];} ?></span><br>
+
+                </div>
+                <div class="form-group">
+                  <label for="zip">Code postal</label><br>
+                  <input type="text" class="form-control" required="required" name="zip" value="<?php if(!empty($_POST['zip'])){ echo $_POST['zip'];} ?>">
+                  <span class="help-block"><?php if(!empty($errors['zip'])){ echo $errors['zip'];} ?></span><br>
                 </div>
                 <div class="form-group">
                   <label for="phone">Telephone</label><br>
                   <input type="text" class="form-control" required="required" name="phone" value="<?php if(!empty($_POST['phone'])){ echo $_POST['phone'];} ?>">
                   <span class="help-block"><?php if(!empty($errors['phone'])){ echo $errors['phone'];} ?></span><br>
                 </div>
-                <div class="form-group">
-                  <label for="address">Adresse</label><br>
-                  <input type="text" class="form-control" required="required" name="address" value="<?php if(!empty($_POST['address'])){ echo $_POST['address'];} ?>">
-                  <span class="help-block"><?php if(!empty($errors['address'])){ echo $errors['address'];} ?></span><br>
-                </div>
               </div>
               <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lastname">Nom</label><br>
+                  <input type="text" class="form-control" required="required" name="lastname" value="<?php if(!empty($_POST['lastname'])){ echo $_POST['lastname'];} ?>">
+                  <span class="help-block"><?php if(!empty($errors['lastname'])){ echo $errors['lastname'];} ?></span><br>
+                </div>
                 <div class="form-group">
                   <label for="city">Ville</label><br>
                   <input type="text" class="form-control" required="required" name="city" value="<?php if(!empty($_POST['city'])){ echo $_POST['city'];} ?>">
                   <span class="help-block"><?php if(!empty($errors['city'])){ echo $errors['city'];} ?></span><br>
-                </div>
-                <div class="form-group">
-                  <label for="zip">Code postal</label><br>
-                  <input type="text" class="form-control" required="required" name="zip" value="<?php if(!empty($_POST['zip'])){ echo $_POST['zip'];} ?>">
-                  <span class="help-block"><?php if(!empty($errors['zip'])){ echo $errors['zip'];} ?></span><br>
                 </div>
                 <div class="form-group">
                   <label for="country">Pays</label><br>
