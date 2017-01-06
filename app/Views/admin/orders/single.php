@@ -49,6 +49,12 @@ debug($oneOrder);
             </tr>
         <?php } ?>
           </table>
+          <td>
+            <a href="<?= $this->url('admin_order_update_action', ['id' => $id]); ?>" class="edit-item" title="Edit"><button type="button" name="button">valider</button></a>
+          </td>
+          <td>
+            <a href="<?= $this->url('admin_order_delete_action', ['id' => $id]); ?>" class="edit-item" title="Edit"><button type="button" name="button">Supprimer</button></a>
+          </td>
         </td>
         <td><a href="<?= $this->url('admin_order_update_action', ['id' => $id]) ?>" class="edit-item" title="Edit"><button type="button" name="button">Valider</button></a></td>
         <td><a href="<?= $this->url('admin_order_delete_action', ['id' => $id]) ?>" class="edit-item" title="Edit"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cette commande ?');" type="button" name="button">Supprimer</button></a></td>

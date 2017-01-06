@@ -42,29 +42,31 @@
       </tr>
     </thead>
     <tbody>
+      <?php foreach ($adminorders as $key => $value) {
+        echo $key;
+         echo $value['client']['lastname'];
+      } ?>
+      <?php foreach ($adminorders as $key => $value) { ?>
+      <tr>
+        <td><?php echo $value['ref']; ?></td>
+        <td><?php echo $value['client']['lastname']; ?></td>
+        <td><?php echo $value['client']['firstname']; ?></td>
+        <td><?php echo $value['client']['city']; ?></td>
+        <td><?php echo $value['client']['zip']; ?></td>
+        <td><?php echo $value['client']['phone']; ?></td>
+        <td><?php echo $value['date_order']; ?></td>
+        <td>
+          <a href="<?= $this->url('order_single', ['id' => $key]); ?>" class="edit-item" title="Edit"><button type="button" name="button"><?php echo $value['status']; ?></button></a>
+        </td>
+        <td>
 
-<?php if(!empty($adminorders)){
-        foreach ($adminorders as $key => $value) {
-        } ?>
-        <?php foreach ($adminorders as $key => $value) { ?>
-        <tr>
-          <td><?php echo $value['ref']; ?></td>
-          <td><?php echo $value['client']['lastname']; ?></td>
-          <td><?php echo $value['client']['firstname']; ?></td>
-          <td><?php echo $value['client']['city']; ?></td>
-          <td><?php echo $value['client']['zip']; ?></td>
-          <td><?php echo $value['client']['phone']; ?></td>
-          <td><?php echo $value['date_order']; ?></td>
-          <td><a href="<?= $this->url('order_single', ['id' => $key]) ?>" class="edit-item" title="Edit"><button type="button" name="button"><?php echo $value['status']; ?></button></a>
-          </td>
-        </tr>
-        <?php } ?>
-<?php } ?>
+        </td>
+      </tr>
+      <?php } ?>
 
     </tbody>
   </table>
 </div>
-
 
 
 <?php $this->stop('main_content') ?>

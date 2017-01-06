@@ -39,7 +39,7 @@
                 <div class="form-group">
                   <label for="city">Ville</label><br>
                   <input type="text" class="form-control" required="required" name="city" value="<?php if(!empty($_POST['city'])){ echo $_POST['city'];} ?>">
-                  <span class="help-block"><?php if(!empty($errors['address'])){ echo $errors['address'];} ?></span><br>
+                  <span class="help-block"><?php if(!empty($errors['city'])){ echo $errors['city'];} ?></span><br>
                 </div>
                 <div class="form-group">
                   <label for="zip">Code postal</label><br>

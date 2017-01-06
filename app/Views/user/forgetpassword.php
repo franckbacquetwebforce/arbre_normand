@@ -1,6 +1,9 @@
 <?php $this->layout('layout', ['title' => 'Mot de passe oublié']) ?>
 
 <?php $this->start('main_content') ?>
+<?php if(!empty($message)){ echo $message;} ?>
+<?php if(!empty($mailerror)){ echo $mailerror;} ?>
+
 
 <div class="container-fluid" style="margin-top: 30px">
   <div class="row">
