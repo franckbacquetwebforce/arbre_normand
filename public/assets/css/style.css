@@ -429,6 +429,7 @@ button.modif_product {
 	background-color: rgb(218, 208, 202);
 	border-width: 0;
 	width: 100%;
+	max-width: 1600px;
 	position: fixed;
 	top: 0;
 	z-index: 1;
@@ -451,12 +452,11 @@ button.modif_product {
 }
 
 .logo_navbar{
-	margin-top: 0.2%;
-	margin: 1.5rem 0 0 16%;
+	margin: 1.5rem 0 0 0;
 	height: 61.2px;
 }
 .abattage_navbar{
-	margin: 1em 0 0 -20px;
+	margin: 1rem 0 0 -20px;
 	height: 63.6px;
 }
 
@@ -649,12 +649,37 @@ background-color: rgba(182, 186, 157, 0.8);
 
 /*FOOOTER*/
 footer{
-	height: 200px;
-	background-color:
+	margin-top: 20px;
+	height: 168px;
+	background-image: url(../images/panoramique/aaa.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: rgba(185, 185, 185, 0.8);
+}
+.footer_section{
+	margin-top: 10px;
+}
+.liens_externes{
+	display: inline-block;;
+	list-style: none;
+	margin: 10px ;
 }
 
-<<<<<<< HEAD
-=======
+.lien_ext{
+	color: black !important;
+}
+
+.lien_ext:hover, .lien_ext:focus{
+	color: white !important;
+}
+
+.copyright{
+	text-align:center;
+	font-size:10px;
+	margin-top: 23px;
+	margin-bottom: 0;
+}
+
 
 /*CONTACT*/
 .loader_contact {
@@ -679,9 +704,6 @@ footer{
 
 
 
-
-
->>>>>>> 176b7b7813e1d9e978d8c4630b152cd33ec4b062
 /*=====================FIN HERMELEN======================*/
 /*=====================Franck============================*/
 .perspective

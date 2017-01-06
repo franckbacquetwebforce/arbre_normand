@@ -5,6 +5,7 @@
   	<title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin_style.css') ?>">
 
   </head>
