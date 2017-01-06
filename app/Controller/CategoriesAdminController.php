@@ -28,6 +28,8 @@ class CategoriesAdminController extends AppController
    */
   public function index()
   {
+    /* On affiche uniquement si l'utilisateur a le role d'admin allowTo viens d
+    du controleur de W */
     if($this->allowTo('admin')){
       $categories = $this->category->findAll();
       $this->show('admin/categories/list', array(
@@ -38,8 +40,9 @@ class CategoriesAdminController extends AppController
   }
 
   /**
-   *getCat
+   *getAllCat
    *Récupère toutes le catégories sous forme d'array
+   *@return array
    */
   public function getAllCat()
   {
@@ -48,14 +51,18 @@ class CategoriesAdminController extends AppController
       return $categories;
     }
   }
-
-  public function getOneCat($id)
-  {
-    if($this->allowTo('admin')){
-      $oneCategory = $this->category->find($id);
-      return $oneCategory;
-    }
-  }
+  /**
+   *getOneCat
+   * @param identifiant d'une catégorie
+   *Récupère toutes les données d'une catégorie
+   */
+  // public function getOneCat($id)
+  // {
+  //   if($this->allowTo('admin')){
+  //     $oneCategory = $this->category->find($id);
+  //     return $oneCategory;
+  //   }
+  // }
 
   /**
    *addNew
@@ -78,6 +85,7 @@ class CategoriesAdminController extends AppController
       // protection
       $name = trim(strip_tags($_POST['name']));
       $status = trim(strip_tags($_POST['status']));
+
       $slugname = Tools::slugify($name);
       // Référencement des erreurs
       $errors['name'] = $this->valid->textValid($name,'nom de catégorie');
@@ -151,7 +159,11 @@ class CategoriesAdminController extends AppController
       }
     }
   }
-
+  /**
+   *deleteAction
+   *Supprime une catégorie
+   *@param id de la catégorie
+   */
   public function deleteAction($id)
   {
     if($this->allowTo('admin')){
@@ -163,7 +175,11 @@ class CategoriesAdminController extends AppController
       }
     }
   }
-
+  /**
+   *getOneCat
+   * @param identifiant d'une catégorie
+   *Récupère toutes les données d'une catégorie
+   */
   public function single($id)
   {
     if($this->allowTo('admin')){

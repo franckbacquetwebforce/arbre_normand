@@ -38,7 +38,7 @@
           </form>
         </div>
           <div class="mail-message-area">
-            <div id="success" class="alert gray-bg mail-message not-visible-message">
+            <div id="success" >
               <div id="wait_send"></div>
             </div>
           </div>

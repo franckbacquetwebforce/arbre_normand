@@ -115,8 +115,7 @@ class UsersModel extends UModel
 
   public function rememberMe($id)
   {
-    $auth = $_COOKIE['usercook'];
-  	$auth = explode('---',$auth);
+    
 
   	$sql = "SELECT * FROM users WHERE id = :id";
   	$stmt = $dbh->prepare($sql);

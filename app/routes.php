@@ -18,6 +18,7 @@
 		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
 		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
 		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
+
 		['GET|POST', '/admin/order/update/[i:id]', 'OrderAdmin#updateAction', 'admin_order_update_action'],
 		['GET|POST', '/admin/order/delete/[i:id]', 'OrderAdmin#deleteAction', 'admin_order_delete_action'],
 		// Admin User
@@ -25,6 +26,8 @@
 		['GET', '/admin/dashboard', 'UserAdmin#statistics', 'site_statistics'],
 		['GET', '/admin/user/new', 'UserAdmin#addNew', 'admin_user_new'],
 		['POST', '/admin/user/new', 'UserAdmin#addNewAction', 'admin_user_new_action'],
+		['GET|POST', '/admin/user/update_status/[i:id]', 'UserAdmin#updateStatus', 'admin_user_status_update'],
+
 		['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
 		['POST', '/admin/user/update/[i:id]', 'UserAdmin#updateAction', 'admin_user_update_action'],
 		['GET', '/admin/user/delete/[i:id]', 'UserAdmin#deleteAction', 'admin_user_delete_action'],
@@ -73,8 +76,8 @@
 		['POST', '/user/adresses/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
 		['GET', '/user/orders/list', 'UserProfile#mesCommandes', 'user_orders'],
 		// Order
-		// Vide pour le moment
-		['GET', '/orders', 'Order#index', 'listorders'],
+
+		// ['GET', '/orders', 'Order#index', 'listorders'],
 		['GET', '/user/confirm', 'Order#confirmOrder', 'confirm_order'],
 		['POST', '/user/confirm', 'Order#confirmOrderAction', 'confirm_order_action'],
 		// Product

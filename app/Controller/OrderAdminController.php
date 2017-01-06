@@ -21,6 +21,9 @@ class OrderAdminController extends AppController
   {
     if($this->allowTo('admin')){
       $adminorders = $this->orders->indexOrders();
+      // debug($adminorders);
+      // die();
+      // $adminorders = 'test';
       $this->show('admin/orders/list', array(
         'adminorders' => $adminorders
       ));
@@ -29,17 +32,8 @@ class OrderAdminController extends AppController
   // méthode permettant d'afficher les commande en attente de validation
   public function validatingOrders()
   {
-
-    // $orders = $this->orders->findAllWaitingOrders();
-    // $this->show('admin/orders/waitinglist', array(
-    //                     'orders' => $orders
-    // ));
-
     if($this->allowTo('admin')){
       $orders = $this->orders->findAllWaitingOrders();
-
-
-
       $this->show('admin/orders/waitinglist', array(
         'orders' => $orders
       ));
@@ -82,25 +76,24 @@ class OrderAdminController extends AppController
     }
   }
 
-  public function addNew()
-  {
-
-  }
-  public function addNewAction()
-  {
-
-  }
-
-
-  public function update($id)
-  {
-
-  }
-
   public function updateAction($id)
   {
 
+    if(!empty($id)){
+      $this->orders->find($id);
+      $valide = 'valide';
+
+      $data = array(
+        'status' => $valide
+      );
+
+      $this->orders->update($data,$id);
+    }
+    else{
+      echo 'alalala';
+    }
   }
+
 
 
 }

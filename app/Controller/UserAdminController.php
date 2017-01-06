@@ -166,10 +166,25 @@ class UserAdminController extends AppController
     }
   }
 
-  // public function updateStatus($id)
-  // {
-  // echo $id;
-  // }
+  public function updateStatus($id)
+  {
+    if(!empty($id)){
+      $user = $this->model->find($id);
+      if(!empty($user)){
+        if($user['role'] == 'user'){
+          $data = array(
+            'role' => 'admin'
+          );
+        } elseif($user['role'] == 'admin') {
+          $data = array(
+            'role' => 'user'
+          );
+        }
+        $this->model->update($data,$id);
+        $this->redirectToRoute('admin_user');
+      }
+    }
+  }
 
   public function delete($id)
   {

@@ -1,5 +1,11 @@
-<?php $this->layout('layout', ['title' => 'Nothing to see here']) ?>
+<?php $this->layout('layout_403', ['title' => 'Accès interdit']) ?>
 
 <?php $this->start('main_content'); ?>
-<h1>403. Nothing to see here.</h1>
+<section class="text-center interdit">
+
+  <h1 class="forbidden">Acces Interdit</h1>
+  <p style="color:white;">Vous n'êtes pas autorisé à aller plus loin.<br>Merci de suivre l'un des liens dans la barre de navigation.</p>
+</section>
+
+
 <?php $this->stop('main_content'); ?>

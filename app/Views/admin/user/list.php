@@ -20,9 +20,10 @@ $this->layout('layout_admin', ['title' => 'liste des utilisateurs']) ?>
           <th colspan="1" style="width:15%">Inscrit le</th>
           <th colspan="1" style="width:15%">Modifié le</th>
           <th colspan="1" style="width:10%">Statut</th>
+
           <?php if($w_user['role'] == 'admin') {?>
+
           <th colspan="3" style="width:25%">Action</th>
-          <?php } ?>
       </tr>
     </thead>
     <tbody>
@@ -35,16 +36,18 @@ $this->layout('layout_admin', ['title' => 'liste des utilisateurs']) ?>
         <td><b><?php if(!empty($user['modified_at'])) { echo $user['modified_at'];} ?></b></td>
         <td><b><?php if(!empty($user['role'])) { echo $user['role'];} ?></b><a href="<?= $this->url('admin_user_update',['id' => $user['id']]) ?>" class="edit-item" title="Edit"></a></td>
 
+
       <?php   if($w_user['role'] === 'admin'){ ?>
+
         <td class="actions">
-          <a href="<?= $this->url('admin_user_update',['id' => $user['id']])?>" class="edit-item" title="Edit"><button type="button" name="button">Modifier</button></a>
-          <a href="<?= $this->url('admin_user_delete_action',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet article?');" type="button" name="button">Supprimer</button></a>
+          <a href="<?= $this->url('admin_user_delete_action',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet utilisateur?');" type="button" name="button">Supprimer</button></a>
+          <a href="<?= $this->url('admin_user_status_update',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir changer le status de cet utilisateur?');" type="button" name="button">Admin/User</button></a>
         <?php  } ?>
         </td>
       </tr>
-      <?php } ?>
     </tbody>
   </table>
+  <a href="<?= $this->url('admin_user_update',['id' => $w_user['id']])?>" class="edit-item" title="Edit"><button type="button" name="button">Modifier votre mot de passe</button></a>
 </div>
 
 <!-- <table>
