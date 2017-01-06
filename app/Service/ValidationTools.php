@@ -60,9 +60,9 @@ class ValidationTools
     if(!empty($text)) {
       $strtext = strlen($text);
       if($strtext > $max) {
-        $error = 'Votre ' . $title . ' est trop long.';
+        $error = 'Votre ' . $title . ' est trop long(ue).';
       } elseif($strtext < $min) {
-        $error = 'Votre ' . $title . ' est trop court.';
+        $error = 'Votre ' . $title . ' est trop court(e).';
       }
     } else {
       // et si le champ est vide :
@@ -88,7 +88,7 @@ class ValidationTools
           $error = 'Votre ' . $title . ' ne peut être inférieur à '.$min.'.';
         }
       } else {
-        $error = 'Le ' . $title . 'doit être au format numérique.';
+        $error = 'Le(la) ' . $title . ' doit être au format numérique.';
       }
     } else {
       if(!$empty) {

@@ -109,3 +109,47 @@ function modifierQTeArticle($id_product,$qt_product){
     </div><!-- .centered -->
   </main>
 </section>
+
+
+
+<!-- table commande -->
+
+<table class="layout display responsive-table">
+  <thead>
+    <tr>
+        <th style="width:15%">Ref</th>
+        <th colspan="1" style="width:15%">Date commande</th>
+        <th>Produits</th>
+        <th>Qté</th>
+        <th>Prix TTC</th>
+        <th colspan="1" style="width:20%">Statut</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php foreach($orders as $order){ ?>
+    <tr>
+      <td><?php echo $order['ref']; ?></td>
+      <td><?php echo $order['date_order']; ?></td>
+<?php
+// foreach ($order['produits'] as $key => $value){
+  for ($i = 0; $i <= count($i); $i++) {
+  ?>
+      <td><?php echo $order['produits']['product_name']; ?></td>
+      <td><?php echo $order['produits']['qt_product']; ?></td>
+      <td><?php echo $order['produits']['price_product']; ?></td>
+<?php } ?>
+<?php for ($i = 0; $i <= count($i); $i++) {
+?>  <tr>
+      <td></td>
+      <td></td>
+      <td><?php echo $order['produits']['product_name']; ?></td>
+      <td><?php echo $order['produits']['qt_product']; ?></td>
+      <td><?php echo $order['produits']['price_product']; ?></td>
+    </tr>
+<?php } ?>
+      <td><button type="button" name="button"><?php echo $order['status']; ?></button></td>
+    </tr>
+    </table>
+    <?php } ?>
+  </tbody>
+</table>

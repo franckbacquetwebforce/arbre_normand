@@ -7,6 +7,7 @@ $categories = findAll('categories');?>
 	<title><?= $this->e($title) ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
@@ -14,7 +15,7 @@ $categories = findAll('categories');?>
 <section id="logo_slider" class="row logo_slider container-fluid"><!-- div class row inutile -->
 	<?= $this->section('slider') ?>
 </section>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default dimension_navbar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -27,23 +28,27 @@ $categories = findAll('categories');?>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<img class="abattage_navbar"src="<?= $this->assetUrl('images/SVG/abattage.svg') ?>" alt="">
-			<img class="logo_navbar"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
-      <ul class="nav navbar-nav navbar-right">
-				<li><a href="<?= $this->url('user_cart') ?>">
+    <div class="row collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<img class="abattage_navbar col-xs-4 col-sm-3 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/abattage.svg') ?>" alt="">
+				<img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
+				<div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">
 
-				<button type="button" class="btn btn-default" aria-label="Left Align">
+      	<ul class="nav navbar-nav navbar-right ">
+					<li>
+						<a href="<?= $this->url('user_cart') ?>">
+							<button type="button" class="btn btn-default" aria-label="Left Align">
 					<?php if(!empty($w_user)){?>
-					<li>Bienvenue <?php echo $w_user['username']; ?></li>
+						<li>Bienvenue <?php echo $w_user['username']; ?></li>
 					<?php	}?>
-				<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-				<span class="cart_content"><?php if(!empty($_SESSION['cart']['qt_product'])){
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+						<span class="cart_content">
+					<?php if(!empty($_SESSION['cart']['qt_product'])){
 						echo '('.array_sum($_SESSION['cart']['qt_product']).')';
-				} ?></span>
-				<span class="sr-only">Panier</span>
-				</button></a></li>
-
+					} ?>
+					</span>
+					<span class="sr-only">Panier</span>
+				</button></a>
+				</li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compte<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -59,6 +64,7 @@ $categories = findAll('categories');?>
           </ul>
         </li>
       </ul>
+		</div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -89,7 +95,7 @@ $categories = findAll('categories');?>
 						<?php foreach($categories as $categorie){?>
 							<li class="menu_categorie <?php if($_GET['id_category'] == $categorie['id']){echo "active";} ?>"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
 						<?php } ?>
-							<li><a href="<?= $this->url('contact') ?>">Contact </a></li>
+							<li class="<?php if($w_current_route == 'contact'){echo "active";} ?>"><a href="<?= $this->url('contact') ?>">Contact </a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
@@ -103,8 +109,34 @@ $categories = findAll('categories');?>
 		<div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div><!-- partie droite vide -->
 	</div>
 </div>
-<footer>
-
+<footer class= "row">
+	<section class="footer_section col-xs-12 col-sm-4">
+		<ul class="liens_externes">
+			<li class= "lien_externe">
+				<a href="https://twitter.com/?lang=fr" target="_blank" class="lien_ext"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
+			</li>
+			<li class= "lien_externe">
+				<a href="https://fr-fr.facebook.com/" target="_blank" class="lien_ext"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
+			</li>
+			<li class= "lien_externe">
+				<a href="https://fr.pinterest.com/" target="_blank" class="lien_ext"><i class="fa fa-2x fa-pinterest" aria-hidden="true"></i></a>
+			</li>
+		</ul>
+	</section>
+	<section class="footer_section col-xs-12 col-sm-4">
+		<h4>L'Arbre Normand</h4>
+		<p>9, rue du Vallon Fleuri,<br>Résidence des Petits Coteaux,<br>27 500  ST GERMAIN VILLAGE</p>
+	</section>
+	<section class="footer_section col-xs-12 col-sm-4">
+		<ul class="liens_externes">
+			<li class= "lien_externe">
+				<a class="lien_ext"><p>Condition générales de vente</p></a>
+			</li>
+		</ul>
+	</section>
+	<section class="footer_section col-xs-12 col-sm-12">
+		<p class="copyright">Copyright 2016 M.Ragot, F.Baquet, H.Peris.</p>
+	</section>
 </footer>
 </div> <!-- div all_content -->
 	<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>

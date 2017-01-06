@@ -165,6 +165,7 @@ class UserAdminController extends AppController
       }
     }
   }
+
   public function updateStatus($id)
   {
     if(!empty($id)){
@@ -184,6 +185,7 @@ class UserAdminController extends AppController
       }
     }
   }
+
   public function delete($id)
   {
     $roles = ['admin','superadmin'];

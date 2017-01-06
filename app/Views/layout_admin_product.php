@@ -5,12 +5,13 @@
   	<title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin_style.css') ?>">
 
   </head>
   <body>
   <div class="all_content">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default dimension_navbar">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">

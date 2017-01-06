@@ -26,12 +26,12 @@ debug($orders);
 
           <td>
             <table class="layout display responsive-table">
+              <tr>
+                <th>Produits</th>
+                <th>Qté</th>
+                <th>Prix TTC</th>
+              </tr>
           <?php foreach ($order['produits'] as $key => $value){ ?>
-            <tr>
-              <th>Produits</th>
-              <th>Qté</th>
-              <th>Prix TTC</th>
-            </tr>
               <tr>
                 <td><?php echo $value['product_name']; ?></td>
                 <td><?php echo $value['qt_product']; ?></td>
@@ -40,7 +40,11 @@ debug($orders);
           <?php } ?>
             </table>
           </td>
-          <td><button type="button" name="button"><?php echo $order['status']; ?></button></td>
+  <?php if($order['status'] == "en_attente") { ?>
+          <td><p class="button"><b>En attente de validation</b></p></td>
+  <?php }else{ ?>
+          <td><p class="button"><b>Commande validée</b></p></td>
+  <?php } ?>
         </tr>
       <?php } ?>
     </tbody>
