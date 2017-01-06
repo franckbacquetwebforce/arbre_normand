@@ -170,9 +170,11 @@ class UserController extends AppController // le CSS ne fonctionne pas
        $mail->Subject = 'Reinitialisation du mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
+
   				echo "Le message n\'a pas été envoyé.";
           echo 'Erreur Mail: ' . $mail->ErrorInfo;
     		} else {
+          $this->show('user/forgetpassword');
           echo 'Le message a bien été envoyé';
         }
 

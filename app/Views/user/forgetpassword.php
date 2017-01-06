@@ -1,7 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Mot de passe oublié']) ?>
 
 <?php $this->start('main_content') ?>
-
 <div class="container-fluid" style="margin-top: 30px">
   <div class="row">
     <div class="col-md-3"></div>

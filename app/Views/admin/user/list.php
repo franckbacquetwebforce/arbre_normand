@@ -33,7 +33,7 @@ $this->layout('layout_admin', ['title' => 'liste des utilisateurs']) ?>
 
         <td><b><?php if(!empty($user['created_at'])) { echo $user['created_at'];} ?></b></td>
         <td><b><?php if(!empty($user['modified_at'])) { echo $user['modified_at'];} ?></b></td>
-        <td><b><?php if(!empty($user['role'])) { echo $user['role'];} ?></b><a href="<?= $this->url('admin_user_update',['id' => $user['id']]) ?>" class="edit-item" title="Edit"><button type="button" name="button">Modifier</button></a></td>
+        <td><b><?php if(!empty($user['role'])) { echo $user['role'];} ?></b><a href="<?= $this->url('admin_user_update',['id' => $user['id']]) ?>" class="edit-item" title="Edit"></a></td>
 
       <?php   if($w_user['role'] === 'admin'){ ?>
         <td class="actions">

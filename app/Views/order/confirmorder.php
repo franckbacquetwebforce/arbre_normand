@@ -35,7 +35,7 @@ debug($orders); ?>
 <?php  } ?>
         </tbody>
 		</table>
-    <button onclick="alert('Merci pour votre commande, un email de confirmation vous a été envoyé');" class="btn btn-success" type="submit" name="submit" value="">Valider</button>
+    <button <?php if(!empty($w_user)) {?> onclick="alert('Merci pour votre commande, un email de confirmation vous a été envoyé');" <?php } ?> class="btn btn-success" type="submit" name="submit" value="">Valider</button>
 	</form>
 
 
