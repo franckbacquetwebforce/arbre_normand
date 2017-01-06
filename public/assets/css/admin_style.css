@@ -255,7 +255,9 @@ button.modif_product {
 
 /*================boostrap-navbar=======================*/
 /*pas sticky*/
-
+.dimension_navbar{
+	min-height: 83.6px;
+}
 /*pour modif color defaults bootstrap*/
 .navbar-default .navbar-nav>.active>a{
 color: rgb(126, 186, 154);
@@ -311,7 +313,7 @@ color: rgb(172, 255, 211);
 }
 .logo_navbar_back{
 	height: 70px;
-	margin-left: -20px;
+	margin: 1rem 0 -1em -20px;
 	float:left;
 }
 .admin_title{

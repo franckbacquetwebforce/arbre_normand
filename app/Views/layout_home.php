@@ -14,7 +14,7 @@ $categories = findAll('categories');?>
 <section id="logo_slider" class="row logo_slider container-fluid"><!-- div class row inutile -->
 	<?= $this->section('slider') ?>
 </section>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default dimension_navbar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">

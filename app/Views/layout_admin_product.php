@@ -10,7 +10,7 @@
   </head>
   <body>
   <div class="all_content">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default dimension_navbar">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">

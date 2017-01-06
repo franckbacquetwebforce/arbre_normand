@@ -249,7 +249,7 @@ span.dim {
 
 	/*=========================Menu_right HERMELEN =============================*/
 	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
-		top: 84px;
+		top: 104px;
 		width: 22.5%;
 		-o-transition: all 1s ease;
 		-moz-transition: all 1s ease;
@@ -401,6 +401,9 @@ button.modif_product {
 }
 
 /*================boostrap-navbar=======================*/
+.dimension_navbar{
+	min-height: 83.6px;
+}
 .cart_content{
 	color: rgb(255, 74, 215);
 }
@@ -449,11 +452,11 @@ button.modif_product {
 
 .logo_navbar{
 	margin-top: 0.2%;
-	margin-left: 16%;
+	margin: 1.5rem 0 0 16%;
 	height: 61.2px;
 }
 .abattage_navbar{
-	margin-left: -2%;
+	margin: 1em 0 0 -20px;
 	height: 63.6px;
 }
 
