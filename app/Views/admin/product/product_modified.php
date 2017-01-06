@@ -11,7 +11,7 @@
   <div class="row">
     <form class="responsive modif-form" action="<?= $this->url('admin_product_update_action',['id' => $product['id']])?>" method="post" enctype="multipart/form-data">
       <div class="col-sm-5 padding-box">
-        <label for="product_name"><h4>Nom du produit :</h4></label>
+        <label  for="product_name"><h4>Nom du produit :</h4></label>
         <span class="help-block"><?php if(!empty($error['product_name'])){echo $error['product_name'];} ?></span><br />
         <input type="text" name="product_name" class="form-control" value="<?php if(!empty($_POST['product_name'])){echo $_POST['product_name'];}else{echo $product['product_name'];} ?>"><br />
         <label for="description"><h4>Description</h4></label>

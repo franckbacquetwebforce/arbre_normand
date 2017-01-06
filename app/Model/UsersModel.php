@@ -102,7 +102,7 @@ class UsersModel extends UModel
   //   $sth->bindValue(':type' );
   //   $sth->execute();
   // }
-  
+
   // Compte de nombre d'utilisateur inscrits
   public function countInscriptions()
   {
@@ -111,6 +111,18 @@ class UsersModel extends UModel
     $sth->execute();
     return $sth->fetchColumn();
 
+  }
+
+  public function rememberMe($id)
+  {
+    $auth = $_COOKIE['usercook'];
+  	$auth = explode('---',$auth);
+
+  	$sql = "SELECT * FROM users WHERE id = :id";
+  	$stmt = $dbh->prepare($sql);
+  	$stmt->bindValue(':id',$id[0]);
+  	$stmt->execute();
+  	return $stmt->fetch();
   }
 
 }

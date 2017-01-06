@@ -340,4 +340,28 @@ class UserController extends AppController // le CSS ne fonctionne pas
         }
   }  // die(print_r($response));
   }
+    public function remember()
+    {
+      if(!empty($_COOKIE['usercook']) && !isset($_SESSION['user'])) {
+        $auth = $_COOKIE['usercook'];
+        $auth = explode('---',$auth);
+        $usercook = $this->userModel->rememberMe($id);
+
+        if(!empty($usercook)) {
+      		$keys = sha1($usercook['username'].$usercook['password'].$_SERVER['REMOTE_ADDR']);
+      		if($keys == $auth[1]) {
+      			$_SESSION['user'] = array(
+          			'id'     => $usercook['id'],
+          			'username' => $usercook['username'],
+          			'role'   => $usercook['role'],
+                'ip'     => $_SERVER['REMOTE_ADDR'],
+          		);
+    		setcookie('usercook', $usercook['id']. '---' . $keys , time() + 3600 * 24 * 5,'/');
+    		echo 'Bienvenue de nouveau '.$usercook['username'];
+      		} else {
+      			setcookie('usercook', '' , time() - 3600 ,'/');
+      		}
+	      }
+      }
+    }
 }

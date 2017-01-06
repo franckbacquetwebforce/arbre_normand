@@ -61,7 +61,8 @@ $qt_product = '1';
               <!-- AFFICHAGE DU PRODUIT CORRESPONDANT A l'ID -->
                   <!-- <article class="card"> -->
                     <!-- <div class="card-content"> -->
-                      <h3><?php echo $product['product_name']; ?></h3>
+										<div class="singlecard">
+											<h2><?php echo $product['product_name']; ?></h2>
                       <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
                       <p class="caract">Catégorie : <?php echo $product['category_name']; ?></p>
                       <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
@@ -74,6 +75,8 @@ $qt_product = '1';
                       <?php }else{ ?>
                       <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-danger disabled" title="">Uniquement sur commande</a></p>
                       <?php } ?>
+										</div>
+
 
                     <!-- </div> -->
                   <!-- </article> -->
