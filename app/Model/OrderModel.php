@@ -248,110 +248,38 @@ class OrderModel extends Model
 // <<<<<<< HEAD
 // =======
 //     /*
-//     *getProducts
-//     * Récupère les données des produits liés a une commande
-//     */
-//    public function getProducts()
-//    {
-//       $orderproducts = $this->userOrderProducts();
-//
-//       if(!empty($orderproducts)){
-//         foreach($orderproducts as $orderproduct){
-//           // $sql = "SELECT * FROM products WHERE id = ".$orderproduct['id_product'];
-//           $sql = "SELECT orders_products.id as order_product,
-//           orders_products.qt_product as quantity,
-//           orders_products.price_product as pricettc,
-//           orders.id as orders,
-//           orders.date_order as date_order,
-//           orders.ref as ref,
-//           products.id as product,
-//           products.product_name as product_name,
-//           products.slug as slug,
-//           products.price_ht as priceht
-//           FROM orders_products
-//           INNER JOIN products
-//           ON orders_products.id_product = products.id
-//           INNER JOIN orders
-//           ON orders_products.id_order = orders.id
-//           ORDER BY orders.date_order DESC";
-//           $sth = $this->dbh->prepare($sql);
-//           $sth->execute();
-//           return $sth->fetchAll();
-//         }
-//       }
-//    }
-//    /*
-//    *findAllOrders
-//    *Récupère toutes les commandes dans la table orders
-//    */
-//    public function findAllOrders()
-//    {
-//      $sql = "SELECT * FROM orders";
-//      $sth = $this->dbh->prepare($sql);
-//      $sth->execute();
-//      return $sth->fetchAll();
-//    }
-//    //Récupère les données dans la table intermédiaire orders_products
-//    public function allOrdersProducts()
-//    {
-//      $orders = $this->findAllOrders();
-//
-//
-//      foreach($orders as $order){
-//
-//        $sql = "SELECT * FROM orders_products WHERE id_order = ".$order['id'];
-//            $sth = $this->dbh->prepare($sql);
-//            $sth->execute();
-//            return $sth->fetchAll();
-//      }
-//
-//    }
-//
-//    public function deleteOrderProd($id)
-//    {
-//      if(!empty($id)){
-//        $sql = "DELETE FROM orders_products WHERE id_order = :id";
-//        $sth = $this->dbh->prepare($sql);
-//        $sth->bindValue(':id',$id);
-//        return $sth->execute();
-//      }
-//    }
-   /*
-   * waitingOrders
-   * Récupère les commandes avec le status 'en_attente'
-   */
- //   public function waitingOrders()
- //   {
- //     $orderproducts = $this->userOrderProducts();
- //
- //     if(!empty($orderproducts)){
- //       foreach($orderproducts as $orderproduct){
- //         // $sql = "SELECT * FROM products WHERE id = ".$orderproduct['id_product'];
- //         $sql = "SELECT orders_products.id as order_product,
- //         orders_products.qt_product as quantity,
- //         orders_products.price_product as pricettc,
- //         orders.id as orders,
- //         orders.date_order as date_order,
- //         orders.ref as ref,
- //         products.id as product,
- //         products.product_name as product_name,
- //         products.slug as slug,
- //         orders.status as status,
- //         products.price_ht as priceht
- //         FROM orders_products
- //         INNER JOIN products
- //         ON orders_products.id_product = products.id
- //         INNER JOIN orders
- //         ON orders_products.id_order = orders.id
- //         AND orders.status = 'en_attente'
- //         ORDER BY orders.date_order ASC";
- //         $sth = $this->dbh->prepare($sql);
- //         $sth->execute();
- //         return $sth->fetchAll();
- //       }
- //   }
- // }
-// >>>>>>> 176b7b7813e1d9e978d8c4630b152cd33ec4b062
+    // *getProducts
+    // * Récupère les données des produits liés a une commande
+    // */
+   public function getProducts()
+   {
+      $orderproducts = $this->userOrderProducts();
+
+      if(!empty($orderproducts)){
+        foreach($orderproducts as $orderproduct){
+          // $sql = "SELECT * FROM products WHERE id = ".$orderproduct['id_product'];
+          $sql = "SELECT orders_products.id as order_product,
+          orders_products.qt_product as quantity,
+          orders_products.price_product as pricettc,
+          orders.id as orders,
+          orders.date_order as date_order,
+          orders.ref as ref,
+          products.id as product,
+          products.product_name as product_name,
+          products.slug as slug,
+          products.price_ht as priceht
+          FROM orders_products
+          INNER JOIN products
+          ON orders_products.id_product = products.id
+          INNER JOIN orders
+          ON orders_products.id_order = orders.id
+          ORDER BY orders.date_order DESC";
+          $sth = $this->dbh->prepare($sql);
+          $sth->execute();
+          return $sth->fetchAll();
+        }
+      }
+   }
 
  public function findAllWaitingOrders()
  {
@@ -444,10 +372,7 @@ if(!empty($array)){
  }
  public function userOrders($id)
  {
-
-
    $sql = "SELECT orders_products.*,products.*,orders.*,users.username,users.email FROM orders_products
-
    LEFT JOIN orders ON orders_products.id_order = orders.id
    LEFT JOIN products ON products.id = orders_products.id_product
    LEFT JOIN users ON orders.id_user = users.id
@@ -457,8 +382,7 @@ if(!empty($array)){
     $sth->execute();
     $array = $sth->fetchAll();
  if(!empty($array)){
-
-    foreach ($array as $key => $value) {
+   foreach ($array as $key => $value) {
       $newArray[$value['id_order']]['produits'][$value['id_product']] =[
              'id_product' => $value['id_product'],
              'slug' => $value['slug'],
@@ -473,24 +397,13 @@ if(!empty($array)){
              'id_category' => $value['id_category'],
              'qt_product' => $value['qt_product'],
              'price_product' => $value['price_product']
-
-           ];
-
-           $newArray[$value['id_order']]['date_order'] = $value['date_order'];
-           $newArray[$value['id_order']]['ref'] = $value['ref'];
-         $newArray[$value['id_order']]['status'] = $value['status'];
-         $newArray[$value['id_order']]['id_user'] = $value['id_user'];
-         $newArray[$value['id_order']]['username'] = $value['username'];
-         $newArray[$value['id_order']]['email'] = $value['email'];
-
-      //  $newArray[$value['id_order']]['date_order'] = $value['date_order'];
-      //  $newArray[$value['id_order']]['ref'] = $value['ref'];
-      //  $newArray[$value['id_order']]['status'] = $value['status'];
-      //  $newArray[$value['id_order']]['id_user'] = $value['id_user'];
-      //  $newArray[$value['id_order']]['username'] = $value['username'];
-      //  $newArray[$value['id_order']]['email'] = $value['email'];
-
-
+      ];
+       $newArray[$value['id_order']]['date_order'] = $value['date_order'];
+       $newArray[$value['id_order']]['ref'] = $value['ref'];
+       $newArray[$value['id_order']]['status'] = $value['status'];
+       $newArray[$value['id_order']]['id_user'] = $value['id_user'];
+       $newArray[$value['id_order']]['username'] = $value['username'];
+       $newArray[$value['id_order']]['email'] = $value['email'];
     }
   }
     return $newArray;
@@ -525,9 +438,7 @@ if(!empty($array)){
    $sth->bindValue(':ref', $ref);
    $sth->execute();
    return $sth->fetch();
-
  }
-
 
   //  Compte le nombre total de commandes
    public function countOrders()
@@ -537,6 +448,7 @@ if(!empty($array)){
      $sth->execute();
      return $sth->fetchColumn();
    }
+
    private function escapeKeys($datas)
  	{
  		return array_map(function($val){

@@ -144,7 +144,7 @@ class UserAdminController extends AppController
       // Vérifie si l'email existe déjà dans la base de données
 
       $mailExist = $this->model->emailExists($email);
-  
+
 
 
       if($this->valid->isValid($errors)){
@@ -165,7 +165,25 @@ class UserAdminController extends AppController
       }
     }
   }
-
+  public function updateStatus($id)
+  {
+    if(!empty($id)){
+      $user = $this->model->find($id);
+      if(!empty($user)){
+        if($user['role'] == 'user'){
+          $data = array(
+            'role' => 'admin'
+          );
+        } elseif($user['role'] == 'admin') {
+          $data = array(
+            'role' => 'user'
+          );
+        }
+        $this->model->update($data,$id);
+        $this->redirectToRoute()
+      }
+    }
+  }
   public function delete($id)
   {
     $roles = ['admin','superadmin'];
