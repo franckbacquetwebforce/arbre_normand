@@ -170,25 +170,12 @@ class UserController extends AppController // le CSS ne fonctionne pas
        $mail->Subject = 'Reinitialisation du mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
-  				$message = "Le message n\'a pas été envoyé.";
-          $mailerror = "";
-          if(!empty($mail->ErrorInfo)){
-            $mailerror =  'Erreur Mail: ' . $mail->ErrorInfo;
-          }
+  				echo "Le message n\'a pas été envoyé.";
+          echo 'Erreur Mail: ' . $mail->ErrorInfo;
     		} else {
-          $message = 'Le message a bien été envoyé';
+          echo 'Le message a bien été envoyé';
         }
-        if(!empty($mailerror)){
-          $this->show('user/forgetpassword',array (
-            'message' => $message,
-            'mailerror' => $mailerror
-          ));
-        } else {
-          $this->show('user/forgetpassword',array (
-            'message' => $message,
 
-          ));
-        }
   	} else {
 			$errors['email']	= "Ce mail n'existe pas";
 			$this->show('user/forgetpassword',array (
@@ -272,12 +259,9 @@ class UserController extends AppController // le CSS ne fonctionne pas
   $subjectContact = trim(strip_tags($_POST['subjectContact']));
   $messageContact = trim(strip_tags($_POST['messageContact']));
 
-
-
-      $validation = new ValidationTools;
-    $error['nameContact']=$validation->textValid($nameContact, 'nom');
-    $error['mailContact']=$validation->emailValid($mailContact);
-
+      $validation = new ValidationTools;//verif des erreurs
+    $error['nameContact']   =$validation->textValid($nameContact, 'nom');
+    $error['mailContact']   =$validation->emailValid($mailContact);
     $error['subjectContact']=$validation->textValid($subjectContact,'sujet');
     $error['messageContact']=$validation->textValid($messageContact,'message',10,1000);
 
@@ -340,5 +324,4 @@ class UserController extends AppController // le CSS ne fonctionne pas
         }
   }  // die(print_r($response));
   }
-
 }
