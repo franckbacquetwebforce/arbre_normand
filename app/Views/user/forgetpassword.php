@@ -17,6 +17,10 @@
               <span class="help-block" id="error_email"><?php if(!empty($errors['email'])) {echo $errors['email']; } ?></span><br>
             </div>
             <button type="submit" class="btn btn-success">Soumettre</button>
+            <br><div class="">
+              <?php if(!empty($message)){ echo $message;} ?>
+              <?php if(!empty($mailerror)){ echo $mailerror;} ?>
+            </div>
           </form>
         </div>
       </div>
