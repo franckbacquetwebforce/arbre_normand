@@ -61,13 +61,13 @@ class OrderAdminController extends AppController
 
   public function single($id)
   {
-
     $oneOrder = $this->orders->singleOrder($id);
     $this->show('admin/orders/single', array(
                         'oneOrder' => $oneOrder,
                         'id'=> $id
     ));
   }
+
 // ?
   public function deleteAction($id)
   {
@@ -86,7 +86,6 @@ class OrderAdminController extends AppController
   {
 
   }
-// ?
   public function addNewAction()
   {
 

@@ -15,17 +15,34 @@
   <table class="layout display responsive-table">
     <thead>
       <tr>
-          <th style="width:10%">Ref</th>
-          <th style="width:10%">Nom</th>
-          <th style="width:10%">Prénom</th>
-          <th style="width:10%">Ville</th>
-          <th style="width:10%">Code Postal</th>
-          <th style="width:10%">Tel</th>
-          <th colspan="1" style="width:10%">Date commande</th>
-          <th colspan="1" style="width:10%">Statut</th>
+          <th style="width:10%">
+            Ref
+          </th>
+          <th style="width:10%">
+            Nom
+          </th>
+          <th style="width:10%">
+            Prénom
+          </th>
+          <th style="width:10%">
+            Ville
+          </th>
+          <th style="width:10%">
+            Code Postal
+          </th>
+          <th style="width:10%">
+            Tel
+          </th>
+          <th colspan="1" style="width:10%">
+            Date commande
+          </th>
+          <th colspan="1" style="width:10%">
+            Statut
+          </th>
       </tr>
     </thead>
     <tbody>
+
 <?php if(!empty($adminorders)){
         foreach ($adminorders as $key => $value) {
         } ?>
@@ -43,7 +60,7 @@
         </tr>
         <?php } ?>
 <?php } ?>
-      
+
     </tbody>
   </table>
 </div>

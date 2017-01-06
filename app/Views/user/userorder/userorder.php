@@ -1,7 +1,7 @@
 <?php $this->layout('layout_product', ['title' => 'Mes commandes']) ?>
 <?php $this->start('main_content') ?>
 <?php
-// debug($orders);
+debug($orders);
 ?>
 <div class="container-fluid">
   <div class="parent">
@@ -20,7 +20,6 @@
     </thead>
     <tbody>
         <?php foreach($orders as $order){ ?>
-
         <tr>
           <td><?php echo $order['ref']; ?></td>
           <td><?php echo $order['date_order']; ?></td>
