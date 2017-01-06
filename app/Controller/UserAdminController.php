@@ -180,7 +180,7 @@ class UserAdminController extends AppController
           );
         }
         $this->model->update($data,$id);
-        $this->redirectToRoute()
+        $this->redirectToRoute('admin_user');
       }
     }
   }
