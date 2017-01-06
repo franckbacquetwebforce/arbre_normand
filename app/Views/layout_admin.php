@@ -66,7 +66,7 @@
               <ul class="nav navbar-nav">
                 <!--Faire un JS sur la classe active-->
                 <li class="accueil_site"><a id="link_front" href="<?= $this->url('default_home') ?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Retour sur le site</span></a></li>
-                <li class="<?php if($w_current_route == 'site_statistics'){echo "active";} ?>"><a href="<?= $this->url('site_statistics') ?>"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Administration: accueil</span></a></li>
+                <li class="<?php if($w_current_route == 'site_statistics'){echo "active";} ?>"><a href="<?= $this->url('site_statistics') ?>"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Accueil administration</span></a></li>
                 <li class="<?php if($w_current_route == 'admin_product'){echo "active";} ?>"><a href="<?= $this->url('admin_product') ?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Produits</span></a></li>
                 <li class="<?php if($w_current_route == 'admin_user'){echo "active";} ?>"><a href="<?= $this->url('admin_user') ?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Utilisateurs</span></a></li>
                 <li class="<?php if($w_current_route == 'admin_order'){echo "active";} ?>"><a href="<?= $this->url('admin_order') ?>"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Commandes</span></a></li>

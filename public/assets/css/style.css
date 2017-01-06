@@ -135,7 +135,7 @@ span label-primary{
 /*Essai dashboard Michèle*/
 
 /*===================MICHELE========================*/
-/*CSS Thumbnail page Listproduct*/
+/*CSS Thumbnail page Listproduct et singleproduct*/
 article.card.bordered{
 	background-color: rgba(185, 185, 185, 0.8);
 	border: 1px solid black;
@@ -148,18 +148,21 @@ p.button {
 		background-color: rgba(185, 185, 185, 0.8);
 	}
 	p.caract {
-		padding-left: 3em;
 		font-weight: bold;
 	}
-	p.button {
+	.card-content {
 		text-align: center;
 	}
-	article.card h2 {
+	.card-content h3 {
+		color: #0d786b;
+		font-weight: bold;
+	}
+	.singlecard h2 {
 		text-align: center;
 		color: #5d5926;
 		font-weight: bold;
 	}
-	article.card h3 {
+	.singlecard h3 {
 		text-align: center;
 		color: #0d786b;
 		font-weight: bold;
@@ -313,12 +316,12 @@ table.responsive-table img {
     padding: .5em;
   }
 
-  table.responsive-table td:nth-child(1):before{
+  /*table.responsive-table td:nth-child(1):before{
     content: 'Image';
   }
   table.responsive-table td:nth-child(2):before{
     content: 'Nom';
-  }
+  }*/
   table.responsive-table td:nth-child(1),
   table.responsive-table td:nth-child(2){
     padding-left: 25%;
@@ -615,6 +618,14 @@ background-color: rgba(182, 186, 157, 0.8);
 }
 .Articles article:nth-child(odd) h2 {
 	text-align: right;
+}
+article.accueil {
+	margin: 15px 15px 0 15px;
+}
+/* PANIER*/
+div.cart {
+	background-color: rgb(218, 208, 202);
+	text-align: center;
 }
 /*===================== FIN MICHELE =============================*/
 

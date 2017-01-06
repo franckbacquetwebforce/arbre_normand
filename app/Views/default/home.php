@@ -81,7 +81,7 @@
 					<h1>CE QUE VOUS TROUVEREZ SUR CE SITE</h1>
 				</div>
 			</div>
-			<article>
+			<article class="accueil">
       <!-- <article class="col-xs-12"> IDEM les col-xs... parents font déjà le boulot-->
         <h2 class="media-heading">Champignons en bois</h2>
 				<img class="img-responsive media-object" src="<?= $this->assetUrl('images/images_10x15/3x2 (17).jpg') ?>" alt="...">
@@ -90,7 +90,7 @@
 					Haec subinde Constantius audiens et quaedam referente Thalassio doctus, quem eum odisse iam conpererat lege communi.        </p>
 					<div class="spacer"></div><!-- il manquait un spacer -->
       </article>
-			<article>
+			<article class="accueil">
       <!-- <article class="col-xs-12"> IDEM les col-xs... parents font déjà le boulot-->
         <h2 class="media-heading">Champignons tables</h2>
 				<img class="img-responsive media-object" src="<?= $this->assetUrl('images/images_10x15/3x2 (20).jpg') ?>" alt="...">
@@ -99,7 +99,7 @@
 					Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu adsimulato saepius replicando quod flagrantibus votis eum videre</p>
 					<div class="spacer"></div><!-- il manquait un spacer -->
       </article>
-			<article>
+			<article class="accueil">
       <!-- <article class="col-xs-12"> IDEM les col-xs... parents font déjà le boulot-->
         <h2 class="media-heading">Palissades</h2>
 				<img class="img-responsive media-object" src="<?= $this->assetUrl('images/images_10x15/3x2 (6).jpg') ?>" alt="...">

@@ -26,6 +26,9 @@
             </div>
             <button type="submit" class="btn btn-success">Se connecter</button>
             <a href="<?= $this->url('register') ?>"><button type="button" class="btn btn-primary pull-right">S'inscrire </button></a>
+            <label>
+  				  <input type="checkbox" name="remember" /> Se souvenir de moi
+  			  </label>
           </form>
         </div>
       </div>

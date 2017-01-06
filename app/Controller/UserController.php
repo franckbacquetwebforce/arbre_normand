@@ -170,11 +170,27 @@ class UserController extends AppController // le CSS ne fonctionne pas
        $mail->Subject = 'Reinitialisation du mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
-  				echo "Le message n\'a pas été envoyé.";
-          echo 'Erreur Mail: ' . $mail->ErrorInfo;
+
+  				$message =  "Le message n\'a pas été envoyé.";
+          $mailerror = '';
+          if(!empty($mail->ErrorInfo)){
+            $mailerror = 'Erreur Mail: ' . $mail->ErrorInfo;
+          }
+
     		} else {
-          echo 'Le message a bien été envoyé';
+          $message = 'Le message a bien été envoyé';
         }
+        if (empty($mailerror)) {
+          $this->show('user/forgetpassword', array(
+
+            'message' => $message,
+          ));
+        }elseif(!empty($mailerror)){
+        $this->show('user/forgetpassword', array(
+            'mailerror' => $mailerror,
+          'message' => $message,
+        ));
+      }
 
   	} else {
 			$errors['email']	= "Ce mail n'existe pas";
@@ -324,4 +340,28 @@ class UserController extends AppController // le CSS ne fonctionne pas
         }
   }  // die(print_r($response));
   }
+    public function remember()
+    {
+      if(!empty($_COOKIE['usercook']) && !isset($_SESSION['user'])) {
+        $auth = $_COOKIE['usercook'];
+        $auth = explode('---',$auth);
+        $usercook = $this->userModel->rememberMe($id);
+
+        if(!empty($usercook)) {
+      		$keys = sha1($usercook['username'].$usercook['password'].$_SERVER['REMOTE_ADDR']);
+      		if($keys == $auth[1]) {
+      			$_SESSION['user'] = array(
+          			'id'     => $usercook['id'],
+          			'username' => $usercook['username'],
+          			'role'   => $usercook['role'],
+                'ip'     => $_SERVER['REMOTE_ADDR'],
+          		);
+    		setcookie('usercook', $usercook['id']. '---' . $keys , time() + 3600 * 24 * 5,'/');
+    		echo 'Bienvenue de nouveau '.$usercook['username'];
+      		} else {
+      			setcookie('usercook', '' , time() - 3600 ,'/');
+      		}
+	      }
+      }
+    }
 }
