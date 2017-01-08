@@ -57,9 +57,9 @@ class UserAdminController extends AppController
 
     }
   }
-/*addNewAction
-*ajout d'un nouveau compte admin  
-*
+/**
+*addNewAction
+*ajout d'un nouveau compte admin
 */
   public function addNewAction()
   {
@@ -112,8 +112,10 @@ class UserAdminController extends AppController
 	}
 
 
-  /*addNewAction
-  *montre le formulaire de création d'un nouveau compte admin
+  /**
+  *update
+  *@param int $id identifiant d'un utilisateur
+  *montre le formulaire de modification d'un compte admin
   */
   public function update($id)
   {
@@ -124,7 +126,11 @@ class UserAdminController extends AppController
       $this->show('admin/adminupdate/adminupdate');
     }
   }
-
+  /**
+  *update
+  *@param int $id identifiant d'un utilisateur
+  *traite le formulaire de modification d'un compte (modification du mot de passe)
+  */
   public function updateAction($id)
   {
     $roles = ['admin','superadmin'];
@@ -170,7 +176,11 @@ class UserAdminController extends AppController
       }
     }
   }
-
+  /**
+  *updateStatus
+  *@param int $id identifiant d'un utilisateur
+  *change le status d'un utilisateur
+  */
   public function updateStatus($id)
   {
     if(!empty($id)){
@@ -190,7 +200,11 @@ class UserAdminController extends AppController
       }
     }
   }
-
+  /**
+  *update
+  *@param int $id identifiant d'un utilisateur
+  *supprime le compte d'un utilisateur
+  */
   public function delete($id)
   {
     $roles = ['admin','superadmin'];
@@ -202,6 +216,10 @@ class UserAdminController extends AppController
       }
     }
   }
+  /**
+  *statistics
+  *envois le nombre de commandes,d'utilisateurs et le stock de chaque produit vers le dashboard
+  */
   public function statistics()
   {
     $roles = ['admin','superadmin'];

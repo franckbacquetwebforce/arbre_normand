@@ -86,7 +86,7 @@ class OrderModel extends Model
   }
   /**
    *singleOrder
-   *recupère toutes une commande en db
+   *recupère  une commande en db
    *@param int $id identifiant le la commande
    *@return un tableau multidimensionnel contenant toute les informations sur une commande en particulier
    */
@@ -109,6 +109,7 @@ class OrderModel extends Model
      $sth->execute();
      $array = $sth->fetchAll();
   if(!empty($array)){
+    // création d'un tableau multidimensionnel contenant toutes les info sur un produit
      foreach ($array as $key => $value) {
        $newArray[$value['id_order']]['produits'][$value['id_product']] =[
               'id_product' => $value['id_product'],
@@ -125,6 +126,7 @@ class OrderModel extends Model
               'qt_product' => $value['qt_product'],
               'price_product' => $value['price_product']
             ];
+            // ajout dans le tableau  des informations concernants l'utilisateur
         $newArray[$value['id_order']]['client'] =[
           'id_user' => $value['id_user'],
           'username' => $value['username'],
@@ -135,7 +137,7 @@ class OrderModel extends Model
           'city' => $value['city'],
           'zip' => $value['zip'],
              ];
-
+            //  ajout dans le tableau des information de la commande
         $newArray[$value['id_order']]['ref'] = $value['ref'];
         $newArray[$value['id_order']]['date_order'] = $value['date_order'];
         $newArray[$value['id_order']]['status'] = $value['status'];
@@ -289,7 +291,11 @@ class OrderModel extends Model
   //       }
   //     }
   //  }
-
+  /**
+   *findAllWaitingOrders
+   *recupère  les commandes avec le status en_attente en db
+   *@return un tableau multidimensionnel contenant toute les informations sur les commandes en attente de validation
+   */
  public function findAllWaitingOrders()
  {
 
@@ -308,6 +314,7 @@ class OrderModel extends Model
    $array = $sth->fetchAll();
   if(!empty($array)){
    foreach ($array as $key => $value) {
+    //  création d'un tableau contenant toutes les informations cernant les produits par commande
      $newArray[$value['id_order']]['produits'][$value['id_product']] =[
             'id_product' => $value['id_product'],
             'slug' => $value['slug'],
@@ -323,6 +330,7 @@ class OrderModel extends Model
             'qt_product' => $value['qt_product'],
             'price_product' => $value['price_product']
           ];
+          // ajout dans le tableau des information complémentaires concernant la commande
         $newArray[$value['id_order']]['date_order'] = $value['date_order'];
         $newArray[$value['id_order']]['status'] = $value['status'];
         $newArray[$value['id_order']]['id_user'] = $value['id_user'];
@@ -337,6 +345,11 @@ class OrderModel extends Model
    return $newArray;
   }
  }
+ /**
+  *deleteOrderProd
+  *@param int $id identifiant de la commande
+  *supprime dans les tables orders et orders_products les informations correspondant a une commande
+  */
  public function deleteOrderProd($id)
  {
    if(!empty($id)){
@@ -350,7 +363,11 @@ class OrderModel extends Model
    }
  }
 
-
+ /**
+  *validOrders
+  *recupère  les commandes avec le status valide en db
+  *@return un tableau multidimensionnel contenant toute les informations sur les commandes validées
+  */
  public function validOrders()
  {
    $sql = "SELECT orders_products.*,products.*,orders.*,users.username,users.email FROM orders_products
@@ -391,6 +408,11 @@ class OrderModel extends Model
   }
     return $newArray;
  }
+ /**
+  *userOrders
+  *@param int $id l'identifiant de l'utilisateur
+  *@return un tableau multidimensionnel contenant toute les informations sur  les commandes liées à un utilisateur
+  */
  public function userOrders($id)
  {
    $sql = "SELECT orders_products.*,products.*,orders.*,users.username,users.email FROM orders_products
@@ -430,10 +452,10 @@ class OrderModel extends Model
     return $newArray;
  }
 
- /*
+ /**
  * selectProduct
  * @param  int $id identifiant d'un produit
- * return les donnée du produit
+ * @return array les donnée du produit
  */
  public function selectProduct($id)
  {
@@ -443,7 +465,11 @@ class OrderModel extends Model
    $sth->execute();
    return $sth->fetchAll();
  }
-
+ /**
+ * updateProduct
+ * @param array $data contenant le nouveau stock d'un produit
+ * @param   $id identifiant d'un produit
+ */
  public function updateProduct($data, $id, $stripTags = true )
  {
    $sql = "UPDATE products SET stock = :stock WHERE id = :id";
@@ -461,8 +487,11 @@ class OrderModel extends Model
  //   return $sth->fetch();
  // }
 
-  //  Compte le nombre total de commandes
-   public function countOrders()
+ /**
+ * countOrders
+ * @return   int  nombre de commandes passées
+ */
+  public function countOrders()
    {
      $sql = "SELECT COUNT(*) From orders";
      $sth = $this->dbh->prepare($sql);
@@ -476,6 +505,10 @@ class OrderModel extends Model
  			return '`'.$val.'`';
  		}, $datas);
  	}
+  /**
+  * ref
+  * @return   string  une référence unique basé sur le moment ou elle est créée
+  */
   public function ref()
   {
     $a =1;
@@ -490,9 +523,5 @@ class OrderModel extends Model
     }
     return $reference;
   }
-
-// ==================================================
-// on affiche sur une page chaque commandes de l'utilisateur
-// pour chaque commande on veut le nom des produits, leur quantité, le prix ht
 
 }
