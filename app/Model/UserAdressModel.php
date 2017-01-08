@@ -48,7 +48,6 @@ class UserAdressModel extends UsersModel
    *Permet de récupérer l'adresse ou les adresses d'un
    *utilisateur
    *@param id de l'utilisateur + les champs du formulaire newaddress
-   *@return
    */
   public function  addUserAdress($string1,$string2,$string3,$string4,$string5,$string6,$string7,$string8)
   {

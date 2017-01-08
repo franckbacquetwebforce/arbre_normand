@@ -23,7 +23,7 @@ class OrderModel extends Model
   /**
    *indexOrders
    *recupère toutes les commandes en db
-   *@return un tableau multidimensionnel
+   *@return un tableau multidimensionnel contenant toute les informations sur les commandes
    */
   public function indexOrders()
   {
@@ -78,11 +78,19 @@ class OrderModel extends Model
 
      }
    }
+
     if(!empty($newArray)){
       return $newArray;
     }
 
   }
+  /**
+   *singleOrder
+   *recupère toutes une commande en db
+   *@param int $id identifiant le la commande
+   *@return un tableau multidimensionnel contenant toute les informations sur une commande en particulier
+   */
+
 // Single product
   public function singleOrder($id)
   {
@@ -141,11 +149,12 @@ class OrderModel extends Model
   /**
    *showCartProducts
    *montre les produits dans le panier
+   *@return array un tableau contenant les informations des produit dans le panier
    */
   public function showCartProducts()
   {
       $carts = $_SESSION['cart'];
-      debug($carts);
+      // debug($carts);
 
 
       for($i = 0; $i<count($carts['id_product']);$i++) {
@@ -201,85 +210,85 @@ class OrderModel extends Model
   *findUserOrders
   *récupère les commandes de l'utilisateur connecté
   */
-    public function findUserOrders()
-    {
-
-      $user = $this->authentification->getLoggedUser();
-
-      $sql = "SELECT * FROM ".$this->table." WHERE id_user = :id_user ORDER BY date_order DESC";
-        $sth = $this->dbh->prepare($sql);
-        $sth->bindValue(':id_user', $user['id']);
-        $sth->execute();
-      return $sth->fetchAll();
-    }
-    public function findWaitingOrders()
-    {
-      $sql = "SELECT * FROM $this->table WHERE status = 'en_attente'";
-      $sth = $this->dbh->prepare($sql);
-      $sth->execute();
-      return $sth->fetchAll();
-    }
-    public function waitingOrdersProducts()
-    {
-      $orders = $this->findWaitingOrders();
-      for($i=0; $i<count($orders); $i++){
-        $sql = "SELECT * FROM orders_products WHERE id_order = ".$orders[$i]['id'];
-        $sth = $this->dbh->prepare($sql);
-        $sth->execute();
-        return $sth->fetchAll();
-      }
-    }
-
-    public function userOrderProducts()
-    {
-      $orders = $this->findUserOrders();
-
-
-      foreach($orders as $order){
-
-        $sql = "SELECT * FROM orders_products WHERE id_order = ".$order['id'];
-            $sth = $this->dbh->prepare($sql);
-            $sth->execute();
-            return $sth->fetchAll();
-      }
-
-
-    }
+    // public function findUserOrders()
+    // {
+    //
+    //   $user = $this->authentification->getLoggedUser();
+    //
+    //   $sql = "SELECT * FROM ".$this->table." WHERE id_user = :id_user ORDER BY date_order DESC";
+    //     $sth = $this->dbh->prepare($sql);
+    //     $sth->bindValue(':id_user', $user['id']);
+    //     $sth->execute();
+    //   return $sth->fetchAll();
+    // }
+    // public function findWaitingOrders()
+    // {
+    //   $sql = "SELECT * FROM $this->table WHERE status = 'en_attente'";
+    //   $sth = $this->dbh->prepare($sql);
+    //   $sth->execute();
+    //   return $sth->fetchAll();
+    // }
+    // public function waitingOrdersProducts()
+    // {
+    //   $orders = $this->findWaitingOrders();
+    //   for($i=0; $i<count($orders); $i++){
+    //     $sql = "SELECT * FROM orders_products WHERE id_order = ".$orders[$i]['id'];
+    //     $sth = $this->dbh->prepare($sql);
+    //     $sth->execute();
+    //     return $sth->fetchAll();
+    //   }
+    // }
+    //
+    // public function userOrderProducts()
+    // {
+    //   $orders = $this->findUserOrders();
+    //
+    //
+    //   foreach($orders as $order){
+    //
+    //     $sql = "SELECT * FROM orders_products WHERE id_order = ".$order['id'];
+    //         $sth = $this->dbh->prepare($sql);
+    //         $sth->execute();
+    //         return $sth->fetchAll();
+    //   }
+    //
+    //
+    // }
 // <<<<<<< HEAD
 // =======
 //     /*
     // *getProducts
     // * Récupère les données des produits liés a une commande
     // */
-   public function getProducts()
-   {
-      $orderproducts = $this->userOrderProducts();
-
-      if(!empty($orderproducts)){
-        foreach($orderproducts as $orderproduct){
-          // $sql = "SELECT * FROM products WHERE id = ".$orderproduct['id_product'];
-          $sql = "SELECT orders_products.id as order_product,
-          orders_products.qt_product as quantity,
-          orders_products.price_product as pricettc,
-          orders.id as orders,
-          orders.date_order as date_order,
-          orders.ref as ref,
-          products.id as product,
-          products.product_name as product_name,
-          products.slug as slug,
-          products.price_ht as priceht
-          FROM orders_products
-          INNER JOIN products
-          ON orders_products.id_product = products.id
-          INNER JOIN orders
-          ON orders_products.id_order = orders.id
-          ORDER BY orders.date_order DESC";
-          $sth = $this->dbh->prepare($sql);
-          $sth->execute();
-          return $sth->fetchAll();
-        }
-      }
-   }
+  //  public function getProducts()
+  //  {
+  //     $orderproducts = $this->userOrderProducts();
+   //
+  //     if(!empty($orderproducts)){
+  //       foreach($orderproducts as $orderproduct){
+  //         // $sql = "SELECT * FROM products WHERE id = ".$orderproduct['id_product'];
+  //         $sql = "SELECT orders_products.id as order_product,
+  //         orders_products.qt_product as quantity,
+  //         orders_products.price_product as pricettc,
+  //         orders.id as orders,
+  //         orders.date_order as date_order,
+  //         orders.ref as ref,
+  //         products.id as product,
+  //         products.product_name as product_name,
+  //         products.slug as slug,
+  //         products.price_ht as priceht
+  //         FROM orders_products
+  //         INNER JOIN products
+  //         ON orders_products.id_product = products.id
+  //         INNER JOIN orders
+  //         ON orders_products.id_order = orders.id
+  //         ORDER BY orders.date_order DESC";
+  //         $sth = $this->dbh->prepare($sql);
+  //         $sth->execute();
+  //         return $sth->fetchAll();
+  //       }
+  //     }
+  //  }
 
  public function findAllWaitingOrders()
  {
@@ -297,7 +306,7 @@ class OrderModel extends Model
    $sth = $this->dbh->prepare($sql);
    $sth->execute();
    $array = $sth->fetchAll();
-if(!empty($array)){
+  if(!empty($array)){
    foreach ($array as $key => $value) {
      $newArray[$value['id_order']]['produits'][$value['id_product']] =[
             'id_product' => $value['id_product'],
@@ -323,9 +332,10 @@ if(!empty($array)){
 
 
    }
- }
-
+  }
+  if(!empty($newArray)){
    return $newArray;
+  }
  }
  public function deleteOrderProd($id)
  {
@@ -442,14 +452,14 @@ if(!empty($array)){
    $sth->bindValue(':stock', $data);
    $sth->execute();
  }
- public function selectRef($ref)
- {
-   $sql = "SELECT * FROM orders WHERE ref = :ref";
-   $sth = $this->dbh->prepare($sql);
-   $sth->bindValue(':ref', $ref);
-   $sth->execute();
-   return $sth->fetch();
- }
+ // public function selectRef($ref)
+ // {
+ //   $sql = "SELECT * FROM orders WHERE ref = :ref";
+ //   $sth = $this->dbh->prepare($sql);
+ //   $sth->bindValue(':ref', $ref);
+ //   $sth->execute();
+ //   return $sth->fetch();
+ // }
 
   //  Compte le nombre total de commandes
    public function countOrders()

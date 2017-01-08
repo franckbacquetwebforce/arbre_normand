@@ -22,11 +22,10 @@ class OrderAdminController extends AppController
   public function index()
   {
     if($this->allowTo('admin')){
-      
+
       $adminorders = $this->orders->indexOrders();
       // debug($adminorders);
-      // die();
-      // $adminorders = 'test';
+
       $this->show('admin/orders/list', array(
         'adminorders' => $adminorders
       ));
@@ -49,7 +48,6 @@ class OrderAdminController extends AppController
     if($this->allowTo('admin')){
       $orders = $this->orders->validOrders();
       // debug($products);
-      // die();
       $this->show('admin/orders/valid', array(
         'orders' => $orders
       ));

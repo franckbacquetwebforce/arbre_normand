@@ -20,9 +20,11 @@ class UserProfileController extends AppController
     $this->address = new UserAdressModel();
 
   }
-  /*
+  /**
   *monProfil
   *affiche les données du compte de l'utilisateur
+  *@param int $id l'identifiant de l'utilisateur
+  *@return array
   */
   public function monprofil($id)
   {
@@ -33,8 +35,12 @@ class UserProfileController extends AppController
         'user' => $user,
         'addresses' => $addresses
       ));
-
   }
+  /**
+  *mesCommandes
+  *affiche les commandes du compte de l'utilisateur
+  *@return array
+  */
   public function mesCommandes()
   {
     $user = $this->authentification->getLoggedUser();
@@ -47,7 +53,7 @@ class UserProfileController extends AppController
   }
   /*
   *addAddress
-  *Affiche les adresses de l'utilisateur connecté
+  *Affiche le formulaire pour ajouter une nouvelle adresse
   */
   public function addAddress()
   {
@@ -99,6 +105,6 @@ class UserProfileController extends AppController
     }
   }
 
-  // gestion des adresses
+
 
 }

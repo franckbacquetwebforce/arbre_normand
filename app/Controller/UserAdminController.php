@@ -27,8 +27,11 @@ class UserAdminController extends AppController
     $this->date = new DateTime();
 
   }
-
-  // listing en back-office des user
+  /**
+  *addNewAction
+  * listing en back-office des user
+  *@return array un tableau contenant les information des utilisateurs inscrits
+  */
   public function index()
   {
     $roles = ['admin','superadmin'];
@@ -42,7 +45,7 @@ class UserAdminController extends AppController
     }
 
   }
-  /*addNewAction
+  /*addNew
   *montre le formulaire de création d'un nouveau compte admin
   */
   public function addNew()
@@ -55,7 +58,7 @@ class UserAdminController extends AppController
     }
   }
 /*addNewAction
-*ajout d'un nouveau compte admin  (redirection a modifier)
+*ajout d'un nouveau compte admin  
 *
 */
   public function addNewAction()
@@ -109,7 +112,9 @@ class UserAdminController extends AppController
 	}
 
 
-
+  /*addNewAction
+  *montre le formulaire de création d'un nouveau compte admin
+  */
   public function update($id)
   {
     $roles = ['admin','superadmin'];

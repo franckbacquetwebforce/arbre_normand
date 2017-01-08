@@ -26,10 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($adminorders as $key => $value) {
-        echo $key;
-         echo $value['client']['lastname'];
-      } ?>
+
       <?php foreach ($adminorders as $key => $value) { ?>
       <tr>
         <td><?php echo $value['ref']; ?></td>
