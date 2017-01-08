@@ -35,7 +35,14 @@ debug($orders);
               <tr>
                 <td><?php echo $value['product_name']; ?></td>
                 <td><?php echo $value['qt_product']; ?></td>
-                <td><?php echo $value['price_product']; ?></td>
+                <td><?php
+                $qt =  $value['qt_product'];
+                $priceht = $value['price_product'];
+                $tva = $priceht * 0.2;
+                $pricettc = $priceht + $tva;
+                $total = $pricettc * $qt;
+                echo $total;
+                 ?></td>
               </tr>
           <?php } ?>
             </table>

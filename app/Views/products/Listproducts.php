@@ -9,7 +9,7 @@
             <div class="container col-xs-12 col-sm-6 col-md-4 col-lg-4"><!-- ajout de div pour placement articles -->
               <article class="card bordered">
                 <figure class="thumbnail">
-                  <img class="img-responsive" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" alt="<?= $product['product_name'] ?>">
+                  <a href="<?php echo $this->url("singleproduct",["id" => $product['id_product']]); ?>"  title="More"><img class="img-responsive" src="<?php echo $this->url('default_home').$product['path'].$product['name']; ?>" alt="<?= $product['product_name'] ?>"></a>
                 </figure>
                 <div class="card-content">
                   <h2><?php if(!empty($product['product_name'])) { echo $product['product_name'];} ?></h2>

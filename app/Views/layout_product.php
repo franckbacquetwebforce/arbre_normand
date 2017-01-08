@@ -29,7 +29,7 @@ $categories = findAll('categories');?>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="row collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     				<img class="abattage_navbar col-xs-4 col-sm-3 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/abattage.svg') ?>" alt="">
-    				<img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
+    				<a href="<?= $this->url('default_home') ?>"><img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt=""></a>
     				<div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">
 
           	<ul class="nav navbar-nav navbar-right ">
