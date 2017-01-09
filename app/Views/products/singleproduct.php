@@ -59,7 +59,12 @@ $price_ht = $product['price_ht'];
 	  <div class="col-xs-6">
 			<div class="singlecard">
 				<h2><?php echo $product['product_name']; ?></h2>
-        <p><h3>Prix : <?php if(!empty($product['price_ht'])) { echo $product['price_ht'];} ?> €</h3></p><br>
+        <p><h3>Prix : <?php if(!empty($product['price_ht'])) {
+					$priceht = $product['price_ht'];
+					$tva = $priceht * 0.2;
+					$pricettc = $priceht + $tva;
+					echo $pricettc;
+				} ?> €</h3></p><br>
         <p class="caract">Catégorie : <?php echo $product['category_name']; ?></p>
         <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>
         <p class="caract">Longueur : <?php if(!empty($product['weight'])) { echo $product['length'];}  ?> cm</p>

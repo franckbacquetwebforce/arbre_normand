@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 
 
-<!-- <?php debug($orders); ?> -->
+<?php debug($orders); ?>
 
 <!-- Page affichant la liste des commandes du client en front-office -->
 <!-- Mise en forme et CSS (Michèle) -->
@@ -23,6 +23,7 @@
       </tr>
     </thead>
     <tbody>
+      <?php if(!empty($orders)){ ?>
 <?php foreach($orders as $order){ ?>
         <tr>
           <td><?php echo $order['ref']; ?></td>
@@ -55,6 +56,7 @@
           <td><p class="button"><b>Commande validée</b></p></td>
   <?php } ?>
         </tr>
+      <?php } ?>
       <?php } ?>
     </tbody>
   </table>

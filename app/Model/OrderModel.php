@@ -451,7 +451,10 @@ class OrderModel extends Model
        $newArray[$value['id_order']]['email'] = $value['email'];
     }
   }
+  if(!empty($newArray)){
     return $newArray;
+
+  }
  }
 
  /**

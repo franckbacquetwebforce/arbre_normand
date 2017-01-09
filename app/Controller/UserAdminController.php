@@ -205,7 +205,7 @@ class UserAdminController extends AppController
   *@param int $id identifiant d'un utilisateur
   *supprime le compte d'un utilisateur
   */
-  public function delete($id)
+  public function deleteAction($id)
   {
     $roles = ['admin','superadmin'];
 
@@ -213,6 +213,10 @@ class UserAdminController extends AppController
 
       if(!empty($id)){
         $this->model->delete($id);
+        $this->redirectToRoute('admin_user');
+      }
+      else{
+        $this->showNotFound();
       }
     }
   }
