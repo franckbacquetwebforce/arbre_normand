@@ -2,15 +2,11 @@
 
 <?php $this->start('main_content') ?>
 <?php
-<<<<<<< HEAD
-if(array_key_exists('cart', $_SESSION)){
-	$key = array_search($product['prod_id'] , $_SESSION['cart']['id_product']);}
-=======
+
 if(!empty($_SESSION)){
 	if(array_key_exists('cart', $_SESSION)){
 	$key = array_search($product['prod_id'] , $_SESSION['cart']['id_product']);}
 }
->>>>>>> 1cd2b352c3625755b6563dc171ce3100efbcaf49
 $price_ht = $product['price_ht'];
 
 // debug($_SESSION);

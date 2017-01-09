@@ -1,12 +1,7 @@
 <?php $this->layout('layout_product', ['title' => 'Mes commandes']) ?>
 
 <?php $this->start('main_content') ?>
-<<<<<<< HEAD
-<?php
-// debug($orders);
-?>
-<div class="container-fluid">
-=======
+
 
 <!-- <?php debug($orders); ?> -->
 
@@ -14,7 +9,6 @@
 <!-- Mise en forme et CSS (Michèle) -->
 
 <section class="container-fluid">
->>>>>>> 1cd2b352c3625755b6563dc171ce3100efbcaf49
   <div class="parent">
     <div class="enfant">
       <h1>Mes commandes</h1>

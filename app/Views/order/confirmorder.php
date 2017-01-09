@@ -1,12 +1,8 @@
 <?php $this->layout('layout_product', ['title' => 'Confirmer la commande']) ?>
 <?php $this->start('main_content') ?>
 
-<<<<<<< HEAD
-<?php
-// debug($orders); ?>
-=======
+
 <!-- <?php debug($orders); ?> -->
->>>>>>> 1cd2b352c3625755b6563dc171ce3100efbcaf49
 
 <!-- Formulaire de validation de commande en front-office
      Mise en forme et CSS (Michèle) -->
@@ -31,7 +27,6 @@
   <?php if(!empty($orders)) {
           foreach ($orders as $order) { ?>
             <tr>
-<<<<<<< HEAD
               <td><img class="thumb_cart" src="<?= $this->url('default_home').$order['product_img'] ?>" alt=""></td>
   						<td><b><?php if(!empty($order['product_name'])){echo $order['product_name'];} ?></b></td>
               <td><b>Qté :</b><?php if(!empty($order['cart_qt'])){echo $order['cart_qt'];} ?></td>
@@ -43,13 +38,7 @@
                 $qt = $order['cart_qt'];
                 $total = $pricettc * $qt;
                 echo $total;} ?> €</h4></b></td>
-=======
-              <td class="valid"><img class="thumb_cart" src="<?= $this->url('default_home').$order['product_img'] ?>" alt=""></td>
-  						<td class="valid"><b><?php if(!empty($order['product_name'])){echo $order['product_name'];} ?></b></td>
-              <td class="valid"><b>Qté : </b><?php if(!empty($order['cart_qt'])){echo $order['cart_qt'];} ?></td>
-              <td class="valid"><b>Poids : </b><?php if(!empty($order['product_weight'])){echo $order['product_weight'];} ?> kg</td>
-              <td class="valid"><b><h4>Total : </b><b><?php if(!empty($order['cart_price'])){echo $order['cart_price'];} ?> €</h4></b></td>
->>>>>>> 1cd2b352c3625755b6563dc171ce3100efbcaf49
+
             </tr>
     <?php } ?>
           <th colspan="5"><p class="button"><button <?php if(!empty($w_user)) {?> onclick="alert('Merci pour votre commande, un email de confirmation vous a été envoyé');" <?php } ?> class="btn btn-success" type="submit" name="submit" value="">Valider</button></p></th>

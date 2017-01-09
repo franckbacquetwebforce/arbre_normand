@@ -43,8 +43,8 @@
 		// Route permettant de passer un utilisateur en admin et inversement
 		['GET|POST', '/admin/user/update_status/[i:id]', 'UserAdmin#updateStatus', 'admin_user_status_update'],
 
-		// ['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
-		// ['POST', '/admin/user/update/[i:id]', 'UserAdmin#updateAction', 'admin_user_update_action'],
+		['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
+		['POST', '/admin/user/update/[i:id]', 'UserAdmin#updateAction', 'admin_user_update_action'],
 
 		// Route permettant de supprimer un utilisateur
 		['GET', '/admin/user/delete/[i:id]', 'UserAdmin#deleteAction', 'admin_user_delete_action'],
