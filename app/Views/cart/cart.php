@@ -28,16 +28,20 @@ debug ($infoPanier);?>
             <th colspan="1" style="width:15%">Image</th>
 		        <th style="width:20%">Libellé</th>
 		        <th colspan="1" style="width:10%">Quantité</th>
-		        <th colspan="1" style="width:10%">Prix Unitaire</th>
-		        <th colspan="1" style="width:10%">Poids Unitaire</th>
-            <th colspan="1" style="width:15%">Total Commande</th>
-		        <th colspan="1" style="width:20%">Action</th>
+		        <th colspan="1" style="width:7%">Prix Unitaire HT</th>
+		        <th colspan="1" style="width:7%">Poids Unitaire</th>
+            <th colspan="1" style="width:20%">Total TTC</th>
+		        <th colspan="1" style="width:10%">Action</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 				<?php
-        $quick_total = 0;
+        $total = 0;
         for ($i=0; $i < $nbArticles; $i++){?>
+          <?php $tva =  $infoPanier[$i]['cart_price']*0.2;
+          $pricettc =  $infoPanier[$i]['cart_price'] + $tva;
+          $pricetotalttc =  $pricettc*$_SESSION['cart']['qt_product'][$i];
+           ?>
 								<tr>
                   <td><img class="thumb_cart" src="<?= $this->url('default_home').$infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
 									<td><b><?= $infoPanier[$i]['product_name'] ?></b></td>
@@ -47,11 +51,12 @@ debug ($infoPanier);?>
 										<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button"><i class="fa fa-minus"></i></button></a></td>
 									<td><?= $infoPanier[$i]['cart_price']?> €</td>
 									<td><?= $infoPanier[$i]['product_weight']?> kg</td>
-                  <td colspan="1"><b>Total: <?= $quick_total=$_SESSION['cart']['qt_product'][$i]*$infoPanier[$i]['cart_price'] ?> €</b></td>
+                  <td colspan="1"><b> <?= number_format($pricetotalttc, 2, ',', ' '); ?> €</b></td>
 									<td><a href="<?= $this->url('user_cart_remove', ['l'=> $infoPanier[$i]['product_id']]); ?>"><button type="button" name="button">Supprimer du panier</button></a></td>
 								</tr>
+
 				<?php
-$quick_total+=$quick_total;
+$total+=$pricetotalttc;
       } ?>
 			<?php } ?>
                <tr>
@@ -61,10 +66,10 @@ $quick_total+=$quick_total;
                  <td></td>
                  <td></td>
                  <td>
-                   <strong>
-                   <?php $quick_total
+                   <strong>Total :
+                   <?php echo number_format($total, 2, ',', ' ');;
                    ?>
-                   € TTC
+                   €
                    </strong>
                  </td>
                  <td></td>

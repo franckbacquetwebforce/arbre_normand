@@ -24,7 +24,7 @@
                 $priceht = $product['price_ht'];
                 $tva = $priceht * 0.2;
                 $pricettc = $priceht + $tva;
-                echo $pricettc;
+                echo number_format($pricettc, 2, ',', ' ');
               } ?> €</h3></p>
               <p class="caract">Catégorie : <?php if(!empty($product['category_name'])) { echo $product['category_name'];} ?></p>
               <p class="caract">Poids : <?php if(!empty($product['weight'])) { echo $product['weight'];}  ?> Kg</p>

@@ -43,9 +43,10 @@
             <?php } ?>
               </tr>
               <tr>
-                <th>Prix TTC</th>
+                <th>Prix HT</th>
             <?php foreach ($order['produits'] as $key => $value){ ?>
-                  <td><?php echo $value['price_product']; ?></td>
+                  <td><?php echo number_format($value['price_product'], 2, ',', ' ');
+                    ?></td>
             <?php } ?>
               </tr>
             </table>
