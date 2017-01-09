@@ -606,6 +606,8 @@ body{
 	max-height: 100px;
 	max-width: 100px;
 }
+
+
 /*LAYOUT HOME (special)*/
 /*carroussel*/
 
@@ -646,6 +648,9 @@ background-color: rgba(182, 186, 157, 0.8);
 /*
  * PAGE ACCUEIL
  */
+
+
+
  .Articles article {
    margin-top: 1em;
    padding: 15px;
@@ -662,26 +667,39 @@ background-color: rgba(182, 186, 157, 0.8);
    bottom: 0;
    width: 100%;
  }
-.Articles article:nth-child(even) img {
-  float: left;
-  margin-right: 1em;
-	max-height: 35rem;
-	min-height: 35rem;
-	display: flex;
+ @media (min-width: 1300px){
+  .Articles article:nth-child(even) img {
+    float: left;
+    margin-right: 1em;
+  	max-height: 30rem;
+  	min-height: 30rem;
+  	display: flex;
+  }
+  .Articles article:nth-child(odd) img {
+    float: right;
+    margin-left: 1em;
+  	max-height: 30rem;
+  	min-height: 30rem;
+  	display: flex;
+  }
+  .Articles article:nth-child(even) h2 {
+  	text-align: left;
+  }
+
+  .Articles article:nth-child(odd) h2 {
+  	text-align: right;
+  }
 }
-.Articles article:nth-child(even) h2 {
-	text-align: left;
-}
-.Articles article:nth-child(odd) img {
-  float: right;
-  margin-left: 1em;
-	max-height: 35rem;
-	min-height: 35rem;
-	display: flex;
-}
-.Articles article:nth-child(odd) h2 {
-	text-align: right;
-}
+
+/*@media(max-width: 1300px){
+	.Articles article:nth-child(odd) img {
+		float:none;
+	}
+	.Articles article:nth-child(odd) img {
+		float:none;
+	}
+}*/
+
 article.accueil {
 	margin: 15px 15px 0 15px;
 }

@@ -2,8 +2,9 @@
 
 <?php $this->start('main_content') ?>
 <?php
+if(!empty($_SESSION)){
 if(array_key_exists('cart', $_SESSION)){
-}{$key = array_search($product['prod_id'] , $_SESSION['cart']['id_product']);}
+}{$key = array_search($product['prod_id'] , $_SESSION['cart']['id_product']);}}
 $price_ht = $product['price_ht'];
 // debug($_SESSION);
 // debug($product['stock']);

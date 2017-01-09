@@ -84,7 +84,7 @@
 			<article class="accueil">
       <!-- <article class="col-xs-12"> IDEM les col-xs... parents font déjà le boulot-->
         <h2 class="media-heading">Champignons en bois</h2>
-				<img class="img-responsive media-object" src="<?= $this->assetUrl('images/images_10x15/3x2 (17).jpg') ?>" alt="...">
+				<img class="img-responsive media-object img_presentation_home" src="<?= $this->assetUrl('images/images_10x15/3x2 (17).jpg') ?>" alt="...">
         <p>
 					Nam sole orto magnitudine angusti gurgitis sed profundi a transitu arcebantur et dum piscatorios quaerunt lenunculos vel innare temere contextis cratibus parant, effusae legiones, quae hiemabant tunc apud Siden, isdem impetu occurrere veloci. et signis prope ripam locatis ad manus comminus conserendas denseta scutorum conpage semet scientissime praestruebant, ausos quoque aliquos fiducia nandi vel cavatis arborum truncis amnem permeare latenter facillime trucidarunt.
 					Haec subinde Constantius audiens et quaedam referente Thalassio doctus, quem eum odisse iam conpererat lege communi.        </p>
@@ -93,7 +93,7 @@
 			<article class="accueil">
       <!-- <article class="col-xs-12"> IDEM les col-xs... parents font déjà le boulot-->
         <h2 class="media-heading">Champignons tables</h2>
-				<img class="img-responsive media-object" src="<?= $this->assetUrl('images/images_10x15/3x2 (20).jpg') ?>" alt="...">
+				<img class="img-responsive media-object img_presentation_home" src="<?= $this->assetUrl('images/images_10x15/3x2 (20).jpg') ?>" alt="...">
         <p>
 					Haec igitur lex in amicitia sanciatur, ut neque rogemus res turpes nec faciamus rogati. Turpis enim excusatio est et minime accipienda cum in ceteris peccatis, tum si quis contra rem publicam se amici causa fecisse fateatur. Etenim eo loco, Fanni et Scaevola, locati sumus ut nos longe prospicere oporteat futuros casus rei publicae. Deflexit iam aliquantum de spatio curriculoque consuetudo maiorum.
 					Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu adsimulato saepius replicando quod flagrantibus votis eum videre</p>
@@ -102,7 +102,7 @@
 			<article class="accueil">
       <!-- <article class="col-xs-12"> IDEM les col-xs... parents font déjà le boulot-->
         <h2 class="media-heading">Palissades</h2>
-				<img class="img-responsive media-object" src="<?= $this->assetUrl('images/images_10x15/3x2 (6).jpg') ?>" alt="...">
+				<img class="img-responsive media-object img_presentation_home" src="<?= $this->assetUrl('images/images_10x15/3x2 (6).jpg') ?>" alt="...">
         <p>
 					Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis parcens nec urbium primatibus nec plebeiis.
 					Ex turba vero imae sortis et paupertinae in tabernis aliqui pernoctant vinariis, non nulli velariis umbraculorum theatralium latent, quae Campanam imitatus lasciviam Catulus in aedilitate sua suspendit omnium primus; </p>
