@@ -1,0 +1,145 @@
+body{
+  background-image: url(../images/desert.jpg);
+  background-size: 100%;
+}
+
+
+.all_content{
+	max-width: 1600px;
+}
+.container-fluid{/*correction de marge qui creait un scroll horizontal*/
+	margin:0;
+}
+.main_content {
+	/*background-color: rgba(185, 185, 185, 0.8);*/ /*ancien*/
+}
+.main_column{
+	background-color: rgba(185, 185, 185, 0.6);
+	padding: 0 1em 0 1em;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	/*color: rgb(8, 7, 7);*/ /*ancien*/
+	color: rgb(8, 7, 7);
+}
+
+a:hover {
+	/*color: #F92672;*/ /*ancien*/
+	color: #2B5043;
+}
+
+h1 {
+	/*color: #2B5043;*/ /*hermelen source flyer*/
+	color: #0d786b;
+	font-size: 2em;
+}
+
+h2 {
+	/*color: #4F3A3A;*/ /*hermelen source flyer*/
+	color: #5d5926;
+}
+/*===================MICHELE========================*/
+/* Essai Menu Navbar vertical left*/
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+		font-weight: bold;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+	/*=========================Menu_right HERMELEN =============================*/
+	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
+		top: 84px;
+		width: 22.5%;
+		-o-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-webkit-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+	}
+	a#link_admin{
+		color: rgb(126, 186, 154);
+		background-color: rgb(37, 56, 74);
+	}
+	a#link_admin:hover{
+		color: rgb(172, 255, 211);
+		background-color: rgb(37, 56, 74);
+	}
+}
+.cart_content{
+	color: rgb(255, 74, 215);
+}
+/*pas sticky*/
+.navbar-default{/*navbar global*/
+	background-color: rgb(184, 175, 170);/*foncé*/
+	border-width: 0;
+}
+.navbar-default .navbar-nav>.active>a{/*Accueil et autres li active*/
+	background-color: rgb(218, 208, 202);/*clair*/
+}
+.btn-default{/*boutons submit panier...*/
+	background-color: rgb(218, 208, 202);
+}
+.navbar-default .navbar-nav>.open>a:focus{/*title dropdowm when focused or clicked*/
+	background-color: rgb(218, 208, 202);
+}
+.navbar-default .dropdown-menu{/*dropdown content*/
+	background-color: rgb(184, 175, 170);
+}
+/*sticky*/
+.navbar-default.sticky{/*navbar global*/
+	background-color: rgb(218, 208, 202);
+	border-width: 0;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	-o-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+}
+.navbar-default.sticky .navbar-nav>.active>a{/*Accueil et autres li active*/
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .btn-default{/*boutons submit panier...*/
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .navbar-nav>.open>a:focus{/*title dropdowm when focused or clicked*/
+	background-color: rgb(184, 175, 170);
+}
+.navbar-default.sticky .dropdown-menu{/*dropdown content*/
+	background-color: rgb(218, 208, 202);
+}
+
+.logo_navbar{
+	margin-top: 0.2%;
+	margin-left: 16%;
+	height: 61.2px;
+}
+.abattage_navbar{
+	margin-left: -2%;
+	height: 63.6px;
+}
+.forbidden{
+  font-weight: bolder;
+}
+.interdit{
+  background-color: rgba(4, 4, 4, 0.74);
+  width: 30rem;
+  margin: auto;
+  margin-top: 5%;
+}

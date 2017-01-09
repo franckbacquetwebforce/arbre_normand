@@ -56,8 +56,9 @@ public function getCartProductWithImage($cart_id_product)
             FROM $this->table
             LEFT JOIN img as i
             ON products.id = i.id_product
-            WHERE i.status_img = 1 AND products.id = $cart_id_product";
+            WHERE i.status_img = 1 AND products.id = :id";
             $query = $this->dbh->prepare($sql);
+            $sth->bindValue(':id', $cart_id_product);
             $query->execute();
             return $query->fetchAll();
 }

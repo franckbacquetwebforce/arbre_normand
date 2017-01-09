@@ -22,16 +22,20 @@ class OrderController extends AppController
    $this->authentification = new AuthentificationModel();
  }
 
- public function index()
- {
-
-   $products = $this->ordermodel->getProducts();
-   // debug($products);
-   // die();
-   $this->show('order/list', array(
-                       'products' => $products
-   ));
- }
+ // public function index()
+ // {
+ //
+ //   $products = $this->ordermodel->getProducts();
+ //   // debug($products);
+ //   // die();
+ //   $this->show('order/list', array(
+ //                       'products' => $products
+ //   ));
+ // }
+ /**
+ *confirmOrder
+ * Affiche le récapitulatif du panier pour la validation
+ */
  public function confirmOrder()
  {
    $orders = $this->cart->infoProduitPanier();
@@ -40,7 +44,10 @@ class OrderController extends AppController
                    'orders' => $orders,
    ));
  }
-
+ /**
+ *confirmOrderAction
+ * Insert dans les tables concernées les différentes inlformations sur la commande
+ */
  public function confirmOrderAction()
  {
    $orders = $this->cart->infoProduitPanier();

@@ -18,11 +18,14 @@ class OrderAdminController extends AppController
     $this->authentification = new AuthentificationModel();
 
   }
-
+  /**
+  *index
+  *Affiche toutes les commandes
+  */
   public function index()
   {
     if($this->allowTo('admin')){
-
+      // Fonction venant de OrderModel, qui permet de récupérer les information de toutes les commandes
       $adminorders = $this->orders->indexOrders();
       // debug($adminorders);
 
@@ -31,7 +34,10 @@ class OrderAdminController extends AppController
       ));
     }
   }
-  // méthode permettant d'afficher les commande en attente de validation
+  /**
+  *validatingOrders
+  *méthode permettant d'afficher les commande en attente de validation
+  */
   public function validatingOrders()
   {
     if($this->allowTo('admin')){
@@ -42,7 +48,10 @@ class OrderAdminController extends AppController
     }
 
   }
-  // méthode utilisant OrderModel permettant d'afficher les commande validées
+  /**
+  *validOrders
+  *méthode utilisant OrderModel permettant d'afficher les commande validées
+  */
   public function validOrders()
   {
     if($this->allowTo('admin')){
@@ -53,7 +62,11 @@ class OrderAdminController extends AppController
       ));
     }
   }
-
+  /**
+  *single
+  *@param int $id identifiant de la commande
+  *méthode permettant d'afficher le détail d'une commande
+  */
   public function single($id)
   {
     $oneOrder = $this->orders->singleOrder($id);
@@ -62,8 +75,11 @@ class OrderAdminController extends AppController
                         'id'=> $id
     ));
   }
-
-// ?
+  /**
+  *deleteAction
+  *@param int $id identifiant de la commande
+  *méthode permettant de supprimer une commande
+  */
   public function deleteAction($id)
   {
     if($this->allowTo('admin')) {
@@ -76,7 +92,11 @@ class OrderAdminController extends AppController
       }
     }
   }
-
+  /**
+  *updateAction
+  *@param int $id identifiant de la commande
+  *méthode permettant de valider une commande 
+  */
   public function updateAction($id)
   {
 

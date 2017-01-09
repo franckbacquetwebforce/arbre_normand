@@ -13,6 +13,7 @@
 		['GET', '/admin/product/update/[i:id]', 'ProductAdmin#update', 'admin_product_update'],
 		['POST', '/admin/product/update/[i:id]', 'ProductAdmin#updateAction', 'admin_product_update_action'],
 		['GET', '/admin/product/delete/[i:id]', 'ProductAdmin#deleteAction', 'admin_product_delete_action'],
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Admin Order
 		// Route pour afficher la liste des commandes dans le back-office
 		['GET', '/admin/order/list', 'OrderAdmin#index', 'admin_order'],
@@ -29,6 +30,7 @@
 		['GET|POST', '/admin/order/update/[i:id]', 'OrderAdmin#updateAction', 'admin_order_update_action'],
 		// Route permettant de supprimer une commande en back-office
 		['GET|POST', '/admin/order/delete/[i:id]', 'OrderAdmin#deleteAction', 'admin_order_delete_action'],
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Admin User
 		// Route permettant d'afficher
 		['GET', '/admin/user', 'UserAdmin#index', 'admin_user'],
@@ -47,6 +49,7 @@
 		// Route permettant de supprimer un utilisateur
 		['GET', '/admin/user/delete/[i:id]', 'UserAdmin#deleteAction', 'admin_user_delete_action'],
 
+		///////////////////////////////////////////////////////////////////////////////////////////////////
 		// Admin Categories
 		// Route permettant d'afficher la liste des catégories en back-office
 		['GET', '/admin/categories', 'CategoriesAdmin#index', 'admin_categories'],
@@ -68,6 +71,7 @@
 		['GET', '/user/cart/[i:l]/[i:q]', 'Cart#retrancherArticle', 'user_cart_substrat'],
 		['GET', '/user/cart/[i:l]', 'Cart#supprimerArticle', 'user_cart_remove'],
 		// ['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// User
 		// Route pour afficher le formulaire d'inscription
 		['GET', '/register', 'User#register', 'register'],
@@ -91,6 +95,7 @@
 		['GET', '/contact', 'User#contact', 'contact'],
 		// Route pour valider l'envoi du mail de contact
 		['POST', '/contact', 'User#contactAction', 'contact_action'],
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// UserProfile
 		// Route affichant le profil de l'utilisateur
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
@@ -100,11 +105,14 @@
 		['POST', '/user/adresses/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
 		// Route affichant les commandes du compte connecté
 		['GET', '/user/orders/list', 'UserProfile#mesCommandes', 'user_orders'],
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Order
-
 		// ['GET', '/orders', 'Order#index', 'listorders'],
+		// Route affichant le recapitulatif de la commande avant validation
 		['GET', '/user/confirm', 'Order#confirmOrder', 'confirm_order'],
+		// Route permettant de valider la commande
 		['POST', '/user/confirm', 'Order#confirmOrderAction', 'confirm_order_action'],
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Product
 		// Route pour afficher la page "products/listproducts"
 		['GET', '/products', 'Product#index', 'listproducts'],

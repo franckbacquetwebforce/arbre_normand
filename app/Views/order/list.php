@@ -4,19 +4,7 @@
 <?php $this->start('main_content') ?>
 
 <?php
-// liste des données récupérées dans le OrderModel
-//probleme de date non prise en compte
 
-// orders_products.id as order_product,
-// orders_products.qt_product as quantity,
-// orders_products.price_product as pricettc,
-// orders.id as orders,
-// orders.date_order as date_order,
-// orders.ref as ref,
-// products.id as product,
-// products.product_name as product_name,
-// products.slug as slug,
-// products.price_ht as priceht
 if(empty($products)){
   echo 'Vous n\'avez rien commandé';
 
