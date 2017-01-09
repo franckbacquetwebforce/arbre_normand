@@ -2,13 +2,19 @@
 
 <?php $this->start('main_content') ?>
 <?php
-if(array_key_exists('cart', $_SESSION)){
-}{$key = array_search($product['prod_id'] , $_SESSION['cart']['id_product']);}
+if(!empty($_SESSION)){
+	if(array_key_exists('cart', $_SESSION)){
+	$key = array_search($product['prod_id'] , $_SESSION['cart']['id_product']);}
+}
 $price_ht = $product['price_ht'];
-// debug($product['prod_id']);
-// debug($productOriginal);
-// debug($img);
+
+// debug($_SESSION);
+// debug($product['stock']);
+// debug($_SESSION['cart']['qt_product'][$key]);
+// debug($key);
+
 ?>
+
 <!-- Page affichant la liste des produits en front-office -->
 <!-- Mise en forme et CSS (Michèle, modif apportées et slider par Hermelen) -->
 <main class="container-fluid">
@@ -61,20 +67,20 @@ $price_ht = $product['price_ht'];
         <p class="caract">Longueur : <?php if(!empty($product['weight'])) { echo $product['length'];}  ?> cm</p>
         <p class="caract">Largeur : <?php if(!empty($product['weight'])) { echo $product['width'];}  ?> cm</p>
         <p class="caract">Hauteur : <?php if(!empty($product['weight'])) { echo $product['height'];}  ?> cm</p>
-    <?php if(!empty($product['stock'])){ //si le stock est renseigné?>
-        	<p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
+		<?php if(!empty($product['stock'])){ //si le stock est renseigné?>
+						<p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
 			<?php if($product['stock']>0){// 1-si stock > 0
-					 		if(array_key_exists('cart', $_SESSION)){ //2-si le panier existe
-								if(!empty($key)){// 3- si le produit existe dans le panier
-									if($product['stock']>$_SESSION['cart']['qt_product'][$key]){ //4-si le stock est superieur au panier?>
+							if(!empty($_SESSION) && array_key_exists('cart', $_SESSION)){ //2-si le panier existe
+								if(!empty($key) || $key == 0){// 3- si le produit existe dans le panier
+									if($product['stock']>$_SESSION['cart']['qt_product'][$key]){ //4-si le stock est superieur au panier ?>
 										<p class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
-						<?php }else{ //4-sinon?>
-										<p id="specialorder" class="button no-stock"><a class="btn btn-danger" title="">Commande supérieure au stock</a></p>
+						<?php }else{ //4-sinon ?>
+										<p id="specialorder" class="button no-stock"><a class="btn btn-danger" title="">Quantité maximale atteinte</a></p>
 						<?php } ?>
-					<?php }else{ //3- sinon?>
+					<?php }else{ //3- sinon ?>
 									<p  class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
 					<?php } ?>
-				<?php }else{ //2-sinon?>
+				<?php }else{ //2-sinon ?>
 								<p  class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
 				<?php } ?>
 			<?php }else{ //1-sinon ?>
@@ -98,5 +104,6 @@ $price_ht = $product['price_ht'];
     </section>
   </section>
 </main>
+
 
   <?php $this->stop('main_content') ?>

@@ -150,6 +150,9 @@ class CartController extends AppController
 	      $tmp['qt_product'] = array();
 	      $tmp['price_product'] = array();
 	      $tmp['cart'] = $_SESSION['cart'];
+				// debug($tmp);
+				// debug($_SESSION);
+				// die();
 	      for($i = 0; $i < count($_SESSION['cart']['id_product']); $i++)
 	      {
 	         if ($_SESSION['cart']['id_product'][$i] !== $id_product)
@@ -163,9 +166,10 @@ class CartController extends AppController
 	      //On remplace le panier en session par notre panier temporaire à jour
 	      $_SESSION['cart'] =  $tmp;
 	      //On efface notre panier temporaire
-	      unset($tmp);
+	      unset($_SESSION['cart']['cart']);
 				$total = $this->MontantGlobal();
 				$products = $this->afficherPanier();
+
 				$this->show('cart/cart', array(
 					'total'=>$total , 'products'=>$products
 				));
