@@ -3,31 +3,34 @@
 <?php $this->start('main_content') ?>
 <?php
 // debug($_SESSION['cart']);
-
 // debug ($infoPanier);?>
-<div class="container-fluid">
-  <div class="parent">
-    <div class="enfant">
+
+<!-- Page affichant le panier en fron-office
+     Mise en forme et CSS (Michèle) -->
+<main class="container-fluid">
+  <section class="parent">
+    <article class="enfant">
       <h1>Mon panier</h1></br>
+      <!-- span pour afficher les erreurs de stocks -->
 			<span><?php if(!empty($error)){echo $error;} ?></span>
-    </div>
-  </div>
+    </article>
+  </section>
 	<form method="post" action="cart.php">
-		<table class="layout display responsive-table"><?php
-			$nbArticles=count($_SESSION['cart']['id_product']);
+		<table class="layout display responsive-table">
+      <?php $nbArticles=count($_SESSION['cart']['id_product']);
 			if ($nbArticles <= 0){ ?>
         <div class="cart">
 		<?php echo "<p class='empty_cart'><h3>Votre panier est vide</h3></p>";?>
         </div>
-		<?php	}else{ ?>
+<?php	}else{ ?>
 		    <thead>
 		      <tr>
-            <th colspan="1" style="width:20%">Image</th>
+            <th colspan="1" style="width:15%">Image</th>
 		        <th style="width:20%">Libellé</th>
 		        <th colspan="1" style="width:10%">Quantité</th>
 		        <th colspan="1" style="width:10%">Prix Unitaire</th>
 		        <th colspan="1" style="width:10%">Poids Unitaire</th>
-            <th colspan="1" style="width:10%">Total Commande</th>
+            <th colspan="1" style="width:15%">Total Commande</th>
 		        <th colspan="1" style="width:20%">Action</th>
 		      </tr>
 		    </thead>
@@ -48,8 +51,9 @@
 			<?php } ?>
 		</table>
 	</form>
-	<?php if($nbArticles>0){ ?>
-	<p class="button"><a class="colorlien btn btn-success" href="<?= $this->url('confirm_order'); ?>">Passer la commande</a></p>
-	<?php } ?>
+<?php if($nbArticles>0){ ?>
+	     <p class="button"><a class="colorlien btn btn-success" href="<?= $this->url('confirm_order'); ?>">Passer la commande</a></p>
+<?php } ?>
 </div>
+
 <?php $this->stop('main_content') ?>
