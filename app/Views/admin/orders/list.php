@@ -1,17 +1,17 @@
 <?php $this->layout('layout_admin', ['title' => 'Liste des commandes']) ?>
+
 <?php $this->start('main_content') ?>
-<!-- <?php debug($adminorders);
-?> -->
 
-<!-- // liste des données récupérées dans le OrderModel
-//probleme de date non prise en compte -->
+<!-- <?php debug($adminorders);?> -->
 
-<div class="container-fluid">
-  <div class="parent">
-    <div class="enfant">
+<!-- Page listant les commandes en back-office
+     Mise en forme et CSS (Michèle) -->
+<main class="container-fluid">
+  <section class="parent">
+    <article class="enfant">
       <h1>Liste des commandes</h1>
-    </div>
-  </div>
+    </article>
+  </section>
   <table class="layout display responsive-table">
     <thead>
       <tr>
@@ -26,7 +26,6 @@
       </tr>
     </thead>
     <tbody>
-
       <?php foreach ($adminorders as $key => $value) { ?>
       <tr>
         <td><?php echo $value['ref']; ?></td>
@@ -37,14 +36,14 @@
         <td><?php echo $value['client']['phone']; ?></td>
         <td><?php echo $value['date_order']; ?></td>
         <td>
+          <!-- Bouton pour afficher le statut en attente ou validé avec lien menant vers la page orders/single.php-->
           <a href="<?= $this->url('order_single', ['id' => $key]); ?>" class="edit-item" title="Edit"><button type="button" name="button"><?php echo $value['status']; ?></button></a>
         </td>
       </tr>
       <?php } ?>
-
     </tbody>
   </table>
-</div>
+</main>
 
 
 <?php $this->stop('main_content') ?>

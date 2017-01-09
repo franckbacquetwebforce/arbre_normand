@@ -1,23 +1,9 @@
-<!-- A mettre en forme -->
 <?php $this->layout('layout_admin', ['title' => 'Salle de controle']) ?>
 
 <?php $this->start('main_content') ?>
 
-<!-- <?php
-echo 'cette page affichera les statistiques du site . pour le moment il y a le nombre de  commandes, le nombre de visites et le nombre d\'utilisateurs inscrits';
-echo '<br>';
-echo 'visiteurs: ' .$compte;
-echo '<br>';
-echo 'nombre total de commandes: '.$orders;
-echo '<br>';
-echo 'utilisateurs inscrits: '.$inscriptions;
-echo '<br>';
-foreach($stocks as $stock)
-{
-  echo $stock['name'].' stock restant: '.$stock['stock'];
-  echo '<br>';
-}
- ?> -->
+<!-- Page d'accueil du dashboard en back-office
+     Mise en forme et CSS (Michèle et modif apportées par Hermelen) -->
 
 <body class="home">
   <section class="container-fluid display-table">
@@ -25,9 +11,9 @@ foreach($stocks as $stock)
       <div class="user-dashboard">
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-12 gutter container-fluid" style="min-height:264px;">
-            <?php if(!empty($w_user)){?>
-            <h3 style="margin-left:30px;color:#5d5926;margin-bottom:40px;">Bienvenue <?php echo $w_user['username']; ?></h3>
-            <?php	}?>
+      <?php if(!empty($w_user)){?>
+              <h3 style="margin-left:30px;color:#5d5926;margin-bottom:40px;">Bienvenue <?php echo $w_user['username']; ?></h3>
+      <?php	}?>
             <h4 style="margin-left:30px;color:#0d786b;">Nombre de commandes <span class="label label-primary pull-right" style="width:80px;"><?php echo $orders; ?></span></h4>
             <h4 style="margin-left:30px;color:#0d786b;">Nombre de visiteurs <span class="label label-primary pull-right" style="width:80px;"><?php echo $compte;?></span></h4>
             <h4 style="margin-left:30px;color:#0d786b;">Nombre d'utilisateurs <span class="label label-primary pull-right" style="width:80px;"><?php echo $inscriptions;?></span></h4>
@@ -43,12 +29,12 @@ foreach($stocks as $stock)
                 </tr>
               </thead>
               <tbody>
-                <?php foreach($stocks as $stock){ ?>
-                <tr>
-                  <td><?php echo $stock['name']; ?></th>
-                  <td><?php echo $stock['stock']; ?></th>
-                </tr>
-                <?php }; ?>
+          <?php foreach($stocks as $stock){ ?>
+                  <tr>
+                    <td><?php echo $stock['name']; ?></th>
+                    <td><?php echo $stock['stock']; ?></th>
+                  </tr>
+          <?php }; ?>
               </tbody>
             </table>
           </div>
@@ -56,9 +42,6 @@ foreach($stocks as $stock)
       </div>
     </div>
   </section>
-
- </body>
-
-
+</body>
 
 <?php $this->stop('main_content') ?>

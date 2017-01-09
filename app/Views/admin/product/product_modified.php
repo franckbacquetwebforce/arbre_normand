@@ -1,14 +1,16 @@
 <?php $this->layout('layout_admin', ['title' => 'Modification du produit']) ?>
-<?php $this->start('main_content');
 
-?>
-<div class="parent">
-  <div class="enfant">
-    <h1>Modification du produit</h1>
-  </div>
-</div>
-<div class="container-fluid ajout">
-  <div class="row">
+<?php $this->start('main_content');?>
+
+<!-- Formulaire de modification du produit en back-office
+     Mise en forme et CSS (Michèle et modif apportées par Hermelen) -->
+<main class="container-fluid ajout">
+  <section class="parent">
+    <article class="enfant">
+      <h1>Modification du produit</h1>
+    </article>
+  </section>
+  <section class="row">
     <form class="responsive modif-form" action="<?= $this->url('admin_product_update_action',['id' => $product['id']])?>" method="post" enctype="multipart/form-data">
       <div class="col-sm-5 padding-box">
         <label  for="product_name"><h4>Nom du produit :</h4></label>
@@ -34,7 +36,6 @@
             <input type="text" name="height" class="form-control" value="<?php if(!empty($_POST['height'])){echo $_POST['height'];}else{echo $product['height'];} ?>">
           </div>
         </div>
-
       </div>
 			<div class="col-sm-2">
         <label for="price_ht"><h4>Prix HT :</h4></label>
@@ -78,6 +79,7 @@
       </div>
 			<div class="spacer"></div>
 	  </form>
-	</div>
-</div>
-  <?php $this->stop('main_content') ?>
+	</section>
+</main>
+
+<?php $this->stop('main_content') ?>

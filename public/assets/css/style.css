@@ -348,19 +348,12 @@ table.responsive-table img {
   table.display td{
     padding: .5em;
   }
-
-  /*table.responsive-table td:nth-child(1):before{
-    content: 'Image';
-  }
-  table.responsive-table td:nth-child(2):before{
-    content: 'Nom';
-  }*/
-  table.responsive-table td:nth-child(1),
-  table.responsive-table td:nth-child(2){
-    padding-left: 25%;
-  }
   table.responsive-table td:nth-child(1):before,
-  table.responsive-table td:nth-child(2):before{
+  table.responsive-table td:nth-child(2):before,
+	table.responsive-table td:nth-child(3):before,
+	table.responsive-table td:nth-child(4):before,
+	table.responsive-table td:nth-child(5):before,
+	table.responsive-table td:nth-child(6):before{
     position: absolute;
     left: .5em;
     font-weight: bold;
@@ -727,7 +720,7 @@ div.cart {
 	margin-right: auto;
 	margin-left: auto;
 
->>>>>>> 510750dec4555b793fe14598f4a3415847f98d43
+
 	margin-top: 20px;
 	height: 168px;
 	background-image: url(../images/panoramique/aaa.png);

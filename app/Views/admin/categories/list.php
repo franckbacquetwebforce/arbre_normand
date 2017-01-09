@@ -1,17 +1,20 @@
-<!-- Pages listant les catégories -->
-
 <?php $this->layout('layout_admin', ['title' => 'Liste des categories']) ?>
+
 <?php $this->start('main_content') ?>
 
-<div class="container-fluid">
-  <div class="parent">
-    <div class="enfant">
+<!-- Page listant les catégories en back-office
+     Mise en forme et CSS (Michèle)-->
+<main class="container-fluid">
+  <!-- Centrage vertical et horizontal des titres de pages -->
+  <section class="parent">
+    <article class="enfant">
       <h1>Liste catégories</h1>
-    </div>
-  </div>
-  <div class="row">
+    </article>
+  </section>
+  <section class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
+      <!-- Bouton pour ajouter une catégorie menant à la page categories/add.php -->
       <a href="<?= $this->url('admin_categories_new') ?>"><button type="button" name="add_category">Ajouter une catégorie</button></a>
       <table class="layout display responsive-table">
         <thead>
@@ -26,15 +29,12 @@
         <tbody>
           <?php foreach($categories as $cat){ ?>
           <tr>
-            <!-- Lien menant vers la page single de la catégorie sélectionnée -->
             <td><?php echo $cat['category_name']; ?></td>
-            <!-- echo des colonnes des catégories -->
             <td><?php echo $cat['slug'] ?></td>
             <td><?php echo $cat['created_at'] ?></td>
             <td><?php echo $cat['status'] ?></td>
-
             <td class="actions">
-              <!-- Bouton pour éditer la catégorie -->
+              <!-- Bouton pour éditer la catégorie menant vers la page categories/update.php -->
               <a href="<?= $this->url('admin_categories_update', ['id' => $cat['id']]) ?>"><button type="button" name="button">Editer</button></a>
               <!-- Bouton pour supprimer la catégorie -->
               <a href="<?= $this->url('admin_categories_delete_action', ['id' => $cat['id']]) ?>"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cette catégorie ?');" type="button" name="button">Supprimer</button></a>
@@ -45,38 +45,7 @@
       </table>
     </div>
     <div class="col-md-2"></div>
-  </div>
-</div>
-
- <!-- <table>
-   <thead>
-     <tr>
-       <th>Nom</th>
-       <th>slug</th>
-       <th>Date de création</th>
-       <th>Status</th>
-     </tr>
-   </thead>
-   <tbody>
-     <?php foreach($categories as $cat){ ?>
-
-     <tr> -->
-       <!-- Lien menant vers la page single de la catégorie sélectionnée -->
-       <!-- <td><a href="<?php echo $this->url('category_single', ['id' => $cat['id']]); ?>"><?php echo $cat['category_name']; ?></a></td> -->
-       <!-- echo des colonnes des catégories -->
-       <!-- <td><?php echo $cat['slug'] ?></td>
-       <td><?php echo $cat['created_at'] ?></td>
-       <td><?php echo $cat['status'] ?></td> -->
-       <!-- Bouton pour éditer la catégorie -->
-       <!-- <td><a href="<?= $this->url('admin_categories_update', ['id' => $cat['id']]) ?>"><button type="button" name="button">Editer</button></a></td> -->
-       <!-- Bouton pour supprimer la catégorie -->
-       <!-- <td><a href="<?= $this->url('admin_categories_delete_action', ['id' => $cat['id']]) ?>"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet article?');" type="button" name="button">Supprimer</button></a></td>
-
-     </tr>
-<?php  } ?>
-
-   </tbody>
- </table> -->
-
+  </section>
+</main>
 
 <?php $this->stop('main_content') ?>

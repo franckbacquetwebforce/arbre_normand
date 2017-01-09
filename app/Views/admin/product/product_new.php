@@ -2,13 +2,15 @@
 
 <?php $this->start('main_content') ?>
 
-<div class="parent">
-  <div class="enfant">
-    <h1 class="titre">Nouveau produit</h1>
-  </div>
-</div>
-<div class="container-fluid ajout">
-  <div class="row">
+<!-- Formulaire d'ajout de produit en back-office
+     Mise en forme et CSS (Michèle et modif apportées par Hermelen) -->
+<main class="container-fluid ajout">
+  <section class="parent">
+    <article class="enfant">
+      <h1 class="titre">Nouveau produit</h1>
+    </article>
+  </section>
+  <section class="row">
     <form class="responsive ajout-form" action="<?= $this->url('admin_product_new_action') ?>" method="post" enctype="multipart/form-data">
       <div class="col-sm-5 padding-box">
         <label for="product_name"><h4>Nom du produit :</h4></label>
@@ -74,6 +76,7 @@
       </div>
 			<div class="spacer"></div>
 	  </form>
-	</div>
-</div>
+	</section>
+</main>
+
 <?php $this->stop('main_content') ?>
