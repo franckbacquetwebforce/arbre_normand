@@ -289,10 +289,17 @@ span.dim {
 		width: 22.5%;
 		max-width: 360px;
 	}
-	.navbar-default.navbar_header_top>div>div>img{
+	.navbar-default.navbar_header_top>div>div>.logo_navbar_burger{
 	display:none;
 	}
 }
+/*@media(max-width: 767px){
+	.navbar-default.navbar_header_top>div>div>.logo_navbar_burger{
+		margin: 1.5rem 0 0 0;
+		height: 61.2px;
+ }
+}*/
+
 	a#link_admin{
 		color: rgb(126, 186, 154);
 		background-color: rgb(37, 56, 74);
@@ -491,7 +498,6 @@ button.modif_product {
 }
 
 .logo_navbar{
-
 	margin: 1.5rem 0 0 0;
 	height: 61.2px;
 }

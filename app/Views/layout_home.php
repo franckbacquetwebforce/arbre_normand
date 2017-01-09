@@ -25,7 +25,7 @@ $categories = findAll('categories');?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-			<img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
+			<img class="logo_navbar_burger"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
