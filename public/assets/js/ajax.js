@@ -46,3 +46,16 @@ console.log('response');
 
   });
 });
+// $(".addtocart").on("submit", function(e){
+//   console.log('coucou');
+//   e.preventDefault();
+//   var url = $('#addtocart').attr('href');
+//   $.ajax({
+//     url: url,
+//     success: function(success){
+//       if(success='true'){
+//
+//     }
+//   }
+// })
+// })

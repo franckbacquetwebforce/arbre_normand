@@ -2,9 +2,11 @@
 
 <?php $this->start('main_content') ?>
 <?php
-$id_product = $product['id'];
+if(array_key_exists('cart', $_SESSION)){$key = array_search($product['prod_id'] , $_SESSION['cart']['id_product']);}
 $price_ht = $product['price_ht'];
-$qt_product = '1';
+// debug($_SESSION['cart']['qt_product']);
+// debug($product['prod_id']);
+// debug($key);
 // debug($product);
 // debug($productOriginal);
 // debug($img);
@@ -69,12 +71,29 @@ $qt_product = '1';
                       <p class="caract">Longueur : <?php if(!empty($product['weight'])) { echo $product['length'];}  ?> cm</p>
                       <p class="caract">Largeur : <?php if(!empty($product['weight'])) { echo $product['width'];}  ?> cm</p>
                       <p class="caract">Hauteur : <?php if(!empty($product['weight'])) { echo $product['height'];}  ?> cm</p>
-                      <?php if(!empty($product['stock'])) { ?>
-                      <p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
-                      <p class="button" onclick="alert('Votre produit a été ajouté à votre panier');"><a href="<?= $this->url('user_cart_add_new', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success" title="">Ajouter au panier</a></p>
-                      <?php }else{ ?>
-                      <p class="button"><a href="<?= $this->url('user_cart_add', ['l'=> $productOriginal['id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-danger disabled" title="">Uniquement sur commande</a></p>
-                      <?php } ?>
+
+                      <?php if(!empty($product['stock'])){ ?>
+                      	<p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
+													<?php if($product['stock']>0){
+												 		if(array_key_exists('cart', $_SESSION)){
+															if(!empty($key)){
+																if($product['stock']>$_SESSION['cart']['qt_product'][$key]){ ?>
+																	<p  class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
+																<?php }else{ ?>
+																	<p id="specialorder" class="button no-stock"><a class="btn btn-danger" title="">Commande supérieure au stock</a></p>
+																<?php } ?>
+															<?php }else{ ?>
+																<p  class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
+															<?php } ?>
+														<?php } ?>
+													<?php }else{ ?>
+														<p id="specialorder" class="button no-stock"><a class="btn btn-danger" title="">Uniquement sur commande</a></p>
+													<?php } ?>
+												<?php }else{ ?>
+													<p id="specialorder" class="button no-stock"><a class="btn btn-warning" title="">Stock inconnu</a></p>
+												<?php } ?>
+
+												<div id="status-area"></div>
 										</div>
 
 

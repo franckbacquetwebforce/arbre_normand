@@ -41,18 +41,11 @@ class ProductController extends AppController
   {
     $modelSingle = new ProductsModel($id);
     $product = $modelSingle->getSingleProductCat($id);//modifier pour recup category name
-    $productOriginal = $modelSingle->find($id);
-
-    // $product = $modelSingle->find($id);
-    //
-    // $CategoriesAdmin = new CategoriesAdminController($id);
-    // $oneCategory = $CategoriesAdmin->getOneCat($product['id_category']);
-
     $img = $modelSingle->searchImgSingle($id);
-    $this->show('products/singleproduct', array(
-      'product' => $product,
+
+        $this->show('products/singleproduct', array(
+      'product'=> $product,
       'img'    => $img,
-      'productOriginal' => $productOriginal
     ));
   }
 

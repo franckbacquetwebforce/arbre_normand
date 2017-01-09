@@ -80,11 +80,11 @@ public function getProductByCategoryWithImage()
   return $query->fetchAll();
 }
 
-  
+
 
     public function getSingleProductCat($id)//remplace getsingleProduct avec ajout de category
     {
-      $sql = "SELECT products.*, cat.id, cat.category_name
+      $sql = "SELECT products.*, products.id as prod_id, cat.id, cat.category_name
       FROM $this->table
       LEFT JOIN categories as cat ON products.id_category = cat.id
       WHERE products.id = $id";

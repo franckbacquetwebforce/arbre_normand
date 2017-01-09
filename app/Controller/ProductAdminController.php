@@ -387,10 +387,8 @@ class ProductAdminController extends AppController
         if(!empty($_FILES['image']['name'])){
           if($image){
             $upload->UploadProduct($file_tmp_main,$extension,'_principale');//upload de l'image
-
             $name = $upload->getNewName($_FILES['image']['name'],'_principale');
             $path = $upload->getPath();
-            $id   = $imageProduct[0]['id'];
 
             $data = array(//datas à updater dans la base
             'id_product'    => $idProductreal,
@@ -400,19 +398,22 @@ class ProductAdminController extends AppController
             'status_img'    => 1,
             'mim_type'      => $_FILES['image']['type'],
             );
+            if(!empty($imageProduct[0]['id'])){//s'il existe déjà une image UPDATE
+            $id   = $imageProduct[0]['id'];
             $modelImage->update($data,$id);//update data la colonne image concernée
             $oldFile = $imageProduct[0]['path'].$imageProduct[0]['name'];//recupération de l'ancienne image.
             unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+            }else{
+            $modelImage->insert($data);//si pas encore d'image INSERT
+            }
           }
         }
         // IMAGE SECONDAIRE 1
         if(!empty($_FILES['imageSecondaire1']['name'])){
           if($imageSecondaire1){
             $upload->UploadProduct($file_tmp_1,$extension,'_secondaire_1');//upload de l'image
-
             $name = $upload->getNewName($_FILES['imageSecondaire1']['name'],'_secondaire_1');
             $path = $upload->getPath();
-            $id   = $imageProduct[1]['id'];
 
             $data = array(//datas à updater dans la base
             'id_product'    => $idProductreal,
@@ -422,9 +423,14 @@ class ProductAdminController extends AppController
             'status_img'    => 2,
             'mim_type'      => $_FILES['imageSecondaire1']['type'],
             );
+            if(!empty($imageProduct[1]['id'])){//s'il existe déjà une image UPDATE
+            $id   = $imageProduct[1]['id'];
             $modelImage->update($data,$id);//update data la colonne image concernée
             $oldFile = $imageProduct[1]['path'].$imageProduct[1]['name'];//recupération de l'ancienne image.
             unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+            }else{
+            $modelImage->insert($data);//si pas encore d'image INSERT
+            }
           }
         }
 
@@ -432,10 +438,8 @@ class ProductAdminController extends AppController
         if(!empty($_FILES['imageSecondaire2']['name'])){
           if($imageSecondaire2){
             $upload->UploadProduct($file_tmp_2,$extension,'_secondaire_2');//upload de l'image
-
             $name = $upload->getNewName($_FILES['imageSecondaire2']['name'],'_secondaire_2');
             $path = $upload->getPath();
-            $id   = $imageProduct[2]['id'];
 
             $data = array(//datas à updater dans la base
             'id_product'    => $idProductreal,
@@ -445,19 +449,23 @@ class ProductAdminController extends AppController
             'status_img'    => 2,
             'mim_type'      => $_FILES['imageSecondaire2']['type'],
             );
+
+            if(!empty($imageProduct[2]['id'])){//s'il existe déjà une image UPDATE
+            $id   = $imageProduct[2]['id'];
             $modelImage->update($data,$id);//update data la colonne image concernée
             $oldFile = $imageProduct[2]['path'].$imageProduct[2]['name'];//recupération de l'ancienne image.
             unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+            }else{
+            $modelImage->insert($data);//si pas encore d'image INSERT
+            }
           }
         }
         // IMAGE SECONDAIRE 3
         if(!empty($_FILES['imageSecondaire3']['name'])){
           if($imageSecondaire3){
             $upload->UploadProduct($file_tmp_3,$extension,'_secondaire_3');//upload de l'image
-
             $name = $upload->getNewName($_FILES['imageSecondaire3']['name'],'_secondaire_3');
             $path = $upload->getPath();
-            $id              = $imageProduct[3]['id'];
 
             $data = array(//datas à updater dans la base
             'id_product'    => $idProductreal,
@@ -467,10 +475,14 @@ class ProductAdminController extends AppController
             'status_img'    => 2,
             'mim_type'      => $_FILES['imageSecondaire3']['type'],
             );
-
+            if(!empty($imageProduct[3]['id'])){//s'il existe déjà une image UPDATE
+            $id   = $imageProduct[3]['id'];
             $modelImage->update($data,$id);//update data la colonne image concernée
             $oldFile = $imageProduct[3]['path'].$imageProduct[3]['name'];//recupération de l'ancienne image.
             unlink('../public/'.$oldFile);//suppression de l'ancienne image dans upload
+            }else{
+            $modelImage->insert($data);//si pas encore d'image INSERT
+            }
           }
         }
         //redirection
