@@ -16,12 +16,12 @@
           <form id="forget" action="<?= $this->url('admin_user_update_action', ['id' => $w_user['id']]) ?>" method="post">
             <div class="form-group">
               <label class="formadmin" for="email">Email*</label>
-              <input type="email" class="form-control" name="email" required="required" value="<?php if(!empty($_POST['email'])){ echo $_POST['email'];}else{ echo $w_user['email'];} ?>"/>
+              <input type="email" class="form-control" name="email"  value="<?php if(!empty($_POST['email'])){ echo $_POST['email'];}else{ echo $w_user['email'];} ?>"/>
               <span class="help-block" id="error_email"><?php if(!empty($errors['email'])){ echo $errors['email'];} ?></span><br>
             </div>
             <div class="form-group">
               <label class="formadmin" for="password">Mot de passe*</label>
-              <input type="password" class="form-control" name="password" tabindex="1" required="required" value="<?php if(!empty($_POST['password'])){ echo $_POST['password'];} ?>"><br>
+              <input type="password" class="form-control" name="password" tabindex="1"  value="<?php if(!empty($_POST['password'])){ echo $_POST['password'];} ?>"><br>
               <span id="error_password"><?php if(!empty($errors['password'])){ echo $errors['password'];} ?></span><br>
             </div>
             <div class="form-group">

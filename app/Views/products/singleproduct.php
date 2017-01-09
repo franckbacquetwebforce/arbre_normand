@@ -71,7 +71,7 @@ $price_ht = $product['price_ht'];
 						<p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
 			<?php if($product['stock']>0){// 1-si stock > 0
 							if(!empty($_SESSION) && array_key_exists('cart', $_SESSION)){ //2-si le panier existe
-								if(!empty($key) || $key == 0){// 3- si le produit existe dans le panier
+								if(!empty($key) || $key = 0){// 3- si le produit existe dans le panier
 									if($product['stock']>$_SESSION['cart']['qt_product'][$key]){ //4-si le stock est superieur au panier ?>
 										<p class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
 						<?php }else{ //4-sinon ?>
