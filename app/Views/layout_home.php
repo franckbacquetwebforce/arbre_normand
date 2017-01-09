@@ -25,7 +25,7 @@ $categories = findAll('categories');?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-			<img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
+			<img class="logo_navbar_burger"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -115,8 +115,8 @@ $categories = findAll('categories');?>
 </div> <!-- div all_content -->
 
 <footer class= "footer_home row">
-	<section class="footer_section col-xs-1 col-sm-1">
-		<ul class="liens_externes">
+	<section class="footer_section col-xs-2 col-sm-2">
+		<ul class="liens_externes twitter_etc">
 			<li class= "lien_externe">
 				<a href="https://twitter.com/?lang=fr" target="_blank" class="lien_ext"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
 			</li>
@@ -128,7 +128,7 @@ $categories = findAll('categories');?>
 			</li>
 		</ul>
 	</section>
-	<section class="footer_section col-xs-6 col-sm-6">
+	<section class="footer_section col-xs-5 col-sm-5">
 		<div class="liens_externes">
 			<h6>NOUS TROUVER:</h6>
 			<p>L'Arbre Normand<br>Hameau Pincheloup<br>27 500  ST GERMAIN VILLAGE</p>
