@@ -55,6 +55,9 @@ class ProductAdminController extends AppController
       $validation = new ValidationTools();
       $dateTimeModel = new DateTime();
       $upload = new Upload();
+      $CategoriesAdmin = new CategoriesAdminController();
+
+      $categories = $CategoriesAdmin->getAllCat();
 
       // striptags géré par INSERT
       $product_name = trim($_POST['product_name']);
@@ -233,6 +236,7 @@ class ProductAdminController extends AppController
         // ajouter l'array categorie
         $this->show('admin/product/product_new',array (
         'error' => $error,
+        'categories'   => $categories,
         ));
       }
     }
