@@ -188,13 +188,14 @@ class UserController extends AppController
 		$errors = array();
     // Sécurisation Faille XSS des données envoyées par l'utilisateur
 		$email = trim(strip_tags($_POST['email']));
-    $urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
+    // $urlbase = $app->getConfig('url_base');
+    // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
     $user = $this->userModel->getUserByUsernameOrEmail($email);
 		if(!empty($user)){
-			$urlLink = $this->generateUrl('modifpassword');
-			$emailurl = urlencode($email); // encodage de l'adresse mail de l'utilisateur
+			$urlLink = $this->generateUrl('modifpassword',[],true);
+			$emailurl = urlencode($email);
       $html = '';
-      $html .= 'Veuillez cliquer sur le lien ci-dessous pour modifier votre mot de passe<br><br><a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' . $user['token'] . '">Modifier le mot de passe</a>';
+      $html .= 'Veuillez cliquer sur le lien ci-dessous pour modifier votre mot de passe<br><br><a href="' . $urlLink .'?email=' . $emailurl .'&token=' . $user['token'] . '">Modifier le mot de passe</a>';
 			//envoi du mail fonction PHPMailer
   		$mail = new \PHPMailer;
        $mail->isMail();

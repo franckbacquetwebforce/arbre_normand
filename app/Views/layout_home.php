@@ -15,7 +15,7 @@ $categories = findAll('categories');?>
 <section id="logo_slider" class="row logo_slider container-fluid"><!-- div class row inutile -->
 	<?= $this->section('slider') ?>
 </section>
-<nav class="navbar navbar-default dimension_navbar">
+<nav class="navbar navbar-default dimension_navbar navbar_header_top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -25,6 +25,7 @@ $categories = findAll('categories');?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+			<img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,7 +73,7 @@ $categories = findAll('categories');?>
 	<div class="row">
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 			<section id="menu_left_container" class="sidebar-nav">
-				<div class="navbar menu_left navbar-default" role="navigation">
+				<div class="navbar menu_left navbar-default navbar_header_left" role="navigation">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
 							<span class="sr-only">Toggle navigation</span>
@@ -80,7 +81,7 @@ $categories = findAll('categories');?>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<span class="visible-xs navbar-brand">Sidebar menu</span>
+						<span class="visible-xs navbar-brand">Menu</span>
 					</div>
 					<div class="navbar-collapse collapse sidebar-navbar-collapse">
 						<ul class="nav navbar-nav">
