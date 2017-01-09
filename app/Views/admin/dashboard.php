@@ -20,19 +20,21 @@ foreach($stocks as $stock)
  ?> -->
 
 <body class="home">
-  <div class="container-fluid display-table">
+  <section class="container-fluid display-table">
     <div class="row display-table-row">
       <div class="user-dashboard">
-        <?php if(!empty($w_user)){?>
-        <h1>Bienvenue <?php echo $w_user['username']; ?></h1>
-        <?php	}?>
         <div class="row">
-          <div class="col-md-5 col-sm-5 col-xs-12 gutter">
-            <h4>Nombre de commandes <span class="label label-primary pull-right"><?php echo $orders; ?></span></h4>
-            <h4>Nombre de visiteurs <span class="label label-primary pull-right"><?php echo $compte;?></span></h4>
-            <h4>Nombre d'utilisateurs <span class="label label-primary pull-right"><?php echo $inscriptions;?></span></h4>
+          <div class="col-md-4 col-sm-4 col-xs-12 gutter container-fluid" style="min-height:264px;">
+            <?php if(!empty($w_user)){?>
+            <h3 style="margin-left:30px;color:#5d5926;margin-bottom:40px;">Bienvenue <?php echo $w_user['username']; ?></h3>
+            <?php	}?>
+            <h4 style="margin-left:30px;color:#0d786b;">Nombre de commandes <span class="label label-primary pull-right" style="width:80px;"><?php echo $orders; ?></span></h4>
+            <h4 style="margin-left:30px;color:#0d786b;">Nombre de visiteurs <span class="label label-primary pull-right" style="width:80px;"><?php echo $compte;?></span></h4>
+            <h4 style="margin-left:30px;color:#0d786b;">Nombre d'utilisateurs <span class="label label-primary pull-right" style="width:80px;"><?php echo $inscriptions;?></span></h4>
           </div>
+          <div class="col-md-1 col-sm-1 col-xs-1"></div>
           <div class="col-md-6 col-sm-6 col-xs-12">
+            <h4 style="margin-left:30px;color:#0d786b;text-align:center;margin-bottom:10px;margin-top:15px;">Stock par produits</h4>
             <table class="layout display responsive-table">
               <thead>
                 <tr>
@@ -50,21 +52,10 @@ foreach($stocks as $stock)
               </tbody>
             </table>
           </div>
-
-          <!-- <div class="col-md-3 col-sm-3 col-xs-12 gutter">
-            <div class="visitors">
-
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-12 gutter">
-            <div class="users">
-
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
  </body>
 

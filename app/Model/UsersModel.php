@@ -113,15 +113,5 @@ class UsersModel extends UModel
 
   }
 
-  public function rememberMe($id)
-  {
-    
-
-  	$sql = "SELECT * FROM users WHERE id = :id";
-  	$stmt = $dbh->prepare($sql);
-  	$stmt->bindValue(':id',$id[0]);
-  	$stmt->execute();
-  	return $stmt->fetch();
-  }
 
 }

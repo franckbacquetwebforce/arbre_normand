@@ -1,5 +1,5 @@
 <?php
-// Travail Michèle en cours
+// Travail Michèle
 namespace Controller;
 
 use \Controller\AppController;
@@ -11,7 +11,7 @@ use \W\Security\AuthorizationModel;
 use \DateTime;
 
 // Contrôleur pour la gestion des inscriptions, connexions utilisateurs
-class UserController extends AppController // le CSS ne fonctionne pas
+class UserController extends AppController
 {
   public function __construct()
   { // instanciation de chaque Model utilisé
@@ -20,17 +20,24 @@ class UserController extends AppController // le CSS ne fonctionne pas
     $this->dateTimeModel = new DateTime();
     $this->authentificationModel = new AuthentificationModel();
   }
+  /*============================================================================
+  * INSCRIPTION (Michèle)
+  *===========================================================================*/
   /**
-  *============================================================================
-  * INSCRIPTION
-  *============================================================================
-  */
-  // Affichage du formulaire d'inscription
+   * register()
+   * Affiche le formulaire d'inscription
+   * Utilise la fonction show() de W/Controller qui affiche un template
+   */
   public function register()
   {
     $this->show('user/inscription');
   }
-  // Insertion en BDD des données du formulaire d'inscription
+
+  /**
+   * registerAction()
+   * Insert en BDD les données du formulaire d'inscription
+   * @return array
+   */
   public function registerAction()
   {
     // Sécurisation Faille XSS des données envoyées par l'utilisateur
@@ -44,6 +51,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
     if($this->userModel->usernameExists($username)){
 		$errors['username']	= "Ce nom existe déjà";
 		}
+
     // Gestion des erreurs email
     if(!empty($email)){
       // Fonction de Service/ValidationTools qui vérifie la validité de l'email saisi
@@ -52,7 +60,7 @@ class UserController extends AppController // le CSS ne fonctionne pas
       if($this->userModel->emailExists($email)){
         $errors['email']	= "Ce mail existe déjà";
       }
-    } else {
+    }else{
       $errors['email'] = "Vous n'avez pas rempli ce champ";
     }
 
@@ -60,9 +68,10 @@ class UserController extends AppController // le CSS ne fonctionne pas
     // Fonction de Service/ValidationTools qui vérifie la validité du texte saisi
     $errors['password'] = $this->validError->textValid($password, 'password', 6, 15);
 		if(empty($errors['password'])) {
-      // Fonction de Service/ValidationTools qui vérifie la correspondance des passwords saisis
+    // Fonction de Service/ValidationTools qui vérifie la correspondance des passwords saisis
 			$errors['password2'] = $this->validError->correspondancePassword($password2,$password);
 		}
+
     // Insertion en base de données
     // Fonction de Service/ValidationTools qui vérifie s'il n'y a pas d'erreurs
     if($this->validError->IsValid($errors)){
@@ -82,23 +91,32 @@ class UserController extends AppController // le CSS ne fonctionne pas
     $user = $this->userModel->insert($data);
     // Fonction de W/Controller/Controller qui redirige vers une URL (nom de la route de la page connexion ici)
     $this->redirectToRoute('login');
-    } else {
-      // Fonction de W/Controller/Controller qui affiche un template (formulaire d'inscription ici avec affichage des erreurs)
+    }else{
+    // Fonction de W/Controller/Controller qui affiche un template (formulaire d'inscription ici avec affichage des erreurs)
       $this->show('user/inscription',array (
         'errors' => $errors,
       ));
     }
   }
+
+  /**===========================================================================
+  * CONNEXION (Michèle)
+  *===========================================================================*/
   /**
-  *============================================================================
-  * CONNEXION
-  *============================================================================
-  */
+   * login()
+   * Affiche le formulaire de connexion
+   * Utilise la fonction show() de W/Controller qui affiche un template
+   */
   public function login()
-  { // Affichage du formulaire de Connexion
+  {
     $this->show('user/login');
   }
-  // Ouverture de session utilisateur
+
+  /**
+   * loginAction()
+   * Ouverture de session utilisateur
+   * @return array en cas d'erreur
+   */
   public function loginAction()
   { // Sécurisation Faille XSS des données envoyées par l'utilisateur
     $login = trim(strip_tags($_POST['login']));
@@ -132,34 +150,49 @@ class UserController extends AppController // le CSS ne fonctionne pas
   }
   /**
   *============================================================================
-  * DECONNEXION
+  * DECONNEXION (Michèle)
   *============================================================================
-  */
+   * loginAction()
+   * Fermeture de session utilisateur
+   */
   public function logoutAction()
 	{ // Fonction de W/Security/AuthentificationModel qui ferme une session utilisateur
 		$this->authentificationModel->logUserOut();
     // Redirection vers la page d'accueil
 		$this->redirectToRoute('default_home');
 	}
+
   /**
   *============================================================================
-  * PASSWORD OUBLIE
+  * PASSWORD OUBLIE (Michèle)
   *============================================================================
+  * forgetPassword()
+  * Affiche le formulaire de mot de passe oublié
+  * Utilise la fonction show() de W/Controller qui affiche un template
   */
   public function forgetPassword()
-  { // Affichage du formulaire de mot de passe oublié
+  { // Affichage du formulaire
     $this->show('user/forgetpassword');
   }
+
+  /**
+   * forgetPasswordAction()
+   * Vérifie la présence d'un utilisateur en fonction de son pseudo ou de son email
+   * Génère une URL avec l'email et le token de l'utilisateur
+   * Envoie un mail à l'utilisateur avec un lien qui redirige sur une page de réinitialisation du mot de passe
+   * @return un array en cas d'erreurs
+   */
   public function forgetPasswordAction()
   {
     $app = getApp(); // Retourne l'instance de l'application depuis l'espace global
 		$errors = array();
+    // Sécurisation Faille XSS des données envoyées par l'utilisateur
 		$email = trim(strip_tags($_POST['email']));
     $urlbase = $app->getConfig('url_base'); // Fonction de W/Views/App qui récupère la base de l'url definit dans config.php
     $user = $this->userModel->getUserByUsernameOrEmail($email);
 		if(!empty($user)){
 			$urlLink = $this->generateUrl('modifpassword');
-			$emailurl = urlencode($email);
+			$emailurl = urlencode($email); // encodage de l'adresse mail de l'utilisateur
       $html = '';
       $html .= 'Veuillez cliquer sur le lien ci-dessous pour modifier votre mot de passe<br><br><a href="' . $urlbase . $urlLink .'?email=' . $emailurl .'&token=' . $user['token'] . '">Modifier le mot de passe</a>';
 			//envoi du mail fonction PHPMailer
@@ -170,28 +203,24 @@ class UserController extends AppController // le CSS ne fonctionne pas
        $mail->Subject = 'Reinitialisation du mot de passe';
        $mail->Body    = $html;
   			if(!$mail->send()){
-
   				$message =  "Le message n\'a pas été envoyé.";
           $mailerror = '';
           if(!empty($mail->ErrorInfo)){
             $mailerror = 'Erreur Mail: ' . $mail->ErrorInfo;
           }
-
     		} else {
           $message = 'Le message a bien été envoyé';
         }
         if (empty($mailerror)) {
           $this->show('user/forgetpassword', array(
-
             'message' => $message,
           ));
         }elseif(!empty($mailerror)){
         $this->show('user/forgetpassword', array(
-            'mailerror' => $mailerror,
+          'mailerror' => $mailerror,
           'message' => $message,
         ));
       }
-
   	} else {
 			$errors['email']	= "Ce mail n'existe pas";
 			$this->show('user/forgetpassword',array (
@@ -201,24 +230,36 @@ class UserController extends AppController // le CSS ne fonctionne pas
   }
   /**
   *============================================================================
-  * MODIFICATION DU PASSWORD
-  *============================================================================
+  * MODIFICATION DU PASSWORD (Michèle)
+  *===========================================================================*/
+  /**
+  * modifPassword()
+  * Affiche le formulaire de réinitialisation du mot de passe
+  * Affiche la page 404 si l'url ne contient pas l'email et le token
   */
   public function modifPassword()
-  { // Affichage du formulaire d'inscription avec vérification ??? flou pour Michèle
+  { // protection du formulaire en vérifiant l'URL
     $form = false;
     if(!empty($_GET['email']) && !empty($_GET['token'])){
       $this->show('user/modifpassword', array('form' => $form));
       $form = true;
-    } else {
-      // 404
+    }else{
+      // sinon affichage de la page 404
       $this->show('w_errors/404');
-      // $this->redirectToRoute('default_home');
     }
   }
 
+  /**
+   * modifPasswordAction()
+   * Insert en BDD le nouveau password
+   * Vérifie la présence d'un utilisateur en fonction de son pseudo ou de son email
+   * Génère une URL avec l'email et le token de l'utilisateur
+   * Envoie un mail à l'utilisateur avec un lien qui redirige sur une page de réinitialisation du mot de passe
+   * @return un array
+   * @return un array en cas d'erreurs
+   */
   public function modifPasswordAction()
-  { // Insertion en BDD du nouveau password
+  { //
     if(!empty($_GET['email']) && !empty($_GET['token'])){
       //  On sécurise l'email et le token
 		  $email = trim(strip_tags($_GET['email']));
@@ -226,41 +267,51 @@ class UserController extends AppController // le CSS ne fonctionne pas
       $emailrecup = $_GET['email'];
       $emailurl = urldecode($emailrecup); // On décode l'email récupéré
       $tokenrecup = $_GET['token'];
-
-      $urlemail = $this->userModel->getUserByEmail($emailurl); // on récupère l'ID de l'utilisateur en BDD
+      $urlemail = $this->userModel->getUserByEmail($emailurl); // on récupère l'ID de l'utilisateur en BDD en fonction de l'email
+      // si l'utilisateur existe
       if(!empty($urlemail)) {
-        if($urlemail["email"] == $emailrecup && $urlemail['token'] == $tokenrecup) {
+        if($urlemail["email"] == $emailrecup && $urlemail['token'] == $tokenrecup) { // si le mail et le token correspond
     			if(!empty($_POST['submit'])) {
+            //  On sécurise le nouveau password
     				$password = trim(strip_tags($_POST['password']));
     				$password2 = trim(strip_tags($_POST['password2']));
             $errors = array();
+            // vérification de la saisie et de la longueur du texte
     				$errors['password'] = $this->validError->textValid($password,'password', 6, 15);
+            // vérification de la correspondance des deux password
     				$errors['password2'] = $this->validError->correspondancePassword($password,$password2);
+            // si pas d'erreur
     				if($this->validError->IsValid($errors)){
-    					$token = StringUtils::randomString(20);
-    					$hashpassword = $this->authentificationModel->hashPassword($password);
+    					$token = StringUtils::randomString(20); // on génère un nouveau token
+    					$hashpassword = $this->authentificationModel->hashPassword($password); // on hashe le password
+              // Insertion en base de donnée du nouveau password et de la date de modification
     		      $data = array(
     		        'password' => $hashpassword,
     						'token' => $token,
                 'modified_at' => $this->dateTimeModel->format('Y-m-d  H:i:s'),
     		      );
     		      $user = $this->userModel->update($data,$urlemail['id']);
-    		      // redirection
+    		      // redirection vers la page de connexion
     		      $this->redirectToRoute('login');
+              // s'il y a des erreurs, on les affiche'
       			} else {
               $this->show('user/modifpassword',array (
                 'errors' => $errors,
               ));
             }
           }
+        // si le mail et le token ne correspondent pas, on affiche la page 403
         }else {
           $this->show('w_errors/403');
         }
+      // si l'utilisateur n'existe pas, on affiche un message d'erreur
       }else {
         echo "Cette adresse n'existe pas";
       }
     }
   }
+
+  /*===========================FIN MICHELE====================================*/
 
   public function contact(){
     $this->show('user/contact');

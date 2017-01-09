@@ -37,7 +37,7 @@
               <!-- Bouton pour éditer la catégorie -->
               <a href="<?= $this->url('admin_categories_update', ['id' => $cat['id']]) ?>"><button type="button" name="button">Editer</button></a>
               <!-- Bouton pour supprimer la catégorie -->
-              <a href="<?= $this->url('admin_categories_delete_action', ['id' => $cat['id']]) ?>"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet article?');" type="button" name="button">Supprimer</button></a>
+              <a href="<?= $this->url('admin_categories_delete_action', ['id' => $cat['id']]) ?>"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cette catégorie ?');" type="button" name="button">Supprimer</button></a>
             </td>
           </tr>
           <?php } ?>
