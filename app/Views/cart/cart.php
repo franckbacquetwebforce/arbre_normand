@@ -33,6 +33,7 @@
 		        <th colspan="1" style="width:7%">Poids Unitaire</th>
             <th colspan="1" style="width:20%">Total TTC</th>
 		        <th colspan="1" style="width:10%">Action</th>
+
 		      </tr>
 		    </thead>
 		    <tbody>
