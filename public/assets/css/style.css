@@ -283,8 +283,10 @@ span.dim {
 
 	/*=========================Menu_left HERMELEN =============================*/
 	/*ajouté suite récupération menu Michèle*/
-	.menu_left.navbar-default.sticky{
+@media(min-width: 768px){
+	.menu_left.navbar-default.navbar_header_left.sticky{
 		top: 104px;
+		/*left: 0;*/
 		width: 22.5%;
 		max-width: 360px;
 		-o-transition: all 1s ease;
@@ -292,6 +294,10 @@ span.dim {
 		-webkit-transition: all 1s ease;
 		-ms-transition: all 1s ease;
 	}
+	.navbar-default.navbar_header_top>div>div>img{
+	display:none;
+	}
+}
 	a#link_admin{
 		color: rgb(126, 186, 154);
 		background-color: rgb(37, 56, 74);
@@ -444,6 +450,7 @@ button.modif_product {
 	color: rgb(255, 74, 215);
 }
 /*pas sticky*/
+
 .navbar-default{/*navbar global*/
 	background-color: rgb(184, 175, 170);/*foncé*/
 	border-width: 0;
@@ -461,13 +468,30 @@ button.modif_product {
 	background-color: rgb(184, 175, 170);
 }
 /*sticky*/
-.navbar-default.sticky{/*navbar global*/
+
+.navbar-default.navbar_header_top.sticky{/*navbar global*/
 	background-color: rgb(218, 208, 202);
 	border-width: 0;
 	width: 100%;
 	max-width: 1600px;
 	position: fixed;
 	top: 0;
+	z-index: 2;
+	-o-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+}
+
+
+.navbar-default.navbar_header_left.sticky{/*navbar global*/
+	background-color: rgb(218, 208, 202);
+	border-width: 0;
+	width: 100%;
+	max-width: 1600px;
+	position: fixed;
+	top: 100px;
+	right: 0;
 	z-index: 1;
 	-o-transition: all 1s ease;
 	-moz-transition: all 1s ease;
