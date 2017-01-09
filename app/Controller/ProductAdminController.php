@@ -231,12 +231,14 @@ class ProductAdminController extends AppController
         $this->redirectToRoute('admin_product');
       }
       else {
+
         // debug($error);
         // refaire afficher la vue avec les errore passé en parametre de cette vue
         // ajouter l'array categorie
         $this->show('admin/product/product_new',array (
         'error' => $error,
-        'categories'   => $categories,
+
+        'categories' => $categories,
         ));
       }
     }

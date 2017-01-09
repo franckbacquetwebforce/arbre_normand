@@ -100,12 +100,13 @@ class OrderModel extends Model
     LEFT JOIN products ON products.id = orders_products.id_product
     LEFT JOIN users ON orders.id_user = users.id
     LEFT JOIN users_adress ON orders.id_user = users_adress.id_user AND users_adress.type = 'livraison'
-    WHERE orders.id = $id
+    WHERE orders.id = :id
     ";
 
 
 
      $sth = $this->dbh->prepare($sql);
+     $sth->bindValue(':id', $id);
      $sth->execute();
      $array = $sth->fetchAll();
   if(!empty($array)){
@@ -420,6 +421,7 @@ class OrderModel extends Model
    LEFT JOIN products ON products.id = orders_products.id_product
    LEFT JOIN users ON orders.id_user = users.id
    WHERE orders.id_user = $id
+   ORDER BY orders.date_order DESC
    ";
     $sth = $this->dbh->prepare($sql);
     $sth->execute();
@@ -449,7 +451,10 @@ class OrderModel extends Model
        $newArray[$value['id_order']]['email'] = $value['email'];
     }
   }
+  if(!empty($newArray)){
     return $newArray;
+
+  }
  }
 
  /**
@@ -459,9 +464,9 @@ class OrderModel extends Model
  */
  public function selectProduct($id)
  {
-   $sql = "SELECT * FROM products WHERE id = $id";
+   $sql = "SELECT * FROM products WHERE id = :id";
    $sth = $this->dbh->prepare($sql);
-
+   $sth->bindValue(':id', $id);
    $sth->execute();
    return $sth->fetchAll();
  }
@@ -507,7 +512,7 @@ class OrderModel extends Model
  	}
   /**
   * ref
-  * @return   string  une référence unique basé sur le moment ou elle est créée
+  * @return   string  une référence unique basé sur le moment où elle est créée
   */
   public function ref()
   {

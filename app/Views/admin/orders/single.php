@@ -46,7 +46,7 @@
             $pricettc = $priceht + $priceTva;
             $prixTotTtc = $pricettc*$value['qt_product'];
             ?>
-          <td><?php echo $prixTotTtc; ?></td>
+          <td><?php echo number_format($prixTotTtc, 2, ',', ' '); ?></td>
         </tr>
     <?php } ?>
           </table>

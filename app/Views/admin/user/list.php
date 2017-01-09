@@ -2,6 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
+
 <!-- Page affichant la liste des utilisateurs en back-office
      Mise en forme et CSS (Michèle) -->
 <main class="container-fluid">
