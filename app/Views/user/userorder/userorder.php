@@ -7,13 +7,12 @@
 
 <!-- Page affichant la liste des commandes du client en front-office -->
 <!-- Mise en forme et CSS (Michèle) -->
-
-<section class="container-fluid">
-  <div class="parent">
-    <div class="enfant">
+<main class="container-fluid">
+  <section class="parent">
+    <article class="enfant">
       <h1>Mes commandes</h1>
-    </div>
-  </div>
+    </article>
+  </section>
   <table class="layout display responsive-table">
     <thead>
       <tr>
@@ -24,30 +23,30 @@
       </tr>
     </thead>
     <tbody>
-        <?php foreach($orders as $order){ ?>
+<?php foreach($orders as $order){ ?>
         <tr>
           <td><?php echo $order['ref']; ?></td>
           <td><?php echo $order['date_order']; ?></td>
           <td>
             <table class="layout display responsive-table">
-               <tr>
-                 <th>Produits</th>
-                 <?php foreach ($order['produits'] as $key => $value){ ?>
-                 <td><?php echo $value['product_name']; ?></td>
-                 <?php } ?>
-               </tr>
-               <tr>
-                 <th>Qté</th>
-                 <?php foreach ($order['produits'] as $key => $value){ ?>
-                 <td><?php echo $value['qt_product']; ?></td>
-                 <?php } ?>
-               </tr>
-               <tr>
-                 <th>Prix TTC</th>
-                 <?php foreach ($order['produits'] as $key => $value){ ?>
-                 <td><?php echo $value['price_product']; ?></td>
-                 <?php } ?>
-               </tr>
+              <tr>
+                <th>Produits</th>
+            <?php foreach ($order['produits'] as $key => $value){ ?>
+                    <td><?php echo $value['product_name']; ?></td>
+            <?php } ?>
+              </tr>
+              <tr>
+                <th>Qté</th>
+            <?php foreach ($order['produits'] as $key => $value){ ?>
+                  <td><?php echo $value['qt_product']; ?></td>
+            <?php } ?>
+              </tr>
+              <tr>
+                <th>Prix TTC</th>
+            <?php foreach ($order['produits'] as $key => $value){ ?>
+                  <td><?php echo $value['price_product']; ?></td>
+            <?php } ?>
+              </tr>
             </table>
           </td>
   <?php if($order['status'] == "en_attente") { ?>
@@ -59,10 +58,6 @@
       <?php } ?>
     </tbody>
   </table>
-</section>
-
-
-
-
+</main>
 
 <?php $this->stop('main_content') ?>
