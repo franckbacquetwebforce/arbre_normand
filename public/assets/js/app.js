@@ -13,12 +13,12 @@
 
 $(window).scroll(function() {
 if ($(this).scrollTop() < $("#logo_slider").height()){
-    $('.navbar-default').removeClass("sticky");
-    $('.menu_right').removeClass("sticky");
+    $('.navbar-default-home').removeClass("sticky");
+    // $('.menu_right').removeClass("sticky");
   }
   else{
-    $('.navbar-default').addClass("sticky");
-    $('#menu_left_container').removeChild(".menu_right");
+    $('.navbar-default-home').addClass("sticky");
+    $('#menu_left_container_home').removeChild(".menu_right");
   }
 });
 
