@@ -2,8 +2,9 @@
 
 <?php $this->start('main_content') ?>
 <?php
-debug($_SESSION['cart']);
-debug ($infoPanier);?>
+// debug($_SESSION['cart']);
+// debug ($infoPanier);
+?>
 
 <!-- Page affichant le panier en fron-office
      Mise en forme et CSS (Michèle) -->
