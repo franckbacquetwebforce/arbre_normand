@@ -777,6 +777,9 @@ div.cart {
 .liens_externes{
 	list-style: none;
 }
+.twitter_etc{
+	padding-left: 0;
+}
 
 .lien_ext{
 	color: black !important;
