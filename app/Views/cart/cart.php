@@ -28,7 +28,7 @@ debug ($infoPanier);?>
             <th colspan="1" style="width:15%">Image</th>
 		        <th style="width:20%">Libellé</th>
 		        <th colspan="1" style="width:10%">Quantité</th>
-		        <th colspan="1" style="width:10%">Prix Unitaire</th>
+		        <th colspan="1" style="width:10%">Prix Unitaire HT</th>
 		        <th colspan="1" style="width:10%">Poids Unitaire</th>
             <th colspan="1" style="width:15%">Total Commande</th>
 		        <th colspan="1" style="width:20%">Action</th>
