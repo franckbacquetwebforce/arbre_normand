@@ -36,9 +36,9 @@
 								<tr>
                   <td><img class="thumb_cart" src="<?= $this->url('default_home').$infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
 									<td><b><?= $infoPanier[$i]['product_name'] ?></b></td>
-									<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button">+</button></a></br>
+									<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button"><i class="fa fa-plus"></i></button></a></br>
 										<?= $_SESSION['cart']['qt_product'][$i]?></br>
-										<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1]); ?>"><button type="button" name="button">-</button></a></td>
+										<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1]); ?>"><button type="button" name="button"><i class="fa fa-minus"></i></button></a></td>
 									<td><?= $infoPanier[$i]['cart_price']?> €</td>
 									<td><?= $infoPanier[$i]['product_weight']?> kg</td>
                   <td colspan="1"><b>Total: <?= $total ?> €</b></td>
