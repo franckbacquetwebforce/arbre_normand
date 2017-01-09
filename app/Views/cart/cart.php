@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <?php
-debug($_SESSION['cart']);
+// debug($_SESSION['cart']);
 
 // debug ($infoPanier);?>
 <div class="container-fluid">
