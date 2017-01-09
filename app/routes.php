@@ -6,6 +6,7 @@
 		//hermelen routes
 //======================================= ADMIN =====================================
 		// Admin Products
+
 		['GET', '/admin/product', 'ProductAdmin#index', 'admin_product'],
 		['GET', '/admin/product/new', 'ProductAdmin#addNew', 'admin_product_new'],
 		['POST', '/admin/product/new', 'ProductAdmin#addNewAction', 'admin_product_new_action'],

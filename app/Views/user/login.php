@@ -2,6 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <!-- FORMULAIRE de connexion -->
+<?php if(empty($w_user)) { ?>
 <div class="container-fluid" style="margin-top: 30px">
   <div class="row">
     <div class="col-md-3"></div>
@@ -36,5 +37,5 @@
     <div class="col-md-3"></div>
   </div>
 </div>
-
+<?php } ?>
 <?php $this->stop('main_content') ?>

@@ -5,7 +5,10 @@
 
 les commandes en attente
 <?php
-debug($orders);
+if(!empty($orders)){
+
+  debug($orders);
+}
 
 
 ?>

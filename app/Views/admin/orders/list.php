@@ -26,10 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($adminorders as $key => $value) {
-        echo $key;
-         echo $value['client']['lastname'];
-      } ?>
+
       <?php foreach ($adminorders as $key => $value) { ?>
       <tr>
         <td><?php echo $value['ref']; ?></td>
@@ -41,9 +38,6 @@
         <td><?php echo $value['date_order']; ?></td>
         <td>
           <a href="<?= $this->url('order_single', ['id' => $key]); ?>" class="edit-item" title="Edit"><button type="button" name="button"><?php echo $value['status']; ?></button></a>
-        </td>
-        <td>
-
         </td>
       </tr>
       <?php } ?>

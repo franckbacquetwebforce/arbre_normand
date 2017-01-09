@@ -35,12 +35,19 @@ class UserAdressModel extends UsersModel
     $sth->execute();
     return $sth->fetchAll();
   }
+  public function  getAddress($id)
+  {
+    $sql = 'SELECT * FROM '.$this->table.' WHERE id_user = :id  ORDER BY :id DESC LIMIT 1 ' ;
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':id', $id);
+    $sth->execute();
+    return $sth->fetchAll();
+  }
 
   /**
    *Permet de récupérer l'adresse ou les adresses d'un
    *utilisateur
    *@param id de l'utilisateur + les champs du formulaire newaddress
-   *@return
    */
   public function  addUserAdress($string1,$string2,$string3,$string4,$string5,$string6,$string7,$string8)
   {
