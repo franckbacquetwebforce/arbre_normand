@@ -23,6 +23,7 @@ class UsersModel extends UModel
   }
 
   /**
+  * getUserByEmail() (Michèle)
 	 * Récupère un utilisateur en fonction de son email
 	 * @param string $userEmail l'email d'un utilisateur
 	 * @return mixed L'utilisateur, ou false si non trouvé
@@ -40,10 +41,11 @@ class UsersModel extends UModel
 
 	}
   /**
+  * isValidEmailInfo() (Michèle)
 	 * Vérifie qu'une combinaison d'email et mot de passe (en clair) sont présents en bdd et valides
 	 * @param  string $userEmail l'email à tester
 	 * @param  string $plainPassword Le mot de passe en clair à tester
-	 * @return int  0 si invalide, l'identifiant de l'utilisateur si valide
+	 * @return int 0 si invalide, l'identifiant de l'utilisateur si valide
 	 */
   public function isValidEmailInfo($userEmail, $plainPassword)
 	{
@@ -113,15 +115,5 @@ class UsersModel extends UModel
 
   }
 
-  public function rememberMe($id)
-  {
-    
-
-  	$sql = "SELECT * FROM users WHERE id = :id";
-  	$stmt = $dbh->prepare($sql);
-  	$stmt->bindValue(':id',$id[0]);
-  	$stmt->execute();
-  	return $stmt->fetch();
-  }
 
 }

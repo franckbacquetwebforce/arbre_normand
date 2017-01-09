@@ -1,18 +1,18 @@
-<!-- Formulaire de modification d'un compte administrateur -->
-<!-- A mettre en forme -->
 <?php $this->layout('layout_admin', ['title' => 'Modification du compte']) ?>
 
 <?php $this->start('main_content') ?>
-<?php  ?>
-<div class="container-fluid" style="margin-top: 30px">
+
+<!-- Formulaire de modification d'un compte administrateur en back-office
+     Mise en forme et CSS (Michèle)-->
+<main class="container-fluid" style="margin-top: 30px">
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="header_panel">
+      <section class="panel panel-default">
+        <article class="header_panel">
           <h1 class="panel-title"><strong>Mise à jour du compte administrateur</strong></h1>
-        </div>
-        <div class="panel-body">
+        </article>
+        <article class="panel-body">
           <form id="forget" action="<?= $this->url('admin_user_update_action', ['id' => $w_user['id']]) ?>" method="post">
             <div class="form-group">
               <label class="formadmin" for="email">Email*</label>
@@ -31,12 +31,11 @@
             </div>
             <button type="submit" class="btn btn-success">Mettre a jour votre compte admin</button>
           </form>
-        </div>
-      </div>
+        </article>
+      </section>
     </div>
     <div class="col-md-3"></div>
   </div>
-</div>
-
+</main>
 
 <?php $this->stop('main_content') ?>

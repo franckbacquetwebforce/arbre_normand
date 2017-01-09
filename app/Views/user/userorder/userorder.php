@@ -1,9 +1,20 @@
 <?php $this->layout('layout_product', ['title' => 'Mes commandes']) ?>
+
 <?php $this->start('main_content') ?>
+<<<<<<< HEAD
 <?php
 // debug($orders);
 ?>
 <div class="container-fluid">
+=======
+
+<!-- <?php debug($orders); ?> -->
+
+<!-- Page affichant la liste des commandes du client en front-office -->
+<!-- Mise en forme et CSS (Michèle) -->
+
+<section class="container-fluid">
+>>>>>>> 1cd2b352c3625755b6563dc171ce3100efbcaf49
   <div class="parent">
     <div class="enfant">
       <h1>Mes commandes</h1>
@@ -12,10 +23,10 @@
   <table class="layout display responsive-table">
     <thead>
       <tr>
-          <th style="width:15%">Ref</th>
-          <th colspan="1" style="width:15%">Date commande</th>
-          <th></th>
-          <th colspan="1" style="width:20%">Statut</th>
+        <th>Ref</th>
+        <th>Date commande</th>
+        <th></th>
+        <th>Statut</th>
       </tr>
     </thead>
     <tbody>
@@ -23,28 +34,26 @@
         <tr>
           <td><?php echo $order['ref']; ?></td>
           <td><?php echo $order['date_order']; ?></td>
-
           <td>
             <table class="layout display responsive-table">
-              <tr>
-                <th>Produits</th>
-                <th>Qté</th>
-                <th>Prix TTC</th>
-              </tr>
-          <?php foreach ($order['produits'] as $key => $value){ ?>
-              <tr>
-                <td><?php echo $value['product_name']; ?></td>
-                <td><?php echo $value['qt_product']; ?></td>
-                <td><?php
-                $qt =  $value['qt_product'];
-                $priceht = $value['price_product'];
-                $tva = $priceht * 0.2;
-                $pricettc = $priceht + $tva;
-                $total = $pricettc * $qt;
-                echo $total;
-                 ?></td>
-              </tr>
-          <?php } ?>
+               <tr>
+                 <th>Produits</th>
+                 <?php foreach ($order['produits'] as $key => $value){ ?>
+                 <td><?php echo $value['product_name']; ?></td>
+                 <?php } ?>
+               </tr>
+               <tr>
+                 <th>Qté</th>
+                 <?php foreach ($order['produits'] as $key => $value){ ?>
+                 <td><?php echo $value['qt_product']; ?></td>
+                 <?php } ?>
+               </tr>
+               <tr>
+                 <th>Prix TTC</th>
+                 <?php foreach ($order['produits'] as $key => $value){ ?>
+                 <td><?php echo $value['price_product']; ?></td>
+                 <?php } ?>
+               </tr>
             </table>
           </td>
   <?php if($order['status'] == "en_attente") { ?>
@@ -56,7 +65,7 @@
       <?php } ?>
     </tbody>
   </table>
-</div>
+</section>
 
 
 
