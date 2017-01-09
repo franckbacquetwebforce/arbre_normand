@@ -420,6 +420,7 @@ class OrderModel extends Model
    LEFT JOIN products ON products.id = orders_products.id_product
    LEFT JOIN users ON orders.id_user = users.id
    WHERE orders.id_user = $id
+   ORDER BY orders.date_order DESC
    ";
     $sth = $this->dbh->prepare($sql);
     $sth->execute();

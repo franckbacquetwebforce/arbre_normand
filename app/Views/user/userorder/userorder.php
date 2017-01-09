@@ -1,7 +1,7 @@
 <?php $this->layout('layout_product', ['title' => 'Mes commandes']) ?>
 <?php $this->start('main_content') ?>
 <?php
-debug($orders);
+// debug($orders);
 ?>
 <div class="container-fluid">
   <div class="parent">

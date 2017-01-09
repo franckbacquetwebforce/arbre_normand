@@ -13,32 +13,51 @@
 		['POST', '/admin/product/update/[i:id]', 'ProductAdmin#updateAction', 'admin_product_update_action'],
 		['GET', '/admin/product/delete/[i:id]', 'ProductAdmin#deleteAction', 'admin_product_delete_action'],
 		// Admin Order
+		// Route pour afficher la liste des commandes dans le back-office
 		['GET', '/admin/order/list', 'OrderAdmin#index', 'admin_order'],
+		// Route permettant d'afficher les informations d'une commande en particulier dans le back-office
 		['GET', '/admin/order/single/[i:id]', 'OrderAdmin#single', 'order_single'],
-		['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
-		['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
-		['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
-		['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
 
+		// ['GET', '/admin/order/waiting', 'OrderAdmin#validatingOrders', 'waiting_orders'],
+		// ['GET', '/admin/order/valid', 'OrderAdmin#validOrders', 'valid_orders'],
+
+		// ['GET', '/admin/order/new', 'OrderAdmin#addNew', 'admin_order_new'],
+		// ['POST', '/admin/order/new', 'OrderAdmin#addNewAction', 'admin_order_new_action'],
+
+		// Route permettant de valider une commande en back-office
 		['GET|POST', '/admin/order/update/[i:id]', 'OrderAdmin#updateAction', 'admin_order_update_action'],
+		// Route permettant de supprimer une commande en back-office
 		['GET|POST', '/admin/order/delete/[i:id]', 'OrderAdmin#deleteAction', 'admin_order_delete_action'],
 		// Admin User
+		// Route permettant d'afficher
 		['GET', '/admin/user', 'UserAdmin#index', 'admin_user'],
+		// Route affichant le dashboard dans lequel se trouve plusieurs statistiques
 		['GET', '/admin/dashboard', 'UserAdmin#statistics', 'site_statistics'],
+		// Route menant au formulaire permettant de créer un nouvel admin
 		['GET', '/admin/user/new', 'UserAdmin#addNew', 'admin_user_new'],
+		// Route traitant le formulaire d'ajout d'un admin
 		['POST', '/admin/user/new', 'UserAdmin#addNewAction', 'admin_user_new_action'],
+		// Route permettant de passer un utilisateur en admin et inversement
 		['GET|POST', '/admin/user/update_status/[i:id]', 'UserAdmin#updateStatus', 'admin_user_status_update'],
 
-		['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
-		['POST', '/admin/user/update/[i:id]', 'UserAdmin#updateAction', 'admin_user_update_action'],
+		// ['GET', '/admin/user/update/[i:id]', 'UserAdmin#update', 'admin_user_update'],
+		// ['POST', '/admin/user/update/[i:id]', 'UserAdmin#updateAction', 'admin_user_update_action'],
+
+		// Route permettant de supprimer un utilisateur
 		['GET', '/admin/user/delete/[i:id]', 'UserAdmin#deleteAction', 'admin_user_delete_action'],
+
 		// Admin Categories
+		// Route permettant d'afficher la liste des catégories en back-office
 		['GET', '/admin/categories', 'CategoriesAdmin#index', 'admin_categories'],
+		// Route affichant le formulaire pour ajouter une catégorie
 		['GET', '/admin/categories/new', 'CategoriesAdmin#addNew', 'admin_categories_new'],
+		// Route permettant de traiter le formulaire d'ajout d'une catégorie
 		['POST', '/admin/categories/new', 'CategoriesAdmin#addNewAction', 'admin_categories_new_action'],
-		['GET', '/admin/categories/single/[i:id]', 'CategoriesAdmin#single', 'category_single'],
+		// Route affichant le formulaire de modification d'une catégorie
 		['GET', '/admin/categories/update/[i:id]', 'CategoriesAdmin#update', 'admin_categories_update'],
+		// Route permettant de traiter le formulaire de modification d'une catégorie
 		['POST', '/admin/categories/update/[i:id]', 'CategoriesAdmin#updateAction', 'admin_categories_update_action'],
+		// Route permettant de supprimer une catégorie
 		['GET', '/admin/categories/delete/[i:id]', 'CategoriesAdmin#deleteAction', 'admin_categories_delete_action'],
 //======================================= FRONT =====================================
 		// Cart Her: A VERIFIER
@@ -72,9 +91,13 @@
 		// Route pour valider l'envoi du mail de contact
 		['POST', '/contact', 'User#contactAction', 'contact_action'],
 		// UserProfile
+		// Route affichant le profil de l'utilisateur
 		['GET', '/user/profile/monprofil/[i:id]', 'UserProfile#monprofil', 'user_profile_monprofil'],
+		// Route affichant le formulaire d'ajout d'une adresse liée a un compte
 		['GET', '/user/adresses/new', 'UserProfile#addAddress', 'add_new_address'],
+		// Route permettant de traiter le formulaire d'ajout d'une adresse
 		['POST', '/user/adresses/new', 'UserProfile#addAddressAction', 'add_new_address_action'],
+		// Route affichant les commandes du compte connecté
 		['GET', '/user/orders/list', 'UserProfile#mesCommandes', 'user_orders'],
 		// Order
 
