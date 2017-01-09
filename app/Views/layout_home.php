@@ -11,7 +11,7 @@ $categories = findAll('categories');?>
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
-<div class="all_content">
+<div class="all_content_home">
 <section id="logo_slider" class="row logo_slider container-fluid"><!-- div class row inutile -->
 	<?= $this->section('slider') ?>
 </section>
@@ -30,7 +30,9 @@ $categories = findAll('categories');?>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="row collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<img class="abattage_navbar col-xs-4 col-sm-3 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/abattage.svg') ?>" alt="">
-				<img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
+				<a href="<?= $this->url('default_home') ?>">
+					<img class="logo_navbar col-xs-4 col-sm-4 col-md-4 col-lg-4"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
+				</a>
 				<div class="col-xs-4 col-sm-5 col-md-4 col-lg-4">
 
       	<ul class="nav navbar-nav navbar-right ">
@@ -72,7 +74,7 @@ $categories = findAll('categories');?>
 	<div class="row">
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 			<section id="menu_left_container" class="sidebar-nav">
-				<div class="navbar menu_right navbar-default" role="navigation">
+				<div class="navbar menu_left navbar-default" role="navigation">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
 							<span class="sr-only">Toggle navigation</span>
@@ -92,9 +94,11 @@ $categories = findAll('categories');?>
 					<?php } ?>
 							<li class="<?php if($w_current_route == 'default_home'){echo "active";} ?>"><a href="<?= $this->url('default_home') ?>"> Accueil</span></a></li>
 							<li class="menu_categorie_all <?php if($w_current_route == 'listproducts'){echo "active";} ?>"><a href="<?= $this->url('listproducts') ?>">Tous les produits</a></li>
-						<?php foreach($categories as $categorie){?>
+						<?php foreach($categories as $categorie){
+							$products = findAllProd('products',$categorie['id']);
+							if(!empty($products)){ ?>
 							<li class="menu_categorie <?php if($_GET['id_category'] == $categorie['id']){echo "active";} ?>"><a href="<?= $this->url('categoryproduct') ?>?id_category=<?= $categorie['id'] ?>"><?= $categorie['category_name'] ?></a></li>
-						<?php } ?>
+						<?php }} ?>
 							<li class="<?php if($w_current_route == 'contact'){echo "active";} ?>"><a href="<?= $this->url('contact') ?>">Contact </a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
@@ -109,8 +113,10 @@ $categories = findAll('categories');?>
 		<div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div><!-- partie droite vide -->
 	</div>
 </div>
-<footer class= "row">
-	<section class="footer_section col-xs-12 col-sm-4">
+</div> <!-- div all_content -->
+
+<footer class= "footer_home row">
+	<section class="footer_section col-xs-1 col-sm-1">
 		<ul class="liens_externes">
 			<li class= "lien_externe">
 				<a href="https://twitter.com/?lang=fr" target="_blank" class="lien_ext"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
@@ -123,22 +129,23 @@ $categories = findAll('categories');?>
 			</li>
 		</ul>
 	</section>
-	<section class="footer_section col-xs-12 col-sm-4">
-		<h4>L'Arbre Normand</h4>
-		<p>9, rue du Vallon Fleuri,<br>Résidence des Petits Coteaux,<br>27 500  ST GERMAIN VILLAGE</p>
+	<section class="footer_section col-xs-6 col-sm-6">
+		<div class="liens_externes">
+			<h6>NOUS TROUVER:</h6>
+			<p>L'Arbre Normand<br>Hameau Pincheloup<br>27 500  ST GERMAIN VILLAGE</p>
+	</div>
 	</section>
-	<section class="footer_section col-xs-12 col-sm-4">
-		<ul class="liens_externes">
-			<li class= "lien_externe">
-				<a class="lien_ext"><p>Condition générales de vente</p></a>
-			</li>
-		</ul>
+	<section class="footer_section col-xs-5 col-sm-5">
+		<div class="liens_externes">
+			<h6>LEGAL:</h6>
+			<a href="<?= $this->url('cgu') ?>" class="lien_ext"><p>Condition générales d'utilisation</p></a>
+		</div>
 	</section>
-	<section class="footer_section col-xs-12 col-sm-12">
-		<p class="copyright">Copyright 2016 M.Ragot, F.Baquet, H.Peris.</p>
+	<section class="col-xs-12">
+		<p class="copyright_home">Copyright 2016 M.Ragot, F.Baquet, H.Peris.</p>
 	</section>
 </footer>
-</div> <!-- div all_content -->
+
 	<script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/TweenMax.min.js') ?>"></script>

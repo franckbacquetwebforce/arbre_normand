@@ -2,6 +2,7 @@
 	$w_routes = array(
 		// Default
 		['GET', '/', 'Default#home', 'default_home'],
+		['GET', '/conditions_generales_utilisation', 'User#cgu', 'cgu'],
 		//hermelen routes
 //======================================= ADMIN =====================================
 		// Admin Products

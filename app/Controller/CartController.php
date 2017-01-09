@@ -93,8 +93,6 @@ class CartController extends AppController
  	         array_push( $_SESSION['cart']['qt_product'],$qt_product);
  	         array_push( $_SESSION['cart']['price_product'],$price_product);
  	    	  }
-
-
 					$this->redirectToRoute('singleproduct', array('id' => $id_product));
  	}
 

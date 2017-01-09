@@ -3,12 +3,40 @@ html, body {
 	background-image: url(../images/wood_texture3847lite.jpg);
 	background-size: cover;
 	color: rgb(8, 7, 7);
+	height: 100%;
 }
+
+/*=================Start STICKY BOTTOM FOOTER=================*/
+* {
+  margin: 0;
+}
+
+/* margin-bottom: equal to footer height + margin*/
+
+.all_content_home{
+	max-width: 1600px;
+	margin-right: auto;
+	margin-left: auto;
+	/*min-height: 100%;
+  margin-bottom: -188px;*/
+}
+/*.all_content_home:after {
+  height: 188px;
+}*/
 
 .all_content{
 	max-width: 1600px;
-	margin: auto;
+	margin-right: auto;
+	margin-left: auto;
+	/*min-height: 100%;
+  margin-bottom: -100px;*/
 }
+/*.all_content:after {
+  height: 100px;
+}*/
+/*=================Stop STICKY BOTTOM FOOTER=================*/
+
+
 .container-fluid{/*correction de marge qui creait un scroll horizontal*/
 	margin:0;
 }
@@ -136,6 +164,9 @@ span label-primary{
 
 /*===================MICHELE========================*/
 /*CSS Thumbnail page Listproduct et singleproduct*/
+.img_link:hover, .img_link:focus{/*CSS hover on img listproduct*/
+	box-shadow: 10px 10px 5px #888888;
+}
 article.card.bordered{
 	background-color: rgba(185, 185, 185, 0.8);
 	border: 1px solid black;
@@ -250,10 +281,12 @@ span.dim {
     padding-bottom: 12px;
   }
 
-	/*=========================Menu_right HERMELEN =============================*/
-	.menu_right.navbar-default.sticky{ /*ajouté suite récupération menu Michèle*/
+	/*=========================Menu_left HERMELEN =============================*/
+	/*ajouté suite récupération menu Michèle*/
+	.menu_left.navbar-default.sticky{
 		top: 104px;
 		width: 22.5%;
+		max-width: 360px;
 		-o-transition: all 1s ease;
 		-moz-transition: all 1s ease;
 		-webkit-transition: all 1s ease;
@@ -458,6 +491,9 @@ button.modif_product {
 	margin: 1.5rem 0 0 0;
 	height: 61.2px;
 }
+.logo_navbar:hover, .logo_navbar:focus{
+	filter: grayscale(80%);
+}
 .abattage_navbar{
 	margin: 1rem 0 0 -20px;
 	height: 63.6px;
@@ -487,7 +523,6 @@ button.modif_product {
 }
 .abattage_header{
 	width: 100%;
-	margin-top: 10%;
 	margin-left: -2%;
 }
 .presentation_header{
@@ -497,13 +532,38 @@ button.modif_product {
 .logo_slider > h1{
 	font-size: 5em;
 }
-.logo_container{
 
-}
 .logo_container > h1{
 	font-size: 4em;
 	text-align: center;
 }
+
+/*====================part responsive slider====================*/
+@media (max-width: 1200px){
+	.logo_container{
+ 		display: none;
+	}
+	.description_container{
+		margin-top: 1rem;
+	}
+}
+
+@media (max-width: 768px){
+	.logo_container{
+ 		display:inherit;
+	}
+	.description_container{
+		display:none;
+	}
+}
+
+@media (min-width: 1200px){
+	.description_container{
+		margin-top: 2em;
+	}
+}
+
+
 
 /*codepen*/
 body{
@@ -519,16 +579,16 @@ body{
   background-size: 100% 100%;
 }
 .dot:nth-child(4n+0){
-  background-image: url(../images/feuille_jaune.png);
+  background-image: url(../images/feuilles/feuille_jaune.png);
 }
 .dot:nth-child(4n+1){
-  background-image: url(../images/feuille_rouge.png);
+  background-image: url(../images/feuilles/feuille_rouge.png);
 }
 .dot:nth-child(4n+2){
-  background-image: url(../images/feuille_verte_foncee.png);
+  background-image: url(../images/feuilles/feuille_verte_foncee.png);
 }
 .dot:nth-child(4n+3){
-  background-image: url(../images/feuille_verte.png);
+  background-image: url(../images/feuilles/feuille_verte.png);
 }
 
 #container {
@@ -659,10 +719,24 @@ div.cart {
 }
 
 /*FOOOTER*/
-footer{
+.footer_home{
+	max-width: 1600px;
+	margin-right: auto;
+	margin-left: auto;
 	margin-top: 20px;
 	height: 168px;
 	background-image: url(../images/panoramique/aaa.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: rgba(185, 185, 185, 0.8);
+}
+.footer{
+	max-width: 1600px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+	height: 80px;
+	background-image: url(../images/panoramique/bbb.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: rgba(185, 185, 185, 0.8);
@@ -671,9 +745,7 @@ footer{
 	margin-top: 10px;
 }
 .liens_externes{
-	display: inline-block;;
 	list-style: none;
-	margin: 10px ;
 }
 
 .lien_ext{
@@ -684,10 +756,17 @@ footer{
 	color: white !important;
 }
 
+.copyright_home{
+	text-align:center;
+	font-size:10px;
+	margin-top: 41px;
+	margin-bottom: 0;
+}
+
 .copyright{
 	text-align:center;
 	font-size:10px;
-	margin-top: 23px;
+	margin-top: 55px;
 	margin-bottom: 0;
 }
 

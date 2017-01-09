@@ -364,4 +364,15 @@ class UserController extends AppController // le CSS ne fonctionne pas
 	      }
       }
     }
+
+    public function cgu()
+    {
+      $app = getApp(); // Retourne l'instance de l'application depuis l'espace global
+      $site_name = $app->getConfig('site_name');
+
+      $this->show('user/cgu',array (
+				'site_name' => $site_name,
+			));
+
+    }
 }

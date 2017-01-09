@@ -22,6 +22,36 @@ if ($(this).scrollTop() < $("#logo_slider").height()){
   }
 });
 
+// flash button
+
+  (function($) {
+    $.fn.flash_message = function(content, delay) {
+      return $(this).each(function() {
+        if( $(this).parent().find('.flash_message').get(0) )
+          return;
+        var message = $(
+        content
+        ).hide().fadeIn('fast');
+
+        $(this)['before'](message);
+
+        message.delay(delay).fadeOut('normal', function() {
+          $(this).remove();
+        });
+
+      });
+    };
+})(jQuery);
+
+$('.no-stock').click(function() {
+    var content =   '<p class="button"><a class="btn btn-link" href="../../contact">Contactez L\'Arbre Normand</a></p>';
+    $('#status-area').flash_message(content, 2000);
+});
+
+
+
+
+
 //logo
 //MODIF HER
 TweenLite.set("#container",{perspective:600})

@@ -40,9 +40,9 @@ $this->layout('layout_admin', ['title' => 'liste des utilisateurs']) ?>
       <?php   if($w_user['role'] === 'admin'){ ?>
 
         <td class="actions">
-          <a href="<?= $this->url('admin_user_delete_action',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet utilisateur?');" type="button" name="button">Supprimer</button></a>
-          <a href="<?= $this->url('admin_user_status_update',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir changer le status de cet utilisateur?');" type="button" name="button">Admin/User</button></a>
-        <?php  } ?>
+          <a href="<?= $this->url('admin_user_delete_action',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir supprimer cet utilisateur?');" type="button" name="button" style="width:88px" >Supprimer</button></a>
+          <a href="<?= $this->url('admin_user_status_update',['id' => $user['id']])?>" class="remove-item" title="Remove"><button onclick="return confirm('Êtes-vous sur de vouloir changer le status de cet utilisateur?');" type="button" name="button" style="width:88px" >Admin/User</button></a>
+        <?php  }}} ?>
         </td>
       </tr>
     </tbody>
