@@ -15,6 +15,11 @@
         <article class="panel-body">
           <form action="<?= $this->url('admin_user_new_action') ?>" method="post">
             <div class="form-group">
+              <label class="formadmin" for="username">Pseudo*</label>
+              <input type="text" class="form-control" name="username" value="<?php if(!empty($_POST['username'])) {echo $_POST['username']; } ?>"/>
+              <span class="help-block" id="error_username"><?php if(!empty($errors['username'])) {echo $errors['username']; } ?></span><br>
+            </div>
+            <div class="form-group">
               <label class="formadmin" for="email">Email*</label>
               <input type="email" class="form-control" name="email" value="<?php if(!empty($_POST['email'])){ echo $_POST['email'];} ?>"/>
               <span class="help-block" id="error_email"><?php if(!empty($errors['email'])){ echo $errors['email'];} ?></span><br>

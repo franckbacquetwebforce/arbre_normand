@@ -199,9 +199,9 @@ class UserController extends AppController
 			//envoi du mail fonction PHPMailer
   		$mail = new \PHPMailer;
        $mail->isMail();
-       $mail->setFrom('emailadmin');
+       $mail->setFrom($app->getConfig('emailadmin'), $app->getConfig('site_name'));
        $mail->addAddress($email);
-       $mail->Subject = 'Reinitialisation du mot de passe';
+       $mail->Subject = 'Reinitialisation du mot de passe de ' .$user['username'];
        $mail->Body    = $html;
   			if(!$mail->send()){
   				$message =  "Le message n\'a pas été envoyé.";

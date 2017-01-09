@@ -2,9 +2,6 @@
 
 <?php $this->start('main_content') ?>
 
-<?php if(!empty($message)){ echo $message;} ?>
-<?php if(!empty($mailerror)){ echo $mailerror;} ?>
-
 <!-- Formulaire de mot de passe oublié en front-office -->
 <!-- Mise en forme et CSS (Michèle) -->
 <main class="container-fluid" style="margin-top: 30px">

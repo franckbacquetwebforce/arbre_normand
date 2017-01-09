@@ -342,6 +342,28 @@ table.responsive-table img {
 	max-height: 15rem;
 	min-height: 15rem;
 }
+@media (min-width:992px) {
+	table.responsive-table{
+		box-shadow: none;
+	}
+	table.responsive-table thead{
+		display: none;
+	}
+	table.display th,
+  table.display td{
+    padding: .5em;
+  }
+	table.responsive-table td:nth-child(1):before,
+  table.responsive-table td:nth-child(2):before,
+	table.responsive-table td:nth-child(3):before,
+	table.responsive-table td:nth-child(4):before,
+	table.responsive-table td:nth-child(5):before,
+	table.responsive-table td:nth-child(6):before{
+    position: absolute;
+    left: .5em;
+    font-weight: bold;
+  }
+}
 @media (max-width: 30em){
     table.responsive-table{
       box-shadow: none;
