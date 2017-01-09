@@ -286,7 +286,6 @@ span.dim {
 @media(min-width: 768px){
 	.menu_left.navbar-default.navbar_header_left.sticky{
 		top: 104px;
-		/*left: 0;*/
 		width: 22.5%;
 		max-width: 360px;
 		-o-transition: all 1s ease;
@@ -484,7 +483,6 @@ button.modif_product {
 	max-width: 1600px;
 	position: fixed;
 	top: 100px;
-	right: 0;
 	z-index: 1;
 	-o-transition: all 1s ease;
 	-moz-transition: all 1s ease;
