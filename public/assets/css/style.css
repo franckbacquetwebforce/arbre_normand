@@ -288,10 +288,6 @@ span.dim {
 		top: 104px;
 		width: 22.5%;
 		max-width: 360px;
-		-o-transition: all 1s ease;
-		-moz-transition: all 1s ease;
-		-webkit-transition: all 1s ease;
-		-ms-transition: all 1s ease;
 	}
 	.navbar-default.navbar_header_top>div>div>img{
 	display:none;
@@ -469,10 +465,6 @@ button.modif_product {
 	position: fixed;
 	top: 0;
 	z-index: 2;
-	-o-transition: all 1s ease;
-	-moz-transition: all 1s ease;
-	-webkit-transition: all 1s ease;
-	-ms-transition: all 1s ease;
 }
 
 
@@ -484,10 +476,6 @@ button.modif_product {
 	position: fixed;
 	top: 100px;
 	z-index: 1;
-	-o-transition: all 1s ease;
-	-moz-transition: all 1s ease;
-	-webkit-transition: all 1s ease;
-	-ms-transition: all 1s ease;
 }
 .navbar-default.sticky .navbar-nav>.active>a{/*Accueil et autres li active*/
 	background-color: rgb(184, 175, 170);

@@ -2,8 +2,8 @@
 
 <?php $this->start('main_content') ?>
 <?php
-// debug($_SESSION['cart']);
-// debug ($infoPanier);?>
+debug($_SESSION['cart']);
+debug ($infoPanier);?>
 
 <!-- Page affichant le panier en fron-office
      Mise en forme et CSS (Michèle) -->
@@ -35,20 +35,40 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-				<?php for ($i=0; $i < $nbArticles; $i++){?>
+				<?php
+        $quick_total = 0;
+        for ($i=0; $i < $nbArticles; $i++){?>
 								<tr>
                   <td><img class="thumb_cart" src="<?= $this->url('default_home').$infoPanier[$i]['product_img'] ?>" alt="<?= $infoPanier[$i]['product_name'] ?>"></td>
 									<td><b><?= $infoPanier[$i]['product_name'] ?></b></td>
-									<td><a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button"><i class="fa fa-plus"></i></button></a></br>
+									<td>
+                    <a href="<?= $this->url('user_cart_add', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button"><i class="fa fa-plus"></i></button></a></br>
 										<?= $_SESSION['cart']['qt_product'][$i]?></br>
-										<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1]); ?>"><button type="button" name="button"><i class="fa fa-minus"></i></button></a></td>
+										<a href="<?= $this->url('user_cart_substrat', ['l'=> $infoPanier[$i]['product_id'],'q'=> 1,'p'=> $infoPanier[$i]['cart_price']]); ?>"><button type="button" name="button"><i class="fa fa-minus"></i></button></a></td>
 									<td><?= $infoPanier[$i]['cart_price']?> €</td>
 									<td><?= $infoPanier[$i]['product_weight']?> kg</td>
-                  <td colspan="1"><b>Total: <?= $total ?> €</b></td>
+                  <td colspan="1"><b>Total: <?= $quick_total=$_SESSION['cart']['qt_product'][$i]*$infoPanier[$i]['cart_price'] ?> €</b></td>
 									<td><a href="<?= $this->url('user_cart_remove', ['l'=> $infoPanier[$i]['product_id']]); ?>"><button type="button" name="button">Supprimer du panier</button></a></td>
 								</tr>
-				<?php } ?>
+				<?php
+$quick_total+=$quick_total;
+      } ?>
 			<?php } ?>
+               <tr>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td>
+                   <strong>
+                   <?php $quick_total
+                   ?>
+                   € TTC
+                   </strong>
+                 </td>
+                 <td></td>
+               </tr>
 		</table>
 	</form>
 <?php if($nbArticles>0){ ?>
