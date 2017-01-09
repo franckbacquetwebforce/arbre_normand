@@ -103,7 +103,7 @@ $categories = findAll('categories');?>
 				</div>
 			</section>
 		</div>
-		<div class="main_column col-xs-12 col-sm-9 col-md-6 col-lg-6">
+		<div class=" col-xs-12 col-sm-9 col-md-6 col-lg-6">
 			<section>
 			<?= $this->section('main_content') ?>
 			</section>

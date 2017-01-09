@@ -28,12 +28,12 @@ html, body {
 	max-width: 1600px;
 	margin-right: auto;
 	margin-left: auto;
-	/*min-height: 100%;
-  margin-bottom: -100px;*/
+	min-height: 100%;
+  margin-bottom: 0px;
 }
-/*.all_content:after {
+.all_content:after {
   height: 100px;
-}*/
+}
 /*=================Stop STICKY BOTTOM FOOTER=================*/
 
 
@@ -726,7 +726,6 @@ div.cart {
 	max-width: 1600px;
 	margin-right: auto;
 	margin-left: auto;
-
 
 	margin-top: 20px;
 	height: 168px;

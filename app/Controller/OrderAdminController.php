@@ -11,12 +11,9 @@ class OrderAdminController extends AppController
 {
   public function __construct()
   {
-
-
     $this->orders = new OrderModel();
     $this->adress = new UserAdressModel();
     $this->authentification = new AuthentificationModel();
-
   }
   /**
   *index
@@ -69,11 +66,13 @@ class OrderAdminController extends AppController
   */
   public function single($id)
   {
-    $oneOrder = $this->orders->singleOrder($id);
-    $this->show('admin/orders/single', array(
-                        'oneOrder' => $oneOrder,
-                        'id'=> $id
-    ));
+    if($this->allowTo('admin')) {
+      $oneOrder = $this->orders->singleOrder($id);
+      $this->show('admin/orders/single', array(
+        'oneOrder' => $oneOrder,
+        'id'=> $id
+      ));
+    }
   }
   /**
   *deleteAction
@@ -95,24 +94,25 @@ class OrderAdminController extends AppController
   /**
   *updateAction
   *@param int $id identifiant de la commande
-  *méthode permettant de valider une commande 
+  *méthode permettant de valider une commande
   */
   public function updateAction($id)
   {
+      if($this->allowTo('admin')) {
+        if(!empty($id)){
+          $this->orders->find($id);
+          $valide = 'valide';
 
-    if(!empty($id)){
-      $this->orders->find($id);
-      $valide = 'valide';
+          $data = array(
+            'status' => $valide
+          );
 
-      $data = array(
-        'status' => $valide
-      );
-
-      $this->orders->update($data,$id);
-      $this->redirectToroute('admin_order');
-    }else{
-      $this->showNotFound();
-    }
+          $this->orders->update($data,$id);
+          $this->redirectToroute('admin_order');
+        }else{
+          $this->showNotFound();
+        }
+      }
   }
 
 
