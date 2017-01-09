@@ -15,7 +15,7 @@ $categories = findAll('categories');?>
 <section id="logo_slider" class="row logo_slider container-fluid"><!-- div class row inutile -->
 	<?= $this->section('slider') ?>
 </section>
-<nav class="navbar navbar-default dimension_navbar navbar_header_top">
+<nav class="navbar navbar-default navbar-default-home dimension_navbar navbar_header_top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -72,8 +72,8 @@ $categories = findAll('categories');?>
 <div class="container-fluid product">
 	<div class="row">
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<section id="menu_left_container" class="sidebar-nav">
-				<div class="navbar menu_left navbar-default navbar_header_left" role="navigation">
+			<section id="menu_left_container_home" class="sidebar-nav">
+				<div class="navbar menu_left navbar-default navbar-default-home navbar_header_left" role="navigation">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
 							<span class="sr-only">Toggle navigation</span>
