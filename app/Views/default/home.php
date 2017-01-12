@@ -2,7 +2,6 @@
 
 <?php $this->start('slider') ?>
 
-	<img class="arbre_header" src="<?= $this->assetUrl('images/arbre/arbre_blanc_ter.png') ?>" alt="">
 	<div id="logo_container" class="logo_container col-lg-3 col-lg-3">
 		<img class="logo_header" src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
 		<div id="container" class="leaves_container">

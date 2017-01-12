@@ -25,8 +25,9 @@ $categories = findAll('categories');?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-			<img class="logo_navbar_burger"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
-    </div>
+				<img class="logo_navbar_burger"src="<?= $this->assetUrl('images/SVG/logo.svg') ?>" alt="">
+				<img class="abattage_navbar_burger"src="<?= $this->assetUrl('images/SVG/abattage.svg') ?>" alt="">
+		</div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="row collapse navbar-collapse" id="bs-example-navbar-collapse-1">

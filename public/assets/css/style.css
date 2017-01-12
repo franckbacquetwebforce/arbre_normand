@@ -1,6 +1,8 @@
 html, body {
 	font-family: Arial, sans-serif;
 	background-image: url(../images/wood_texture3847lite.jpg);
+	/*background-image: url(../images/wood_texture3847lite_noir.png);
+	background-color: rgb(204, 222, 211);*/
 	background-size: cover;
 	color: rgb(8, 7, 7);
 	height: 100%;
@@ -289,17 +291,7 @@ span.dim {
 		width: 22.5%;
 		max-width: 360px;
 	}
-	.navbar-default.navbar_header_top>div>div>.logo_navbar_burger{
-	display:none;
-	}
 }
-/*@media(max-width: 767px){
-	.navbar-default.navbar_header_top>div>div>.logo_navbar_burger{
-		margin: 1.5rem 0 0 0;
-		height: 61.2px;
- }
-}*/
-
 	a#link_admin{
 		color: rgb(126, 186, 154);
 		background-color: rgb(37, 56, 74);
@@ -497,16 +489,41 @@ button.modif_product {
 	background-color: rgb(218, 208, 202);
 }
 
-.logo_navbar{
-	margin: 1.5rem 0 0 0;
-	height: 61.2px;
+@media(min-width: 768px){
+	.logo_navbar_burger{
+		display:none;
+	}
+	.logo_navbar{
+		margin: 1.5rem 0 0 0;
+		height: 61.2px;
+	}
+	.abattage_navbar_burger{
+  	display:none;
+  }
+	.abattage_navbar{
+		margin: 1em 0 0 -20px;
+		height: 63.6px;
+	}
 }
+@media(max-width: 768px){
+ .logo_navbar_burger{
+	 margin: 1.5em 0 0 10px;
+	 height: 61.2px;
+ }
+ .logo_navbar{
+	 display:none;
+ }
+ .abattage_navbar_burger{
+	 margin: 1.5em 0 0 10px;
+	 height: 40px;
+ }
+ .abattage_navbar{
+ 	display:none;
+ }
+}
+
 .logo_navbar:hover, .logo_navbar:focus{
 	filter: grayscale(80%);
-}
-.abattage_navbar{
-	margin: 1em 0 0 -20px;
-	height: 63.6px;
 }
 
 
@@ -515,13 +532,20 @@ button.modif_product {
 /*hermelen*/
 /*vert rgb(8, 88, 38)*/
 /*marron rgb(98, 56, 24)*/
-.logo_slider{
-	/*background-color: rgb(126, 175, 144);*/
-		background-color: rgb(204, 222, 211);
-	position: relative;
-	/*background-image: url(../images/arbre_noir_bis.png);
-	background-size: 25%;
-	background-repeat: no-repeat;*/
+#logo_slider{
+	background-color: rgb(204, 222, 211);
+	background-image: url(../images/arbre/arbre_blanc_ter.png);
+background-repeat: no-repeat;
+}
+@media(min-width:576px){
+	#logo_slider{
+	background-size: 29%;
+	}
+}
+@media(max-width:576px){
+	#logo_slider{
+	background-size: 40%;
+	}
 }
 .arbre_header{
 	position: absolute;
