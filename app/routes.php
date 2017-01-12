@@ -66,9 +66,12 @@
 //======================================= FRONT =====================================
 		// Cart Her: A VERIFIER
 		['GET', '/user/cart', 'Cart#afficherPanier', 'user_cart'],
-		['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
-		['GET', '/user/cart/add/[i:l]/[i:q]/[i:p]', 'Cart#ajouterNouvelArticle', 'user_cart_add_new'],
-		['GET', '/user/cart/[i:l]/[i:q]', 'Cart#retrancherArticle', 'user_cart_substrat'],
+		['GET', '/user/cart/add', 'Cart#ajouterNouvelArticle', 'user_cart_add_new'],
+		//sans ajax ['GET', '/user/cart/add/[i:l]/[i:q]/[i:p]', 'Cart#ajouterNouvelArticle', 'user_cart_add_new'],
+		['GET', '/user/cart/more', 'Cart#ajouterArticle', 'user_cart_add_bis'],
+		//sans ajax ['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#ajouterArticle', 'user_cart_add'],
+		['GET', '/user/cart/less', 'Cart#retrancherArticle', 'user_cart_substrat_bis'],
+		//sans ajax ['GET', '/user/cart/[i:l]/[i:q]/[i:p]', 'Cart#retrancherArticle', 'user_cart_substrat'],
 		['GET', '/user/cart/[i:l]', 'Cart#supprimerArticle', 'user_cart_remove'],
 		// ['POST', '/user/cart', 'Cart#removeProductInCart', 'user_cart_remove'],
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////

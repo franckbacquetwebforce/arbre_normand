@@ -18,7 +18,7 @@ if ($(this).scrollTop() < $("#logo_slider").height()){
   }
   else{
     $('.navbar-default-home').addClass("sticky");
-    $('#menu_left_container_home').removeChild(".menu_right");
+    // $('#menu_left_container_home').removeChild(".menu_right");
   }
 });
 
@@ -43,7 +43,8 @@ if ($(this).scrollTop() < $("#logo_slider").height()){
     };
 })(jQuery);
 
-$('.no-stock').click(function() {
+// $('.no-stock').click(function() {
+  $('.btn-danger').click(function() {
     var content =   '<p class="button"><a class="btn btn-link" href="../../contact">Contactez L\'Arbre Normand</a></p>';
     $('#status-area').flash_message(content, 2000);
 });

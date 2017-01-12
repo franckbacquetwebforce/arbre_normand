@@ -104,6 +104,7 @@ $categories = findAll('categories');?>
     					</div><!--/.nav-collapse -->
     				</div>
     			</section>
+          <span id="error_ajax"><?php if(!empty($error)){echo $error;} ?></span><br/>
     		</div>
     		<div class="main_column col-xs-12 col-sm-9 col-md-9 col-lg-9">
     			<section>
@@ -129,6 +130,7 @@ $categories = findAll('categories');?>
     </div> <!-- div all_content -->
     <script src="<?= $this->assetUrl('js/jquery-3.1.1.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
-    <script src="<?= $this->assetUrl('app.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/ajax.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/app.js') ?>"></script>
   </body>
 </html>

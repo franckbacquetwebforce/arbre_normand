@@ -103,7 +103,10 @@ $categories = findAll('categories');?>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
+				<span id="error_ajax">
 			</section>
+
+			</span>
 		</div>
 		<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
 			<section>
@@ -121,7 +124,7 @@ $categories = findAll('categories');?>
 		<a href="https://fr.pinterest.com/" target="_blank" class="lien_ext"><i class="fa fa-2x fa-pinterest" aria-hidden="true"></i></a>
 	</section>
 	<section class="footer_section col-xs-5 col-sm-5">
-		<p class="copyright">Copyright 2016 M.Ragot, F.Baquet, H.Peris.</p>
+		<p class="copyright">Copyright 2016 M.Ragot, F.Bacquet, H.Peris.</p>
 	</section>
 	<section class="footer_section col-xs-4 col-sm-4">
 		<a href="<?= $this->url('cgu') ?>" class="lien_ext"><p>Condition générales d'utilisation</p></a>

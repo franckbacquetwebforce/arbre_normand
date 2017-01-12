@@ -712,10 +712,32 @@ background-color: rgba(182, 186, 157, 0.8);
 article.accueil {
 	margin: 15px 15px 0 15px;
 }
-/* PANIER*/
+/* PANIER CART*/
 div.cart {
 	background-color: rgb(218, 208, 202);
 	text-align: center;
+}
+.cart_container{
+
+}
+.alert_cart_stock{
+	background-color: red;
+	color: white;
+	padding: 1rem;
+	margin: 10px;
+}
+.alert_cart{
+	background-color: white;
+	color: red;
+	padding: 1rem;
+	margin: 10px;
+}
+/*affiche dans single product*/
+.alert_cart_single{
+	background-color: white;
+	color: red;
+	padding: 0.8rem;
+	margin: 10px;
 }
 /*===================== FIN MICHELE =============================*/
 

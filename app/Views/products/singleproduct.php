@@ -9,7 +9,7 @@ if(array_key_exists('cart', $_SESSION)){
 $price_ht = $product['price_ht'];
 
 // debug($_SESSION);
-// debug($product['stock']);
+// debug($product);
 // debug($_SESSION['cart']['qt_product'][$key]);
 // debug($key);
 ?>
@@ -54,7 +54,9 @@ $price_ht = $product['price_ht'];
 		  		</div>
 	      <!-- FIN SLIDER IMG PRODUCT HERMELEN -->
 				</div>
-	    </figure>
+	    <!-- </figure> -->
+			<!-- <span id="error_ajax"></span> -->
+
 	  </div>
 	  <div class="col-xs-6">
 			<div class="singlecard">
@@ -73,25 +75,28 @@ $price_ht = $product['price_ht'];
 		<?php if(!empty($product['stock'])){ //si le stock est renseigné?>
 						<p class="caract">Stock : <?php  echo $product['stock']  ?></p><br>
 						<?php if($product['stock']>0){// 1-si stock > 0
-							if(!empty($_SESSION) && array_key_exists('cart', $_SESSION)){ //2-si le panier existe
+							if(!empty($_SESSION) && array_key_exists('cart', $_SESSION)){//2-si le panier existe
 								if(!empty($key) || $key = 0){// 3- si le produit existe dans le panier
 									if($product['stock']>$_SESSION['cart']['qt_product'][$key]){ //4-si le stock est superieur au panier ?>
-										<p class="button addtocart" onclick="alert('Votre produit a été ajouté à votre panier');"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
+										<p class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new') ?>?prod_id=<?= $product['prod_id']?>&qt_prod=1&price_ht=<?= $product['price_ht']?>" class="btn btn-success">Ajouter au panier</a></p>
+										<!-- <p class="button addtocart" onclick="alert('Votre produit a été ajouté à votre panier');"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p> -->
 									<?php }else{ //4-sinon ?>
 										<p id="specialorder" class="button no-stock"><a class="btn btn-danger" title="">Quantité maximale atteinte</a></p>
 									<?php } ?>
 								<?php }else{ //3- sinon ?>
-									<p  class="button addtocart" onclick="alert('Votre produit a été ajouté à votre panier');"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
+									<p class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new') ?>?prod_id=<?= $product['prod_id']?>&qt_prod=1&price_ht=<?= $product['price_ht']?>" class="btn btn-success">Ajouter au panier</a></p>
+										<!-- <p class="button addtocart" onclick="alert('Votre produit a été ajouté à votre panier');"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p> -->
 									<?php } ?>
 							<?php }else{ //2-sinon ?>
-								<p  class="button addtocart" onclick="alert('Votre produit a été ajouté à votre panier');"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p>
+								<p class="button addtocart"><a id="addtocart" href="<?= $this->url('user_cart_add_new') ?>?prod_id=<?= $product['prod_id']?>&qt_prod=1&price_ht=<?= $product['price_ht']?>" class="btn btn-success">Ajouter au panier</a></p>
+									<!-- <p class="button addtocart" onclick="alert('Votre produit a été ajouté à votre panier');"><a id="addtocart" href="<?= $this->url('user_cart_add_new', ['l'=> $product['prod_id'],'q'=> 1,'p'=> $product['price_ht']]); ?>"class="btn btn-success">Ajouter au panier</a></p> -->
 							<?php } ?>
 						<?php }else{ //1-sinon ?>
 							<p id="specialorder" class="button no-stock"><a class="btn btn-danger" title="">Uniquement sur commande</a></p>
 						<?php } ?>
-						<?php }else{ ?>
-							<p id="specialorder" class="button no-stock"><a class="btn btn-warning" title="">Stock inconnu</a></p>
-						<?php } ?>
+		<?php }else{ ?>
+						<p id="specialorder" class="button no-stock"><a class="btn btn-warning" title="">Stock inconnu</a></p>
+		<?php } ?>
 				<div id="status-area"></div>
 			</div>
     </div>
